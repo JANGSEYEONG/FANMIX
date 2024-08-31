@@ -14,5 +14,6 @@
   "rules": {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off"
-  }
+  },
+  "ignorePatterns": ["commit-config.js"]
 }
