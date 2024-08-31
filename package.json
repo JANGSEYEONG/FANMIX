@@ -12,7 +12,7 @@
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "prepare": "husky",
     "postinstall": "husky install",
-    "commit": "HUSKY=0 cz"
+    "commit": "./commitizen.sh"
   },
   "config": {
     "commitizen": {
