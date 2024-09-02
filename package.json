@@ -6,17 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint './src/**/*.{ts,tsx,js,jsx}' --ignore-pattern 'commit-config.js'",
-    "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}' --ignore-pattern 'commit-config.js'",
+    "lint": "eslint './src/**/*.{ts,tsx,js,jsx}'",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "prepare": "husky",
     "postinstall": "husky install",
-    "commit": "./commitizen.sh"
+    "commit": "./scripts/commitizen.sh",
+    "branch": "node ./git-tools/branch-config.js",
+    "push": "node ./git-tools/push-config.js"
   },
   "config": {
     "commitizen": {
-      "path": "./commit-config.js"
+      "path": "./git-tools/commit-config.js"
     }
   },
   "lint-staged": {
@@ -48,6 +50,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.5",
+    "inquirer": "^8.0.0",
     "lint-staged": "^15.2.9",
     "postcss": "^8",
     "prettier": "^3.3.3",

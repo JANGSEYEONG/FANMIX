@@ -11,9 +11,17 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "overrides": [
+    {
+      "files": ["next.config.mjs", "postcss.config.mjs", "**/git-tools/"],
+      "parserOptions": {
+        "project": null
+      }
+    }
+  ],
   "rules": {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off"
   },
-  "ignorePatterns": ["commit-config.js"]
+  "ignorePatterns": ["**/git-tools/"]
 }
