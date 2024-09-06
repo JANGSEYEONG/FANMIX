@@ -44,7 +44,7 @@ const pushBranch = async () => {
     } else if (output.includes('->')) {
       showDecoratedMessage(`🎉 '${branch}' 브랜치가 성공적으로 push 되었어요!`);
     } else {
-      showDecoratedMessage(`🤔 Push 결과를 확인해주세요.`);
+      showDecoratedMessage('🤔 Push 결과를 확인해주세요.');
     }
 
     // 에러 코드 확인

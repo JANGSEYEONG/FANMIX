@@ -29,5 +29,5 @@
     "react/react-in-jsx-scope": "off"
   },
 
-  "ignorePatterns": ["**/git-tools/"]
+  "ignorePatterns": ["**/git-tools/", "sw.js"]
 }

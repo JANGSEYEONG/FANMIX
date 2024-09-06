@@ -5,13 +5,8 @@ name = "javascript"
 enabled = true
 
   [analyzers.meta]
-  environment = ["nodejs", "browser"]
-  dialect = "typescript"      # TypeScript 사용 설정
   plugins = ["react"]         # React 플러그인 사용
-
-[[analyzers]]
-name = "typescript"
-enabled = true
-
-  [analyzers.meta]
-  tsconfig_path = "./tsconfig.json"  # TypeScript 설정 파일 경로
+  environment = ["nodejs", "browser"]
+  dependency_file_paths = [
+    "app/"
+  ]
