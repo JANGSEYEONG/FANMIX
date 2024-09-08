@@ -1,0 +1,15 @@
+{
+  "Words": {
+    "확인": "Confirm",
+    "취소": "Cancel"
+  },
+  "LoginPage": {
+    "회원가입 완료": "Registration Complete",
+    "나중에 하기": "Do it Later",
+    "닉네임 설정하러 가기": "Set Your Nickname",
+    "지금 바로 닉네임을 설정하고 팬믹스의 다양한 컨텐츠와 커뮤니티를 만나보세요": "Set your nickname now and explore Fanmix's diverse content and community."
+  },
+  "MainPage": {
+    "{nickName}님 안녕하세요": "Hello, {nickName}!"
+  }
+}

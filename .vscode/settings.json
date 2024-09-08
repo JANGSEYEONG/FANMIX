@@ -1,5 +1,9 @@
 {
   "eslint.options": {
     "overrideConfigFile": ".eslintrc.json"
-  }
+  },
+  "i18n-ally.localesPaths": ["messages"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sourceLanguage": "ko",
+  "i18n-ally.displayLanguage": "ko"
 }
