@@ -1,12 +1,18 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
+
 import '../globals.css';
 
 import { getMessages } from 'next-intl/server';
-
 import { NextIntlClientProvider } from 'next-intl';
+import ResponsiveLayout from '@/components/layout/ResponsiveLayout';
 
-const inter = Inter({ subsets: ['latin'] });
+const suit = localFont({
+  src: '../../../public/assets/fonts/SUIT-Variable.woff2',
+  display: 'swap',
+  weight: '100 900',
+  variable: '--font-suit-variable',
+});
 
 export const metadata: Metadata = {
   title: 'FANMIX',
@@ -49,15 +55,15 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={suit.variable}>
       <AppHead />
-      <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+      <body className={suit.className}>
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          <ResponsiveLayout>{children}</ResponsiveLayout>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

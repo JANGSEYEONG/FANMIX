@@ -38,8 +38,10 @@
         "importNames": ["redirect", "permanentRedirect", "useRouter", "usePathname"],
         "message": "Please import from `@/i18n/routing` instead."
       }
-    ]
+    ],
+    "@typescript-eslint/no-empty-object-type": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "varsIgnorePattern": "^.*Types$" }]
   },
 
-  "ignorePatterns": ["**/git-tools/", "sw.js"]
+  "ignorePatterns": ["**/git-tools/", "custom-sw.js"]
 }
