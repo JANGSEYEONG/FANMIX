@@ -35,6 +35,7 @@ const config: Config = {
         'body3-m': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
         'sub1-r': ['12px', { lineHeight: '1.4', fontWeight: '400' }],
         'sub1-m': ['12px', { lineHeight: '1.4', fontWeight: '500' }],
+        'sub1-sb': ['12px', { lineHeight: '1.4', fontWeight: '600' }],
         'sub2-m': ['10px', { lineHeight: '1.4', fontWeight: '500' }],
       },
       backgroundImage: {
@@ -87,8 +88,13 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
-        orange: { 1: { DEFAULT: '#FF4D33', action: '#B93825' } },
-        darkgray: { 1: '#1F2021', 2: '#353637' },
+        orange: {
+          1: { DEFAULT: '#FF4D33', action: '#B93825' },
+          2: { DEFAULT: '#FF634F' },
+          5: { DEFAULT: '#FFDBD6' },
+          bg: { DEFAULT: '#D74833' },
+        },
+        darkgray: '#262626',
       },
     },
   },
@@ -114,6 +120,23 @@ const config: Config = {
         },
         '.fanmix-gradient': {
           background: 'linear-gradient(to bottom, #FF3A1C 0%, #FF5B46 100%)',
+        },
+        // scroll
+        '.scrollbar-hide-smooth': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          'scroll-behavior': 'smooth',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+        // 스케일 부드럽게 키우기
+        '.scale-transition-105': {
+          '@apply transform transition duration-300 ease-in-out scale-105 cursor-pointer': {},
+        },
+        // blur
+        '.bg-blur-10': {
+          '@apply backdrop-blur-[4px] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]': {},
         },
       };
       addUtilities(newUtilities);
