@@ -22,9 +22,9 @@ const config: Config = {
         light: '300',
       },
       fontSize: {
-        'h1-sb': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
-        'h2-r': ['20px', { lineHeight: '1.2', fontWeight: '400' }],
-        'h2-m': ['20px', { lineHeight: '1.2', fontWeight: '500' }],
+        'h2-r': ['20px', { lineHeight: '1.2', fontWeight: '400' }], // regular : 400
+        'h2-m': ['20px', { lineHeight: '1.2', fontWeight: '500' }], // medium : 500
+        'h1-sb': ['24px', { lineHeight: '1.4', fontWeight: '600' }], // semiBold : 600
         'body1-r': ['18px', { lineHeight: '1.4', fontWeight: '400' }],
         'body1-m': ['18px', { lineHeight: '1.4', fontWeight: '500' }],
         'body2-r': ['16px', { lineHeight: '1.5', fontWeight: '400' }],
@@ -99,7 +99,6 @@ const config: Config = {
           700: '#B93825',
           800: '#7B1E10',
         },
-        darkgray: '#262626',
       },
     },
   },
@@ -140,7 +139,7 @@ const config: Config = {
           '@apply transform transition duration-300 ease-in-out scale-105 cursor-pointer': {},
         },
         // blur
-        '.bg-blur-10': {
+        '.blur-10': {
           '@apply backdrop-blur-[4px] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]': {},
         },
       };

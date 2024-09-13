@@ -1,5 +1,7 @@
 'use client';
 
+import { memo } from 'react';
+
 import Logo from '@/assets/logo/logo_symbol.svg';
 import MainSearch from '../features/mainSearch/MainSearch';
 import ExpandableMenu from '../features/expandableMenu/ExpandableMenu';
@@ -26,4 +28,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);
