@@ -22,10 +22,9 @@ const config: Config = {
         light: '300',
       },
       fontSize: {
-        'button-r': ['14px', { lineHeight: '1.4', fontWeight: '400' }], // Regular
-        'button-m': ['14px', { lineHeight: '1.4', fontWeight: '500' }], // Medium
-        'h1-sb': ['24px', { lineHeight: '1.5', fontWeight: '600' }], // SemiBold
-        'h2-sb': ['20px', { lineHeight: '1.2', fontWeight: '600' }],
+        'h1-sb': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
+        'h2-r': ['20px', { lineHeight: '1.2', fontWeight: '400' }],
+        'h2-m': ['20px', { lineHeight: '1.2', fontWeight: '500' }],
         'body1-r': ['18px', { lineHeight: '1.4', fontWeight: '400' }],
         'body1-m': ['18px', { lineHeight: '1.4', fontWeight: '500' }],
         'body2-r': ['16px', { lineHeight: '1.5', fontWeight: '400' }],
@@ -33,10 +32,12 @@ const config: Config = {
         'body2-sb': ['16px', { lineHeight: '1.5', fontWeight: '600' }],
         'body3-r': ['14px', { lineHeight: '1.4', fontWeight: '400' }],
         'body3-m': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
+        'body3-sb': ['14px', { lineHeight: '1.4', fontWeight: '600' }],
         'sub1-r': ['12px', { lineHeight: '1.4', fontWeight: '400' }],
         'sub1-m': ['12px', { lineHeight: '1.4', fontWeight: '500' }],
         'sub1-sb': ['12px', { lineHeight: '1.4', fontWeight: '600' }],
         'sub2-m': ['10px', { lineHeight: '1.4', fontWeight: '500' }],
+        'sub2-sb': ['10px', { lineHeight: '1.4', fontWeight: '600' }],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -89,10 +90,14 @@ const config: Config = {
           '5': 'hsl(var(--chart-5))',
         },
         orange: {
-          1: { DEFAULT: '#FF4D33', action: '#B93825' },
-          2: { DEFAULT: '#FF634F' },
-          5: { DEFAULT: '#FFDBD6' },
-          bg: { DEFAULT: '#D74833' },
+          100: '#FFF4F0',
+          200: '#FFDBD6',
+          300: '#FFB8AD',
+          400: '#FF9485',
+          500: '#FF634F',
+          600: '#FF4D33',
+          700: '#B93825',
+          800: '#7B1E10',
         },
         darkgray: '#262626',
       },
@@ -115,7 +120,7 @@ const config: Config = {
           justifyContent: 'center',
         },
         // custom-gradient
-        '.bg-gradient': {
+        '.dark-gradient': {
           background: 'linear-gradient(to bottom, #320C06 0%, #000000 100%)',
         },
         '.fanmix-gradient': {
