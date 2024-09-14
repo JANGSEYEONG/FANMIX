@@ -1,27 +1,36 @@
 {
-  "commonWords": {
-    "확인": "Confirm",
-    "취소": "Cancel"
-  },
-  "topTitle": {
+  "top_title": {
     "홈": "Home",
     "팔로우": "Follow",
     "팬채널": "Fan Channel",
-    "마이페이지": "MyPage"
+    "마이페이지": "MyPage",
+    "내 정보 수정": "Edit My Profile",
+    "활동내역": "Activity History",
+    "고객센터": "Customer Service"
   },
-  "bottomNav": {
+  "bottom_nav": {
     "홈": "Home",
     "팔로우": "Follow",
     "팬채널": "Fan",
     "마이페이지": "My"
   },
-  "loginPage": {
+  "login_page": {
+    "Google 계정으로 시작하기": "Get started with Google Account",
+    "뒤로가기": "Go back",
     "회원가입 완료": "Registration Complete",
-    "나중에 하기": "Do it Later",
-    "닉네임 설정하러 가기": "Set Your Nickname",
-    "지금 바로 닉네임을 설정하고 팬믹스의 다양한 컨텐츠와 커뮤니티를 만나보세요": "Set your nickname now and explore Fanmix's diverse content and community."
+    "지금 바로 닉네임을 설정하고 팬믹스의 다양한 컨텐츠와 커뮤니티를 만나보세요": "Set your nickname now and explore FanMix's diverse content and community.",
+    "닉네임 설정하러 가기": "Set Nickname",
+    "나중에 하기": "Do it later"
   },
-  "mainPage": {
+  "main_page": {
     "{nickName}님 안녕하세요": "Hello, {nickName}!"
+  },
+  "my_page": {
+    "MY ONE PICK": "MY ONE PICK",
+    "팬채널로 이동": "Go to Fan Channel",
+    "활동내역": "Activity History",
+    "팔로우": "Follow",
+    "고객센터": "Customer Service",
+    "로그아웃": "Logout"
   }
 }

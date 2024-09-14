@@ -1,15 +1,19 @@
 import throttle from 'lodash/throttle';
-
 import { useState, useEffect } from 'react';
+import { usePathname } from '@/i18n/routing';
+import { useSearchParams } from 'next/navigation';
+import { DOM_IDS } from '@/constants/domIdentifiers';
 
 const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const [scrollPosition, setScrollPosition] = useState<'top' | 'bottom' | 'middle'>('middle');
-
   const [prevScrollY, setPrevScrollY] = useState(0);
 
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   useEffect(() => {
-    const scrollContainer = document.querySelector('#current-scroll-page');
+    const scrollContainer = document.querySelector(`#${DOM_IDS.CURRENT_SCROLL_PAGE}`);
     if (!scrollContainer) return;
 
     const handleScroll = throttle(() => {
@@ -38,7 +42,7 @@ const useScrollDirection = () => {
 
     scrollContainer.addEventListener('scroll', handleScroll);
     return () => scrollContainer.removeEventListener('scroll', handleScroll);
-  }, [prevScrollY]); // prevScrollY가 변경될 때마다 effect 재실행
+  }, [prevScrollY, pathname, searchParams]); // prevScrollY, routing이 변경될 때마다 effect 재실행
 
   return { scrollDirection, scrollPosition };
 };

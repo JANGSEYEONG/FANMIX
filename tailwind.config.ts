@@ -22,9 +22,10 @@ const config: Config = {
         light: '300',
       },
       fontSize: {
+        'h1-sb': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
         'h2-r': ['20px', { lineHeight: '1.2', fontWeight: '400' }], // regular : 400
         'h2-m': ['20px', { lineHeight: '1.2', fontWeight: '500' }], // medium : 500
-        'h1-sb': ['24px', { lineHeight: '1.4', fontWeight: '600' }], // semiBold : 600
+        'h2-sb': ['20px', { lineHeight: '1.2', fontWeight: '600' }], // semiBold : 600
         'body1-r': ['18px', { lineHeight: '1.4', fontWeight: '400' }],
         'body1-m': ['18px', { lineHeight: '1.4', fontWeight: '500' }],
         'body2-r': ['16px', { lineHeight: '1.5', fontWeight: '400' }],
@@ -133,6 +134,10 @@ const config: Config = {
           '&::-webkit-scrollbar': {
             display: 'none',
           },
+        },
+        // 스크롤 감지가 되어야하는 페이지 영역 최상단에 추가
+        '.page-scrollable-container': {
+          '@apply overflow-y-auto pb-20 scrollbar-hide-smooth': {},
         },
         // 스케일 부드럽게 키우기
         '.scale-transition-105': {
