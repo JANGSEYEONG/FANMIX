@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
+
 import { DOM_IDS } from '@/constants/domIdentifiers';
+
+export const metadata: Metadata = {
+  title: '팔로우',
+};
 
 export default function FollowPage() {
   return (

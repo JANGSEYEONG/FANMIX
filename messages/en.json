@@ -32,5 +32,14 @@
     "팔로우": "Follow",
     "고객센터": "Customer Service",
     "로그아웃": "Logout"
+  },
+  "my_page_edit_page": {
+    "닉네임": "Nickname",
+    "내 소개": "About Me",
+    "성별": "Gender",
+    "출생연도": "Birth Year",
+    "국적": "Country",
+    "인플루언서 모드": "Creator Mode",
+    "회원탈퇴": "Delete Account"
   }
 }

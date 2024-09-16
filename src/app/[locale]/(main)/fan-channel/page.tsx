@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
+
 import { DOM_IDS } from '@/constants/domIdentifiers';
+
+export const metadata: Metadata = {
+  title: '팬채널',
+};
 
 export default function FanChannelPage() {
   return (

@@ -1,5 +1,6 @@
-import { BadgeList } from '@/components/common/BadgeList';
 import { Button } from '@/components/ui/button';
+import { BadgeList } from '@/components/common/badge/BadgeList';
+
 import { useTranslations } from 'next-intl';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';

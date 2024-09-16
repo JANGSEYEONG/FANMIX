@@ -1,6 +1,6 @@
+import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { forwardRef, HTMLAttributes } from 'react';
-import { Badge } from '../ui/badge';
 
 export interface BadgeListProps extends HTMLAttributes<HTMLUListElement> {
   contents: string[];

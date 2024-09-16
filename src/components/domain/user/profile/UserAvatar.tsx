@@ -5,7 +5,7 @@ import { LiaCameraSolid } from 'react-icons/lia';
 
 import { useRef } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import useUserProfileImage from '../hooks/useUserProfileImage';
+import useUserAvatar from '../hooks/useUserAvatar';
 
 interface UserAvatarProps {
   size: number;
@@ -17,14 +17,13 @@ interface UserAvatarProps {
 // 유저 프로필 아바타
 const UserAvatar = ({ size, userNickName, imageSrc, editable = false }: UserAvatarProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { handleClickProfileImage, handleProfileImageChange, previewImage } =
-    useUserProfileImage(fileInputRef);
+  const { handleClickAvatar, handleAvatarChange, previewImage } = useUserAvatar(fileInputRef);
 
   return (
     <div
       className={cn('relative', editable && 'cursor-pointer')}
       style={{ width: `${size}px`, height: `${size}px` }}
-      onClick={editable ? handleClickProfileImage : undefined}>
+      onClick={editable ? handleClickAvatar : undefined}>
       <Avatar className="h-full w-full flex-shrink-0">
         <AvatarImage src={previewImage || imageSrc} alt="유저 프로필 사진" />
         <AvatarFallback className="bg-orange-300/40 text-h1-sb">{userNickName[0]}</AvatarFallback>
@@ -37,7 +36,7 @@ const UserAvatar = ({ size, userNickName, imageSrc, editable = false }: UserAvat
           <input
             type="file"
             ref={fileInputRef}
-            onChange={handleProfileImageChange}
+            onChange={handleAvatarChange}
             className="hidden"
             accept="image/png,image/jpeg,image/jpg"
           />

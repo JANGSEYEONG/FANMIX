@@ -1,8 +1,11 @@
-'use client';
+import { Metadata } from 'next';
 
 import { DOM_IDS } from '@/constants/domIdentifiers';
 import { useTranslations } from 'next-intl';
 
+export const metadata: Metadata = {
+  title: '메인',
+};
 // 메인 페이지
 export default function MainPage() {
   const t = useTranslations('main_page');

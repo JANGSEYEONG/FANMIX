@@ -1,7 +1,7 @@
 import { Link } from '@/i18n/routing';
 import { VscChevronRight } from 'react-icons/vsc';
 
-import UserAvatar from '../avatar/UserAvatar';
+import UserAvatar from './UserAvatar';
 
 interface MyProfileProps {
   imageSrc: string;
@@ -9,7 +9,7 @@ interface MyProfileProps {
   introduction: string;
 }
 
-const MyProfile = ({ imageSrc, userNickName, introduction }: MyProfileProps) => {
+const MyProfileCard = ({ imageSrc, userNickName, introduction }: MyProfileProps) => {
   return (
     <div className="flex flex-col gap-4">
       <Link
@@ -29,4 +29,4 @@ const MyProfile = ({ imageSrc, userNickName, introduction }: MyProfileProps) => 
   );
 };
 
-export default MyProfile;
+export default MyProfileCard;

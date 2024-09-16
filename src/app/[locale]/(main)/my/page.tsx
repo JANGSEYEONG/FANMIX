@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import { ROUTES } from '@/constants/routes';
 import { DOM_IDS } from '@/constants/domIdentifiers';
 
@@ -6,8 +8,12 @@ import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
 
-import { MyProfile } from '@/components/features/user';
-import { OnePickInfluencer } from '@/components/features/influencer';
+import { MyProfileCard } from '@/components/domain/user';
+import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
+
+export const metadata: Metadata = {
+  title: '마이페이지',
+};
 
 export default function MyPage() {
   const t = useTranslations('my_page');
@@ -25,7 +31,7 @@ export default function MyPage() {
   return (
     <main id={DOM_IDS.CURRENT_SCROLL_PAGE} className="h-full w-full pt-7 page-scrollable-container">
       <section aria-label="사용자 프로필" className="mx-5 mb-8 flex flex-col gap-4">
-        <MyProfile
+        <MyProfileCard
           imageSrc={data.imageSrc}
           userNickName={data.userNickName}
           introduction={data.introduction}
@@ -34,11 +40,11 @@ export default function MyPage() {
       <section aria-label="원픽 인플루언서" className="mb-12">
         <OnePickInfluencer onePickData={onePickData} />
       </section>
-      <Separator className="h-[6px] bg-neutral-900" />
+      <Separator className="h-[8px] bg-neutral-900" />
       <nav aria-label="사용자 메뉴" className="mx-5 mb-9 mt-9">
         <MyPageMenuList />
       </nav>
-      <Separator className="h-[6px] bg-neutral-900" />
+      <Separator className="h-[8px] bg-neutral-900" />
       {/* 로그아웃 로직 훅 분리하기 */}
       <footer className="mx-5 mt-6">
         <button className="text-body2-r text-neutral-400">{t('로그아웃')}</button>

@@ -1,3 +1,6 @@
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+
 @font-face {
   font-family: 'SUIT Variable';
   font-weight: 100 900;

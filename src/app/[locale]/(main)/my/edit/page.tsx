@@ -1,13 +1,17 @@
-'use client';
+import { Metadata } from 'next';
+
+import { DOM_IDS } from '@/constants/domIdentifiers';
 
 import { Separator } from '@/components/ui/separator';
-import { Switch } from '@/components/ui/switch';
-import { UserAvatar } from '@/components/features/user';
-import { DOM_IDS } from '@/constants/domIdentifiers';
-import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { UserAvatar, UserSettingsPanel } from '@/components/domain/user';
+import { useTranslations } from 'next-intl';
 
-export default function EditMyPage() {
+export const metadata: Metadata = {
+  title: '내 정보 수정',
+};
+
+export default function MyPageEditPage() {
+  const t = useTranslations('my_page_edit_page');
   const data = {
     userNickName: '닉네임이다',
     imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시
@@ -27,79 +31,14 @@ export default function EditMyPage() {
           <p className="text-body2-r text-neutral-400">0000000@gmail.com</p>
         </div>
       </section>
-      <Separator className="h-[6px] bg-neutral-900" />
+      <Separator className="h-[8px] bg-neutral-900" />
       <section aria-label="사용자 정보 설정" className="mt-8 px-5">
-        <UserProfileGrid userData={data} />
+        <UserSettingsPanel userData={data} />
       </section>
-      <Separator className="h-[6px] bg-neutral-900" />
+      <Separator className="h-[8px] bg-neutral-900" />
       <footer aria-label="회원탈퇴" className="mx-5 mt-8 flex-center">
-        <button className="text-body3-r text-neutral-500">회원탈퇴</button>
+        <button className="text-body3-r text-neutral-500">{t('회원탈퇴')}</button>
       </footer>
     </main>
   );
 }
-
-interface UserProfileGrid {
-  userData: {
-    userNickName: string;
-    introduction: string;
-    gender: string;
-    birthYear: number;
-    nationality: string;
-  };
-}
-
-const UserProfileGrid = ({ userData }: UserProfileGrid) => {
-  const { isInfluencerModeActive, handleChangeInfluencerMode } = useInfluencerMode(false);
-
-  const profileInfo = [
-    { label: '닉네임', value: userData.userNickName },
-    { label: '내 소개', value: userData.introduction },
-    { label: '성별', value: userData.gender },
-    { label: '출생연도', value: userData.birthYear },
-    { label: '국적', value: userData.nationality },
-  ];
-
-  return (
-    <div>
-      <ul aria-label="사용자 기본 정보" className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-4">
-        {profileInfo.map((row) => (
-          <li key={row.label} className="contents">
-            {/* 클릭 시 모달 or select 박스 뜨게 수정 필요 */}
-            <div className="flex pt-2 text-body3-m text-neutral-200">{row.label}</div>
-            <div className="bg-neutral-800 px-4 py-2.5 text-body3-r">{row.value}</div>
-          </li>
-        ))}
-      </ul>
-      <div
-        aria-label="인플루언서 모드"
-        className="mb-[50px] mt-[42px] flex items-center justify-between">
-        <label htmlFor="influencer-mode" className="text-body3-m text-neutral-200">
-          인플루언서 모드
-        </label>
-        <div className="gap-2.5 flex-center">
-          <span
-            className={cn(
-              'text-body3-sb',
-              isInfluencerModeActive ? 'text-orange-600' : 'text-neutral-200',
-            )}>
-            {isInfluencerModeActive ? 'ON' : 'OFF'}
-          </span>
-          <Switch
-            id="influencer-mode"
-            checked={isInfluencerModeActive}
-            onCheckedChange={handleChangeInfluencerMode}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const useInfluencerMode = (initialActive: boolean) => {
-  const [isInfluencerModeActive, setIsInfluencerModeActive] = useState<boolean>(initialActive);
-  const handleChangeInfluencerMode = (checked: boolean) => {
-    setIsInfluencerModeActive(checked);
-  };
-  return { isInfluencerModeActive, handleChangeInfluencerMode };
-};
