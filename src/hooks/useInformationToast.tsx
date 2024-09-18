@@ -13,7 +13,7 @@ const useInformationToast = () => {
   const showConfirmToast = useCallback(
     (title: string, description?: string) => {
       toast({
-        duration: 2000,
+        duration: 3000,
         title,
         description,
       });
@@ -24,7 +24,7 @@ const useInformationToast = () => {
   const showErrorToast = useCallback(
     (title: string, description?: string) => {
       toast({
-        duration: 2000,
+        duration: 3000,
         variant: 'destructive',
         title,
         description,

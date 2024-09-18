@@ -3,10 +3,10 @@ import DOM_IDS from '@/constants/domIdentifiers';
 import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
 import { UserAvatar, UserSettingsPanel } from '@/components/domain/user';
+import { DeleteAccountButton } from '@/components/domain/auth';
 
 export async function generateMetadata({
   params: { locale },
@@ -20,7 +20,6 @@ export async function generateMetadata({
   };
 }
 export default function MyPageEditPage() {
-  const t = useTranslations('my_page_edit_page');
   const data = {
     userNickName: '닉네임이다',
     imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시
@@ -46,7 +45,7 @@ export default function MyPageEditPage() {
       </section>
       <Separator className="h-[8px] bg-neutral-900" />
       <footer aria-label="회원탈퇴" className="mx-5 mt-8 flex-center">
-        <button className="text-body3-r text-neutral-500">{t('회원탈퇴')}</button>
+        <DeleteAccountButton />
       </footer>
     </main>
   );
