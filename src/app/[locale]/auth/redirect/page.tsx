@@ -1,7 +1,5 @@
-import DOM_IDS from '@/constants/domIdentifiers';
-
 import { Metadata } from 'next';
-
+import { GoogleLoginHandler } from '@/components/domain/auth';
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({
@@ -12,14 +10,16 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'top_title' });
 
   return {
-    title: t('팬채널'),
+    title: t('로그인 중'),
   };
 }
 
-export default function FanChannelPage() {
+export default function LoginRedirectPage() {
+  // TODO: 스피너 추가하기
   return (
-    <main id={DOM_IDS.CURRENT_SCROLL_PAGE} className="h-full w-full px-5">
-      팬채널 페이지
+    <main className="h-full w-full flex-center">
+      로딩중..
+      <GoogleLoginHandler />
     </main>
   );
 }

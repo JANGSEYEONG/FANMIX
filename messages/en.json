@@ -6,7 +6,9 @@
     "마이페이지": "MyPage",
     "내 정보 수정": "Edit My Profile",
     "활동내역": "Activity History",
-    "고객센터": "Customer Service"
+    "고객센터": "Customer Service",
+    "로그인": "Login",
+    "로그인 중": "Logging in.."
   },
   "bottom_nav": {
     "홈": "Home",
@@ -41,5 +43,9 @@
     "국적": "Country",
     "인플루언서 모드": "Creator Mode",
     "회원탈퇴": "Delete Account"
+  },
+  "api_result": {
+    "다시 시도해 주세요": "Please try again.",
+    "로그인에 실패했습니다": "Google login has failed."
   }
 }

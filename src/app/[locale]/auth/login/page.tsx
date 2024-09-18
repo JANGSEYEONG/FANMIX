@@ -1,12 +1,22 @@
 import { Metadata } from 'next';
 
+import { getTranslations } from 'next-intl/server';
+
 import GoBackButton from '@/components/common/button/GoBackButton';
 import GoogleLoginButton from '@/components/domain/auth/GoogleLoginButton';
 import IntroImageCarousel from '@/components/common/carousel/IntroImageCarousel';
 
-export const metadata: Metadata = {
-  title: '로그인',
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'top_title' });
+
+  return {
+    title: t('로그인'),
+  };
+}
 
 export default function LoginPage() {
   return (

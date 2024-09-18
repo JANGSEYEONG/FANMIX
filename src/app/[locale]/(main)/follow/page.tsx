@@ -1,10 +1,20 @@
+import DOM_IDS from '@/constants/domIdentifiers';
+
 import { Metadata } from 'next';
 
-import { DOM_IDS } from '@/constants/domIdentifiers';
+import { getTranslations } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: '팔로우',
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'top_title' });
+
+  return {
+    title: t('팔로우'),
+  };
+}
 
 export default function FollowPage() {
   return (

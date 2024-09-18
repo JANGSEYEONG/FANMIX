@@ -1,8 +1,10 @@
 import throttle from 'lodash/throttle';
+
+import DOM_IDS from '@/constants/domIdentifiers';
+
 import { useState, useEffect } from 'react';
 import { usePathname } from '@/i18n/routing';
 import { useSearchParams } from 'next/navigation';
-import { DOM_IDS } from '@/constants/domIdentifiers';
 
 const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');

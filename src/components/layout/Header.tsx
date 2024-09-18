@@ -12,9 +12,9 @@ import { ROUTES } from '@/constants/routes';
 
 import GoBackButton from '../common/button/GoBackButton';
 
-import { MainAlarm } from '../domain/mainAlarm';
-import { MainSearch } from '../domain/mainSearch';
-import { ExpandableMenu } from '../domain/expandableMenu';
+import { AlarmNotification } from '../domain/notification';
+import { MainSearch } from '../domain/search';
+import { MainSlideMenu } from '../domain/menu';
 
 const Header = () => {
   const t = useTranslations('top_title');
@@ -32,8 +32,8 @@ const Header = () => {
       {/* 우측 네비게이션 영역 */}
       <nav className="gap-[18px] text-white flex-center">
         <MainSearch />
-        <MainAlarm />
-        <ExpandableMenu />
+        <AlarmNotification />
+        <MainSlideMenu />
       </nav>
     </header>
   );

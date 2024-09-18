@@ -1,11 +1,22 @@
+import DOM_IDS from '@/constants/domIdentifiers';
+
 import { Metadata } from 'next';
 
-import { DOM_IDS } from '@/constants/domIdentifiers';
+import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 
-export const metadata: Metadata = {
-  title: '메인',
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'top_title' });
+
+  return {
+    title: t('홈'),
+  };
+}
+
 // 메인 페이지
 export default function MainPage() {
   const t = useTranslations('main_page');

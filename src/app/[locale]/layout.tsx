@@ -5,6 +5,7 @@ import '../globals.css';
 
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+
 import ResponsiveLayout from '@/components/layout/ResponsiveLayout';
 
 const suit = localFont({

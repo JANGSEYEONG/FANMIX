@@ -17,8 +17,9 @@ import { Button } from '@/components/ui/button';
 
 import MenuContent from './MenuContent';
 import ChangeLanguage from './ChangeLanguage';
+import { ROUTES } from '@/constants/routes';
 
-const ExpandableMenu = () => {
+const MainSlideMenu = () => {
   return (
     <Sheet>
       <SheetTrigger>
@@ -37,7 +38,7 @@ const ExpandableMenu = () => {
         </div>
         <SheetFooter className="flex w-full flex-row items-center justify-end">
           <SheetClose asChild>
-            <Link href="/login">
+            <Link href={ROUTES.LOGIN.PATH}>
               <Button type="submit">Login</Button>
             </Link>
           </SheetClose>
@@ -47,4 +48,4 @@ const ExpandableMenu = () => {
   );
 };
 
-export default ExpandableMenu;
+export default MainSlideMenu;

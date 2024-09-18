@@ -1,15 +1,24 @@
+import DOM_IDS from '@/constants/domIdentifiers';
+
 import { Metadata } from 'next';
 
-import { DOM_IDS } from '@/constants/domIdentifiers';
+import { getTranslations } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
 import { UserAvatar, UserSettingsPanel } from '@/components/domain/user';
-import { useTranslations } from 'next-intl';
 
-export const metadata: Metadata = {
-  title: '내 정보 수정',
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'top_title' });
 
+  return {
+    title: t('내 정보 수정'),
+  };
+}
 export default function MyPageEditPage() {
   const t = useTranslations('my_page_edit_page');
   const data = {

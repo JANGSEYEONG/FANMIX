@@ -1,19 +1,29 @@
+import DOM_IDS from '@/constants/domIdentifiers';
+
 import { Metadata } from 'next';
 
-import { ROUTES } from '@/constants/routes';
-import { DOM_IDS } from '@/constants/domIdentifiers';
-
-import { Link } from '@/i18n/routing';
+import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 
+import { ROUTES } from '@/constants/routes';
+
+import { Link } from '@/i18n/routing';
 import { Separator } from '@/components/ui/separator';
 
 import { MyProfileCard } from '@/components/domain/user';
 import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
 
-export const metadata: Metadata = {
-  title: '마이페이지',
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'top_title' });
+
+  return {
+    title: t('마이페이지'),
+  };
+}
 
 export default function MyPage() {
   const t = useTranslations('my_page');
