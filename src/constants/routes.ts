@@ -6,7 +6,7 @@ export const ROUTES = {
   MYPAGE: { PATH: '/my', LABEL: '마이페이지', HAS_PREV_BTN: false },
   MYPAGE_EDIT: { PATH: '/my/edit', LABEL: '내 정보 수정', HAS_PREV_BTN: true },
   MY_ACTIVITY_DETAILS: { PATH: '/my/activity', LABEL: '활동내역', HAS_PREV_BTN: true }, // 라우팅 수정 필요 (로그인 유저, 타인 구분 필요)
-  CUSTOMER_CENTER: { PATH: '/customer-center', LABEL: '고객센터', HAS_PREV_BTN: false },
+  CUSTOMER_CENTER: { PATH: '/my/customer-center', LABEL: '고객센터', HAS_PREV_BTN: true },
   LOGIN: { PATH: '/auth/login', LABEL: '로그인', HAS_PREV_BTN: false },
   LOGIN_REDIRECT: { PATH: '/auth/redirect', LABEL: '로그인 중', HAS_PREV_BTN: false },
 } as const;

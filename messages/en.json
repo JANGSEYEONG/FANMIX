@@ -51,6 +51,12 @@
     "인플루언서 모드": "Creator Mode",
     "회원탈퇴": "Delete Account"
   },
+  "customer_center_page": {
+    "가이드 및 도움말": "Guides and Help",
+    "자주 묻는 질문": "Frequently Asked Questions",
+    "이용 약관 및 개인정보처리방침": "Terms of Service and Privacy Policy",
+    "문의하기": "Contact us"
+  },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",
     "로그인에 실패했습니다": "Google login has failed."
