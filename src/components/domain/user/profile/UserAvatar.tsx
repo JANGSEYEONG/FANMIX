@@ -26,7 +26,7 @@ const UserAvatar = ({ size, userNickName, imageSrc, editable = false }: UserAvat
       onClick={editable ? handleClickAvatar : undefined}>
       <Avatar className="h-full w-full flex-shrink-0">
         <AvatarImage src={previewImage || imageSrc} alt="유저 프로필 사진" />
-        <AvatarFallback className="bg-orange-300/40 text-h1-sb">{userNickName[0]}</AvatarFallback>
+        <AvatarFallback className="bg-orange-300/40 h1-sb">{userNickName[0]}</AvatarFallback>
       </Avatar>
       {editable && (
         <>

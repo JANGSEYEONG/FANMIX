@@ -35,8 +35,8 @@ export default function MyPageEditPage() {
       <section aria-label="유저 프로필 사진 설정" className="mb-9 gap-[18px] flex-col-center">
         <UserAvatar size={82} editable imageSrc={data.imageSrc} userNickName={data.userNickName} />
         <div className="flex gap-1 flex-col-center">
-          <h2 className="text-h2-sb">{data.userNickName}</h2>
-          <p className="text-body2-r text-neutral-400">0000000@gmail.com</p>
+          <h2 className="h2-sb">{data.userNickName}</h2>
+          <p className="text-neutral-400 body2-r">0000000@gmail.com</p>
         </div>
       </section>
       <Separator className="h-[8px] bg-neutral-900" />

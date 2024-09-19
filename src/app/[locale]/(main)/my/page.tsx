@@ -57,7 +57,7 @@ export default function MyPage() {
       <Separator className="h-[8px] bg-neutral-900" />
       {/* 로그아웃 로직 훅 분리하기 */}
       <footer className="mx-5 mt-6">
-        <button className="text-body2-r text-neutral-400">{t('로그아웃')}</button>
+        <button className="text-neutral-400 body2-r">{t('로그아웃')}</button>
       </footer>
     </main>
   );
@@ -73,7 +73,7 @@ const MyPageMenuList = () => {
   ];
 
   return (
-    <ul className="flex flex-col justify-center gap-6 text-body1-r">
+    <ul className="flex flex-col justify-center gap-6 body1-r">
       {menuItems.map((item) => {
         return (
           <Link key={item.label} href={item.path} className="h-6">

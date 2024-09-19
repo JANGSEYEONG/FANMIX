@@ -34,19 +34,19 @@ const UserSettingsPanel = ({ userData }: UserSettingsPanelProps) => {
         {profileInfo.map((row) => (
           <li key={row.label} className="contents">
             {/* 클릭 시 모달 or select 박스 뜨게 수정 필요 */}
-            <div className="flex pt-2 text-body3-m text-neutral-200">{row.label}</div>
-            <div className="bg-neutral-800 px-4 py-2.5 text-body3-r">{row.value}</div>
+            <div className="flex pt-2 text-neutral-200 body3-m">{row.label}</div>
+            <div className="bg-neutral-800 px-4 py-2.5 body3-r">{row.value}</div>
           </li>
         ))}
       </ul>
       <div aria-label="인플루언서 모드" className="my-[42px] flex items-center justify-between">
-        <label htmlFor="influencer-mode" className="text-body3-m text-neutral-200">
+        <label htmlFor="influencer-mode" className="text-neutral-200 body3-m">
           {t('인플루언서 모드')}
         </label>
         <div className="gap-2.5 flex-center">
           <span
             className={cn(
-              'text-body3-sb',
+              'body3-sb',
               isInfluencerModeActive ? 'text-orange-600' : 'text-neutral-200',
             )}>
             {isInfluencerModeActive ? 'ON' : 'OFF'}

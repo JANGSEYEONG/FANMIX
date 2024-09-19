@@ -25,7 +25,7 @@ const Header = () => {
       {/* 좌측 타이틀/로고 영역 */}
       <div className={cn('flex items-center gap-1', hasPrevButton ? 'pl-3.5' : 'pl-5')}>
         {hasPrevButton && <GoBackButton variant="prev" />}
-        <h1 className="text-h2-sb text-neutral-300">
+        <h1 className="text-neutral-300 h2-sb">
           {currentLabel === ROUTES.HOME.LABEL ? <Logo className="h-6 w-6" /> : t(currentLabel)}
         </h1>
       </div>

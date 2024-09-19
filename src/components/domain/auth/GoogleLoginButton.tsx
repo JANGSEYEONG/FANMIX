@@ -23,7 +23,7 @@ const GoogleLoginButton = () => {
     <a href={googleLoginUrl} className="h-[52px] w-full flex-center">
       <Button className="h-full w-full">
         <FcGoogle className="mr-4 h-5 w-5" />
-        <span className="text-body3-r">{t('Google 계정으로 시작하기')}</span>
+        <span className="body3-r">{t('Google 계정으로 시작하기')}</span>
       </Button>
     </a>
   );

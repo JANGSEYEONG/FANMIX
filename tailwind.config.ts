@@ -21,25 +21,6 @@ const config: Config = {
         regular: '400',
         light: '300',
       },
-      fontSize: {
-        'h1-sb': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
-        'h2-r': ['20px', { lineHeight: '1.2', fontWeight: '400' }], // regular : 400
-        'h2-m': ['20px', { lineHeight: '1.2', fontWeight: '500' }], // medium : 500
-        'h2-sb': ['20px', { lineHeight: '1.2', fontWeight: '600' }], // semiBold : 600
-        'body1-r': ['18px', { lineHeight: '1.4', fontWeight: '400' }],
-        'body1-m': ['18px', { lineHeight: '1.4', fontWeight: '500' }],
-        'body2-r': ['16px', { lineHeight: '1.5', fontWeight: '400' }],
-        'body2-m': ['16px', { lineHeight: '1.5', fontWeight: '500' }],
-        'body2-sb': ['16px', { lineHeight: '1.5', fontWeight: '600' }],
-        'body3-r': ['14px', { lineHeight: '1.4', fontWeight: '400' }],
-        'body3-m': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
-        'body3-sb': ['14px', { lineHeight: '1.4', fontWeight: '600' }],
-        'sub1-r': ['12px', { lineHeight: '1.4', fontWeight: '400' }],
-        'sub1-m': ['12px', { lineHeight: '1.4', fontWeight: '500' }],
-        'sub1-sb': ['12px', { lineHeight: '1.4', fontWeight: '600' }],
-        'sub2-m': ['10px', { lineHeight: '1.4', fontWeight: '500' }],
-        'sub2-sb': ['10px', { lineHeight: '1.4', fontWeight: '600' }],
-      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
@@ -100,6 +81,21 @@ const config: Config = {
           700: '#B93825',
           800: '#7B1E10',
         },
+        lime: {
+          400: '#E6FE74',
+        },
+        lavender: {
+          400: '#C192FF',
+        },
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.1s ease-in forwards',
       },
     },
   },
@@ -126,6 +122,12 @@ const config: Config = {
         '.fanmix-gradient': {
           background: 'linear-gradient(to bottom, #FF3A1C 0%, #FF5B46 100%)',
         },
+        '.orange-600-gradient': {
+          background: 'linear-gradient(to bottom, #FF4D33CC 0%, #FF4D3300 100%)',
+        },
+        '.neutral-800-gradient': {
+          background: 'linear-gradient(to bottom, #26262600 0%, #262626 100%)',
+        },
         // scroll
         '.scrollbar-hide-smooth': {
           '-ms-overflow-style': 'none',
@@ -146,6 +148,98 @@ const config: Config = {
         // blur
         '.blur-10': {
           '@apply backdrop-blur-[4px] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]': {},
+        },
+        // #20240919.syjang, text fonSize 확장에서 유틸리티 클래스로 변경 (색상 지정과 동시에 쓸 때 충돌)
+        // Typo
+        '.h1-sb': {
+          fontSize: '24px',
+          lineHeight: '1.4',
+          fontWeight: '600',
+        },
+        '.h2-r': {
+          fontSize: '20px',
+          lineHeight: '1.2',
+          fontWeight: '400',
+        },
+        '.h2-m': {
+          fontSize: '20px',
+          lineHeight: '1.2',
+          fontWeight: '500',
+        },
+        '.h2-sb': {
+          fontSize: '20px',
+          lineHeight: '1.2',
+          fontWeight: '600',
+        },
+        '.body1-r': {
+          fontSize: '18px',
+          lineHeight: '1.4',
+          fontWeight: '400',
+        },
+        '.body1-m': {
+          fontSize: '18px',
+          lineHeight: '1.4',
+          fontWeight: '500',
+        },
+        '.body1-sb': {
+          fontSize: '18px',
+          lineHeight: '1.4',
+          fontWeight: '600',
+        },
+        '.body2-r': {
+          fontSize: '16px',
+          lineHeight: '1.5',
+          fontWeight: '400',
+        },
+        '.body2-m': {
+          fontSize: '16px',
+          lineHeight: '1.5',
+          fontWeight: '500',
+        },
+        '.body2-sb': {
+          fontSize: '16px',
+          lineHeight: '1.5',
+          fontWeight: '600',
+        },
+        '.body3-r': {
+          fontSize: '14px',
+          lineHeight: '1.4',
+          fontWeight: '400',
+        },
+        '.body3-m': {
+          fontSize: '14px',
+          lineHeight: '1.4',
+          fontWeight: '500',
+        },
+        '.body3-sb': {
+          fontSize: '14px',
+          lineHeight: '1.4',
+          fontWeight: '600',
+        },
+        '.sub1-r': {
+          fontSize: '12px',
+          lineHeight: '1.4',
+          fontWeight: '400',
+        },
+        '.sub1-m': {
+          fontSize: '12px',
+          lineHeight: '1.4',
+          fontWeight: '500',
+        },
+        '.sub1-sb': {
+          fontSize: '12px',
+          lineHeight: '1.4',
+          fontWeight: '600',
+        },
+        '.sub2-m': {
+          fontSize: '10px',
+          lineHeight: '1.4',
+          fontWeight: '500',
+        },
+        '.sub2-sb': {
+          fontSize: '10px',
+          lineHeight: '1.4',
+          fontWeight: '600',
         },
       };
       addUtilities(newUtilities);

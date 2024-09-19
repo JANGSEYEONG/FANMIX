@@ -9,7 +9,7 @@ import { BiCheck } from 'react-icons/bi';
 
 const SignUpSuccess = () => {
   const t = useTranslations('signup_success');
-  const { closeModal } = useModalStore();
+  const closeModal = useModalStore((state) => state.closeModal);
   const router = useRouter();
   const navigateAndCloseModal = (path: string) => {
     router.push(path);
@@ -21,8 +21,8 @@ const SignUpSuccess = () => {
     <div className="absolute left-0 top-0 z-10 flex h-full w-full gap-10 px-5 flex-col-center dark-gradient">
       <section className="flex-col-center">
         <BiCheck className="h-[60px] w-[60px] text-orange-600" />
-        <p className="mt-2.5 text-h1-sb">{t('회원가입 완료')}</p>
-        <div className="mt-3 text-body2-r text-white/70 flex-col-center">
+        <p className="mt-2.5 h1-sb">{t('회원가입 완료')}</p>
+        <div className="mt-3 text-white/70 flex-col-center body2-r">
           <p>{t('지금 바로 닉네임을 설정하고 팬믹스의')}</p>
           <p>{t('다양한 컨텐츠와 커뮤니티를 만나보세요')}</p>
         </div>

@@ -13,7 +13,7 @@ const GoBackButton = ({ variant = 'close' }: GoBackButtonProps) => {
 
   if (variant === 'word') {
     return (
-      <button className="text-body3-r text-neutral-200" onClick={handleGoBack}>
+      <button className="text-neutral-200 body3-r" onClick={handleGoBack}>
         {t('뒤로가기')}
       </button>
     );

@@ -23,7 +23,7 @@ const useGoogleLogin = () => {
   const { showErrorToast } = useInformationToast();
   const router = useRouter();
 
-  const { openModal } = useModalStore();
+  const openModal = useModalStore((state) => state.openModal);
 
   const setLogin = useAuthStore((state) => state.setLogin);
   const setUser = useUserStore((state) => state.setUser);
