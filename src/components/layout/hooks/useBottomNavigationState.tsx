@@ -6,8 +6,8 @@ import { LiaHomeSolid, LiaBookmark, LiaGem, LiaUser } from 'react-icons/lia';
 import { ROUTES } from '@/constants/routes';
 import useScrollDirection from '@/hooks/useScrollDirection';
 
-const useBottomNavigationState = () => {
-  const { scrollDirection, scrollPosition } = useScrollDirection();
+const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) => {
+  const { scrollDirection, scrollPosition } = useScrollDirection(mainRef);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

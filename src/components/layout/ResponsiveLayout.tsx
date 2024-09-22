@@ -5,6 +5,7 @@ interface ResponsiveLayoutProps {
   children: React.ReactNode;
 }
 
+// 모바일 크기 + 높이/너비 반응형 layout
 const ResponsiveLayout = ({ children }: ResponsiveLayoutProps) => {
   return (
     <div className="h-dvh w-screen overflow-hidden bg-slate-900 flex-center">

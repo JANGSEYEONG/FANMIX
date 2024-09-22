@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { BadgeList } from '@/components/common/badge/BadgeList';
+import { BadgeList } from '@/components/common/BadgeList';
 
 import { useTranslations } from 'next-intl';
 

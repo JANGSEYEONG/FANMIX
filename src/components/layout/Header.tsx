@@ -10,11 +10,8 @@ import useCurrentRouteLabel from '@/hooks/useCurrentRouteLabel';
 
 import { ROUTES } from '@/constants/routes';
 
-import GoBackButton from '../common/button/GoBackButton';
-
-import { AlarmNotification } from '../domain/notification';
-import { MainSearch } from '../domain/search';
-import { MainSlideMenu } from '../domain/menu';
+import GoBackButton from '../common/GoBackButton';
+import { MainNotification, MainSearch, MainSlideMenu } from '../screens';
 
 const Header = () => {
   const t = useTranslations('top_title');
@@ -32,7 +29,7 @@ const Header = () => {
       {/* 우측 네비게이션 영역 */}
       <nav className="gap-[18px] text-white flex-center">
         <MainSearch />
-        <AlarmNotification />
+        <MainNotification />
         <MainSlideMenu />
       </nav>
     </header>

@@ -6,12 +6,16 @@ import { cn } from '@/lib/utils';
 
 import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
-import useBottomNavigationAction from './hooks/useBottomNavigationState';
+import useBottomNavigationState from './hooks/useBottomNavigationState';
 
-const BottomNavigation = () => {
+interface BottomNavigationProps {
+  mainRef: React.RefObject<HTMLElement>;
+}
+
+const BottomNavigation = ({ mainRef }: BottomNavigationProps) => {
   const t = useTranslations('bottom_nav');
   const pathname = usePathname();
-  const { bottomNavigationItems, isVisible } = useBottomNavigationAction();
+  const { bottomNavigationItems, isVisible } = useBottomNavigationState(mainRef);
 
   return (
     <nav

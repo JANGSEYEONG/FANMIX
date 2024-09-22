@@ -1,11 +1,9 @@
-import DOM_IDS from '@/constants/domIdentifiers';
-
 import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 
-import SlideBarTabs from '@/components/common/tab/SlideBarTabs';
+import SlideBarTabs from '@/components/common/SlideBarTabs';
 
 export async function generateMetadata({
   params: { locale },
@@ -22,7 +20,6 @@ export async function generateMetadata({
 // 메인 페이지
 export default function MainPage() {
   const t = useTranslations('main_page');
-
   const tabs = [
     {
       value: '1',
@@ -37,12 +34,11 @@ export default function MainPage() {
   ];
 
   return (
-    <main id={DOM_IDS.CURRENT_SCROLL_PAGE} className="h-full w-full px-5 page-scrollable-container">
+    <div>
       <h1>{t('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>
-
       <SlideBarTabs tabs={tabs} defaultValue="1" />
       <h1 className="h-[3000px]">{t('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>
       <h2>블러어어</h2>
-    </main>
+    </div>
   );
 }

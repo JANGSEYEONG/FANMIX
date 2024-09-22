@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import { GoogleLoginHandler } from '@/components/domain/auth';
 import { getTranslations } from 'next-intl/server';
+import GoogleLoginHandler from './_components/GoogleLoginHandler';
 
 export async function generateMetadata({
   params: { locale },

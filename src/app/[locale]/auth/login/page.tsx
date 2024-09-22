@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
 
-import GoBackButton from '@/components/common/button/GoBackButton';
-import GoogleLoginButton from '@/components/domain/auth/GoogleLoginButton';
-import IntroImageCarousel from '@/components/common/carousel/IntroImageCarousel';
+import GoBackButton from '@/components/common/GoBackButton';
+import LoginImageCarousel from './_components/LoginImageCarousel';
+import GoogleLoginButton from './_components/GoogleLoginButton';
 
 export async function generateMetadata({
   params: { locale },
@@ -25,7 +25,7 @@ export default function LoginPage() {
         <GoBackButton variant="close" />
       </nav>
       <section className="w-full gap-[50px] flex-col-center">
-        <IntroImageCarousel />
+        <LoginImageCarousel />
         <div className="w-full gap-6 px-5 flex-col-center">
           <GoogleLoginButton />
           <GoBackButton variant="word" />

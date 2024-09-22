@@ -25,7 +25,7 @@ export default function CustomerCenterPage() {
     { label: t('문의하기'), link: 'https://www.naver.com' },
   ];
   return (
-    <main className="h-full w-full pt-[30px]">
+    <div className="w-full pt-7">
       <section aria-label="고객센터 리스트" className="mx-5 flex flex-col gap-[25px] body2-r">
         {linkList.map((linkItem, index) => (
           <React.Fragment key={linkItem.label}>
@@ -38,6 +38,6 @@ export default function CustomerCenterPage() {
         ))}
         <Separator className="bg-neutral-600" />
       </section>
-    </main>
+    </div>
   );
 }
