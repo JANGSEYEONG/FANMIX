@@ -123,7 +123,10 @@ const config: Config = {
           background: 'linear-gradient(to bottom, #FF3A1C 0%, #FF5B46 100%)',
         },
         '.orange-600-gradient': {
-          background: 'linear-gradient(to bottom, #FF4D33CC 0%, #FF4D3300 100%)',
+          background: 'linear-gradient(to right, #FF4D33CC 0%, #FF4D3300 100%)',
+        },
+        '.orange-600-white-gradient': {
+          background: 'linear-gradient(to bottom, #FF4D3300 0%, #FF4D3366 100%)',
         },
         '.neutral-800-gradient': {
           background: 'linear-gradient(to bottom, #26262600 0%, #262626 100%)',
@@ -185,6 +188,11 @@ const config: Config = {
           fontSize: '18px',
           lineHeight: '1.4',
           fontWeight: '600',
+        },
+        '.body1-b': {
+          fontSize: '18px',
+          lineHeight: '1.4',
+          fontWeight: '700',
         },
         '.body2-r': {
           fontSize: '16px',

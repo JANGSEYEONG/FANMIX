@@ -14,7 +14,10 @@ const MainSearch = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <VscSearch className="h-[22px] w-[22px] hover:scale-transition-105" />
+        <VscSearch
+          aria-label="메인 검색"
+          className="h-[22px] w-[22px] hover:scale-transition-105"
+        />
       </SheetTrigger>
       <SheetContent side="bottom" className="flex h-full flex-col items-start justify-between">
         <div className="flex flex-col gap-6">

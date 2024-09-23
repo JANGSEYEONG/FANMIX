@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
@@ -28,13 +28,13 @@ export default function CustomerCenterPage() {
     <div className="w-full pt-7">
       <section aria-label="고객센터 리스트" className="mx-5 flex flex-col gap-[25px] body2-r">
         {linkList.map((linkItem, index) => (
-          <React.Fragment key={linkItem.label}>
+          <Fragment key={linkItem.label}>
             <Separator className="bg-neutral-600" />
             <a
               href={linkItem.link}
               target="_blank"
               rel="noopener noreferrer">{`${index + 1}. ${linkItem.label}`}</a>
-          </React.Fragment>
+          </Fragment>
         ))}
         <Separator className="bg-neutral-600" />
       </section>

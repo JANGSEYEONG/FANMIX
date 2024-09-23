@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
-import { BadgeList } from '@/components/common/BadgeList';
 
 import { useTranslations } from 'next-intl';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { InfluencerTagList } from '@/components/common/InfluencerTagList';
 
 interface OnePickInfluencerProps {
   onePickData: {
@@ -25,7 +25,7 @@ const OnePickInfluencer = ({ onePickData }: OnePickInfluencerProps) => {
       <div className="flex w-full flex-col">
         <h2 className="mb-1.5 text-orange-500 sub1-m">{t('MY ONE PICK')}</h2>
         <h3 className="mb-2.5 body2-sb">{onePickData.influencerName}</h3>
-        <BadgeList contents={['음악', '보컬', '연예인']} className="mb-5" />
+        <InfluencerTagList contents={['음악', '보컬', '연예인']} className="mb-5" />
         <Button className="h-8 w-full" variant="destructive">
           {t('팬채널로 이동')}
         </Button>

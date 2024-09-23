@@ -1,12 +1,13 @@
-import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { forwardRef, HTMLAttributes } from 'react';
 
-export interface BadgeListProps extends HTMLAttributes<HTMLUListElement> {
+import { forwardRef, HTMLAttributes } from 'react';
+import { Badge } from '@/components/ui/badge';
+
+export interface InfluencerTagListProps extends HTMLAttributes<HTMLUListElement> {
   contents: string[];
 }
 
-const BadgeList = forwardRef<HTMLUListElement, BadgeListProps>(
+const InfluencerTagList = forwardRef<HTMLUListElement, InfluencerTagListProps>(
   ({ className, contents, ...props }, ref) => {
     return (
       <ul ref={ref} className={cn('flex gap-1.5', className)} {...props}>
@@ -18,6 +19,6 @@ const BadgeList = forwardRef<HTMLUListElement, BadgeListProps>(
   },
 );
 
-BadgeList.displayName = 'BadgeList';
+InfluencerTagList.displayName = 'InfluencerTagList';
 
-export { BadgeList };
+export { InfluencerTagList };

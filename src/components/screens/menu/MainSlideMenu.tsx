@@ -24,7 +24,7 @@ const MainSlideMenu = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <VscMenu className="h-6 w-6 hover:scale-transition-105" />
+        <VscMenu aria-label="메인 메뉴" className="h-6 w-6 hover:scale-transition-105" />
       </SheetTrigger>
       <SheetContent className="flex w-full flex-col items-start justify-between">
         <div className="flex flex-col gap-6">
