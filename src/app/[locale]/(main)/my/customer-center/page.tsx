@@ -19,10 +19,22 @@ export async function generateMetadata({
 export default function CustomerCenterPage() {
   const t = useTranslations('customer_center_page');
   const linkList = [
-    { label: t('가이드 및 도움말'), link: 'https://www.naver.com' },
-    { label: t('자주 묻는 질문'), link: 'https://www.naver.com' },
-    { label: t('이용 약관 및 개인정보처리방침'), link: 'https://www.naver.com' },
-    { label: t('문의하기'), link: 'https://www.naver.com' },
+    {
+      label: t('가이드 및 도움말'),
+      link: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/',
+    },
+    {
+      label: t('자주 묻는 질문'),
+      link: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/undefined-1',
+    },
+    {
+      label: t('이용 약관 및 개인정보처리방침'),
+      link: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/undefined-2',
+    },
+    {
+      label: t('문의하기'),
+      link: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/undefined-3',
+    },
   ];
   return (
     <div className="w-full pt-7">

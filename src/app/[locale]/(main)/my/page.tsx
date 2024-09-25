@@ -7,7 +7,8 @@ import { ROUTES } from '@/constants/routes';
 
 import { Link } from '@/i18n/routing';
 import { Separator } from '@/components/ui/separator';
-import MyProfileCard from './_components/MyProfileCard';
+
+import MyProfile from './_components/MyProfile';
 import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
 
 export async function generateMetadata({
@@ -24,11 +25,12 @@ export async function generateMetadata({
 
 export default function MyPage() {
   const t = useTranslations('my_page');
-  const data = {
+  const userData = {
     userNickName: '닉네임이다',
     imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시
     introduction:
       '한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개',
+    email: '0000000@gmail.com',
   };
   const onePickData = {
     influencerName: '으뜸언니',
@@ -38,11 +40,7 @@ export default function MyPage() {
   return (
     <div className="w-full pt-7">
       <section aria-label="사용자 프로필" className="mx-5 mb-8 flex flex-col gap-4">
-        <MyProfileCard
-          imageSrc={data.imageSrc}
-          userNickName={data.userNickName}
-          introduction={data.introduction}
-        />
+        <MyProfile {...userData} />
       </section>
       <section aria-label="원픽 인플루언서" className="mb-12">
         <OnePickInfluencer onePickData={onePickData} />
@@ -64,7 +62,7 @@ const MyPageMenuList = () => {
   const t = useTranslations('my_page');
 
   const menuItems = [
-    { label: ROUTES.MY_ACTIVITY_DETAILS.LABEL, path: ROUTES.MY_ACTIVITY_DETAILS.PATH },
+    { label: ROUTES.MY_ACTIVITY_HISTORY.LABEL, path: ROUTES.MY_ACTIVITY_HISTORY.PATH },
     { label: ROUTES.FOLLOW.LABEL, path: ROUTES.FOLLOW.PATH },
     { label: ROUTES.CUSTOMER_CENTER.LABEL, path: ROUTES.CUSTOMER_CENTER.PATH },
   ];

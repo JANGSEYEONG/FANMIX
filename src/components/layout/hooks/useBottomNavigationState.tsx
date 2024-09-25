@@ -22,10 +22,10 @@ const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) => {
 
   const bottomNavigationItems = useMemo(
     () => [
-      { label: ROUTES.HOME.LABEL, icon: LiaHomeSolid, path: ROUTES.HOME.PATH },
-      { label: ROUTES.FOLLOW.LABEL, icon: LiaBookmark, path: ROUTES.FOLLOW.PATH },
-      { label: ROUTES.FAN_CHANNEL.LABEL, icon: LiaGem, path: ROUTES.FAN_CHANNEL.PATH },
-      { label: ROUTES.MYPAGE.LABEL, icon: LiaUser, path: ROUTES.MYPAGE.PATH },
+      { label: ROUTES.HOME.LABEL, icon: LiaHomeSolid, root: ROUTES.HOME.ROOT },
+      { label: ROUTES.FOLLOW.LABEL, icon: LiaBookmark, root: ROUTES.FOLLOW.ROOT },
+      { label: ROUTES.FAN_CHANNEL_INDEX.LABEL, icon: LiaGem, root: ROUTES.FAN_CHANNEL_INDEX.ROOT },
+      { label: ROUTES.MYPAGE.LABEL, icon: LiaUser, root: ROUTES.MYPAGE.ROOT },
     ],
     [],
   );

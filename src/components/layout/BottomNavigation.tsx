@@ -6,6 +6,9 @@ import { cn } from '@/lib/utils';
 
 import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+
+import { getRootPath } from '@/lib/text';
+
 import useBottomNavigationState from './hooks/useBottomNavigationState';
 
 interface BottomNavigationProps {
@@ -15,6 +18,7 @@ interface BottomNavigationProps {
 const BottomNavigation = ({ mainRef }: BottomNavigationProps) => {
   const t = useTranslations('bottom_nav');
   const pathname = usePathname();
+  const currentRoot = getRootPath(pathname);
   const { bottomNavigationItems, isVisible } = useBottomNavigationState(mainRef);
 
   return (
@@ -25,9 +29,9 @@ const BottomNavigation = ({ mainRef }: BottomNavigationProps) => {
       )}>
       {bottomNavigationItems.map((item) => {
         const Icon = item.icon;
-        const isActive = pathname === item.path;
+        const isActive = currentRoot === item.root;
         return (
-          <Link href={item.path} key={item.path}>
+          <Link href={item.root} key={item.root}>
             <div className="h-14 w-14 gap-[2px] text-neutral-400 flex-col-center sub1-m hover:scale-transition-105">
               <Icon className={cn('h-6 w-6', isActive && 'text-orange-600')} />
               <span className={cn(isActive && 'text-white sub1-sb')}>{t(item.label)}</span>

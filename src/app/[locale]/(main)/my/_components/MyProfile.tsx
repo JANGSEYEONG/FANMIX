@@ -6,10 +6,11 @@ import UserAvatar from '@/components/domain/user/UserAvatar';
 interface MyProfileProps {
   imageSrc: string;
   userNickName: string;
+  email: string;
   introduction: string;
 }
 
-const MyProfileCard = ({ imageSrc, userNickName, introduction }: MyProfileProps) => {
+const MyProfile = ({ imageSrc, userNickName, email, introduction }: MyProfileProps) => {
   return (
     <div className="flex flex-col gap-4">
       <Link
@@ -19,7 +20,7 @@ const MyProfileCard = ({ imageSrc, userNickName, introduction }: MyProfileProps)
           <UserAvatar size={76} imageSrc={imageSrc} userNickName={userNickName} />
           <div className="flex flex-col justify-center">
             <h2 className="h2-sb">{userNickName}</h2>
-            <p className="text-orange-200 body3-r">0000000@gmail.com</p>
+            <p className="text-orange-200 body3-r">{email}</p>
           </div>
         </div>
         <VscChevronRight className="h-5 w-5 hover:scale-transition-105" />
@@ -29,4 +30,4 @@ const MyProfileCard = ({ imageSrc, userNickName, introduction }: MyProfileProps)
   );
 };
 
-export default MyProfileCard;
+export default MyProfile;

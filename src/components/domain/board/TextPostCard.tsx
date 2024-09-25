@@ -1,9 +1,9 @@
 'use client';
 
-import BoardTypeTag from '@/components/common/BoardTypeTag';
-import InteractionStats from '../influencer/InteractionStats';
+import BoardTypeTag from './BoardTypeTag';
+import InteractionStats from './InteractionStats';
 
-import type { BoardType } from '@/types/domain/board';
+import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/board';
 import type { InteractionStat } from '@/types/domain/influencerType';
 
 export interface TextPostCardProps {
@@ -22,7 +22,11 @@ const TextPostCard = ({
   interaction,
 }: TextPostCardProps) => {
   const handleClickPostCard = () => {
-    alert(`팬채녈이면 팬 여부 체크 후, ${boardType}의 ${postId}로 이동`);
+    if (boardType === BOARD_TYPE.FAN) {
+      alert(`팬 여부 체크 후, ${boardType}의 ${postId}로 이동`);
+    } else {
+      alert(`${boardType}의 ${postId}로 이동`);
+    }
   };
   return (
     <article
@@ -33,7 +37,7 @@ const TextPostCard = ({
       </aside>
       <h1 className="mb-[7px] truncate body2-r">{content}</h1>
       <footer>
-        <InteractionStats {...interaction} />
+        <InteractionStats boardCardType={BOARD_CARD_TYPE.POST} {...interaction} />
       </footer>
     </article>
   );

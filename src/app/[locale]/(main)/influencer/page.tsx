@@ -9,10 +9,10 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'top_title' });
 
   return {
-    title: t('커뮤니티'),
+    title: t('인플루언서 찾기'),
   };
 }
 
-export default function CommunityIndexPage() {
-  return <div>커뮤니티 종류와 전체 종합 글이 나오는 페이지</div>;
+export default function InfluencerIndexPage() {
+  return <div>인플루언서 찾기 페이지 (인플루언서 리스트 뜨고, 정렬)</div>;
 }

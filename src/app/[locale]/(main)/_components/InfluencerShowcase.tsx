@@ -17,7 +17,7 @@ const InfluencerShowcase = ({ influencers }: InfluencerShowcaseProps) => {
           </li>
         ))}
       </ul>
-      <ScrollBar orientation="horizontal" className="h-0" />
+      <ScrollBar orientation="horizontal" />
     </ScrollArea>
   );
 };

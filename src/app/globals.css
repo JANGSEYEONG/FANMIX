@@ -106,11 +106,11 @@
 }
 
 .swiper-pagination-bullet {
-  background-color: #fff !important; /* 비활성 bullet의 색상 */
+  background-color: #262626 !important; /* 비활성 bullet의 색상 */
   opacity: 0.3;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #fff !important; /* 활성 bullet의 색상 */
+  background-color: #ff634f !important; /* 활성 bullet의 색상 */
   opacity: 1;
 }

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({
@@ -9,14 +10,16 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'top_title' });
 
   return {
-    title: t('한줄 리뷰'),
+    title: t('팬채널'),
   };
 }
 
-export default function InfluencerReviewPage({
-  params: { influencerId, reviewId },
+export default function FanChannelPostPage({
+  params: { communityId, postId },
 }: {
-  params: { influencerId: string; reviewId: string };
+  params: { communityId: string; postId: string };
 }) {
-  return <div>{`${influencerId}, 인플루언서 한줄리뷰, ${reviewId} 상세 페이지`}</div>;
+  return (
+    <div>{`인플루언서의 팬채널인 ${communityId}번 커뮤니티의, ${postId}번째 글 상세 페이지`}</div>
+  );
 }

@@ -56,7 +56,7 @@ const SlideBarTabs = ({ tabs, defaultValue }: SlideBarTabsProps) => {
   }
 
   return (
-    <Tabs defaultValue={defaultValue} className="w-full" onValueChange={setActiveTab}>
+    <Tabs defaultValue={defaultValue} className="h-full w-full" onValueChange={setActiveTab}>
       <TabsList className="relative w-full flex-center" ref={tabsListRef}>
         {tabs.map((tab) => (
           <TabsTrigger key={tab.value} className="flex-1" value={tab.value}>
@@ -66,7 +66,7 @@ const SlideBarTabs = ({ tabs, defaultValue }: SlideBarTabsProps) => {
         <div className="absolute bottom-[-1.4px] h-0.5 bg-orange-500" style={sliderStyle} />
       </TabsList>
       {tabs.map((tab) => (
-        <TabsContent key={tab.value} value={tab.value}>
+        <TabsContent key={tab.value} value={tab.value} className="h-full">
           {tab.content}
         </TabsContent>
       ))}

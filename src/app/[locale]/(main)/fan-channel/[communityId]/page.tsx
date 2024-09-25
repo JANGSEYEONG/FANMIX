@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({
@@ -9,10 +10,14 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'top_title' });
 
   return {
-    title: t('커뮤니티'),
+    title: t('팬채널'),
   };
 }
 
-export default function CommunityIndexPage() {
-  return <div>커뮤니티 종류와 전체 종합 글이 나오는 페이지</div>;
+export default function FanChannelPage({
+  params: { communityId },
+}: {
+  params: { communityId: string };
+}) {
+  return <div>{`인플루언서의 팬채널인 ${communityId}번 커뮤니티의 글 목록 페이지`}</div>;
 }

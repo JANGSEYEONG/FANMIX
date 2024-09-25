@@ -6,7 +6,7 @@ import { Switch } from '@/components/ui/switch';
 import { useTranslations } from 'next-intl';
 import useInfluencerMode from '../_hooks/useInfluencerMode';
 
-interface UserSettingsPanelProps {
+interface MySettingsPanelProps {
   userData: {
     userNickName: string;
     introduction: string;
@@ -16,7 +16,7 @@ interface UserSettingsPanelProps {
   };
 }
 
-const UserSettingsPanel = ({ userData }: UserSettingsPanelProps) => {
+const MySettingsPanel = ({ userData }: MySettingsPanelProps) => {
   const t = useTranslations('my_page_edit_page');
   const { isInfluencerModeActive, handleChangeInfluencerMode } = useInfluencerMode(false);
 
@@ -62,4 +62,4 @@ const UserSettingsPanel = ({ userData }: UserSettingsPanelProps) => {
   );
 };
 
-export default UserSettingsPanel;
+export default MySettingsPanel;

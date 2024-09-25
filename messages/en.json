@@ -8,7 +8,12 @@
     "활동내역": "Activity History",
     "고객센터": "Customer Service",
     "로그인": "Login",
-    "로그인 중": "Logging in.."
+    "로그인 중": "Logging in..",
+    "유저 정보": "User Information",
+    "인플루언서": "Influencer",
+    "인플루언서 찾기": "Find influencers",
+    "한줄 리뷰": "One-line review",
+    "커뮤니티": "Community"
   },
   "bottom_nav": {
     "홈": "Home",
@@ -57,6 +62,12 @@
     "인플루언서 모드": "Creator Mode",
     "회원탈퇴": "Delete Account"
   },
+  "my_activity_history_page": {
+    "내 한줄리뷰": "My Reviews",
+    "내 글": "My Posts",
+    "내 댓글": "My Comments",
+    "모든 내용을 확인했습니다": "You've seen all the content."
+  },
   "customer_center_page": {
     "가이드 및 도움말": "Guides and Help",
     "자주 묻는 질문": "Frequently Asked Questions",
@@ -67,6 +78,10 @@
     "콘텐츠": "CQ",
     "소통": "ENG",
     "신뢰": "AUTH"
+  },
+  "comment_card": {
+    "팬채널": "Fan Channel",
+    "커뮤니티": "Community"
   },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",

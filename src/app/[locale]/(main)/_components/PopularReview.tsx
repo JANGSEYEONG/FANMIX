@@ -2,11 +2,11 @@ import InfluencerReviewCard from '@/components/domain/influencer/InfluencerRevie
 
 import type { InfluencerReview } from '@/types/domain/influencerType';
 
-interface PopularReview {
+interface PopularReviewProps {
   reviews: InfluencerReview[];
 }
 
-const PopularReview = ({ reviews }: PopularReview) => {
+const PopularReview = ({ reviews }: PopularReviewProps) => {
   return (
     <ul className="mt-6 w-full gap-6 flex-col-center">
       {reviews.map((review) => (

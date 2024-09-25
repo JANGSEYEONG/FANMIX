@@ -23,7 +23,7 @@ interface InfluencerReviewInfo {
 export interface InteractionStat {
   likesCount: number;
   dislikesCount: number;
-  commentsCount: number;
+  commentsCount?: number;
   createdAt: Date;
 }
 

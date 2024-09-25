@@ -4,8 +4,8 @@ import { getTranslations } from 'next-intl/server';
 import { Separator } from '@/components/ui/separator';
 
 import UserAvatar from '@/components/domain/user/UserAvatar';
-import UserSettingsPanel from './_components/UserSettingsPanel';
 import DeleteAccountButton from './_components/DeleteAccountButton';
+import MySettingsPanel from './_components/MySettingsPanel';
 
 export async function generateMetadata({
   params: { locale },
@@ -40,7 +40,7 @@ export default function MyPageEditPage() {
       </section>
       <Separator className="h-[8px] bg-neutral-900" />
       <section aria-label="사용자 정보 설정" className="mt-8 px-5">
-        <UserSettingsPanel userData={data} />
+        <MySettingsPanel userData={data} />
       </section>
       <Separator className="h-[8px] bg-neutral-900" />
       <footer aria-label="회원탈퇴" className="mx-5 mt-8 flex-center">

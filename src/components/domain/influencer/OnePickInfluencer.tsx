@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { InfluencerTagList } from '@/components/common/InfluencerTagList';
+import { InfluencerTagList } from './InfluencerTagList';
 
 interface OnePickInfluencerProps {
   onePickData: {

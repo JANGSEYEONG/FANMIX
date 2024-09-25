@@ -3,10 +3,15 @@
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import LogoImg from '@/assets/logo/logo_vertical.svg';
+import Image from 'next/image';
 
 const InfluencerImageCarousel = () => {
-  const introImages = [LogoImg, LogoImg, LogoImg, LogoImg];
+  const imagesSrc = [
+    '/assets/images/banner/mainBanner1.png',
+    '/assets/images/banner/mainBanner2.png',
+    '/assets/images/banner/mainBanner3.png',
+    '/assets/images/banner/mainBanner4.png',
+  ];
 
   return (
     <>
@@ -15,11 +20,18 @@ const InfluencerImageCarousel = () => {
         modules={[Pagination]}
         slidesPerView={1}
         pagination={{ clickable: true }}>
-        {introImages.map((Intro, index) => (
-          <SwiperSlide key={index} className="pb-6 flex-center">
-            <div className="h-full flex-center">
-              <Intro />
-            </div>
+        {imagesSrc.map((imageSrc, index) => (
+          <SwiperSlide key={imageSrc} className="flex-center">
+            <figure className="relative h-full w-full bg-red-50">
+              <Image
+                priority
+                src={imageSrc}
+                alt={`메인 배너 ${index}`}
+                fill
+                className="object-cover"
+                sizes="100%"
+              />
+            </figure>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -2,9 +2,10 @@ import Image from 'next/image';
 
 import { VscPassFilled } from 'react-icons/vsc';
 
-import InteractionStats from './InteractionStats';
+import InteractionStats from '../board/InteractionStats';
 import InfluencerRatingBar from './InfluencerRatingBar';
 
+import { BOARD_CARD_TYPE } from '@/types/domain/board';
 import type { InfluencerReview } from '@/types/domain/influencerType';
 
 interface InfluencerReviewCardProps {
@@ -22,7 +23,7 @@ const InfluencerReviewCard = ({ data }: InfluencerReviewCardProps) => {
           src={data.influencer.imageSrc}
           alt={`${data.influencer.name}의 프로필 이미지`}
           fill
-          sizes="100px"
+          sizes="100%"
           className="object-cover"
         />
       </figure>
@@ -45,7 +46,7 @@ const InfluencerReviewCard = ({ data }: InfluencerReviewCardProps) => {
             className="flex h-[60px] w-full flex-col justify-center gap-1.5 bg-neutral-800 p-2.5">
             <p className="truncate body3-m">{data.content}</p>
             <footer>
-              <InteractionStats {...data.interaction} />
+              <InteractionStats boardCardType={BOARD_CARD_TYPE.REVIEW} {...data.interaction} />
             </footer>
           </section>
         </div>
