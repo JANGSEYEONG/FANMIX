@@ -5,12 +5,12 @@ import { getTranslations } from 'next-intl/server';
 
 import SlideBarTabs from '@/components/common/SlideBarTabs';
 
-import MyReview from './_components/MyReview';
-import MyPost from './_components/MyPost';
-import MyComment from './_components/MyComment';
 import MyHistoryProfile from './_components/MyHistoryProfile';
 
 import { commentData, postData, reviewData } from '@/constants/testData';
+import ReviewHistory from '@/components/domain/user/activityHistory/ReviewHistory';
+import PostHistory from '@/components/domain/user/activityHistory/PostHistory';
+import CommentHistory from '@/components/domain/user/activityHistory/CommentHistory';
 
 export async function generateMetadata({
   params: { locale },
@@ -37,18 +37,18 @@ export default function MyActivityHistoryPage() {
   const tabs = [
     {
       value: '1',
-      label: t('내 한줄리뷰'),
-      content: <MyReview reviews={reviewData} />,
+      label: t('내 한줄 리뷰'),
+      content: <ReviewHistory reviews={reviewData} />,
     },
     {
       value: '2',
       label: t('내 글'),
-      content: <MyPost posts={postData} />,
+      content: <PostHistory posts={postData} />,
     },
     {
       value: '3',
       label: t('내 댓글'),
-      content: <MyComment comments={commentData} />,
+      content: <CommentHistory comments={commentData} />,
     },
   ];
 

@@ -1,16 +1,17 @@
 import { Fragment } from 'react';
-import { Separator } from '@/components/ui/separator';
-import TextPostCard, { type TextPostCardProps } from '@/components/domain/board/TextPostCard';
 import { useTranslations } from 'next-intl';
 
-interface MyPostProps {
+import { Separator } from '@/components/ui/separator';
+import TextPostCard, { type TextPostCardProps } from '@/components/domain/board/TextPostCard';
+
+interface PostHistoryProps {
   posts: TextPostCardProps[];
 }
-const MyPost = ({ posts }: MyPostProps) => {
+const PostHistory = ({ posts }: PostHistoryProps) => {
   const t = useTranslations('my_activity_history_page');
 
   return (
-    <div className="h-full w-full overflow-y-auto pt-5 scrollbar-hide-smooth">
+    <div className="h-full w-full overflow-y-auto pb-8 pt-5 scrollbar-hide-smooth">
       <ul className="flex w-full flex-col items-center gap-4">
         {posts.map((post) => (
           <Fragment key={post.postId}>
@@ -28,4 +29,4 @@ const MyPost = ({ posts }: MyPostProps) => {
   );
 };
 
-export default MyPost;
+export default PostHistory;

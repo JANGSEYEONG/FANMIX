@@ -3,15 +3,15 @@ import InfluencerReviewCard from '@/components/domain/influencer/InfluencerRevie
 import type { InfluencerReview } from '@/types/domain/influencerType';
 import { useTranslations } from 'next-intl';
 
-interface MyReviewProps {
+interface ReviewHistoryProps {
   reviews: InfluencerReview[];
 }
 
-const MyReview = ({ reviews }: MyReviewProps) => {
+const ReviewHistory = ({ reviews }: ReviewHistoryProps) => {
   const t = useTranslations('my_activity_history_page');
 
   return (
-    <div className="h-full w-full overflow-y-auto pt-5 scrollbar-hide-smooth">
+    <div className="h-full w-full overflow-y-auto pb-8 pt-5 scrollbar-hide-smooth">
       <ul className="flex w-full flex-col items-center gap-[30px]">
         {reviews.map((review) => (
           <li key={review.reviewId} className="w-full">
@@ -26,4 +26,4 @@ const MyReview = ({ reviews }: MyReviewProps) => {
   );
 };
 
-export default MyReview;
+export default ReviewHistory;

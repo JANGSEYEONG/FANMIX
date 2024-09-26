@@ -39,10 +39,10 @@ export default function MyPage() {
 
   return (
     <div className="w-full pt-7">
-      <section aria-label="사용자 프로필" className="mx-5 mb-8 flex flex-col gap-4">
+      <section aria-label="내 프로필" className="mx-5 mb-8 flex flex-col gap-4">
         <MyProfile {...userData} />
       </section>
-      <section aria-label="원픽 인플루언서" className="mb-12">
+      <section aria-label="내 원픽 인플루언서" className="mb-12">
         <OnePickInfluencer onePickData={onePickData} />
       </section>
       <Separator className="h-[8px] bg-neutral-900" />

@@ -10,10 +10,11 @@ interface OnePickInfluencerProps {
     influencerName: string;
     imageSrc: string;
   };
+  isOthersPick?: boolean;
 }
 
-const OnePickInfluencer = ({ onePickData }: OnePickInfluencerProps) => {
-  const t = useTranslations('my_page');
+const OnePickInfluencer = ({ onePickData, isOthersPick = false }: OnePickInfluencerProps) => {
+  const t = useTranslations('one_pick_influencer');
   return (
     <div className="w-full gap-5 bg-orange-700/20 px-5 py-6 flex-center">
       <Avatar className="h-[130px] w-[105px] flex-shrink-0 rounded-none">
@@ -23,7 +24,9 @@ const OnePickInfluencer = ({ onePickData }: OnePickInfluencerProps) => {
         </AvatarFallback>
       </Avatar>
       <div className="flex w-full flex-col">
-        <h2 className="mb-1.5 text-orange-500 sub1-m">{t('MY ONE PICK')}</h2>
+        <h2 className="mb-1.5 text-orange-500 sub1-m">
+          {isOthersPick ? t('ONE PICK') : t('MY ONE PICK')}
+        </h2>
         <h3 className="mb-2.5 body2-sb">{onePickData.influencerName}</h3>
         <InfluencerTagList contents={['음악', '보컬', '연예인']} className="mb-5" />
         <Button className="h-8 w-full" variant="destructive">
