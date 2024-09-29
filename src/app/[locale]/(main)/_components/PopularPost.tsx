@@ -11,7 +11,7 @@ const PopularPost = ({ posts }: PopularPostProps) => {
       {posts.map((post) => (
         <Fragment key={post.postId}>
           <li className="w-full">
-            <TextPostCard {...post} />
+            <TextPostCard {...post} isPopular />
           </li>
           <Separator className="h-[0.7px] bg-neutral-600" />
         </Fragment>

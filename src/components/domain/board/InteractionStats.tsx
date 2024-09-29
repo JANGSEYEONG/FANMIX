@@ -1,10 +1,7 @@
-import { VscThumbsup, VscComment, VscThumbsdown } from 'react-icons/vsc';
-
-import { formatDateToYYMMDD } from '@/lib/date';
 import { cn } from '@/lib/utils';
+import { VscThumbsup, VscComment, VscThumbsdown } from 'react-icons/vsc';
 import type { InteractionStat } from '@/types/domain/influencerType';
-import { BOARD_CARD_TYPE, type BoardCardType } from '@/types/domain/board';
-
+import { BOARD_CARD_TYPE, type BoardCardType } from '@/types/domain/boardType';
 interface InteractionStatsProps extends InteractionStat {
   boardCardType: BoardCardType;
 }
@@ -13,7 +10,6 @@ const InteractionStats = ({
   likesCount,
   dislikesCount,
   commentsCount,
-  createdAt,
 }: InteractionStatsProps) => {
   const stats = [
     {
@@ -28,7 +24,11 @@ const InteractionStats = ({
       count: dislikesCount,
       color: 'text-neutral-300',
       Icon: VscThumbsdown,
-      visible: false,
+      visible: !(
+        boardCardType === BOARD_CARD_TYPE.COMMENT ||
+        boardCardType === BOARD_CARD_TYPE.POPULAR_POST ||
+        boardCardType === BOARD_CARD_TYPE.POPULAR_REVIEW
+      ),
     },
     {
       key: 'comment',
@@ -39,20 +39,17 @@ const InteractionStats = ({
     },
   ];
   return (
-    <div className="flex w-full items-center justify-between sub2-m">
-      <ul className="flex gap-2">
-        {stats.map(
-          ({ key, count, color, Icon, visible }) =>
-            visible && (
-              <li key={key} className={cn('gap-x-0.5 flex-center', color)}>
-                {count}
-                <Icon className="h-3 w-3" />
-              </li>
-            ),
-        )}
-      </ul>
-      <span className="text-neutral-400">{formatDateToYYMMDD(createdAt)}</span>
-    </div>
+    <ul className="flex gap-2.5 sub2-m">
+      {stats.map(
+        ({ key, count, color, Icon, visible }) =>
+          visible && (
+            <li key={key} className={cn('gap-x-0.5 flex-center', color)}>
+              {count}
+              <Icon className="h-3 w-3" />
+            </li>
+          ),
+      )}
+    </ul>
   );
 };
 

@@ -1,17 +1,19 @@
 'use client';
 
-import { BOARD_CARD_TYPE, BOARD_TYPE, BoardType } from '@/types/domain/board';
-import InteractionStats from './InteractionStats';
-import { Separator } from '@/components/ui/separator';
-import { InteractionStat } from '@/types/domain/influencerType';
 import { useTranslations } from 'next-intl';
 
+import { formatDateToYYMMDD } from '@/lib/date';
+import { Separator } from '@/components/ui/separator';
+import InteractionStats from './InteractionStats';
+import type { InteractionStat } from '@/types/domain/influencerType';
+import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
 export interface CommentCardProps {
   postId: string;
   commentId: string;
   boardType: BoardType;
   boardName: string;
   content: string;
+  createdAt: Date;
   interaction: InteractionStat;
 }
 
@@ -21,6 +23,7 @@ const CommentCard = ({
   boardType,
   boardName,
   content,
+  createdAt,
   interaction,
 }: CommentCardProps) => {
   const t = useTranslations('comment_card');
@@ -43,8 +46,9 @@ const CommentCard = ({
         </span>
       </aside>
       <h1 className="mb-[6px] truncate body2-r">{content}</h1>
-      <footer>
+      <footer className="flex w-full items-center justify-between">
         <InteractionStats boardCardType={BOARD_CARD_TYPE.COMMENT} {...interaction} />
+        <span className="text-neutral-400 sub2-m">{formatDateToYYMMDD(createdAt)}</span>
       </footer>
     </article>
   );

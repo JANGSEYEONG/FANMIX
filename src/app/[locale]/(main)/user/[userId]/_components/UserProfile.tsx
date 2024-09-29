@@ -17,8 +17,10 @@ const UserProfile = ({ imageSrc, userNickName }: UserProfileProps) => {
         <UserAvatar size={48} imageSrc={imageSrc} userNickName={userNickName} />
         <h2 className="h2-sb">{userNickName}</h2>
       </div>
-      <div className="h-full w-10 flex-center fanmix-gradient">
-        <VscSend className="h-5 w-5 hover:scale-transition-105" onClick={handleClickSendDM} />
+      <div
+        className="group h-full w-10 cursor-pointer flex-center fanmix-gradient"
+        onClick={handleClickSendDM}>
+        <VscSend className="h-5 w-5 group-hover:scale-transition-105" />
       </div>
     </div>
   );

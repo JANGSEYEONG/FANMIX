@@ -5,14 +5,15 @@ import { Badge } from '@/components/ui/badge';
 
 export interface InfluencerTagListProps extends HTMLAttributes<HTMLUListElement> {
   contents: string[];
+  variant?: 'outline' | 'destructive';
 }
 
 const InfluencerTagList = forwardRef<HTMLUListElement, InfluencerTagListProps>(
-  ({ className, contents, ...props }, ref) => {
+  ({ className, contents, variant = 'outline', ...props }, ref) => {
     return (
       <ul ref={ref} className={cn('flex gap-1.5', className)} {...props}>
         {contents.map((content) => (
-          <Badge key={content}>{`#${content}`}</Badge>
+          <Badge key={content} variant={variant}>{`#${content}`}</Badge>
         ))}
       </ul>
     );

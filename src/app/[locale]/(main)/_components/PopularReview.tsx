@@ -11,7 +11,7 @@ const PopularReview = ({ reviews }: PopularReviewProps) => {
     <ul className="mt-6 w-full gap-6 flex-col-center">
       {reviews.map((review) => (
         <li key={review.reviewId} className="w-full">
-          <InfluencerReviewCard data={review} />
+          <InfluencerReviewCard data={review} isPopular />
         </li>
       ))}
     </ul>

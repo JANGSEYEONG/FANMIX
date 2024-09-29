@@ -24,7 +24,6 @@ export interface InteractionStat {
   likesCount: number;
   dislikesCount: number;
   commentsCount?: number;
-  createdAt: Date;
 }
 
 // "유저"가 평가한 리뷰 형태
@@ -34,4 +33,5 @@ export interface InfluencerReview {
   rating: InfluencerRatingMetrics; // 점수 평가
   content: string; // 한줄리뷰 내용
   interaction: InteractionStat;
+  createdAt: Date; // 생성일
 }

@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 import { LiaGem } from 'react-icons/lia';
 import { VscSymbolConstant } from 'react-icons/vsc';
 
-import { BOARD_TYPE, type BoardType } from '@/types/domain/board';
+import { BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
 
 interface BoardTypeTagProps {
   boardType: BoardType;

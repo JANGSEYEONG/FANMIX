@@ -77,6 +77,15 @@
     "이용 약관 및 개인정보처리방침": "Terms of Service and Privacy Policy",
     "문의하기": "Contact us"
   },
+  "influencer_page": {
+    "인증 인플루언서": "Verified",
+    "팬채널": "Fan Ch.",
+    "콘텐츠 지향성": "Content Focus",
+    "리뷰 평균": "Average Review",
+    "BEST 리뷰": "BEST Review",
+    "리뷰 {reviewsCount}개 중": "Out of {reviewsCount} reviews",
+    "한줄리뷰 전체보기": "View All One-Line Reviews"
+  },
   "influencer_rating_bar": {
     "콘텐츠": "CQ",
     "소통": "ENG",

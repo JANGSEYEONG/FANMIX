@@ -82,6 +82,7 @@ export const ROUTES = {
     PATH: '/influencer/[influencerId]',
     LABEL: '인플루언서',
     HAS_PREV_BTN: true,
+    HEADER_COLOR: '#FF5B46',
   },
   INFLUENCER_REVIEW: {
     ROOT: '/influencer',
@@ -101,10 +102,27 @@ export const ROUTES = {
 } as const;
 
 // ROUTES 객체의 타입을 정의
-type RouteKey = keyof typeof ROUTES;
+export type RouteKey = keyof typeof ROUTES;
 
-// ROUTES 객체의 값 타입을 추출
-type RouteValue = (typeof ROUTES)[RouteKey];
+type BaseRouteValue = {
+  ROOT: string;
+  PATH: string;
+  LABEL: string;
+  HAS_PREV_BTN: boolean;
+  HEADER_COLOR?: string; // 선택적 속성으로 정의
+};
+
+// ROUTES 객체의 값 타입을 추출 (HEADER_COLOR를 선택적으로 포함)
+export type RouteValue = BaseRouteValue &
+  {
+    [K in RouteKey]: (typeof ROUTES)[K];
+  }[RouteKey];
 
 // LABEL의 타입을 추출
 export type RouteLabel = RouteValue['LABEL'];
+
+// HEADER_COLOR의 타입을 추출
+export type HeaderColor = RouteValue['HEADER_COLOR'] | undefined;
+
+// 기본 헤더 색상 정의
+export const DEFAULT_HEADER_COLOR = 'transparent';

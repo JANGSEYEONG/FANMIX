@@ -20,8 +20,8 @@ export async function generateMetadata({
 
 export default function LoginPage() {
   return (
-    <main className="h-full w-full dark-gradient">
-      <nav className="mb-14 mr-5 mt-2.5 flex items-center justify-end">
+    <main className="relative flex h-full w-full flex-col items-center justify-end pb-[104px] dark-gradient">
+      <nav className="absolute right-5 top-2.5">
         <GoBackButton variant="close" />
       </nav>
       <section className="w-full gap-[50px] flex-col-center">

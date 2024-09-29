@@ -128,6 +128,9 @@ const config: Config = {
         '.orange-600-white-gradient': {
           background: 'linear-gradient(to bottom, #FF4D3300 0%, #FF4D3366 100%)',
         },
+        '.orange-700-gradient': {
+          background: 'linear-gradient(to bottom, #FF5B46 0%, #952B1D 100%)',
+        },
         '.neutral-800-gradient': {
           background: 'linear-gradient(to bottom, #26262600 0%, #262626 100%)',
         },
