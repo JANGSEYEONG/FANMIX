@@ -1,5 +1,6 @@
 export interface LoginRequest {
   code: string;
+  redirectUri: string;
 }
 
 export interface LoginResponse {

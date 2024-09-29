@@ -18,8 +18,8 @@ const InfluencerProfileCard = () => {
   };
   return (
     <>
-      <div className="relative pb-[22px] pl-[170px] pr-5 pt-[30px] orange-700-gradient">
-        <figure className="absolute left-[20px] top-[30px] h-44 w-[130px]">
+      <div className="relative pb-[22px] pl-[170px] pr-5 pt-[65px] orange-700-gradient">
+        <figure className="absolute left-[20px] top-[65px] h-44 w-[130px]">
           <Image
             priority
             src={influencerTest.influencerImageUrl}

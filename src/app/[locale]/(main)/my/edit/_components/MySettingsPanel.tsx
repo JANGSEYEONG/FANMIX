@@ -53,6 +53,7 @@ const MySettingsPanel = ({ userData }: MySettingsPanelProps) => {
           </span>
           <Switch
             id="influencer-mode"
+            disabled
             checked={isInfluencerModeActive}
             onCheckedChange={handleChangeInfluencerMode}
           />

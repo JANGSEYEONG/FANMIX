@@ -24,7 +24,7 @@ const BottomNavigation = ({ mainRef }: BottomNavigationProps) => {
   return (
     <nav
       className={cn(
-        'z-5 absolute bottom-0 flex h-20 w-full justify-between bg-neutral-800/70 px-5 transition-transform duration-300 ease-in-out blur-10',
+        'z-5 absolute bottom-0 flex h-20 w-full justify-between bg-neutral-800/70 px-5 transition-transform duration-300 ease-in-out blur-10-shadow',
         isVisible ? 'translate-y-0' : 'translate-y-full', // 스크롤 방향에 따라 슬라이드 효과
       )}>
       {bottomNavigationItems.map((item) => {

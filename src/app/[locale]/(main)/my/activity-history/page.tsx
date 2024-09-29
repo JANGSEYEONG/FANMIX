@@ -53,7 +53,7 @@ export default function MyActivityHistoryPage() {
   ];
 
   return (
-    <div className="m-5 h-[calc(100%-130px)]">
+    <div className="m-5 h-[calc(100%-130px)] pt-[35px]">
       <section aria-label="유저 정보" className="h-[54px]">
         <MyHistoryProfile {...userData} />
       </section>

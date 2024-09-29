@@ -15,5 +15,5 @@ export async function generateMetadata({
 }
 
 export default function FanChannelIndexPage() {
-  return <div className="w-full px-5">팬채널 리스트 페이지(인플루언서 검색)</div>;
+  return <div className="w-full px-5 pt-[35px]">팬채널 리스트 페이지(인플루언서 검색)</div>;
 }

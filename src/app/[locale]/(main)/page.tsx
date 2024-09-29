@@ -52,7 +52,7 @@ export default function MainPage() {
     isAuthenticated: true,
   };
   return (
-    <div className="mt-6 w-full flex-col-center">
+    <div className="mt-6 w-full pt-[35px] flex-col-center">
       <section aria-label="추천 인플루언서" className="relative mb-7 w-full">
         <InfluencerImageCarousel />
       </section>

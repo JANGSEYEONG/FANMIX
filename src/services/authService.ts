@@ -3,10 +3,11 @@ import axios from 'axios';
 
 import type { LoginRequest, LoginResponse } from '@/types/service/authServiceType';
 
-export const login = async ({ code }: LoginRequest): Promise<LoginResponse> => {
+export const login = async ({ code, redirectUri }: LoginRequest): Promise<LoginResponse> => {
   try {
     const response = await ax.post<LoginResponse>('/api/members/oauth/google', {
       code,
+      redirectUri,
     });
     console.log('Login Response:', response.data);
     return response.data;

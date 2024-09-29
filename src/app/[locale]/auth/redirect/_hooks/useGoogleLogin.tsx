@@ -64,7 +64,11 @@ const useGoogleLogin = () => {
   const sendAuthCodeToBackend = useCallback(
     async (code: string) => {
       try {
-        const loginResult = await login({ code });
+        const redirectUri =
+          process.env.NODE_ENV === 'development'
+            ? 'http://localhost:3000/auth/redirect'
+            : 'https://fanmix.vercel.app/auth/redirect';
+        const loginResult = await login({ code, redirectUri });
         console.log('로그인 성공 :', loginResult);
         handleSuccessLogin(loginResult);
       } catch (error) {

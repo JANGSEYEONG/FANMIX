@@ -1,9 +1,10 @@
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 
 import SlideBarTabs from '@/components/common/SlideBarTabs';
 
 import PopularPost from './PopularPost';
-import PopularReview from './PopularReview';
+const PopularReview = dynamic(() => import('./PopularReview'));
 
 import { postData, reviewData } from '@/constants/testData';
 
