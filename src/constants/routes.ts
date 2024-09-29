@@ -91,6 +91,14 @@ export const ROUTES = {
     HAS_PREV_BTN: true,
   },
 
+  // 한줄리뷰
+  SHORT_REVIEW: {
+    ROOT: '/',
+    PATH: '/',
+    LABEL: '전체 한줄 리뷰',
+    HAS_PREV_BTN: true,
+  },
+
   // 로그인
   LOGIN: { ROOT: '/auth', PATH: '/auth/login', LABEL: '로그인', HAS_PREV_BTN: false },
   LOGIN_REDIRECT: {

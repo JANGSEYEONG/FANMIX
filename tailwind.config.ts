@@ -162,6 +162,11 @@ const config: Config = {
           lineHeight: '1.4',
           fontWeight: '600',
         },
+        '.h1-m': {
+          fontSize: '24px',
+          lineHeight: '1.4',
+          fontWeight: '500',
+        },
         '.h2-r': {
           fontSize: '20px',
           lineHeight: '1.2',

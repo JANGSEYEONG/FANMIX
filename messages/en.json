@@ -91,6 +91,15 @@
     "소통": "ENG",
     "신뢰": "AUTH"
   },
+  "main_slide_menu": {
+    "인플루언서 찾기": "Find Influencers",
+    "에디터's PICK": "Editor's PICK",
+    "한줄 리뷰": "Short Review",
+    "팬채널": "Fan Channel",
+    "커뮤니티": "Community",
+    "고객센터": "Customer Service",
+    "19+ 모드": "Adult Mode"
+  },
   "comment_card": {
     "팬채널": "Fan Channel",
     "커뮤니티": "Community"
