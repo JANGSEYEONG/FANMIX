@@ -74,7 +74,7 @@ export default function InfluencerPage({
         <BestReviewCard />
       </section>
       <nav className="px-5">
-        <Button className="w-full" variant="outline">
+        <Button className="w-full body3-r" variant="outline">
           {t('한줄리뷰 전체보기')}
         </Button>
       </nav>

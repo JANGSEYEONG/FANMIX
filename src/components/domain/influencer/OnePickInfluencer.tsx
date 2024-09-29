@@ -29,7 +29,7 @@ const OnePickInfluencer = ({ onePickData, isOthersPick = false }: OnePickInfluen
         </h2>
         <h3 className="mb-2.5 body2-sb">{onePickData.influencerName}</h3>
         <InfluencerTagList contents={['음악', '보컬', '연예인']} className="mb-5" />
-        <Button className="h-8 w-full" variant="destructive">
+        <Button className="h-8 w-full body3-m" variant="destructive">
           {t('팬채널로 이동')}
         </Button>
       </div>

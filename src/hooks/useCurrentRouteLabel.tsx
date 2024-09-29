@@ -13,10 +13,16 @@ const useCurrentRouteLabel = (): [RouteLabel, boolean, HeaderColor] => {
   const pathname = usePathname();
   const currentRoot = getRootPath(pathname);
 
-  const currentRoute: RouteValue | undefined = Object.values(ROUTES).find(
-    (route) =>
-      route.ROOT === currentRoot && route.PATH.split('/').length === pathname.split('/').length, // ROOT, 세그먼트 개수 비교
+  let currentRoute: RouteValue | undefined = Object.values(ROUTES).find(
+    (route) => route.PATH === pathname,
   );
+
+  if (!currentRoute) {
+    currentRoute = Object.values(ROUTES).find(
+      (route) =>
+        route.ROOT === currentRoot && route.PATH.split('/').length === pathname.split('/').length, // ROOT, 세그먼트 개수 비교
+    );
+  }
 
   if (currentRoute) {
     return [

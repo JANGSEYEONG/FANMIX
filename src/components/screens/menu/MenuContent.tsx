@@ -1,64 +1,80 @@
-'use client';
+import { cn } from '@/lib/utils';
+import { SheetClose } from '@/components/ui/sheet';
 
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
+
+import { Fragment } from 'react';
+
+import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
 import { ROUTES } from '@/constants/routes';
-import { Link } from '@/i18n/routing';
-import { Switch } from '@/components/ui/switch';
-import { useTranslations } from 'next-intl';
-import React, { useState } from 'react';
 
-const MenuContent: React.FC = () => {
+const MenuContent = () => {
   const t = useTranslations('main_slide_menu');
   const linkList = [
-    { label: t('인플루언서 찾기'), path: ROUTES.INFLUENCER_INDEX.PATH },
-    { label: t("에디터's PICK"), path: '' },
-    { label: t('한줄 리뷰'), path: ROUTES.SHORT_REVIEW.PATH },
-    { label: t('팬채널'), path: ROUTES.FAN_CHANNEL_INDEX.PATH },
-    { label: t('커뮤니티'), path: ROUTES.COMMUNITY_INDEX.PATH },
-    { label: t('고객센터'), path: ROUTES.CUSTOMER_CENTER.PATH },
+    {
+      label: t('인플루언서 찾기'),
+      path: ROUTES.INFLUENCER_INDEX.PATH,
+      hasSeparator: false,
+      isReleased: true,
+    },
+    { label: t("에디터's PICK"), path: '/editors', hasSeparator: true, isReleased: false },
+    { label: t('한줄 리뷰'), path: '/reviews', hasSeparator: false, isReleased: false },
+    {
+      label: t('팬채널'),
+      path: ROUTES.FAN_CHANNEL_INDEX.PATH,
+      hasSeparator: false,
+      isReleased: true,
+    },
+    {
+      label: t('커뮤니티'),
+      path: ROUTES.COMMUNITY_INDEX.PATH,
+      hasSeparator: false,
+      isReleased: true,
+    },
+    {
+      label: t('고객센터'),
+      path: ROUTES.CUSTOMER_CENTER.PATH,
+      hasSeparator: true,
+      isReleased: true,
+    },
   ];
 
-  const adultMode = { label: t('19+ 모드') };
-  // 19+ 모드 토글 alert창
-  const [isAdultModeOn, setIsAdultModeOn] = useState(false);
-  const handleSwitchChange = (checked: boolean) => {
-    setIsAdultModeOn(checked);
-    alert('아직 준비 중인 서비스입니다.');
-  };
-
-  const handleEditorsPick = () => {
-    alert('준비 중인 기능입니다.');
+  const handleClickUnreleased = () => {
+    alert('아직 준비중인 기능이에요.');
   };
   return (
     <div>
       <section aria-label="메뉴 리스트">
-        <ul className="list-none">
-          {linkList.map((linkItem, index) => (
-            <React.Fragment key={index}>
-              {linkItem.label === t("에디터's PICK") ? (
-                <li className="ml-[22px] cursor-pointer pb-[30px] h1-m" onClick={handleEditorsPick}>
-                  {linkItem.label}
-                </li>
+        <ul className="h1-m">
+          {linkList.map(({ path, label, hasSeparator, isReleased }) => (
+            <Fragment key={path}>
+              {isReleased ? (
+                <SheetClose asChild>
+                  <Link href={path}>
+                    <li className={cn('px-[22px]', hasSeparator ? 'mb-10' : 'mb-[30px]')}>
+                      {label}
+                    </li>
+                  </Link>
+                </SheetClose>
               ) : (
-                <Link href={linkItem.path}>
-                  <li className="ml-[22px] pb-[30px] h1-m">{linkItem.label}</li>
-                </Link>
+                <li
+                  className={cn('cursor-pointer px-[22px]', hasSeparator ? 'mb-10' : 'mb-[30px]')}
+                  onClick={handleClickUnreleased}>
+                  {label}
+                </li>
               )}
-              {index === 1 || index === 5 ? (
-                <Separator className="mb-[40px] mt-2.5 opacity-30" />
-              ) : null}
-            </React.Fragment>
+              {hasSeparator && <Separator className="my-[40px] mt-2.5 opacity-30" />}
+            </Fragment>
           ))}
         </ul>
       </section>
-
-      <section
-        aria-label="19+ 모드 토글"
-        className="my-[42px] flex items-center justify-between body1-m">
-        <span className="ml-[22px] body1-m">{adultMode.label}</span>
-        <div className="gap-2.5 flex-center">
-          <span className="body1-sb"> {isAdultModeOn ? 'ON' : 'OFF'}</span>
-          <Switch id="adult_mode" checked={isAdultModeOn} onCheckedChange={handleSwitchChange} />
+      <section aria-label="19+ 모드 토글" className="flex items-center justify-between">
+        <span className="pl-[22px] text-neutral-200 body1-m">{t('19+ 모드')}</span>
+        <div className="gap-2 flex-center">
+          <span className="text-neutral-200 body1-sb">OFF</span>
+          <Switch disabled />
         </div>
       </section>
     </div>

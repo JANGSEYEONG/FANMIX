@@ -94,11 +94,12 @@
   "main_slide_menu": {
     "인플루언서 찾기": "Find Influencers",
     "에디터's PICK": "Editor's PICK",
-    "한줄 리뷰": "Short Review",
+    "한줄 리뷰": "One-line Review",
     "팬채널": "Fan Channel",
     "커뮤니티": "Community",
     "고객센터": "Customer Service",
-    "19+ 모드": "Adult Mode"
+    "19+ 모드": "18+ Content",
+    "로그인 하기": "Log in"
   },
   "comment_card": {
     "팬채널": "Fan Channel",

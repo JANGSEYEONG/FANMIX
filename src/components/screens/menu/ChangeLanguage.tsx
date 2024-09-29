@@ -1,24 +1,29 @@
+import { cn } from '@/lib/utils';
 import { VscGlobe } from 'react-icons/vsc';
-import { Link, usePathname } from '@/i18n/routing';
+
 import { useLocale } from 'next-intl';
+import { Link, usePathname } from '@/i18n/routing';
+
+const LOCALES = [
+  { code: 'ko', label: 'KR' },
+  { code: 'en', label: 'EN' },
+] as const;
 
 const ChangeLanguage = () => {
   const pathname = usePathname();
   const currentLocale = useLocale();
-
-  const getLinkStyle = (locale: string) => {
-    return `${currentLocale === locale ? 'text-white' : 'text-neutral-300'} hover:cursor-pointer`;
-  };
-
   return (
-    <div className="flex items-center gap-2 h2-sb">
+    <div className="mt-2.5 flex items-center gap-2 h2-sb">
       <VscGlobe className="h-6 w-6" />
-      <Link href={pathname} locale="ko" className={getLinkStyle('ko')}>
-        KR
-      </Link>
-      <Link href={pathname} locale="en" className={getLinkStyle('en')}>
-        EN
-      </Link>
+      {LOCALES.map(({ code, label }) => (
+        <Link
+          key={code}
+          href={pathname}
+          locale={code}
+          className={cn('cursor-pointer text-neutral-300', currentLocale !== code && 'opacity-50')}>
+          {label}
+        </Link>
+      ))}
     </div>
   );
 };

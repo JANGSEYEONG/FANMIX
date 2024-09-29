@@ -29,14 +29,25 @@ const useGoogleLogin = () => {
 
   const handleSuccessLogin = useCallback(
     (loginResult: LoginResponse) => {
-      const { accessToken, refreshToken, isFirstLogin, ...user } = loginResult.data;
+      const { jwt: accessToken, member } = loginResult.data;
 
       // 받아온 user 정보 authStore, userStore에 저장하기
-      setLogin(accessToken, refreshToken);
-      setUser(user);
+      setLogin(accessToken, member.refreshToken);
+      setUser({
+        userId: member.id.toString(),
+        nickName: member.nickName,
+        email: member.email,
+        birthYear: member.birthYear,
+        gender: member.gender,
+        introduce: member.introduce,
+        nationality: member.nationality,
+        profileImgUrl: member.profileImgUrl,
+        role: member.role,
+        totalPoint: member.totalPoint,
+      });
 
       // 최초 로그인 여부에 따라 라우팅 분기 처리
-      if (isFirstLogin) {
+      if (member.firstLoginYn) {
         openModal(<SignUpSuccess />);
       } else {
         router.push(ROUTES.HOME.PATH);

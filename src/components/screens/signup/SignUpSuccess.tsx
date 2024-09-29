@@ -30,11 +30,13 @@ const SignUpSuccess = () => {
       <nav className="mb-[70px] w-full gap-3 flex-col-center">
         <Button
           variant="destructive"
-          className="h-12 w-full"
+          className="h-12 w-full body3-m"
           onClick={() => navigateAndCloseModal(ROUTES.MYPAGE_EDIT.PATH)}>
           {t('닉네임 설정하러 가기')}
         </Button>
-        <Button className="h-12 w-full" onClick={() => navigateAndCloseModal(ROUTES.HOME.PATH)}>
+        <Button
+          className="h-12 w-full body3-r"
+          onClick={() => navigateAndCloseModal(ROUTES.HOME.PATH)}>
           {t('나중에 하기')}
         </Button>
       </nav>

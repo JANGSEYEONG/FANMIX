@@ -9,5 +9,5 @@ export interface User {
   nationality: string;
   profileImgUrl: string;
   role: string;
-  totalPoint: string;
+  totalPoint: number;
 }
