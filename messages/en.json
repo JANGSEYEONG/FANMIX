@@ -64,7 +64,7 @@
     "내 한줄 리뷰": "My Reviews",
     "내 글": "My Posts",
     "내 댓글": "My Comments",
-    "모든 내용을 확인했습니다": "You've seen all the content."
+    "모든 내용을 확인했어요": "You've seen all the content."
   },
   "user_page": {
     "한줄 리뷰": "Reviews",
@@ -84,12 +84,13 @@
     "리뷰 평균": "Average Review",
     "BEST 리뷰": "BEST Review",
     "리뷰 {reviewsCount}개 중": "Out of {reviewsCount} reviews",
-    "한줄리뷰 전체보기": "View All One-Line Reviews"
+    "한줄리뷰 전체보기": "View All One-Line Reviews",
+    "이 섹션에서는 인플루언서가 자신의 콘텐츠 스타일을 직접 지정한 내용을 확인할 수 있어요": "In this section, you can see\nthe content style that the influencer\nhas directly specified for themselves."
   },
   "influencer_rating_bar": {
-    "콘텐츠": "CQ",
-    "소통": "ENG",
-    "신뢰": "AUTH"
+    "콘텐츠": "CNT",
+    "소통": "COM",
+    "신뢰": "TST"
   },
   "main_slide_menu": {
     "인플루언서 찾기": "Find Influencers",
@@ -109,6 +110,24 @@
     "MY ONE PICK": "MY ONE PICK",
     "ONE PICK": "ONE PICK",
     "팬채널로 이동": "Go to Fan Channel"
+  },
+  "review_form": {
+    "한줄리뷰 수정하기": "Edit your one-line review",
+    "한줄리뷰 남기기": "Write a one-line review",
+    "인플루언서의 개인 신상과 관련된 내용 또는 허위, 추측성, 원색적인 비난이 포함된 내용은 사전 고지 없이 삭제 될 수 있어요": "Content related to the influencer's personal information or including false,\nspeculative, or abusive criticism\nmay be deleted without prior notice.",
+    "한번 남긴 한줄 리뷰는 15일 이내에 삭제가 가능합니다 가장 최근에 남긴 리뷰만 점수에 반영됩니다": "One-line reviews can be deleted within 15 days.\nOnly the most recent review will be reflected in the score.",
+    "한줄리뷰가 수정되었어요": "Your one-line review\nhas been updated.",
+    "한줄리뷰가 등록되었어요": "Your one-line review\nhas been submitted.",
+    "확인": "Confirm",
+    "콘텐츠": "Content",
+    "소통": "Communication",
+    "신뢰": "Trust"
+  },
+  "review_view": {
+    "내 한줄리뷰": "My One-line Review",
+    "삭제하기": "Delete",
+    "수정하기": "Edit",
+    "리뷰 작성 후 15일이 경과하여 수정, 삭제가 불가합니다": "Modifications and deletions are not possible as 15 days have passed since the review was written."
   },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",

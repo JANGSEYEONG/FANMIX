@@ -35,3 +35,10 @@ export interface InfluencerReview {
   interaction: InteractionStat;
   createdAt: Date; // 생성일
 }
+
+export const REVIEW_MODE = {
+  VIEW: 'VIEW',
+  CREATE: 'CREATE',
+  EDIT: 'EDIT',
+} as const;
+export type ReviewMode = keyof typeof REVIEW_MODE;

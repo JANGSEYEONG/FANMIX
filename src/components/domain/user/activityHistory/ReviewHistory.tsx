@@ -20,7 +20,7 @@ const ReviewHistory = ({ reviews }: ReviewHistoryProps) => {
         ))}
       </ul>
       <div className="mb-8 mt-7 text-center text-neutral-500 body3-r">
-        {t('모든 내용을 확인했습니다')}
+        {t('모든 내용을 확인했어요')}
       </div>
     </div>
   );

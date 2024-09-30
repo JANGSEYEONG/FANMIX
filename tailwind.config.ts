@@ -168,6 +168,10 @@ const config: Config = {
           'backdrop-filter': 'blur(4px)',
           'box-shadow': '0 4px 4px 0px rgba(0,0,0,0.25)',
         },
+        '.blur-22-shadow': {
+          'backdrop-filter': 'blur(22px)',
+          'box-shadow': '1px 3px 15px 0px rgba(0,0,0,0.5)',
+        },
         // #20240919.syjang, text fonSize 확장에서 유틸리티 클래스로 변경 (색상 지정과 동시에 쓸 때 충돌)
         // Typo
         '.h1-sb': {

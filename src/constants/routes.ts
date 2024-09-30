@@ -134,6 +134,15 @@ export const ROUTES = {
     HIDE_TITLE: true,
     HIDE_RIGHT_NAV: true,
   },
+  INFLUENCER_REVIEW_LIST: {
+    ROOT: '/influencer',
+    PATH: '/influencer/[influencerId]/reviews',
+    LABEL: '인플루언서',
+    HAS_PREV_BTN: true,
+    HEADER_COLOR: '#FF5B46',
+    HIDE_TITLE: true,
+    HIDE_RIGHT_NAV: true,
+  },
   INFLUENCER_REVIEW: {
     ROOT: '/influencer',
     PATH: '/influencer/[influencerId]/[reviewId]',

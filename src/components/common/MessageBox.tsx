@@ -1,6 +1,5 @@
 'use client';
 
-import { splitTextEvenly } from '@/lib/text';
 import { cn } from '@/lib/utils';
 import { useModalStore } from '@/stores/modalStore';
 
@@ -31,7 +30,7 @@ const MessageBox = ({ title, description, layout = 'horizontal', buttons }: Mess
               'whitespace-pre-wrap text-center text-white',
               hasDescription ? 'body1-sb' : 'body1-m',
             )}>
-            {title.length < 15 ? title : splitTextEvenly(title)}
+            {title}
           </h1>
           {hasDescription && (
             <p className="overflow-wrap-anywhere whitespace-pre-wrap break-words text-center text-neutral-200 body3-r">
