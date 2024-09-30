@@ -146,7 +146,6 @@ const config: Config = {
         // 스크롤 감지가 되어야하는 페이지 영역 최상단에 추가
         '.page-scrollable-container': {
           'overflow-y': 'auto',
-          'padding-bottom': '5rem', // pb-20
           '-ms-overflow-style': 'none',
           'scrollbar-width': 'none',
           'scroll-behavior': 'smooth',

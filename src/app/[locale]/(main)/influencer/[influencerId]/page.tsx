@@ -42,7 +42,7 @@ export default function InfluencerPage({
   const t = useTranslations('influencer_page');
   console.log('InfluencerPage:' + influencerId);
   return (
-    <div>
+    <div className="pb-20">
       <section aria-label="인플루언서 정보" className="mb-10 flex flex-col gap-2.5">
         <InfluencerProfileCard />
       </section>

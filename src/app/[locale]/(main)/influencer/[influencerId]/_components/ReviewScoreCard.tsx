@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
+import FilledBarRating from '@/components/domain/influencer/FilledBarRating';
 
 const MAX_SCORE = 10;
 
@@ -32,7 +33,7 @@ const ReviewScoreCard = () => {
               <label htmlFor={`score-${metric.label}`}>{metric.label}</label>
             </div>
             <div className="flex items-center">
-              <ScoreBar score={metric.score} />
+              <FilledBarRating score={metric.score} maxScore={MAX_SCORE} />
             </div>
           </li>
         ))}
@@ -42,25 +43,3 @@ const ReviewScoreCard = () => {
 };
 
 export default ReviewScoreCard;
-
-interface ScoreBarProps {
-  score: number;
-}
-const ScoreBar = ({ score }: ScoreBarProps) => {
-  return (
-    <div className="flex items-center gap-[3px]">
-      {[...Array(MAX_SCORE)].map((_, index) => (
-        <div
-          key={index}
-          className={cn(
-            'relative h-[3px] w-2.5',
-            index < score ? 'bg-orange-600' : 'bg-neutral-600',
-          )}>
-          {index + 1 === score && (
-            <div className="absolute bottom-[4px] right-0 text-orange-500 sub1-m">{index + 1}</div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-};

@@ -18,5 +18,7 @@ export default function CommunityPostPage({
 }: {
   params: { communityId: string; postId: string };
 }) {
-  return <div>{`${communityId} 번 커뮤니티의, ${postId}번째 글 상세보기`}</div>;
+  return (
+    <div className="pb-20 pt-[35px]">{`${communityId} 번 커뮤니티의, ${postId}번째 글 상세보기`}</div>
+  );
 }

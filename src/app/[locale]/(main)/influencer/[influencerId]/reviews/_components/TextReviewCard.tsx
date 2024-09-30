@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 
-import MetricsText from './MetricsText';
+import MetricsText from '@/components/domain/influencer/MetricsText';
 import InteractionStats from '@/components/domain/board/InteractionStats';
 import { formatDateToYYMMDD } from '@/lib/date';
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';

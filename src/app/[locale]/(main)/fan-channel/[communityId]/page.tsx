@@ -19,5 +19,7 @@ export default function FanChannelPage({
 }: {
   params: { communityId: string };
 }) {
-  return <div>{`인플루언서의 팬채널인 ${communityId}번 커뮤니티의 글 목록 페이지`}</div>;
+  return (
+    <div className="pb-20 pt-[35px]">{`인플루언서의 팬채널인 ${communityId}번 커뮤니티의 글 목록 페이지`}</div>
+  );
 }

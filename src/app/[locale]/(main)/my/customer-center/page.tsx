@@ -37,7 +37,7 @@ export default function CustomerCenterPage() {
     },
   ];
   return (
-    <div className="w-full pt-7">
+    <div className="w-full pb-20 pt-7">
       <section aria-label="고객센터 리스트" className="mx-5 flex flex-col gap-[25px] body2-r">
         {linkList.map((linkItem, index) => (
           <Fragment key={linkItem.label}>

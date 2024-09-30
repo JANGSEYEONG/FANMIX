@@ -56,7 +56,7 @@ export default function UserProfilePage({ params: { userId } }: { params: { user
   ];
 
   return (
-    <div className="h-full w-full overflow-y-auto pt-[35px] scrollbar-hide-smooth">
+    <div className="h-full w-full overflow-y-auto pb-20 pt-[35px] scrollbar-hide-smooth">
       <section
         aria-label={`${userData.userNickName}의 프로필`}
         className="sticky top-0 z-10 bg-black px-5 pb-4 pt-5">
@@ -70,7 +70,7 @@ export default function UserProfilePage({ params: { userId } }: { params: { user
       </section>
       <section
         aria-label={`${userData.userNickName}의 활동내역`}
-        className="sticky top-0 mx-5 h-[calc(100%-130px)]">
+        className="sticky top-0 mx-5 h-[calc(100%-110px)]">
         <SlideBarTabs tabs={tabs} defaultValue="1" />
       </section>
     </div>

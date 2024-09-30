@@ -30,7 +30,7 @@ export default function MyPageEditPage() {
   };
 
   return (
-    <div className="w-full pt-[35px]">
+    <div className="w-full pb-20 pt-[35px]">
       <section aria-label="유저 프로필 사진 설정" className="mb-9 gap-[18px] pt-9 flex-col-center">
         <UserAvatar size={82} editable imageSrc={data.imageSrc} userNickName={data.userNickName} />
         <div className="flex gap-1 flex-col-center">

@@ -14,5 +14,5 @@ export async function generateMetadata({
 }
 
 export default function InfluencerIndexPage() {
-  return <div>인플루언서 찾기 페이지 (인플루언서 리스트 뜨고, 정렬)</div>;
+  return <div className="pb-20">인플루언서 찾기 페이지 (인플루언서 리스트 뜨고, 정렬)</div>;
 }

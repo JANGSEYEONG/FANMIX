@@ -16,9 +16,12 @@ import { MainNotification, MainSearch, MainSlideMenu } from '../screens';
 
 const Header = () => {
   const t = useTranslations('top_title');
-  const [currentLabel, hasPrevButton, hideTitle, hideRightNav] = useCurrentRouteLabel();
+  const { currentLabel, hasPrevButton, hideTitle, hideRightNav, headerColor } =
+    useCurrentRouteLabel();
   return (
-    <header className="absolute left-0 top-0 z-10 flex h-[35px] w-full flex-shrink-0 items-end justify-between pr-5 blur-10">
+    <header
+      className="absolute left-0 top-0 z-10 flex h-[35px] w-full flex-shrink-0 items-end justify-between pr-5 blur-10"
+      style={{ backgroundColor: headerColor }}>
       {/* 좌측 타이틀/로고 영역 */}
       <div className={cn('flex items-center gap-1', hasPrevButton ? 'pl-3.5' : 'pl-5')}>
         {hasPrevButton && <GoBackButton variant="prev" />}

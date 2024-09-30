@@ -18,5 +18,5 @@ export default function CommunityPage({
 }: {
   params: { communityId: string };
 }) {
-  return <div>{`${communityId}번 커뮤니티 페이지 (글 리스트)`}</div>;
+  return <div className="pb-20 pt-[35px]">{`${communityId}번 커뮤니티 페이지 (글 리스트)`}</div>;
 }

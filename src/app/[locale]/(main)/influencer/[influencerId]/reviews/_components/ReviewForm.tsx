@@ -23,7 +23,7 @@ interface ReviewFormProps {
 
 const ReviewForm = ({ setReviewMode, defaultReviewData }: ReviewFormProps) => {
   const t = useTranslations('review_form');
-  const { register, handleSubmit, onSubmit, isValid, handleClickMetric, metricList } =
+  const { register, handleSubmit, onSubmit, onError, isValid, handleClickMetric, metricList } =
     useReviewForm(setReviewMode, !!defaultReviewData, defaultReviewData);
 
   return (
@@ -39,7 +39,7 @@ const ReviewForm = ({ setReviewMode, defaultReviewData }: ReviewFormProps) => {
         />
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
         <div className="mb-2.5 flex h-[76px] w-full">
           <textarea
             {...register('reviewContent')}
@@ -50,7 +50,6 @@ const ReviewForm = ({ setReviewMode, defaultReviewData }: ReviewFormProps) => {
           />
           <button
             type="submit"
-            disabled={!isValid}
             className={cn(
               'h-full w-10 flex-shrink-0 flex-center',
               isValid ? 'fanmix-gradient' : 'cursor-not-allowed bg-neutral-400',
@@ -62,6 +61,7 @@ const ReviewForm = ({ setReviewMode, defaultReviewData }: ReviewFormProps) => {
           {metricList.map((metric) => (
             <button
               key={metric.key}
+              type="button"
               className={cn(
                 'box-border h-[34px] flex-1 gap-[5px] border flex-center body3-r',
                 metric.score > 0 ? 'border-orange-500' : 'border-neutral-400 text-neutral-400',

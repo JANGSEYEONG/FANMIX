@@ -20,6 +20,6 @@ export default function FanChannelPostPage({
   params: { communityId: string; postId: string };
 }) {
   return (
-    <div>{`인플루언서의 팬채널인 ${communityId}번 커뮤니티의, ${postId}번째 글 상세 페이지`}</div>
+    <div className="pb-20 pt-[35px]">{`인플루언서의 팬채널인 ${communityId}번 커뮤니티의, ${postId}번째 글 상세 페이지`}</div>
   );
 }

@@ -28,7 +28,7 @@ const ScoreSelectBox = ({
 
   return (
     <div
-      className="absolute left-0 top-0 z-20 h-full w-full bg-black/70 flex-center"
+      className="absolute left-0 top-0 z-20 h-full w-full animate-fadeIn bg-black/70 flex-center"
       onClick={handleOutsideClick}>
       <ScrollArea className="mx-[100px] h-72 w-full rounded-[6px] border border-neutral-600 bg-neutral-900/90 p-4 blur-22-shadow">
         <h2 className="mb-4 body1-sb">{title}</h2>

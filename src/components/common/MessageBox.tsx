@@ -3,10 +3,11 @@
 import { cn } from '@/lib/utils';
 import { useModalStore } from '@/stores/modalStore';
 
-// 액션 버튼 필요 요소 정의
+type ActionButtonColor = 'lime' | 'orange' | 'gray' | 'white';
+
 interface ActionButtonConfig {
   text: string;
-  variant: 'primary' | 'secondary' | 'cancel';
+  color: ActionButtonColor;
   onClick?: () => void;
 }
 
@@ -64,25 +65,27 @@ interface ActionButtonProps extends ActionButtonConfig {
 }
 const ActionButton = ({
   text,
-  variant,
+  color,
   onClick,
   hasBottomLine = false,
   hasRightLine = false,
 }: ActionButtonProps) => {
   const closeModal = useModalStore((state) => state.closeModal);
-  const getTextClass = (variant: ActionButtonConfig['variant']) => {
+  const getTextClass = (variant: ActionButtonConfig['color']) => {
     switch (variant) {
-      case 'primary':
+      case 'lime':
         return 'text-lime-400';
-      case 'secondary':
+      case 'orange':
         return 'text-orange-600';
-      case 'cancel':
+      case 'white':
+        return 'text-white';
+      case 'gray':
         return 'text-neutral-300 body1-m';
       default:
         return '';
     }
   };
-  const textClass = getTextClass(variant);
+  const textClass = getTextClass(color);
   const handleClickButton = () => {
     // 버튼 클릭 시, 모달을 닫고 콜백함수 실행
     closeModal();

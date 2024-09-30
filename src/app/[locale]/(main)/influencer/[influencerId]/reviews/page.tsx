@@ -26,7 +26,7 @@ export default function InfluencerReviewListPage({
 }) {
   console.log('InfluencerReviewListPage:' + influencerId);
   return (
-    <div>
+    <div className="pb-20">
       <section
         aria-label="인플루언서 정보"
         className="sticky top-0 flex flex-col gap-2.5 bg-black pb-8">

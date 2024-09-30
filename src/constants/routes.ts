@@ -8,6 +8,7 @@ export const ROUTES = {
     HAS_PREV_BTN: false,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
 
   // 팔로우
@@ -18,6 +19,7 @@ export const ROUTES = {
     HAS_PREV_BTN: false,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
 
   // 커뮤니티
@@ -28,6 +30,7 @@ export const ROUTES = {
     HAS_PREV_BTN: false,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
   COMMUNITY: {
     ROOT: '/community',
@@ -36,6 +39,7 @@ export const ROUTES = {
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
   COMMUNITY_POST: {
     ROOT: '/community',
@@ -44,6 +48,7 @@ export const ROUTES = {
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
 
   // 팬채널
@@ -54,6 +59,7 @@ export const ROUTES = {
     HAS_PREV_BTN: false,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
   FAN_CHANNEL: {
     ROOT: '/fan-channel',
@@ -62,6 +68,7 @@ export const ROUTES = {
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
   FAN_CHANNEL_POST: {
     ROOT: '/fan-channel',
@@ -70,6 +77,7 @@ export const ROUTES = {
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
 
   // 마이페이지
@@ -80,6 +88,7 @@ export const ROUTES = {
     HAS_PREV_BTN: false,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
   MYPAGE_EDIT: {
     ROOT: '/my',
@@ -88,6 +97,7 @@ export const ROUTES = {
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
   MY_ACTIVITY_HISTORY: {
     ROOT: '/my',
@@ -96,6 +106,7 @@ export const ROUTES = {
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
   CUSTOMER_CENTER: {
     ROOT: '/my',
@@ -104,6 +115,7 @@ export const ROUTES = {
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
 
   // 타 유저 프로필
@@ -112,8 +124,10 @@ export const ROUTES = {
     PATH: '/user/[userId]',
     LABEL: '유저 정보',
     HAS_PREV_BTN: true,
+    HEADER_COLOR: '#000000',
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
 
   // 인플루언서
@@ -124,32 +138,34 @@ export const ROUTES = {
     HAS_PREV_BTN: false,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
   INFLUENCER: {
     ROOT: '/influencer',
     PATH: '/influencer/[influencerId]',
     LABEL: '인플루언서',
     HAS_PREV_BTN: true,
-    HEADER_COLOR: '#FF5B46',
     HIDE_TITLE: true,
     HIDE_RIGHT_NAV: true,
+    HIDE_BOTTOM_NAV: false,
   },
   INFLUENCER_REVIEW_LIST: {
     ROOT: '/influencer',
     PATH: '/influencer/[influencerId]/reviews',
     LABEL: '인플루언서',
     HAS_PREV_BTN: true,
-    HEADER_COLOR: '#FF5B46',
     HIDE_TITLE: true,
     HIDE_RIGHT_NAV: true,
+    HIDE_BOTTOM_NAV: false,
   },
   INFLUENCER_REVIEW: {
     ROOT: '/influencer',
-    PATH: '/influencer/[influencerId]/[reviewId]',
+    PATH: '/influencer/[influencerId]/review/[reviewId]',
     LABEL: '한줄 리뷰',
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: true,
   },
 
   // 로그인
@@ -160,6 +176,7 @@ export const ROUTES = {
     HAS_PREV_BTN: false,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
   LOGIN_REDIRECT: {
     ROOT: '/auth',
@@ -168,6 +185,7 @@ export const ROUTES = {
     HAS_PREV_BTN: false,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
   },
 } as const;
 
@@ -182,6 +200,7 @@ type BaseRouteValue = {
   HEADER_COLOR?: string; // 선택적 속성으로 정의
   HIDE_TITLE: boolean;
   HIDE_RIGHT_NAV: boolean;
+  HIDE_BOTTOM_NAV: boolean;
 };
 
 // ROUTES 객체의 값 타입을 추출 (HEADER_COLOR를 선택적으로 포함)

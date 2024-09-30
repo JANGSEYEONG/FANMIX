@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 
 import { Button } from '@/components/ui/button';
-import MetricsText from './MetricsText';
+import MetricsText from '@/components/domain/influencer/MetricsText';
 
 import { type ReviewMode, REVIEW_MODE } from '@/types/domain/influencerType';
 import { useTranslations } from 'next-intl';

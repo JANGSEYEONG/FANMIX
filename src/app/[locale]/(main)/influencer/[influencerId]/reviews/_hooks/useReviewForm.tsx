@@ -12,6 +12,7 @@ import MessageBox from '@/components/common/MessageBox';
 import ScoreSelectBox from '../_components/ScoreSelectBox';
 
 import { REVIEW_MODE, type ReviewMode } from '@/types/domain/influencerType';
+import useInformationToast from '@/hooks/useInformationToast';
 
 const reviewSchema = z.object({
   reviewContent: z.string().min(1),
@@ -30,6 +31,7 @@ const useReviewForm = (
 ) => {
   const t = useTranslations('review_form');
   const { openModal, closeModal } = useModalStore();
+  const { showErrorToast } = useInformationToast();
 
   const {
     register,
@@ -60,6 +62,13 @@ const useReviewForm = (
     setReviewMode(REVIEW_MODE.VIEW);
   };
 
+  const onError = () => {
+    showErrorToast(
+      t('리뷰를 완성해 주세요'),
+      t('내용과 모든 항목의 점수를 입력해야 한줄 리뷰를 등록할 수 있습니다'),
+    );
+  };
+
   const handleSelectMetricScore = (metricKey: MetricKey, selectScore: number) => {
     setValue(metricKey, selectScore, { shouldValidate: true });
     closeModal();
@@ -85,7 +94,7 @@ const useReviewForm = (
     openModal(
       <MessageBox
         title={isModify ? t('한줄리뷰가 수정되었어요') : t('한줄리뷰가 등록되었어요')}
-        buttons={[{ text: t('확인'), variant: 'primary' as const }]}
+        buttons={[{ text: t('확인'), color: 'lime' }]}
       />,
     );
   };
@@ -94,6 +103,7 @@ const useReviewForm = (
     register,
     handleSubmit,
     onSubmit,
+    onError,
     isValid,
     handleClickMetric,
     metricList,

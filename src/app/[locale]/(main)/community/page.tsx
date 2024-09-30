@@ -14,5 +14,5 @@ export async function generateMetadata({
 }
 
 export default function CommunityIndexPage() {
-  return <div>커뮤니티 종류와 전체 종합 글이 나오는 페이지</div>;
+  return <div className="pb-20 pt-[35px]">커뮤니티 종류와 전체 종합 글이 나오는 페이지</div>;
 }
