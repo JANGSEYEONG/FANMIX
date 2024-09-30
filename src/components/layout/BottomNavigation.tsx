@@ -7,8 +7,11 @@ import { cn } from '@/lib/utils';
 import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
+import { LiaAngleUpSolid } from 'react-icons/lia';
+
 import { getRootPath } from '@/lib/text';
 
+import useMainScrollTop from './hooks/useMainScrollTop';
 import useBottomNavigationState from './hooks/useBottomNavigationState';
 
 interface BottomNavigationProps {
@@ -20,6 +23,7 @@ const BottomNavigation = ({ mainRef }: BottomNavigationProps) => {
   const pathname = usePathname();
   const currentRoot = getRootPath(pathname);
   const { bottomNavigationItems, isVisible } = useBottomNavigationState(mainRef);
+  const { handleScrollToTop } = useMainScrollTop(mainRef); // 최상단으로 스크롤하는 함수
 
   return (
     <nav
@@ -39,6 +43,12 @@ const BottomNavigation = ({ mainRef }: BottomNavigationProps) => {
           </Link>
         );
       })}
+      <button
+        aria-label="최상단 이동 버튼"
+        className="absolute right-5 top-[-84px] h-[60px] w-[60px] rounded-full bg-orange-700/70 flex-center"
+        onClick={handleScrollToTop}>
+        <LiaAngleUpSolid className="h-[22px] w-[22px]" />
+      </button>
     </nav>
   );
 };

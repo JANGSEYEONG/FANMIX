@@ -19,8 +19,8 @@ const ReviewScoreCard = () => {
       <figure className="relative w-[88px] pb-6">
         <div className="text-[50px] font-semibold leading-[70px] text-orange-500">{average}</div>
         <figcaption
-          className={cn('absolute bottom-[5px] right-[10px]', average > 9 && 'right-[-5px]')}>
-          <div className="absolute left-[-40px] top-[-10px] h-[1px] w-[50px] rotate-[-45deg] transform bg-white/50" />
+          className={cn('absolute bottom-[5px] right-2.5', average > 9 && 'right-[-5px]')}>
+          <div className="absolute -left-10 -top-2.5 h-[1px] w-[50px] rotate-[-45deg] transform bg-white/50" />
           <span className="text-white/50 h2-m">{MAX_SCORE}</span>
         </figcaption>
       </figure>
