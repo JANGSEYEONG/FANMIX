@@ -1,12 +1,12 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import FilledBarRating from '@/components/domain/influencer/FilledBarRating';
+import FilledRatingBar from '@/components/domain/influencer/FilledRatingBar';
 import { useTranslations } from 'next-intl';
 import InfluencerActionMenu from './InfluencerActionMenu';
 import { Link } from '@/i18n/routing';
-import AuthenticatedBadge from '@/components/common/AuthenticatedBadge';
 import { formatDateToYYMMDD } from '@/lib/date';
+import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
 
 interface FollowInfluencerCardProps {
   isOnePick?: boolean;
@@ -58,7 +58,7 @@ const FollowInfluencerCard = ({
               <span className="leading-6 text-orange-500 h1-sb-leading-0">8</span>
               <span className="text-white/50 sub1-r">/ 10</span>
             </div>
-            <FilledBarRating maxScore={10} score={8} hideScore />
+            <FilledRatingBar maxScore={10} score={8} hideScore />
           </div>
           <Button
             variant="destructive"

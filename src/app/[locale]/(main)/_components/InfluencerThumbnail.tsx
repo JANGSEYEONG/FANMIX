@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 
 import { useId } from 'react';
+import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
 
-import AuthenticatedBadge from '@/components/common/AuthenticatedBadge';
 export interface InfluencerThumbnailProps {
   influencerId: string;
   influencerName: string;

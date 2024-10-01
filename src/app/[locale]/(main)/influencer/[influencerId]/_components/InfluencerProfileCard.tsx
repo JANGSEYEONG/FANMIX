@@ -5,7 +5,7 @@ import { Separator } from '@/components/ui/separator';
 import { LiaBookmark } from 'react-icons/lia';
 
 import { InfluencerTagList } from '@/components/domain/influencer/InfluencerTagList';
-import AuthenticatedBadge from '@/components/common/AuthenticatedBadge';
+import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
 
 // 20240929.syjang, 컴포넌트 정리 필요
 const InfluencerProfileCard = () => {

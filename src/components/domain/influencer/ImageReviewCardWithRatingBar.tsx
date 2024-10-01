@@ -10,12 +10,15 @@ import InteractionStats from '../board/InteractionStats';
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 import type { InfluencerReview } from '@/types/domain/influencerType';
 
-interface InfluencerReviewCardProps {
+interface ImageReviewCardWithRatingBarProps {
   data: InfluencerReview;
   isPopular?: boolean;
 }
 
-const InfluencerReviewCard = ({ data, isPopular = false }: InfluencerReviewCardProps) => {
+const ImageReviewCardWithRatingBar = ({
+  data,
+  isPopular = false,
+}: ImageReviewCardWithRatingBarProps) => {
   return (
     <article
       aria-label={`${data.influencer.name}에 대한 리뷰`}
@@ -62,4 +65,4 @@ const InfluencerReviewCard = ({ data, isPopular = false }: InfluencerReviewCardP
   );
 };
 
-export default InfluencerReviewCard;
+export default ImageReviewCardWithRatingBar;

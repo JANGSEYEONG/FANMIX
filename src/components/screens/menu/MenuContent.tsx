@@ -20,7 +20,12 @@ const MenuContent = () => {
       isReleased: true,
     },
     { label: t("에디터's PICK"), path: '/editors', hasSeparator: true, isReleased: false },
-    { label: t('한줄 리뷰'), path: '/reviews', hasSeparator: false, isReleased: false },
+    {
+      label: t('한줄 리뷰'),
+      path: ROUTES.REVIEW_INDEX.PATH,
+      hasSeparator: false,
+      isReleased: true,
+    },
     {
       label: t('팬채널'),
       path: ROUTES.FAN_CHANNEL_INDEX.PATH,

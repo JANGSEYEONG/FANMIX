@@ -1,11 +1,11 @@
 import { cn } from '@/lib/utils';
 
-interface FilledBarRatingProps {
+interface FilledRatingBarProps {
   score: number;
   maxScore: number;
   hideScore?: boolean;
 }
-const FilledBarRating = ({ score, maxScore, hideScore = false }: FilledBarRatingProps) => {
+const FilledRatingBar = ({ score, maxScore, hideScore = false }: FilledRatingBarProps) => {
   return (
     <div className="flex items-center gap-[3px]">
       {[...Array(maxScore)].map((_, index) => (
@@ -24,4 +24,4 @@ const FilledBarRating = ({ score, maxScore, hideScore = false }: FilledBarRating
   );
 };
 
-export default FilledBarRating;
+export default FilledRatingBar;

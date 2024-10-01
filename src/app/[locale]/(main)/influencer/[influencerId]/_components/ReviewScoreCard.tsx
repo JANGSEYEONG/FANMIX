@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import FilledBarRating from '@/components/domain/influencer/FilledBarRating';
+import FilledRatingBar from '@/components/domain/influencer/FilledRatingBar';
 
 const MAX_SCORE = 10;
 
@@ -33,7 +33,7 @@ const ReviewScoreCard = () => {
               <label htmlFor={`score-${metric.label}`}>{metric.label}</label>
             </div>
             <div className="flex items-center">
-              <FilledBarRating score={metric.score} maxScore={MAX_SCORE} />
+              <FilledRatingBar score={metric.score} maxScore={MAX_SCORE} />
             </div>
           </li>
         ))}

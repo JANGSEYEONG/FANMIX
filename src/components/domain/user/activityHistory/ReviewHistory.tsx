@@ -1,4 +1,4 @@
-import InfluencerReviewCard from '@/components/domain/influencer/InfluencerReviewCard';
+import ImageReviewCardWithRatingBar from '@/components/domain/influencer/ImageReviewCardWithRatingBar';
 
 import type { InfluencerReview } from '@/types/domain/influencerType';
 import { useTranslations } from 'next-intl';
@@ -15,7 +15,7 @@ const ReviewHistory = ({ reviews }: ReviewHistoryProps) => {
       <ul className="flex w-full flex-col items-center gap-[30px]">
         {reviews.map((review) => (
           <li key={review.reviewId} className="w-full">
-            <InfluencerReviewCard data={review} />
+            <ImageReviewCardWithRatingBar data={review} />
           </li>
         ))}
       </ul>

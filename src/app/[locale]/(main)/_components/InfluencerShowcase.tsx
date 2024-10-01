@@ -1,7 +1,5 @@
-import InfluencerThumbnail, {
-  type InfluencerThumbnailProps,
-} from '@/components/domain/influencer/InfluencerThumbnail';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import InfluencerThumbnail, { type InfluencerThumbnailProps } from './InfluencerThumbnail';
 
 interface InfluencerShowcaseProps {
   influencers: InfluencerThumbnailProps[]; // influencerList에서 변경

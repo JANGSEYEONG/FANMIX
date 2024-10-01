@@ -168,6 +168,17 @@ export const ROUTES = {
     HIDE_BOTTOM_NAV: true,
   },
 
+  // 전체 한줄 리뷰
+  REVIEW_INDEX: {
+    ROOT: '/reviews',
+    PATH: '/reviews',
+    LABEL: '한줄 리뷰',
+    HAS_PREV_BTN: true,
+    HIDE_TITLE: false,
+    HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
+  },
+
   // 로그인
   LOGIN: {
     ROOT: '/auth',
