@@ -1,11 +1,11 @@
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
 import { LiaBookmark } from 'react-icons/lia';
-import { VscPassFilled } from 'react-icons/vsc';
 
 import { InfluencerTagList } from '@/components/domain/influencer/InfluencerTagList';
-import { useTranslations } from 'next-intl';
+import AuthenticatedBadge from '@/components/common/AuthenticatedBadge';
 
 // 20240929.syjang, 컴포넌트 정리 필요
 const InfluencerProfileCard = () => {
@@ -39,11 +39,7 @@ const InfluencerProfileCard = () => {
         </div>
         <aside className="mb-[15px] flex items-center gap-[7px] sub1-r">
           <span className="gap-0.5 text-lime-400 flex-center sub1-m">
-            <div className="relative inline-block">
-              {/* 체크 표시 검정색으로 채우기용 태그 */}
-              <div className="absolute inset-1 rounded-full bg-black" />
-              <VscPassFilled className="relative h-[14px] w-[14px] text-lime-400" />
-            </div>
+            <AuthenticatedBadge size={14} />
             {t('인증 인플루언서')}
           </span>
           <Separator orientation="vertical" className="h-[10px] w-[1px] bg-orange-200" />

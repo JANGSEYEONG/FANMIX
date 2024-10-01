@@ -55,7 +55,7 @@ const ReviewCommentList = () => {
                   )}>
                   <span className="body3-r">{comment.commenterNickName}</span>
                   <div className="gap-x-2 flex-center">
-                    <span className="sub2-m">{formatDateToYYMMDD(comment.createdAt)}</span>
+                    <time className="sub2-m">{formatDateToYYMMDD(comment.createdAt)}</time>
                     {comment.isMyComment && (
                       <VscChromeClose
                         className="h-[18px] w-[18px] text-white hover:scale-transition-105"

@@ -53,7 +53,7 @@ const InfluencerReviewCard = ({ data, isPopular = false }: InfluencerReviewCardP
                 boardCardType={isPopular ? BOARD_CARD_TYPE.POPULAR_REVIEW : BOARD_CARD_TYPE.REVIEW}
                 {...data.interaction}
               />
-              <span className="text-neutral-400 sub2-m">{formatDateToYYMMDD(data.createdAt)}</span>
+              <time className="text-neutral-400 sub2-m">{formatDateToYYMMDD(data.createdAt)}</time>
             </footer>
           </section>
         </div>

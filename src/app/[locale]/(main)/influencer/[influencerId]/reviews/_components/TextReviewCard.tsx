@@ -28,9 +28,9 @@ const TextReviewCard = ({ isMyReview }: TextReviewCardProps) => {
         <span className={cn('sub1-r', isMyReview ? 'text-orange-500' : 'text-neutral-300')}>
           작성한 유저 이름
         </span>
-        <span className={cn('sub2-m', isMyReview ? 'text-orange-500' : 'text-neutral-400')}>
+        <time className={cn('sub2-m', isMyReview ? 'text-orange-500' : 'text-neutral-400')}>
           {formatDateToYYMMDD(new Date())}
-        </span>
+        </time>
       </aside>
       <h1 className="mb-2.5 body2-r">내 글 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트</h1>
       <footer className="flex w-full items-center justify-between">

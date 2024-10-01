@@ -47,7 +47,7 @@ const TextPostCard = ({
           boardCardType={isPopular ? BOARD_CARD_TYPE.POPULAR_POST : BOARD_CARD_TYPE.POST}
           {...interaction}
         />
-        <span className="text-neutral-400 sub2-m">{formatDateToYYMMDD(createdAt)}</span>
+        <time className="text-neutral-400 sub2-m">{formatDateToYYMMDD(createdAt)}</time>
       </footer>
     </article>
   );

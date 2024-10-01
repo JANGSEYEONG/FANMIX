@@ -178,6 +178,10 @@ const config: Config = {
           lineHeight: '1.4',
           fontWeight: '600',
         },
+        '.h1-sb-leading-0': {
+          fontSize: '24px',
+          fontWeight: '600',
+        },
         '.h1-m': {
           fontSize: '24px',
           lineHeight: '1.4',

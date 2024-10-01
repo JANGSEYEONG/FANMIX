@@ -48,7 +48,7 @@ const CommentCard = ({
       <h1 className="mb-[6px] truncate body2-r">{content}</h1>
       <footer className="flex w-full items-center justify-between">
         <InteractionStats boardCardType={BOARD_CARD_TYPE.COMMENT} {...interaction} />
-        <span className="text-neutral-400 sub2-m">{formatDateToYYMMDD(createdAt)}</span>
+        <time className="text-neutral-400 sub2-m">{formatDateToYYMMDD(createdAt)}</time>
       </footer>
     </article>
   );

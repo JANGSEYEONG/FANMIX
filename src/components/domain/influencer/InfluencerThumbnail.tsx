@@ -1,9 +1,9 @@
-import { Link } from '@/i18n/routing';
 import Image from 'next/image';
+import { Link } from '@/i18n/routing';
 
 import { useId } from 'react';
-import { VscPassFilled } from 'react-icons/vsc';
 
+import AuthenticatedBadge from '@/components/common/AuthenticatedBadge';
 export interface InfluencerThumbnailProps {
   influencerId: string;
   influencerName: string;
@@ -40,11 +40,7 @@ const InfluencerThumbnail = ({
         </figcaption>
         {isAuthenticated && (
           <>
-            <div className="absolute right-[3px] top-[5px] inline-block">
-              {/* 체크 표시 검정색으로 채우기용 태그 */}
-              <div className="absolute inset-1 rounded-full bg-black" />
-              <VscPassFilled className="relative h-5 w-5 text-lime-400" />
-            </div>
+            <AuthenticatedBadge size={20} className="absolute right-[3px] top-[5px]" />
             <div className="absolute bottom-0 left-0 h-0.5 w-full bg-lime-400" aria-hidden="true" />
           </>
         )}

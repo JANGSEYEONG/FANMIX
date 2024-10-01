@@ -33,7 +33,7 @@ const BestReviewCard = () => {
           <div className="gap-2 text-neutral-400 flex-center sub2-m">
             <span>작성한유저네임</span>
             <Separator orientation="vertical" className="h-2.5 w-[1px] bg-neutral-400" />
-            <span>{formatDateToYYMMDD(new Date())}</span>
+            <time>{formatDateToYYMMDD(new Date())}</time>
           </div>
         </footer>
       </article>
