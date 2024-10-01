@@ -15,6 +15,7 @@ const useCurrentRouteLabel = (): {
   hideTitle: boolean;
   hideRightNav: boolean;
   hideBottomNav: boolean;
+  hideTopFAB: boolean;
   headerColor: HeaderColor;
 } => {
   const pathname = usePathname();
@@ -38,6 +39,7 @@ const useCurrentRouteLabel = (): {
       hideTitle: currentRoute.HIDE_TITLE,
       hideRightNav: currentRoute.HIDE_RIGHT_NAV,
       hideBottomNav: currentRoute.HIDE_BOTTOM_NAV,
+      hideTopFAB: currentRoute.HIDE_TOP_FAB,
       headerColor: currentRoute.HEADER_COLOR || DEFAULT_HEADER_COLOR,
     };
   } else {
@@ -48,6 +50,7 @@ const useCurrentRouteLabel = (): {
       hideTitle: ROUTES.HOME.HIDE_TITLE,
       hideRightNav: ROUTES.HOME.HIDE_RIGHT_NAV,
       hideBottomNav: ROUTES.HOME.HIDE_BOTTOM_NAV,
+      hideTopFAB: ROUTES.HOME.HIDE_TOP_FAB,
       headerColor: DEFAULT_HEADER_COLOR,
     };
   }

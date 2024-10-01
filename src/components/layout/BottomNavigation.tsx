@@ -22,14 +22,14 @@ const BottomNavigation = ({ mainRef }: BottomNavigationProps) => {
   const t = useTranslations('bottom_nav');
   const pathname = usePathname();
   const currentRoot = getRootPath(pathname);
-  const { bottomNavigationItems, isVisible } = useBottomNavigationState(mainRef);
+  const { bottomNavigationItems, showBottomNav, showTopFAB } = useBottomNavigationState(mainRef);
   const { handleScrollToTop } = useMainScrollTop(mainRef); // 최상단으로 스크롤하는 함수
 
   return (
     <nav
       className={cn(
         'z-5 absolute bottom-0 flex h-20 w-full justify-between bg-neutral-800/70 px-5 transition-transform duration-300 ease-in-out blur-10-shadow',
-        isVisible ? 'translate-y-0' : 'translate-y-full', // 스크롤 방향에 따라 슬라이드 효과
+        showBottomNav ? 'translate-y-0' : 'translate-y-full', // 스크롤 방향에 따라 슬라이드 효과
       )}>
       {bottomNavigationItems.map((item) => {
         const Icon = item.icon;
@@ -43,12 +43,14 @@ const BottomNavigation = ({ mainRef }: BottomNavigationProps) => {
           </Link>
         );
       })}
-      <button
-        aria-label="최상단 이동 버튼"
-        className="absolute right-5 top-[-84px] h-[60px] w-[60px] rounded-full bg-orange-700/70 flex-center"
-        onClick={handleScrollToTop}>
-        <LiaAngleUpSolid className="h-[22px] w-[22px]" />
-      </button>
+      {showTopFAB && (
+        <button
+          aria-label="최상단 이동 버튼"
+          className="absolute right-5 top-[-84px] h-[60px] w-[60px] rounded-full bg-orange-700/70 flex-center"
+          onClick={handleScrollToTop}>
+          <LiaAngleUpSolid className="h-[22px] w-[22px]" />
+        </button>
+      )}
     </nav>
   );
 };

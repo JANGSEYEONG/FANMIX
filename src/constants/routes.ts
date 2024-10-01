@@ -9,6 +9,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
 
   // 팔로우
@@ -20,6 +21,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
 
   // 커뮤니티
@@ -31,6 +33,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
   COMMUNITY: {
     ROOT: '/community',
@@ -40,6 +43,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
   COMMUNITY_POST: {
     ROOT: '/community',
@@ -49,6 +53,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
 
   // 팬채널
@@ -60,6 +65,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
   FAN_CHANNEL: {
     ROOT: '/fan-channel',
@@ -69,6 +75,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
   FAN_CHANNEL_POST: {
     ROOT: '/fan-channel',
@@ -78,6 +85,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
 
   // 마이페이지
@@ -89,6 +97,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: true,
   },
   MYPAGE_EDIT: {
     ROOT: '/my',
@@ -98,6 +107,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: true,
   },
   MY_ACTIVITY_HISTORY: {
     ROOT: '/my',
@@ -107,6 +117,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: true,
   },
   CUSTOMER_CENTER: {
     ROOT: '/my',
@@ -116,6 +127,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: true,
   },
 
   // 타 유저 프로필
@@ -128,6 +140,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: true,
   },
 
   // 인플루언서
@@ -139,6 +152,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
   INFLUENCER: {
     ROOT: '/influencer',
@@ -148,6 +162,7 @@ export const ROUTES = {
     HIDE_TITLE: true,
     HIDE_RIGHT_NAV: true,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
   INFLUENCER_REVIEW_LIST: {
     ROOT: '/influencer',
@@ -157,6 +172,7 @@ export const ROUTES = {
     HIDE_TITLE: true,
     HIDE_RIGHT_NAV: true,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
   INFLUENCER_REVIEW: {
     ROOT: '/influencer',
@@ -166,6 +182,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: true,
+    HIDE_TOP_FAB: true,
   },
 
   // 전체 한줄 리뷰
@@ -177,6 +194,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: false,
   },
 
   // 로그인
@@ -185,18 +203,20 @@ export const ROUTES = {
     PATH: '/auth/login',
     LABEL: '로그인',
     HAS_PREV_BTN: false,
-    HIDE_TITLE: false,
-    HIDE_RIGHT_NAV: false,
-    HIDE_BOTTOM_NAV: false,
+    HIDE_TITLE: true,
+    HIDE_RIGHT_NAV: true,
+    HIDE_BOTTOM_NAV: true,
+    HIDE_TOP_FAB: true,
   },
   LOGIN_REDIRECT: {
     ROOT: '/auth',
     PATH: '/auth/redirect',
     LABEL: '로그인 중',
     HAS_PREV_BTN: false,
-    HIDE_TITLE: false,
-    HIDE_RIGHT_NAV: false,
-    HIDE_BOTTOM_NAV: false,
+    HIDE_TITLE: true,
+    HIDE_RIGHT_NAV: true,
+    HIDE_BOTTOM_NAV: true,
+    HIDE_TOP_FAB: true,
   },
 } as const;
 
@@ -212,6 +232,7 @@ type BaseRouteValue = {
   HIDE_TITLE: boolean;
   HIDE_RIGHT_NAV: boolean;
   HIDE_BOTTOM_NAV: boolean;
+  HIDE_TOP_FAB: boolean;
 };
 
 // ROUTES 객체의 값 타입을 추출 (HEADER_COLOR를 선택적으로 포함)
