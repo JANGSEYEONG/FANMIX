@@ -33,8 +33,11 @@ export default function MyPage() {
     email: '0000000@gmail.com',
   };
   const onePickData = {
+    influencerId: '3',
+    communityId: '3',
     influencerName: '으뜸언니',
-    imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시
+    influencerImageUrl: '',
+    isOthersPick: false,
   };
 
   return (
@@ -43,7 +46,7 @@ export default function MyPage() {
         <MyProfile {...userData} />
       </section>
       <section aria-label="내 원픽 인플루언서" className="mb-12">
-        <OnePickInfluencer onePickData={onePickData} />
+        <OnePickInfluencer {...onePickData} />
       </section>
       <Separator className="h-[8px] bg-neutral-900" />
       <nav aria-label="사용자 메뉴" className="mx-5 mb-9 mt-9">

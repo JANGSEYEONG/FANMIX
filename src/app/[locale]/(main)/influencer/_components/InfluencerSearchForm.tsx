@@ -62,7 +62,10 @@ const InfluencerSearchForm = () => {
           </button>
         </div>
       </div>
-      <div className="flex items-center gap-x-[15px] text-neutral-400 body3-r">
+      <div
+        role="group"
+        aria-label="정렬 옵션"
+        className="flex items-center gap-x-[15px] text-neutral-400 body3-r">
         <Controller
           name="sort"
           control={control}

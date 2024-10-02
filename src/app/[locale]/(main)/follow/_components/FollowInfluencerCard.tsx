@@ -1,12 +1,13 @@
 import { cn } from '@/lib/utils';
+
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import FilledRatingBar from '@/components/domain/influencer/FilledRatingBar';
 import { useTranslations } from 'next-intl';
-import InfluencerActionMenu from './InfluencerActionMenu';
-import { Link } from '@/i18n/routing';
 import { formatDateToYYMMDD } from '@/lib/date';
+
+import InfluencerActionMenu from './InfluencerActionMenu';
+import FilledRatingBar from '@/components/domain/influencer/FilledRatingBar';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
+import GoFanChannelButton from '@/components/domain/influencer/GoFanChannelButton';
 
 interface FollowInfluencerCardProps {
   isOnePick?: boolean;
@@ -60,14 +61,13 @@ const FollowInfluencerCard = ({
             </div>
             <FilledRatingBar maxScore={10} score={8} hideScore />
           </div>
-          <Button
+          <GoFanChannelButton
+            {...{ influencerId: testData.influencerId, communityId: testData.communityId }}
             variant="destructive"
             className={cn('h-9 px-4 py-2 body3-m', !testData.isAuthenticated && 'bg-neutral-600')}
             disabled={!testData.isAuthenticated}>
-            <Link href={`fan-channel/${testData.communityId}`}>
-              {testData.isAuthenticated ? t('팬채널') : t('미인증')}
-            </Link>
-          </Button>
+            {testData.isAuthenticated ? t('팬채널') : t('미인증')}
+          </GoFanChannelButton>
         </footer>
       </div>
       {/* 원픽인플루언서용 좌우 배경색 */}

@@ -26,10 +26,15 @@ export async function generateMetadata({
 export default function UserProfilePage({ params: { userId } }: { params: { userId: string } }) {
   console.log(userId);
   const t = useTranslations('user_page');
+
   const onePickData = {
+    influencerId: '3',
+    communityId: '3',
     influencerName: '으뜸언니',
-    imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시
+    influencerImageUrl: '',
+    isOthersPick: false,
   };
+
   const userData = {
     userNickName: '닉네임이다',
     imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시
@@ -66,7 +71,7 @@ export default function UserProfilePage({ params: { userId } }: { params: { user
         <p className="body3-r">{userData.introduction}</p>
       </section>
       <section aria-label={`${userData.userNickName}의 원픽 인플루언서`} className="mb-6">
-        <OnePickInfluencer onePickData={onePickData} isOthersPick />
+        <OnePickInfluencer {...onePickData} isOthersPick />
       </section>
       <section
         aria-label={`${userData.userNickName}의 활동내역`}

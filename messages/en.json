@@ -120,9 +120,18 @@
     "인플루언서": "Influencer",
     "커뮤니티": "Community",
     "팔로우 중인 모든 인플루언서를 확인했어요": "You've checked all the influencers you're following.",
-    "최신팔로우순": "Most Recent Followers",
-    "최신리뷰순": "Most Recent Reviews",
+    "최신팔로우순": "Latest Follows",
+    "최신리뷰순": "Latest Reviews",
     "이름순": "Alphabetical"
+  },
+  "fan_channel_index_page": {
+    "채널인기순": "Most Popular",
+    "최신등록순": "Newest",
+    "이름순": "Alphabetical",
+    "팔로워": "Followers",
+    "글 수": "Posts",
+    "최신 글": "Latest Post",
+    "팬채널": "Fan Ch."
   },
   "influencer_rating_bar": {
     "콘텐츠": "CNT",

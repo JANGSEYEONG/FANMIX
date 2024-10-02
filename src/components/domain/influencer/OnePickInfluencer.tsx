@@ -1,37 +1,45 @@
-import { Button } from '@/components/ui/button';
-
 import { useTranslations } from 'next-intl';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import InfluencerTagList from './InfluencerTagList';
+import GoFanChannelButton from './GoFanChannelButton';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 interface OnePickInfluencerProps {
-  onePickData: {
-    influencerName: string;
-    imageSrc: string;
-  };
+  influencerId: string;
+  communityId: string;
+  influencerName: string;
+  influencerImageUrl: string;
   isOthersPick?: boolean;
 }
 
-const OnePickInfluencer = ({ onePickData, isOthersPick = false }: OnePickInfluencerProps) => {
+const OnePickInfluencer = ({
+  influencerId,
+  communityId,
+  influencerName,
+  influencerImageUrl,
+  isOthersPick = false,
+}: OnePickInfluencerProps) => {
   const t = useTranslations('one_pick_influencer');
   return (
     <div className="w-full gap-5 bg-orange-700/20 px-5 py-6 flex-center">
       <Avatar className="h-[130px] w-[105px] flex-shrink-0 rounded-none">
-        <AvatarImage src={onePickData.imageSrc} alt="원픽 인플루언서 사진" />
+        <AvatarImage src={influencerImageUrl} alt="원픽 인플루언서 사진" />
         <AvatarFallback className="rounded-none bg-neutral-900/80 h1-sb">
-          {onePickData.influencerName[0]}
+          {influencerName[0]}
         </AvatarFallback>
       </Avatar>
       <div className="flex w-full flex-col">
         <h2 className="mb-1.5 text-orange-500 sub1-m">
           {isOthersPick ? t('ONE PICK') : t('MY ONE PICK')}
         </h2>
-        <h3 className="mb-2.5 body2-sb">{onePickData.influencerName}</h3>
+        <h3 className="mb-2.5 body2-sb">{influencerName}</h3>
         <InfluencerTagList contents={['음악', '보컬', '연예인']} className="mb-5" />
-        <Button className="h-8 w-full body3-m" variant="destructive">
+        <GoFanChannelButton
+          variant="destructive"
+          className="h-8 w-full body3-m"
+          {...{ influencerId, communityId }}>
           {t('팬채널로 이동')}
-        </Button>
+        </GoFanChannelButton>
       </div>
     </div>
   );

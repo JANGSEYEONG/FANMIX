@@ -6,3 +6,12 @@
 export const getRootPath = (path: string) => {
   return '/' + (path.split('/')[1] || '');
 };
+
+/**
+ * 숫자에 3자리마다 쉼표를 추가합니다.
+ * @param num 형식을 지정할 숫자
+ * @returns 쉼표가 추가된 문자열
+ */
+export const formatNumber = (num: number): string => {
+  return num.toLocaleString('ko-KR');
+};

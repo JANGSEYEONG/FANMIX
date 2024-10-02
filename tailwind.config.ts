@@ -159,6 +159,11 @@ const config: Config = {
           transition: 'transform 300ms ease-in-out',
           cursor: 'pointer',
         },
+        '.scale-transition-110': {
+          transform: 'scale(1.1)',
+          transition: 'transform 300ms ease-in-out',
+          cursor: 'pointer',
+        },
         // blur
         '.blur-10': {
           'backdrop-filter': 'blur(4px)',

@@ -14,6 +14,7 @@ import ContentTraits from './_components/ContentTraits';
 import ReviewScoreCard from './_components/ReviewScoreCard';
 import BestReviewCard from './_components/BestReviewCard';
 import TooltipBox from '@/components/common/TooltipBox';
+import GoFanChannelButton from '@/components/domain/influencer/GoFanChannelButton';
 
 export async function generateMetadata({
   params: { locale },
@@ -49,10 +50,14 @@ export default function InfluencerPage({
       <section aria-label="인플루언서 소개" className="mb-[30px] px-5">
         <div className="flex items-center justify-between bg-neutral-800 py-[14px] pl-[18px] pr-2.5">
           <p className="w-[250px] text-neutral-100 body2-m">Hi Eunzel who loves to create!</p>
-          <button className="group flex items-center">
-            <span className="text-lime-400 body3-r">{t('팬채널')}</span>
-            <VscChevronRight className="h-[18px] w-[18px] text-lime-400 group-hover:scale-transition-105" />
-          </button>
+          <GoFanChannelButton
+            {...{ influencerId, communityId: '3' }}
+            className="m-0 h-fit w-fit p-0 hover:bg-transparent">
+            <div className="group flex items-center">
+              <span className="text-lime-400 body3-r">{t('팬채널')}</span>
+              <VscChevronRight className="h-[18px] w-[18px] text-lime-400 group-hover:scale-transition-110" />
+            </div>
+          </GoFanChannelButton>
         </div>
       </section>
       <section
