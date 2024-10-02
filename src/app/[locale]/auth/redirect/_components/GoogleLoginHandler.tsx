@@ -1,10 +1,11 @@
 'use client';
-import { memo, useEffect, useRef } from 'react';
+import { useRouter } from '@/i18n/routing';
 import { useSearchParams } from 'next/navigation';
 
-import useGoogleLogin from '../_hooks/useGoogleLogin';
+import { memo, useEffect, useRef } from 'react';
+
 import { useAuthStore } from '@/stores/authStore';
-import { useRouter } from '@/i18n/routing';
+import { useGoogleLogin } from '../_hooks/useGoogleLogin';
 
 const GoogleLoginHandler = () => {
   const searchParams = useSearchParams();

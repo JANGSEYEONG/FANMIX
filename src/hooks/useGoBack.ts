@@ -1,6 +1,6 @@
 import { useRouter } from '@/i18n/routing';
 
-const useGoBack = () => {
+export const useGoBack = () => {
   const router = useRouter();
 
   const handleGoBack = () => {
@@ -9,5 +9,3 @@ const useGoBack = () => {
 
   return { handleGoBack };
 };
-
-export default useGoBack;

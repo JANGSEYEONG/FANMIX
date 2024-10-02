@@ -1,11 +1,21 @@
+import { Link } from '@/i18n/routing';
+
 import InteractionStats from '@/components/domain/board/InteractionStats';
 
 import { Separator } from '@/components/ui/separator';
-import { ROUTES } from '@/constants/routes';
-import { Link } from '@/i18n/routing';
 import { formatDateToYYMMDD } from '@/lib/date';
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 
+// interface BestReviewCardProps {
+//   influencerId: string;
+//   reviewId: string;
+//   userNickname: string;
+//   reviewContent: string;
+//   likesCount: number;
+//   dislikesCount: number;
+//   commentsCount: number;
+//   createdAt: string;
+// }
 const BestReviewCard = () => {
   const interaction = {
     dislikesCount: 3,
@@ -13,11 +23,7 @@ const BestReviewCard = () => {
     commentsCount: 10,
   };
   return (
-    <Link
-      href={ROUTES.INFLUENCER_REVIEW.PATH.replace('[influencerId]', '3').replace(
-        '[reviewId]',
-        '2',
-      )}>
+    <Link href={`/influencer/${3}/review/${4}`}>
       <article className="relative flex w-full flex-col justify-center bg-neutral-900 px-[22px] pb-5 pt-6">
         <aside className="absolute left-0 top-0 h-0 w-0 border-b-[42px] border-l-[42px] border-r-0 border-t-0 border-solid border-transparent border-l-lime-400">
           <span className="absolute left-[-38px] top-[9px] rotate-[-45deg] transform text-neutral-800 sub2-sb">

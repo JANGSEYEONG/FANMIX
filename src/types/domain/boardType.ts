@@ -13,3 +13,8 @@ export const BOARD_CARD_TYPE = {
 
 export type BoardType = keyof typeof BOARD_TYPE;
 export type BoardCardType = keyof typeof BOARD_CARD_TYPE;
+
+export interface CommunityCategory {
+  categoryId: string;
+  categoryName: string;
+}

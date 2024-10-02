@@ -1,6 +1,6 @@
 'use client';
 
-import useGoBack from '@/hooks/useGoBack';
+import { useGoBack } from '@/hooks/useGoBack';
 import { useTranslations } from 'next-intl';
 import { VscChevronLeft, VscChromeClose } from 'react-icons/vsc';
 

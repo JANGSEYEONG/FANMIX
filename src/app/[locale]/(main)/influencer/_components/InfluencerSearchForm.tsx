@@ -15,7 +15,7 @@ import {
 import { Controller } from 'react-hook-form';
 
 import { useTranslations } from 'next-intl';
-import useInfluencerSearchForm from '../_hooks/useInfluencerSearchForm';
+import { useInfluencerSearchForm } from '../_hooks/useInfluencerSearchForm';
 
 const InfluencerSearchForm = () => {
   const t = useTranslations('influencer_index_page');

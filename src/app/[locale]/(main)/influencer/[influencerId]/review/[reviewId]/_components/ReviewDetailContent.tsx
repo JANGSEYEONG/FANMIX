@@ -3,6 +3,18 @@ import InteractionStats from '@/components/domain/board/InteractionStats';
 
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 
+// interface ReviewDetailContentProps {
+//   userNickname: string;
+//   contentsRating: number;
+//   communicationRating: number;
+//   trustRating: number;
+//   createdAt: string;
+//   reviewContent: string;
+//   likesCount: number;
+//   dislikesCount: number;
+//   commentsCount: number;
+// }
+
 const ReviewDetailContent = () => {
   const testData = {
     contentsRating: 10,

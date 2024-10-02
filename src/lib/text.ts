@@ -15,3 +15,12 @@ export const getRootPath = (path: string) => {
 export const formatNumber = (num: number): string => {
   return num.toLocaleString('ko-KR');
 };
+
+/**
+ * 문자열에서 모든 공백 문자를 제거합니다.
+ * @param str 공백을 제거할 원본 문자열
+ * @returns 모든 공백이 제거된 문자열
+ */
+export const removeAllWhitespace = (str: string): string => {
+  return str.replace(/\s/g, '');
+};

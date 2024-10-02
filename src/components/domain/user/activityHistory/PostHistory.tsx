@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
@@ -12,14 +11,12 @@ const PostHistory = ({ posts }: PostHistoryProps) => {
 
   return (
     <div className="h-full w-full overflow-y-auto pb-8 pt-5 scrollbar-hide-smooth">
-      <ul className="flex w-full flex-col items-center gap-4">
+      <ul className="flex flex-col">
         {posts.map((post) => (
-          <Fragment key={post.postId}>
-            <li className="w-full">
-              <TextPostCard {...post} />
-            </li>
-            <Separator className="h-[0.7px] bg-neutral-600" />
-          </Fragment>
+          <li key={post.postId} className="w-full">
+            <TextPostCard {...post} />
+            <Separator className="my-[15px] h-[0.7px] bg-neutral-600" />
+          </li>
         ))}
       </ul>
       <p className="mb-8 mt-7 text-center text-neutral-500 body3-r">

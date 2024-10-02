@@ -7,7 +7,7 @@ import { useToast } from './useToast';
  * 지정 콜백 함수가 없는 정보성 토스트 메시지
  * @returns showConfirmToast, showErrorToast
  */
-const useInformationToast = () => {
+export const useInformationToast = () => {
   const { toast } = useToast();
 
   const showConfirmToast = useCallback(
@@ -35,5 +35,3 @@ const useInformationToast = () => {
 
   return { showConfirmToast, showErrorToast };
 };
-
-export default useInformationToast;

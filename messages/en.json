@@ -133,6 +133,11 @@
     "최신 글": "Latest Post",
     "팬채널": "Fan Ch."
   },
+  "main_search": {
+    "인플루언서 / 커뮤니티 검색": "Search Influencers / Communities",
+    "검색 제안": "Search Suggestions",
+    "바로가기": "Quick Links"
+  },
   "influencer_rating_bar": {
     "콘텐츠": "CNT",
     "소통": "COM",
@@ -146,7 +151,9 @@
     "커뮤니티": "Community",
     "고객센터": "Customer Service",
     "19+ 모드": "18+ Content",
-    "로그인 하기": "Log in"
+    "로그인 하기": "Log in",
+    "업데이트를 기다려주세요": "Please wait for the update.",
+    "곧 멋진 기능으로 찾아뵙겠습니다": "We'll be back soon with great new features."
   },
   "comment_card": {
     "팬채널": "Fan Channel",
@@ -155,11 +162,7 @@
   "one_pick_influencer": {
     "MY ONE PICK": "MY ONE PICK",
     "ONE PICK": "ONE PICK",
-    "팬채널로 이동": "Go to Fan Channel",
-    "원픽 인플루언서를 해제할까요?": "Do you want to remove your One Pick influencer?",
-    "해제 후 팔로우 탭에서 다시 지정할 수 있어요": "You can set a new One Pick\nin the Follow tab after removal.",
-    "취소": "Cancel",
-    "해제하기": "Remove"
+    "팬채널로 이동": "Go to Fan Channel"
   },
   "review_form": {
     "한줄리뷰 수정하기": "Edit your one-line review",
@@ -194,6 +197,26 @@
     "팔로우 설정 시 팬채널에 입장할 수 있어요": "You can enter the fan channel\nonce you follow.",
     "뒤로": "Back",
     "팔로우하기": "Follow"
+  },
+  "community_category": {
+    "19+": "18+",
+    "IT": "IT",
+    "게임": "Gaming",
+    "반려동물": "Pets",
+    "연애": "Dating",
+    "여행": "Travel",
+    "자기개발": "Self-improvement",
+    "코스프레": "Cosplay",
+    "콘셉트카페": "Theme Cafes",
+    "패션": "Fashion",
+    "애니": "Anime",
+    "자유": "Free Discussion"
+  },
+  "influencer_actions": {
+    "원픽 인플루언서를 해제할까요?": "Do you want to remove your One Pick influencer?",
+    "해제 후 팔로우 탭에서 다시 지정할 수 있어요": "You can set a new One Pick\nin the Follow tab after removal.",
+    "취소": "Cancel",
+    "해제하기": "Remove"
   },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",

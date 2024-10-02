@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { VscIndent } from 'react-icons/vsc';
 import TooltipBox from '@/components/common/TooltipBox';
 
-import useReviewForm from '../_hooks/useReviewForm';
+import { useReviewForm } from '../_hooks/useReviewForm';
 
 import type { ReviewMode } from '@/types/domain/influencerType';
 

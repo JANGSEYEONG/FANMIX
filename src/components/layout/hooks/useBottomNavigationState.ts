@@ -4,10 +4,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { LiaHomeSolid, LiaBookmark, LiaGem, LiaUser } from 'react-icons/lia';
 
 import { ROUTES } from '@/constants/routes';
-import useScrollDirection from '@/hooks/useScrollDirection';
-import useCurrentRouteLabel from '@/hooks/useCurrentRouteLabel';
+import { useScrollDirection } from '@/hooks/useScrollDirection';
+import { useCurrentRouteLabel } from '@/hooks/useCurrentRouteLabel';
 
-const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) => {
+export const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) => {
   const { hideBottomNav, hideTopFAB } = useCurrentRouteLabel(); // page 설정에 의한 visible 여부
   const { scrollDirection, scrollPosition } = useScrollDirection(mainRef);
   const [isVisible, setIsVisible] = useState(true); // scroll direction에 의한 visible 여부
@@ -38,5 +38,3 @@ const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) => {
     showTopFAB: !hideTopFAB,
   };
 };
-
-export default useBottomNavigationState;

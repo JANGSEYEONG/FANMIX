@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 import { useTranslations } from 'next-intl';
 import { useModalStore } from '@/stores/modalStore';
-import useInformationToast from '@/hooks/useInformationToast';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
 import { VscChromeClose } from 'react-icons/vsc';
 

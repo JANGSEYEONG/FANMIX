@@ -9,7 +9,7 @@ import {
 } from '@/constants/routes';
 
 // pathname에 해당하는 LABEL을 찾는 함수
-const useCurrentRouteLabel = (): {
+export const useCurrentRouteLabel = (): {
   currentLabel: RouteLabel;
   hasPrevButton: boolean;
   hideTitle: boolean;
@@ -55,5 +55,3 @@ const useCurrentRouteLabel = (): {
     };
   }
 };
-
-export default useCurrentRouteLabel;

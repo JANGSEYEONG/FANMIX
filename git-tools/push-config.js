@@ -39,17 +39,17 @@ const pushBranch = async () => {
 
     const output = result.stdout + result.stderr;
 
+    // 에러 코드 확인
+    if (result.status !== 0) {
+      throw new Error(`Git push failed with status ${result.status}`);
+    }
+
     if (output.includes('Everything up-to-date')) {
       showDecoratedMessage(`ℹ️ '${branch}' 브랜치는 이미 최신 상태예요!`);
     } else if (output.includes('->')) {
       showDecoratedMessage(`🎉 '${branch}' 브랜치가 성공적으로 push 되었어요!`);
     } else {
       showDecoratedMessage('🤔 Push 결과를 확인해주세요.');
-    }
-
-    // 에러 코드 확인
-    if (result.status !== 0) {
-      throw new Error(`Git push failed with status ${result.status}`);
     }
   } catch (error) {
     console.error(`🙈 앗! Push 중 오류가 발생했어요: ${error.message}`);

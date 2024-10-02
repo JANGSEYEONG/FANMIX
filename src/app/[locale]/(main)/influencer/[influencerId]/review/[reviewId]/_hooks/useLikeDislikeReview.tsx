@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import { useModalStore } from '@/stores/modalStore';
 
 import MessageBox from '@/components/common/MessageBox';
-import useInformationToast from '@/hooks/useInformationToast';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
 export const BUTTON_ACTION = {
   LIKE: 'LIKE',

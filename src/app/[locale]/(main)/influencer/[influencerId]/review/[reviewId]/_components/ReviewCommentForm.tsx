@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { VscSend } from 'react-icons/vsc';
 
-import useReviewCommentForm from '../_hooks/useReviewCommentForm';
+import { useReviewCommentForm } from '../_hooks/useReviewCommentForm';
 
 const ReviewCommentForm = () => {
   const t = useTranslations('review_page');

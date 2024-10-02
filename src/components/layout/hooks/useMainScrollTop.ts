@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-const useMainScrollTop = (mainRef: React.RefObject<HTMLElement>) => {
+export const useMainScrollTop = (mainRef: React.RefObject<HTMLElement>) => {
   const handleScrollToTop = useCallback(() => {
     if (mainRef.current) {
       mainRef.current.scrollTo({
@@ -12,5 +12,3 @@ const useMainScrollTop = (mainRef: React.RefObject<HTMLElement>) => {
 
   return { handleScrollToTop };
 };
-
-export default useMainScrollTop;

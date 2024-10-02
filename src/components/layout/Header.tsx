@@ -1,17 +1,15 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import Logo from '@/assets/logo/logo_symbol.svg';
 
 import { memo } from 'react';
-
 import { useTranslations } from 'next-intl';
-import useCurrentRouteLabel from '@/hooks/useCurrentRouteLabel';
+import { useCurrentRouteLabel } from '@/hooks/useCurrentRouteLabel';
 
 import { ROUTES } from '@/constants/routes';
 
+import Logo from '@/assets/logo/logo_symbol.svg';
 import GoBackButton from '../common/GoBackButton';
-
 import { MainNotification, MainSearch, MainSlideMenu } from '../screens';
 
 const Header = () => {

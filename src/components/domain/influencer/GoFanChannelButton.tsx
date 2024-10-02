@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import useFanChannelAccess from '@/hooks/useFanChannelAccess';
+import { useFanChannelAccess } from '@/hooks/useFanChannelAccess';
 
 interface GoFanChannelButtonProps {
   children: React.ReactNode;

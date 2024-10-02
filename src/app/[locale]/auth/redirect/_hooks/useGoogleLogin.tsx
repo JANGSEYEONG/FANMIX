@@ -8,7 +8,7 @@ import { useRouter } from '@/i18n/routing';
 import { useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 
-import useInformationToast from '@/hooks/useInformationToast';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
 import { useUserStore } from '@/stores/userStore';
 import { useAuthStore } from '@/stores/authStore';
@@ -17,7 +17,7 @@ import { useModalStore } from '@/stores/modalStore';
 import type { LoginResponse } from '@/types/service/authServiceType';
 import { SignUpSuccess } from '@/components/screens';
 
-const useGoogleLogin = () => {
+export const useGoogleLogin = () => {
   const t = useTranslations('api_result');
   const { showErrorToast } = useInformationToast();
   const router = useRouter();
@@ -81,5 +81,3 @@ const useGoogleLogin = () => {
 
   return { sendAuthCodeToBackend };
 };
-
-export default useGoogleLogin;

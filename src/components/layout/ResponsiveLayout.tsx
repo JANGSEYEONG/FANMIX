@@ -1,5 +1,5 @@
-import ModalPortal from './ModalPortal';
 import { Toaster } from '../ui/toaster';
+import ModalPortal from './ModalPortal';
 
 interface ResponsiveLayoutProps {
   children: React.ReactNode;

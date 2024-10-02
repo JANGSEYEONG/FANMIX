@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { useTranslations } from 'next-intl';
-import useInformationToast from '@/hooks/useInformationToast';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
 const commentSchema = z.object({
   commentContent: z.string().min(1),
@@ -14,7 +14,7 @@ const commentSchema = z.object({
 
 type CommentFormData = z.infer<typeof commentSchema>;
 
-const useReviewCommentForm = () => {
+export const useReviewCommentForm = () => {
   const t = useTranslations('review_page');
   const { showErrorToast } = useInformationToast();
 
@@ -47,5 +47,3 @@ const useReviewCommentForm = () => {
     onError,
   };
 };
-
-export default useReviewCommentForm;

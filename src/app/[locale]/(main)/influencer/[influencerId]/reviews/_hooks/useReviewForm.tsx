@@ -12,7 +12,7 @@ import MessageBox from '@/components/common/MessageBox';
 import ScoreSelectBox from '../_components/ScoreSelectBox';
 
 import { REVIEW_MODE, type ReviewMode } from '@/types/domain/influencerType';
-import useInformationToast from '@/hooks/useInformationToast';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
 const reviewSchema = z.object({
   reviewContent: z.string().min(1),
@@ -24,7 +24,7 @@ const reviewSchema = z.object({
 type ReviewFormData = z.infer<typeof reviewSchema>;
 type MetricKey = keyof Omit<ReviewFormData, 'reviewContent'>;
 
-const useReviewForm = (
+export const useReviewForm = (
   setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>,
   isModify: boolean,
   defaultReviewData?: ReviewFormData,
@@ -109,5 +109,3 @@ const useReviewForm = (
     metricList,
   };
 };
-
-export default useReviewForm;

@@ -10,9 +10,19 @@ import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadg
 import GoFanChannelButton from '@/components/domain/influencer/GoFanChannelButton';
 
 interface FollowInfluencerCardProps {
+  // influencerId: string;
+  // communityId: string;
+  // influencerName: string;
+  // influencerImageUrl: string;
+  // latestDate: string;
+  // averageScore: string;
+
   isOnePick?: boolean;
   isAuthenticated?: boolean;
 }
+
+// 팬 채널로 이동하는 버튼이 따로 존재, 카드 클릭으로 페이지 이동 x
+// 팬 채널에 조회되는 인플루언서들은 모두 인증 인플루언서
 const FollowInfluencerCard = ({
   isOnePick = false,
   isAuthenticated = false,

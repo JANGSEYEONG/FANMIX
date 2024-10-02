@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 
-import useInformationToast from '@/hooks/useInformationToast';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
 const SEARCH_TYPE = {
   INFLUENCER_NAME: 'INFLUENCER_NAME',
@@ -27,7 +27,7 @@ const influencerSearchSchema = z.object({
 
 type InfluencerSearchFormData = z.infer<typeof influencerSearchSchema>;
 
-const useInfluencerSearchForm = () => {
+export const useInfluencerSearchForm = () => {
   const t = useTranslations('influencer_index_page');
   const { showErrorToast } = useInformationToast();
 
@@ -70,5 +70,3 @@ const useInfluencerSearchForm = () => {
     sortButtons,
   };
 };
-
-export default useInfluencerSearchForm;

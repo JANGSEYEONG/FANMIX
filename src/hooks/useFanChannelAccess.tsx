@@ -7,7 +7,7 @@ import { useModalStore } from '@/stores/modalStore';
 
 import MessageBox from '@/components/common/MessageBox';
 
-const useFanChannelAccess = () => {
+export const useFanChannelAccess = () => {
   const t = useTranslations('fan_channel_access');
 
   const router = useRouter();
@@ -80,5 +80,3 @@ const useFanChannelAccess = () => {
   };
   return { checkAccessAndNavigate, isLoading };
 };
-
-export default useFanChannelAccess;

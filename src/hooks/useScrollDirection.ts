@@ -3,7 +3,7 @@
 import throttle from 'lodash/throttle';
 import { useState, useEffect } from 'react';
 
-const useScrollDirection = (targetRef: React.RefObject<HTMLElement>) => {
+export const useScrollDirection = (targetRef: React.RefObject<HTMLElement>) => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const [scrollPosition, setScrollPosition] = useState<'top' | 'bottom' | 'middle'>('middle');
   const [prevScrollY, setPrevScrollY] = useState(0);
@@ -42,5 +42,3 @@ const useScrollDirection = (targetRef: React.RefObject<HTMLElement>) => {
 
   return { scrollDirection, scrollPosition };
 };
-
-export default useScrollDirection;

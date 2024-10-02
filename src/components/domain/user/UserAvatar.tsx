@@ -5,7 +5,7 @@ import { LiaCameraSolid } from 'react-icons/lia';
 
 import { useRef } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import useUserAvatar from './hooks/useUserAvatarImage';
+import { useUserAvatarImage } from './hooks/useUserAvatarImage';
 
 interface UserAvatarProps {
   size: number;
@@ -17,7 +17,7 @@ interface UserAvatarProps {
 // 유저 프로필 아바타
 const UserAvatar = ({ size, userNickName, imageSrc, editable = false }: UserAvatarProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { handleClickAvatar, handleAvatarChange, previewImage } = useUserAvatar(fileInputRef);
+  const { handleClickAvatar, handleAvatarChange, previewImage } = useUserAvatarImage(fileInputRef);
 
   return (
     <div

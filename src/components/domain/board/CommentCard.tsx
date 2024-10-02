@@ -8,6 +8,7 @@ import InteractionStats from './InteractionStats';
 import type { InteractionStat } from '@/types/domain/influencerType';
 import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
 export interface CommentCardProps {
+  // influencerId:string;
   postId: string;
   commentId: string;
   boardType: BoardType;
@@ -17,6 +18,7 @@ export interface CommentCardProps {
   interaction: InteractionStat;
 }
 
+// 팬채널 혹은 커뮤니티의 게시글로 이동
 const CommentCard = ({
   postId,
   commentId,
@@ -29,7 +31,9 @@ const CommentCard = ({
   const t = useTranslations('comment_card');
   const handleClickCommentCard = () => {
     if (boardType === BOARD_TYPE.FAN) {
-      alert(`팬 여부 체크 후, ${boardType}의 ${postId}로 이동, ${commentId}가 필요할까?`);
+      alert(
+        `인플루언서 아이디 넘겨받고 팬 여부 체크 후, ${boardType}의 ${postId}로 이동, ${commentId}가 필요할까?`,
+      );
     } else {
       alert(`${boardType}의 ${postId}로 이동 ${commentId}가 필요할까?`);
     }

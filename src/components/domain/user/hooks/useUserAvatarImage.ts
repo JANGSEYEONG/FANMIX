@@ -2,7 +2,7 @@
 
 import { RefObject, useState } from 'react';
 
-const useUserAvatarImage = (fileInputRef: RefObject<HTMLInputElement>) => {
+export const useUserAvatarImage = (fileInputRef: RefObject<HTMLInputElement>) => {
   // TO DO: 서버에 이미지 업로드 로직 구현, isLoading 상태값 추가, previewImage 없애고 imageSrc 상태 변경하기
   const [previewImage, setPreviewImage] = useState<string | null>(null);
 
@@ -25,5 +25,3 @@ const useUserAvatarImage = (fileInputRef: RefObject<HTMLInputElement>) => {
 
   return { handleClickAvatar, handleAvatarChange, previewImage };
 };
-
-export default useUserAvatarImage;

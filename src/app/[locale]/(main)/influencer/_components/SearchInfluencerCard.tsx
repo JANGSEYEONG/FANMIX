@@ -7,6 +7,18 @@ import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadg
 import InfluencerRatingBar from '@/components/domain/influencer/InfluencerRatingBar';
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
+// interface SearchInfluencerCardProps {
+//   influencerId: string;
+//   influencerImageUrl: string;
+//   influencerName: string;
+//   tagList: string[];
+//   contentScore: number;
+//   communicationScore: number;
+//   trustworthinessScore: number;
+//   latestReviewDate: string;
+// }
+
+// 인플루언서 상세 페이지로 이동
 const SearchInfluencerCard = () => {
   const t = useTranslations('influencer_index_page');
   // prop 으로 넘겨받을거
@@ -18,7 +30,7 @@ const SearchInfluencerCard = () => {
     contentScore: 3,
     communicationScore: 2,
     trustworthinessScore: 1,
-    latestReviewData: '2024-09-25T03:32:50.964124',
+    latestReviewDate: '2024-09-25T03:32:50.964124',
   };
 
   return (
@@ -42,7 +54,7 @@ const SearchInfluencerCard = () => {
           <InfluencerTagList variant="gray" className="mb-2.5" contents={testData.tagList} />
           <div className="mb-[9px] flex items-center gap-x-1.5 text-neutral-300 body3-r">
             <span>{t('최신리뷰')}</span>
-            <time>{formatDateToYYMMDD(parseISOToDate(testData.latestReviewData))}</time>
+            <time>{formatDateToYYMMDD(parseISOToDate(testData.latestReviewDate))}</time>
           </div>
           <InfluencerRatingBar {...testData} />
         </div>

@@ -11,8 +11,8 @@ import { LiaAngleUpSolid } from 'react-icons/lia';
 
 import { getRootPath } from '@/lib/text';
 
-import useMainScrollTop from './hooks/useMainScrollTop';
-import useBottomNavigationState from './hooks/useBottomNavigationState';
+import { useMainScrollTop } from './hooks/useMainScrollTop';
+import { useBottomNavigationState } from './hooks/useBottomNavigationState';
 
 interface BottomNavigationProps {
   mainRef: React.RefObject<HTMLElement>;

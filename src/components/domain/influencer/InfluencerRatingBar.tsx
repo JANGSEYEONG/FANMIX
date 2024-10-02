@@ -1,4 +1,4 @@
-import { useMemo, Fragment } from 'react';
+import { useMemo } from 'react';
 
 import { useTranslations } from 'next-intl';
 
@@ -30,17 +30,17 @@ const InfluencerRatingBar = ({
         <LiaStarSolid className="h-3 w-3" />
         <span>{average}</span>
       </h3>
-      <ul className="flex w-full items-center gap-2.5 px-2.5 orange-600-gradient">
+      <ul className="flex w-full items-center px-2.5 orange-600-gradient">
         {metrics.map((metric, index) => (
-          <Fragment key={metric.label}>
-            <li className="gap-1 flex-center">
+          <li key={metric.label} className="flex items-center">
+            <span className="gap-1 flex-center">
               <label className="sub1-r">{metric.label}</label>
               <span>{metric.score}</span>
-            </li>
+            </span>
             {index !== metrics.length - 1 && (
-              <Separator orientation="vertical" className="h-3 w-[1px] bg-orange-200" />
+              <Separator orientation="vertical" className="mx-2.5 h-3 w-[1px] bg-orange-200/50" />
             )}
-          </Fragment>
+          </li>
         ))}
       </ul>
     </div>
