@@ -71,7 +71,7 @@ export default function InfluencerPage({
             )}
           />
         </div>
-        <ContentTraits />
+        <ContentTraits {...{ originalityScore: 1, toneScore: 5, energyScore: 3 }} />
       </section>
       <section aria-label="리뷰 평균" className="mb-10 flex flex-col justify-center gap-2.5 px-5">
         <h2 className="body3-m">{t('리뷰 평균')}</h2>

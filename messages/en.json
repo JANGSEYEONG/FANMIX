@@ -218,6 +218,23 @@
     "취소": "Cancel",
     "해제하기": "Remove"
   },
+  "content_trait": {
+    "매우 독창적": "Very Original",
+    "독창적": "Original",
+    "보편적": "Conventional",
+    "대중적": "Mainstream",
+    "매우 대중적": "Very Mainstream",
+    "매우 진지한": "Very Serious",
+    "진지한": "Serious",
+    "균형적": "Balanced",
+    "가벼운": "Light",
+    "매우 가벼운": "Very Light",
+    "매우 역동적": "Very Dynamic",
+    "역동적": "Dynamic",
+    "조화로운": "Harmonious",
+    "차분한": "Calm",
+    "매우 차분한": "Very Calm"
+  },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",
     "로그인에 실패했습니다": "Google login has failed."
