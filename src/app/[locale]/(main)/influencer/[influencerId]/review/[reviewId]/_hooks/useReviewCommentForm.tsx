@@ -14,7 +14,7 @@ const commentSchema = z.object({
 
 type CommentFormData = z.infer<typeof commentSchema>;
 
-const useCommentForm = () => {
+const useReviewCommentForm = () => {
   const t = useTranslations('review_page');
   const { showErrorToast } = useInformationToast();
 
@@ -36,7 +36,7 @@ const useCommentForm = () => {
   };
 
   const onError = () => {
-    showErrorToast(t('댓글을 작성해 주세요'), t('댓글 내용을 입력한 후 등록해 주세요'));
+    showErrorToast(t('댓글을 입력해 주세요'), t('댓글 내용을 입력한 후 다시 시도해 주세요'));
   };
 
   return {
@@ -48,4 +48,4 @@ const useCommentForm = () => {
   };
 };
 
-export default useCommentForm;
+export default useReviewCommentForm;

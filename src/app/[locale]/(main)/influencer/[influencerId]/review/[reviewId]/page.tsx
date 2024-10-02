@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import ReviewDetailContent from './_components/ReviewDetailContent';
 import LikeDislikeButtons from './_components/LikeDislikeButtons';
 import ReviewCommentList from './_components/ReviewCommentList';
-import CommentForm from './_components/CommentForm';
+import ReviewCommentForm from './_components/ReviewCommentForm';
 
 export async function generateMetadata({
   params: { locale },
@@ -36,7 +36,7 @@ export default function InfluencerReviewPage({
         <ReviewCommentList />
       </section>
       <footer className="absolute bottom-0 h-[75px] w-full fanmix-gradient">
-        <CommentForm />
+        <ReviewCommentForm />
       </footer>
     </div>
   );
