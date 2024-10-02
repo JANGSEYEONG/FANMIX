@@ -69,7 +69,7 @@ export const ROUTES = {
   },
   FAN_CHANNEL: {
     ROOT: '/fan-channel',
-    PATH: '/fan-channel/[communityId]',
+    PATH: '/fan-channel/[influencerId]/[communityId]',
     LABEL: '팬채널',
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
@@ -79,7 +79,7 @@ export const ROUTES = {
   },
   FAN_CHANNEL_POST: {
     ROOT: '/fan-channel',
-    PATH: '/fan-channel/[communityId]/[postId]',
+    PATH: '/fan-channel/[influencerId]/[communityId]/[postId]',
     LABEL: '팬채널',
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,

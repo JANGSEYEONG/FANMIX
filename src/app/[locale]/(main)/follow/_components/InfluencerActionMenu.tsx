@@ -1,10 +1,11 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { VscEllipsis } from 'react-icons/vsc';
 
 import ButtonListDrawer from '@/components/common/ButtonListDrawer';
-import { useTranslations } from 'next-intl';
-import useInfluencerAction from '../_hooks/useInfluencerAction';
+import useInfluencerAction from '@/hooks/useInfluencerAction';
 
 interface InfluencerActionMenuProps {
   influencerId: string;
@@ -23,12 +24,12 @@ const InfluencerActionMenu = ({
 }: InfluencerActionMenuProps) => {
   const t = useTranslations('follow_influencer_card');
   const { goToFanChannel, unfollowInfluencer, setOnePickInfluencer, removeOnePickInfluencer } =
-    useInfluencerAction(influencerId, communityId);
+    useInfluencerAction(influencerId);
 
   const buttons = [];
 
   if (isAuthenticated) {
-    buttons.push({ text: t('팬채널 가기'), onClick: goToFanChannel });
+    buttons.push({ text: t('팬채널 가기'), onClick: () => goToFanChannel(communityId) });
   }
 
   if (isOnePick) {

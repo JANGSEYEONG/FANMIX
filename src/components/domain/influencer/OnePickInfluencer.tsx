@@ -1,8 +1,13 @@
+'use client';
 import { useTranslations } from 'next-intl';
+
+import { VscEdit } from 'react-icons/vsc';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 import InfluencerTagList from './InfluencerTagList';
 import GoFanChannelButton from './GoFanChannelButton';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+
+import useRemoveOnePickWithMessage from './hooks/useRemoveOnePickInfluencer';
 
 interface OnePickInfluencerProps {
   influencerId: string;
@@ -20,8 +25,16 @@ const OnePickInfluencer = ({
   isOthersPick = false,
 }: OnePickInfluencerProps) => {
   const t = useTranslations('one_pick_influencer');
+  const { handleRemoveOnePickWithMessage } = useRemoveOnePickWithMessage(influencerId);
+
   return (
-    <div className="w-full gap-5 bg-orange-700/20 px-5 py-6 flex-center">
+    <div className="relative w-full gap-5 bg-orange-700/20 px-5 py-6 flex-center">
+      {!isOthersPick && (
+        <VscEdit
+          className="absolute right-[15px] top-[15px] h-4 w-4 hover:scale-transition-110"
+          onClick={handleRemoveOnePickWithMessage}
+        />
+      )}
       <Avatar className="h-[130px] w-[105px] flex-shrink-0 rounded-none">
         <AvatarImage src={influencerImageUrl} alt="원픽 인플루언서 사진" />
         <AvatarFallback className="rounded-none bg-neutral-900/80 h1-sb">
