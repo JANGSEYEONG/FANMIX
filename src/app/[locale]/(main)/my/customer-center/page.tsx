@@ -1,8 +1,8 @@
-import { Fragment } from 'react';
-import { Separator } from '@/components/ui/separator';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
+
+import { Separator } from '@/components/ui/separator';
 
 export async function generateMetadata({
   params: { locale },
@@ -21,34 +21,36 @@ export default function CustomerCenterPage() {
   const linkList = [
     {
       label: t('가이드 및 도움말'),
-      link: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/',
+      path: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/',
     },
     {
       label: t('자주 묻는 질문'),
-      link: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/undefined-1',
+      path: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/undefined-1',
     },
     {
       label: t('이용 약관 및 개인정보처리방침'),
-      link: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/undefined-2',
+      path: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/undefined-2',
     },
     {
       label: t('문의하기'),
-      link: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/undefined-3',
+      path: 'https://app.gitbook.com/o/wmG13oklGfavO55FL5qV/s/KW7Z1ZVJbD7SPJlUDmBy/undefined-3',
     },
   ];
   return (
-    <div className="w-full pb-20 pt-7">
-      <section aria-label="고객센터 리스트" className="mx-5 flex flex-col gap-[25px] body2-r">
-        {linkList.map((linkItem, index) => (
-          <Fragment key={linkItem.label}>
-            <Separator className="bg-neutral-600" />
-            <a
-              href={linkItem.link}
-              target="_blank"
-              rel="noopener noreferrer">{`${index + 1}. ${linkItem.label}`}</a>
-          </Fragment>
-        ))}
-        <Separator className="bg-neutral-600" />
+    <div className="w-full pb-20 pt-[65px]">
+      <section aria-label="고객센터 리스트" className="mx-5">
+        <Separator className="mb-[25px] bg-neutral-600" />
+        <ul className="flex flex-col body2-r">
+          {linkList.map(({ label, path }, index) => (
+            <li key={path}>
+              <a
+                href={path}
+                target="_blank"
+                rel="noopener noreferrer">{`${index + 1}. ${label}`}</a>
+              <Separator className="my-[25px] bg-neutral-600" />
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );

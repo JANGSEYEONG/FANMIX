@@ -3,10 +3,10 @@
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import LogoImg from '@/assets/logo/logo_vertical.svg';
+import VerticalLogo from '../../../../../../public/assets/images/logo/logo_vertical.svg';
 
 const LoginImageCarousel = () => {
-  const introImages = [LogoImg, LogoImg, LogoImg, LogoImg];
+  const introImages = [VerticalLogo, VerticalLogo, VerticalLogo, VerticalLogo];
   return (
     <Swiper
       className="mt-[58px] h-[450px] w-full"

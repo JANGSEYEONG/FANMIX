@@ -8,7 +8,7 @@ import { useCurrentRouteLabel } from '@/hooks/useCurrentRouteLabel';
 
 import { ROUTES } from '@/constants/routes';
 
-import Logo from '@/assets/logo/logo_symbol.svg';
+import Logo from '../../../public/assets/images/logo/logo_symbol.svg';
 import GoBackButton from '../common/GoBackButton';
 import { MainNotification, MainSearch, MainSlideMenu } from '../screens';
 

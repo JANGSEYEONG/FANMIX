@@ -36,9 +36,11 @@ const MainSearch = () => {
         className="flex h-full justify-center bg-black px-5 pt-9 text-white">
         <div className="w-full md:w-[768px]">
           <SheetHeader className="mb-8">
-            <SheetTitle className="text-orange-600 body1-sb">FANMIX 브랜딩 카피</SheetTitle>
+            <SheetTitle className="text-orange-600 body1-sb">
+              {t('FANMIX - 내 선택이 만드는 콘텐츠')}
+            </SheetTitle>
             <SheetDescription className="text-neutral-400 body3-r">
-              FAN과 인플루언서가 함께하는 공간과 같은 서브 카피
+              {t('나에게 맞는 인플루언서를 통해 콘텐츠를 더 풍성하게 즐기세요')}
             </SheetDescription>
           </SheetHeader>
           <section aria-label="검색어 입력" className="mb-[60px]">

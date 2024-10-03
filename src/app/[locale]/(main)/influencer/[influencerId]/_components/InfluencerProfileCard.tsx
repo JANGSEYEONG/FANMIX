@@ -6,6 +6,9 @@ import { LiaBookmark } from 'react-icons/lia';
 
 import InfluencerTagList from '@/components/domain/influencer/InfluencerTagList';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
+import InfluencerPlatformLinks, {
+  type InfluencerPlatformLinksProps,
+} from './InfluencerPlatformLinks';
 
 // 20240929.syjang, 컴포넌트 정리 필요
 const InfluencerProfileCard = () => {
@@ -16,6 +19,16 @@ const InfluencerProfileCard = () => {
     influencerImageUrl: '/assets/images/test/alganzi.png',
     isAuthenticated: false,
   };
+
+  const testData: InfluencerPlatformLinksProps = {
+    snsList: [
+      { platformType: 'INSTAGRAM', url: 'https://www.instagram.com/example' },
+      { platformType: 'X_TWITTER', url: 'https://twitter.com/example' },
+    ],
+    mediaList: [{ platformType: 'YOUTUBE', url: 'https://www.youtube.com/channel/example' }],
+    plusList: [],
+  };
+
   return (
     <>
       <div className="relative pb-[22px] pl-[170px] pr-5 pt-[65px] orange-700-gradient">
@@ -49,29 +62,8 @@ const InfluencerProfileCard = () => {
         </aside>
         <InfluencerTagList contents={['ASMR', 'V-log', '뷰티']} variant="destructive" />
       </div>
-      <div className="pl-[170px] pr-5 flex-center">
-        <div className="flex-1 gap-1 flex-col-center">
-          <div className="text-neutral-400 sub2-m">SNS</div>
-          <div className="gap-[5px] flex-center">
-            <div className="h-5 w-5 rounded bg-neutral-600" />
-            <div className="h-5 w-5 rounded bg-neutral-600" />
-          </div>
-        </div>
-        <Separator orientation="vertical" className="h-[34px] w-[0.5px] bg-neutral-500" />
-        <div className="flex-1 gap-1 flex-col-center">
-          <div className="text-neutral-400 sub2-m">Media</div>
-          <div className="gap-[5px] flex-center">
-            <div className="h-5 w-5 rounded bg-neutral-600" />
-          </div>
-        </div>
-        <Separator orientation="vertical" className="h-[34px] w-[0.5px] bg-neutral-500" />
-        <div className="flex-1 gap-1 flex-col-center">
-          <div className="text-neutral-400 sub2-m">Plus+</div>
-          <div className="gap-[5px] flex-center">
-            <div className="h-5 w-5 rounded bg-neutral-600" />
-            <div className="h-5 w-5 rounded bg-neutral-600" />
-          </div>
-        </div>
+      <div className="pl-[170px] pr-5">
+        <InfluencerPlatformLinks {...testData} />
       </div>
     </>
   );
