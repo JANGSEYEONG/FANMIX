@@ -25,14 +25,14 @@ export default function InfluencerReviewPage({
 }) {
   console.log(`${influencerId}, 인플루언서 한줄리뷰, ${reviewId} 상세 페이지`);
   return (
-    <div className="pb-[75px] pt-[55px]">
-      <section aria-label="리뷰 상세 내용" className="mb-[15px]">
+    <div className="flex h-full flex-col pb-[75px] pt-[55px]">
+      <section aria-label="리뷰 상세 내용" className="mb-[15px] flex-shrink-0">
         <ReviewDetailContent />
       </section>
-      <section aria-label="리뷰 추천, 비추천" className="mb-[25px]">
+      <section aria-label="리뷰 추천, 비추천" className="mb-[25px] flex-shrink-0">
         <LikeDislikeButtons reviewId="3" initialIsLiked={false} initialIsDisliked={false} />
       </section>
-      <section aria-label="리뷰 댓글 리스트">
+      <section aria-label="리뷰 댓글 리스트" className="flex-1 bg-neutral-900">
         <ReviewCommentList />
       </section>
       <footer className="absolute bottom-0 h-[75px] w-full fanmix-gradient">

@@ -38,11 +38,11 @@ const ReviewCommentList = () => {
     );
   };
   return (
-    <ul className="w-full bg-neutral-800">
+    <ul>
       {commentList.map((comment, index) => (
         <li
           key={comment.commentId}
-          className={cn('w-full px-5 pt-5', comment.isMyComment && 'bg-orange-700/[8%]')}>
+          className={cn('w-full px-5 pt-5', comment.isMyComment && 'bg-neutral-800')}>
           <div className="flex flex-col justify-center gap-y-2.5 pb-[15px]">
             {comment.isDeleted ? (
               <DeleteComment isMyComment={comment.isMyComment} />
