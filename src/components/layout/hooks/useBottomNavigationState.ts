@@ -1,9 +1,7 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
-import { LiaHomeSolid, LiaBookmark, LiaGem, LiaUser } from 'react-icons/lia';
+import { useEffect, useState } from 'react';
 
-import { ROUTES } from '@/constants/routes';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { useCurrentRouteLabel } from '@/hooks/useCurrentRouteLabel';
 
@@ -21,19 +19,7 @@ export const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) 
       setIsVisible(true);
     }
   }, [scrollDirection, scrollPosition]);
-
-  const bottomNavigationItems = useMemo(
-    () => [
-      { label: ROUTES.HOME.LABEL, icon: LiaHomeSolid, root: ROUTES.HOME.ROOT },
-      { label: ROUTES.FOLLOW.LABEL, icon: LiaBookmark, root: ROUTES.FOLLOW.ROOT },
-      { label: ROUTES.FAN_CHANNEL_INDEX.LABEL, icon: LiaGem, root: ROUTES.FAN_CHANNEL_INDEX.ROOT },
-      { label: ROUTES.MYPAGE.LABEL, icon: LiaUser, root: ROUTES.MYPAGE.ROOT },
-    ],
-    [],
-  );
-
   return {
-    bottomNavigationItems,
     showBottomNav: !hideBottomNav && isVisible,
     showTopFAB: !hideTopFAB,
   };

@@ -1,6 +1,6 @@
 'use client';
 
-import { login } from '@/services/authService';
+import { authService } from '@/services/authService';
 
 import { ROUTES } from '@/constants/routes';
 
@@ -68,7 +68,7 @@ export const useGoogleLogin = () => {
           process.env.NODE_ENV === 'development'
             ? 'http://localhost:3000/auth/redirect'
             : 'https://fanmix.vercel.app/auth/redirect';
-        const loginResult = await login({ code, redirectUri });
+        const loginResult = await authService.login({ code, redirectUri });
         console.log('로그인 성공 :', loginResult);
         handleSuccessLogin(loginResult);
       } catch (error) {

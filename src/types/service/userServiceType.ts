@@ -25,6 +25,20 @@ export interface LoginResponse extends ResponseBase {
   };
 }
 
-export interface RefreshAccessTokenResponse extends ResponseBase {
-  data: string;
+export interface UserDetailResponse extends ResponseBase {
+  data: {
+    id: number;
+    name: string;
+    nickName: string;
+    profileImgUrl: string;
+    introduce: string;
+    email: string;
+    gender: string;
+    birthYear: string;
+    nationality: string;
+    totalPoint: number;
+    refreshToken: string;
+    firstLoginYn: boolean;
+    role: string;
+  };
 }

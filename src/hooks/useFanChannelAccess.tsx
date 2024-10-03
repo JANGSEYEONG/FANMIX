@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+
+import { useAuthCheck } from './useAuthCheck';
 import { useModalStore } from '@/stores/modalStore';
 
 import MessageBox from '@/components/common/MessageBox';
@@ -13,7 +15,7 @@ export const useFanChannelAccess = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false); // 나중에 useMutation의 loading으로 돌려주기
   const openModal = useModalStore((state) => state.openModal);
-
+  const { checkAuthAndProceed } = useAuthCheck();
   const navigateToFanChannel = (influencerId: string, communityId: string) => {
     router.push(`/fan-channel/${influencerId}/${communityId}`);
   };
@@ -50,33 +52,36 @@ export const useFanChannelAccess = () => {
     return false; // 임시로 false 반환
   };
 
-  const checkAccessAndNavigate = async (
+  // 커뮤니티 아이디, 팔로우 여부가 있다면 팔로우 여부도 넘겨받는다.
+  const checkAccessAndNavigate = (
     influencerId: string,
     communityId: string,
     isFollowing?: boolean,
   ) => {
-    // 커뮤니티 아이디, 팔로우 여부가 있다면 팔로우 여부도 넘겨받는다.
-    setIsLoading(true);
+    // 로그인 상태가 아니라면, 로그인 유도 메시지창을 띄운다.
+    checkAuthAndProceed(async () => {
+      try {
+        setIsLoading(true);
 
-    try {
-      if (isFollowing === undefined) {
-        // 팔로우 상태를 모르는 경우, API를 호출하여 확인
-        isFollowing = await checkFollowStatus(influencerId);
-      }
+        if (isFollowing === undefined) {
+          // 팔로우 상태를 모르는 경우, API를 호출하여 확인
+          isFollowing = await checkFollowStatus(influencerId);
+        }
 
-      if (isFollowing) {
-        // 팔로우 중인 경우, 팬 채널로 이동
-        navigateToFanChannel(influencerId, communityId);
-      } else {
-        // 팔로우 중이 아닌 경우, 팔로우 메시지를 표시 후 이동
-        showFollowModal(influencerId, communityId);
+        if (isFollowing) {
+          // 팔로우 중인 경우, 팬 채널로 이동
+          navigateToFanChannel(influencerId, communityId);
+        } else {
+          // 팔로우 중이 아닌 경우, 팔로우 메시지를 표시 후 이동
+          showFollowModal(influencerId, communityId);
+        }
+      } catch (error) {
+        console.error('Fan channel access check failed:', error);
+        alert('오류 발생');
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error) {
-      console.error('Fan channel access check failed:', error);
-      alert('오류 발생');
-    } finally {
-      setIsLoading(false);
-    }
+    });
   };
   return { checkAccessAndNavigate, isLoading };
 };

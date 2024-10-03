@@ -1,9 +1,7 @@
 'use client';
 
-import { Link } from '@/i18n/routing';
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
@@ -11,18 +9,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import { Button } from '@/components/ui/button';
+
 import { VscMenu } from 'react-icons/vsc';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 import MenuContent from './MenuContent';
 import ChangeLanguage from './ChangeLanguage';
-
-import { ROUTES } from '@/constants/routes';
-import { useTranslations } from 'next-intl';
+import LoginLogoutButton from './LoginLogoutButton';
 
 const MainSlideMenu = () => {
-  const t = useTranslations('main_slide_menu');
   return (
     <Sheet>
       <SheetTrigger>
@@ -44,11 +39,7 @@ const MainSlideMenu = () => {
           <MenuContent />
         </div>
         <SheetFooter>
-          <SheetClose asChild className="w-full">
-            <Link href={ROUTES.LOGIN.PATH}>
-              <Button className="h-[82px] w-full body2-m">{t('로그인 하기')}</Button>
-            </Link>
-          </SheetClose>
+          <LoginLogoutButton />
         </SheetFooter>
       </SheetContent>
     </Sheet>

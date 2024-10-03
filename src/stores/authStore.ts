@@ -3,6 +3,8 @@ import { createJSONStorage, persist, devtools } from 'zustand/middleware';
 import { AUTH_STORE_NAME } from './config';
 import { useUserStore } from './userStore';
 
+import Cookies from 'js-cookie';
+
 interface AuthState {
   isLoggedIn: boolean;
   accessToken: string | null;
@@ -20,12 +22,15 @@ export const useAuthStore = create<AuthState>()(
         isLoggedIn: false,
         accessToken: null,
         refreshToken: null,
-        setLogin: (accessToken, refreshToken) =>
+        setLogin: (accessToken, refreshToken) => {
           set({
             isLoggedIn: true,
             accessToken,
             refreshToken,
-          }),
+          });
+          // 쿠키에 토큰값 세팅
+          Cookies.set('auth_token', accessToken, { secure: true, sameSite: 'strict' });
+        },
         setLogout: () => {
           set({
             isLoggedIn: false,
@@ -34,6 +39,7 @@ export const useAuthStore = create<AuthState>()(
           });
           // 저장된 유저 정보 상태 초기화
           useUserStore.getState().clearUser();
+          Cookies.remove('auth_token');
         },
         setAccessToken: (newAccessToken) => set({ accessToken: newAccessToken }),
         setRefreshToken: (newRefreshToken) => set({ refreshToken: newRefreshToken }),
@@ -52,8 +58,9 @@ if (typeof window !== 'undefined') {
   const initializeAuth = () => {
     const authStore = useAuthStore.getState();
 
-    if (authStore?.accessToken && authStore?.refreshToken) {
-      authStore.setLogin(authStore.accessToken, authStore.refreshToken);
+    // #20241003.syjang, 서버에서 refreshToken이 null로 넘어와서 해결 전까지는 refreshToken 빈값 체크 제외
+    if (authStore?.accessToken) {
+      authStore.setLogin(authStore.accessToken, authStore.refreshToken || '');
     } else {
       authStore.setLogout();
     }

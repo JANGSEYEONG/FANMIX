@@ -154,6 +154,7 @@
     "고객센터": "Customer Service",
     "19+ 모드": "18+ Content",
     "로그인 하기": "Log in",
+    "로그아웃 하기": "Log out",
     "업데이트를 기다려주세요": "Please wait for the update.",
     "곧 멋진 기능으로 찾아뵙겠습니다": "We'll be back soon with great new features."
   },
@@ -236,6 +237,11 @@
     "조화로운": "Harmonious",
     "차분한": "Calm",
     "매우 차분한": "Very Calm"
+  },
+  "auth_check": {
+    "로그인 후 이용할 수 있어요": "Please log in\nto access this feature.",
+    "뒤로": "Back",
+    "로그인 하기": "Log In"
   },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",

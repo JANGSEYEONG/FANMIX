@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import GoogleLoginHandler from './_components/GoogleLoginHandler';
+import PageSpinner from '@/components/common/spinner/PageSpinner';
 
 export async function generateMetadata({
   params: { locale },
@@ -18,7 +19,7 @@ export default function LoginRedirectPage() {
   // TODO: 스피너 추가하기
   return (
     <main className="h-full w-full flex-center">
-      로딩중..
+      <PageSpinner />
       <GoogleLoginHandler />
     </main>
   );

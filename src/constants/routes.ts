@@ -12,6 +12,18 @@ export const ROUTES = {
     HIDE_TOP_FAB: false,
   },
 
+  // 고객센터
+  CUSTOMER_CENTER: {
+    ROOT: '/',
+    PATH: '/customer-service',
+    LABEL: '고객센터',
+    HAS_PREV_BTN: true,
+    HIDE_TITLE: false,
+    HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: false,
+    HIDE_TOP_FAB: true,
+  },
+
   // 팔로우
   FOLLOW: {
     ROOT: '/follow',
@@ -113,16 +125,6 @@ export const ROUTES = {
     ROOT: '/my',
     PATH: '/my/activity-history',
     LABEL: '활동내역',
-    HAS_PREV_BTN: true,
-    HIDE_TITLE: false,
-    HIDE_RIGHT_NAV: false,
-    HIDE_BOTTOM_NAV: false,
-    HIDE_TOP_FAB: true,
-  },
-  CUSTOMER_CENTER: {
-    ROOT: '/my',
-    PATH: '/my/customer-center',
-    LABEL: '고객센터',
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,

@@ -16,7 +16,7 @@ export async function generateMetadata({
   };
 }
 
-export default function CustomerCenterPage() {
+export default function CustomerServicePage() {
   const t = useTranslations('customer_center_page');
   const linkList = [
     {

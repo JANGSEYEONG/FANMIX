@@ -7,6 +7,7 @@ import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 
 import ResponsiveLayout from '@/components/layout/ResponsiveLayout';
+import TanstackQueryProvider from '@/components/common/TanstackQueryProvider';
 
 const suit = localFont({
   src: '../../../public/assets/fonts/SUIT-Variable.woff2',
@@ -62,7 +63,9 @@ export default async function RootLayout({
     <html lang={locale} className={suit.variable}>
       <body className={suit.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <ResponsiveLayout>{children}</ResponsiveLayout>
+          <TanstackQueryProvider>
+            <ResponsiveLayout>{children}</ResponsiveLayout>
+          </TanstackQueryProvider>
         </NextIntlClientProvider>
       </body>
     </html>
