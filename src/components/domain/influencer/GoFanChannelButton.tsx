@@ -5,8 +5,8 @@ import { useFanChannelAccess } from '@/hooks/useFanChannelAccess';
 
 interface GoFanChannelButtonProps {
   children: React.ReactNode;
-  influencerId: string;
-  communityId: string;
+  influencerId: number;
+  communityId: number;
   isFollowing?: boolean;
   variant?: 'destructive' | 'outline';
   className?: string;

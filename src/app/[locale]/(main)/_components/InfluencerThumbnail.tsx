@@ -5,7 +5,7 @@ import { useId } from 'react';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
 
 export interface InfluencerThumbnailProps {
-  influencerId: string;
+  influencerId: number;
   influencerName: string;
   influencerImageUrl: string;
   isAuthenticated: boolean;

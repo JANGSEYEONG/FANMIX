@@ -2,17 +2,13 @@ import Image from 'next/image';
 
 import { Fragment } from 'react';
 import { Separator } from '@/components/ui/separator';
-import { PLATFORM_ICON_PATH, type PlatformType } from '@/constants/platform';
-
-interface Platform {
-  platformType: PlatformType;
-  url: string;
-}
+import { PLATFORM_ICON_PATH } from '@/constants/platform';
+import type { PlatformLink } from '@/types/domain/influencerType';
 // 임시 export, api 연동할 때 타입 따로 지정하기
 export interface InfluencerPlatformLinksProps {
-  snsList: Platform[];
-  mediaList: Platform[];
-  plusList: Platform[];
+  snsList: PlatformLink[];
+  mediaList: PlatformLink[];
+  plusList: PlatformLink[];
 }
 const InfluencerPlatformLinks = ({
   snsList,
@@ -42,7 +38,7 @@ export default InfluencerPlatformLinks;
 
 interface PlatformGroupProps {
   title: string;
-  platforms: Platform[];
+  platforms: PlatformLink[];
 }
 
 const PlatformGroup = ({ title, platforms }: PlatformGroupProps) => (

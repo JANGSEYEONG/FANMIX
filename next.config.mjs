@@ -58,6 +58,9 @@ const nextConfig = {
     });
     return config;
   },
+  images: {
+    domains: ['dxa4d1twgpyua.cloudfront.net'],
+  },
 };
 
 export default withNextIntl(pwaConfig(nextConfig));

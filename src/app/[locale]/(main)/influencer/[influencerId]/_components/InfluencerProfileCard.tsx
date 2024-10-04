@@ -14,7 +14,7 @@ import InfluencerPlatformLinks, {
 const InfluencerProfileCard = () => {
   const t = useTranslations('influencer_page');
   const influencerTest = {
-    influencerId: '3',
+    influencerId: 3,
     influencerName: 'Sound Sound 다니엘',
     influencerImageUrl: '/assets/images/test/alganzi.png',
     isAuthenticated: false,

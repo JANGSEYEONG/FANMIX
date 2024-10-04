@@ -12,7 +12,7 @@ import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 import type { InfluencerReview } from '@/types/domain/influencerType';
 
 interface ImageReviewCardWithRatingBarProps {
-  // influencerId: string;
+  // influencerId: number;
   // reviewId: string;
   // influencerName: string;
   // influencerImageUrl: string;

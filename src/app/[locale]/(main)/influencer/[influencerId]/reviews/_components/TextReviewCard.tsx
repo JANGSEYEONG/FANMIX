@@ -8,7 +8,7 @@ import { formatDateToYYMMDD } from '@/lib/date';
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 
 interface TextReviewCardProps {
-  // influencerId: string;
+  // influencerId: number;
   // reviewerId: string;
   // userNickname: string;
   // createdAt: string;
@@ -26,7 +26,7 @@ interface TextReviewCardProps {
 // 리뷰 상세 페이지로 이동
 const TextReviewCard = ({ isMyReview }: TextReviewCardProps) => {
   const reviewData = {
-    influencerId: '2',
+    influencerId: 2,
     reviewerId: '3',
     reviewrNickName: '작성 유저 닉네임',
     contentsRating: 3,

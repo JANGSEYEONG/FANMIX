@@ -12,8 +12,8 @@ import GoFanChannelButton from '@/components/domain/influencer/GoFanChannelButto
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
 
 interface FanChannelInfluencerCardProps {
-  influencerId: string;
-  communityId: string;
+  influencerId: number;
+  communityId: number;
   influencerName: string;
   influencerImageUrl: string;
   followerCount: number;

@@ -3,33 +3,30 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 
-import { useInformationToast } from '@/hooks/useInformationToast';
-
-const SEARCH_TYPE = {
-  INFLUENCER_NAME: 'INFLUENCER_NAME',
-  TAG: 'TAG',
-} as const;
-
-const SEARCH_SORT = {
-  VIEW_COUNT: 'VIEW_COUNT',
-  RATING: 'RATING',
-  LATEST_REVEIEW: 'LATEST_REVEIEW',
-} as const;
-
-type SearchType = keyof typeof SEARCH_TYPE;
-type SearchSort = keyof typeof SEARCH_SORT;
+import {
+  INFLUENCER_SEARCH_TYPES,
+  INFLUENCER_SEARCH_SORT_TYPES,
+  type InfluencerSearchSortType,
+  type InfluencerSearchType,
+} from '@/types/domain/influencerType';
 
 const influencerSearchSchema = z.object({
-  searchType: z.enum(Object.keys(SEARCH_TYPE) as [SearchType, ...SearchType[]]),
+  searchType: z.enum(
+    Object.keys(INFLUENCER_SEARCH_TYPES) as [InfluencerSearchType, ...InfluencerSearchType[]],
+  ),
   keyword: z.string().min(1),
-  sort: z.enum(Object.keys(SEARCH_SORT) as [SearchSort, ...SearchSort[]]),
+  sort: z.enum(
+    Object.keys(INFLUENCER_SEARCH_SORT_TYPES) as [
+      InfluencerSearchSortType,
+      ...InfluencerSearchSortType[],
+    ],
+  ),
 });
 
-type InfluencerSearchFormData = z.infer<typeof influencerSearchSchema>;
+export type InfluencerSearchFormData = z.infer<typeof influencerSearchSchema>;
 
 export const useInfluencerSearchForm = () => {
   const t = useTranslations('influencer_index_page');
-  const { showErrorToast } = useInformationToast();
 
   const {
     register,
@@ -45,19 +42,10 @@ export const useInfluencerSearchForm = () => {
     },
   });
 
-  const onSubmit = (data: InfluencerSearchFormData) => {
-    console.log(data);
-    // 여기에 폼 제출 로직을 추가하세요
-  };
-
-  const onError = () => {
-    showErrorToast(t('검색어를 입력해 주세요'), t('검색어를 입력 후 다시 시도해 주세요'));
-  };
-
   const sortButtons = [
-    { label: t('조회순'), value: SEARCH_SORT.VIEW_COUNT },
-    { label: t('평점순'), value: SEARCH_SORT.RATING },
-    { label: t('최신리뷰순'), value: SEARCH_SORT.LATEST_REVEIEW },
+    { label: t('조회순'), value: INFLUENCER_SEARCH_SORT_TYPES.VIEW_COUNT },
+    { label: t('평점순'), value: INFLUENCER_SEARCH_SORT_TYPES.RATING },
+    { label: t('최신리뷰순'), value: INFLUENCER_SEARCH_SORT_TYPES.LATEST_REVIEW },
   ];
 
   return {
@@ -65,8 +53,6 @@ export const useInfluencerSearchForm = () => {
     handleSubmit,
     control,
     isValid,
-    onSubmit,
-    onError,
     sortButtons,
   };
 };

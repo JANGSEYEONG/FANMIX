@@ -9,7 +9,7 @@ import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
 interface ImageReviewCardProps {
-  influencerId: string;
+  influencerId: number;
   reviewerId: string;
   influencerName: string;
   influencerImageUrl: string;

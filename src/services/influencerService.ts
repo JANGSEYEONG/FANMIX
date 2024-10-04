@@ -1,8 +1,11 @@
 import { ax, handleAxiosError } from './axios';
 
 import type {
-  InfluencersByNameResponse,
+  InfluencerDetailResponse,
   RecentlyVerifiedInfluencerResponse,
+  SearchInfluencersByNameResponse,
+  SearchInfluencersRequest,
+  SearchInfluencersResponse,
   UpdateOnePickInfluencerRequest,
   UpdateOnePickInfluencerResponse,
   UserOnePickInfluencerResponse,
@@ -67,9 +70,9 @@ export const influencerService = {
   },
 
   // 인플루언서 검색 - 메인(이름)
-  influencersByName: async (keyword: string): Promise<InfluencersByNameResponse> => {
+  searchInfluencersByName: async (keyword: string): Promise<SearchInfluencersByNameResponse> => {
     try {
-      const response = await ax.get<InfluencersByNameResponse>('/api/search', {
+      const response = await ax.get<SearchInfluencersByNameResponse>('/api/search', {
         params: { keyword },
       });
       console.log('influencersByName Response:', response.data);
@@ -81,6 +84,32 @@ export const influencerService = {
   },
 
   // 인플루언서 검색 - 인플루언서 검색페이지 (타입, 정렬, 키워드)
+  searchInfluencers: async ({
+    searchType,
+    keyword,
+    sort,
+  }: SearchInfluencersRequest): Promise<SearchInfluencersResponse> => {
+    try {
+      const response = await ax.get<SearchInfluencersResponse>('/api/influencers/search', {
+        params: { searchType, keyword, sort },
+      });
+      console.log('searchInfluencers Response:', response.data);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
 
   // 인플루언서 상세정보
+  influencerDetail: async (influencerId: number): Promise<InfluencerDetailResponse> => {
+    try {
+      const response = await ax.get<InfluencerDetailResponse>(`/api/influencers/${influencerId}`);
+      console.log('influencerDetail Response:', response.data);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
 };

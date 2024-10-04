@@ -25,28 +25,28 @@ export default function MainPage() {
   const t = useTranslations('main_page');
 
   const influencerTest1 = {
-    influencerId: '1',
+    influencerId: 1,
     influencerName: '알간지',
     influencerImageUrl: '/assets/images/test/alganzi.png',
     isAuthenticated: false,
   };
 
   const influencerTest2 = {
-    influencerId: '2',
+    influencerId: 2,
     influencerName: '레오제이',
     influencerImageUrl: '/assets/images/test/leo.png',
     isAuthenticated: true,
   };
 
   const influencerTest3 = {
-    influencerId: '3',
+    influencerId: 3,
     influencerName: '레오제이',
     influencerImageUrl: '/assets/images/test/alganzi.png',
     isAuthenticated: false,
   };
 
   const influencerTest4 = {
-    influencerId: '5',
+    influencerId: 4,
     influencerName: '레오제이',
     influencerImageUrl: '/assets/images/test/leo.png',
     isAuthenticated: true,

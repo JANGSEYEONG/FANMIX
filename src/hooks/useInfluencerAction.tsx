@@ -3,13 +3,13 @@ import { useRouter } from '@/i18n/routing';
 import { useModalStore } from '@/stores/modalStore';
 import { useTranslations } from 'next-intl';
 
-export const useInfluencerAction = (influencerId: string) => {
+export const useInfluencerAction = (influencerId: number) => {
   const t = useTranslations('influencer_actions');
   const router = useRouter();
   const openModal = useModalStore((state) => state.openModal);
 
   // 팔로우 여부 체크 없이 팬 채널로 이동하는 함수 (팔로우 페이지에서 이동할 때 사용)
-  const goToFanChannel = (communityId: string) => {
+  const goToFanChannel = (communityId: number) => {
     router.push(`/fan-channel/${influencerId}/${communityId}`);
   };
 

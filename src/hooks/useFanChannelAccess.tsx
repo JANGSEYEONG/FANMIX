@@ -16,11 +16,11 @@ export const useFanChannelAccess = () => {
   const [isLoading, setIsLoading] = useState(false); // 나중에 useMutation의 loading으로 돌려주기
   const openModal = useModalStore((state) => state.openModal);
   const { checkAuthAndProceed } = useAuthCheck();
-  const navigateToFanChannel = (influencerId: string, communityId: string) => {
+  const navigateToFanChannel = (influencerId: number, communityId: number) => {
     router.push(`/fan-channel/${influencerId}/${communityId}`);
   };
 
-  const handleFollow = async (influencerId: string, communityId: string) => {
+  const handleFollow = async (influencerId: number, communityId: number) => {
     try {
       await alert('팔로우 api 호출하기');
       navigateToFanChannel(influencerId, communityId);
@@ -30,7 +30,7 @@ export const useFanChannelAccess = () => {
     }
   };
 
-  const showFollowModal = (influencerId: string, communityId: string) => {
+  const showFollowModal = (influencerId: number, communityId: number) => {
     openModal(
       <MessageBox
         title={t('팔로우 설정 시 팬채널에 입장할 수 있어요')}
@@ -46,7 +46,7 @@ export const useFanChannelAccess = () => {
     );
   };
 
-  const checkFollowStatus = async (influencerId: string): Promise<boolean> => {
+  const checkFollowStatus = async (influencerId: number): Promise<boolean> => {
     // 여기에 실제 팔로우 상태를 확인하는 API 호출 로직을 구현하세요
     alert(influencerId + '번 인플루언서 팔로우 확인작업하기');
     return false; // 임시로 false 반환
@@ -54,8 +54,8 @@ export const useFanChannelAccess = () => {
 
   // 커뮤니티 아이디, 팔로우 여부가 있다면 팔로우 여부도 넘겨받는다.
   const checkAccessAndNavigate = (
-    influencerId: string,
-    communityId: string,
+    influencerId: number,
+    communityId: number,
     isFollowing?: boolean,
   ) => {
     // 로그인 상태가 아니라면, 로그인 유도 메시지창을 띄운다.

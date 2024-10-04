@@ -10,8 +10,8 @@ import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadg
 import GoFanChannelButton from '@/components/domain/influencer/GoFanChannelButton';
 
 interface FollowInfluencerCardProps {
-  // influencerId: string;
-  // communityId: string;
+  // influencerId: number;
+  // communityId: number;
   // influencerName: string;
   // influencerImageUrl: string;
   // latestDate: string;
@@ -29,8 +29,8 @@ const FollowInfluencerCard = ({
 }: FollowInfluencerCardProps) => {
   const t = useTranslations('follow_influencer_card');
   const testData = {
-    influencerId: '3',
-    communityId: '3',
+    influencerId: 3,
+    communityId: 3,
     isOnePick,
     influencerName: '힙으뜸',
     isAuthenticated,

@@ -9,8 +9,8 @@ import InfluencerTagList from './InfluencerTagList';
 import GoFanChannelButton from './GoFanChannelButton';
 
 interface OnePickInfluencerProps {
-  influencerId: string;
-  communityId: string;
+  influencerId: number;
+  communityId: number;
   influencerName: string;
   influencerImageUrl: string;
   isOthersPick?: boolean;

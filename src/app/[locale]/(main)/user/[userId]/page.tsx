@@ -28,8 +28,8 @@ export default function UserProfilePage({ params: { userId } }: { params: { user
   const t = useTranslations('user_page');
 
   const onePickData = {
-    influencerId: '3',
-    communityId: '3',
+    influencerId: 3,
+    communityId: 4,
     influencerName: '으뜸언니',
     influencerImageUrl: '',
     isOthersPick: false,

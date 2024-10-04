@@ -26,8 +26,8 @@ export async function generateMetadata({
 
 export default function MyPage() {
   const onePickData = {
-    influencerId: '3',
-    communityId: '3',
+    influencerId: 3,
+    communityId: 3,
     influencerName: '으뜸언니',
     influencerImageUrl: '',
     isOthersPick: false,

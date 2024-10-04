@@ -51,7 +51,7 @@ export default function InfluencerPage({
         <div className="flex items-center justify-between bg-neutral-800 py-[14px] pl-[18px] pr-2.5">
           <p className="w-[250px] text-neutral-100 body2-m">Hi Eunzel who loves to create!</p>
           <GoFanChannelButton
-            {...{ influencerId, communityId: '3' }}
+            {...{ influencerId: parseInt(influencerId), communityId: 3 }}
             className="m-0 h-fit w-fit p-0 hover:bg-transparent">
             <div className="group flex items-center">
               <span className="text-lime-400 body3-r">{t('팬채널')}</span>

@@ -1,4 +1,10 @@
 import type { ResponseBase } from './apiResponseBase';
+import type { Gender } from '../domain/userType';
+import type {
+  InfluencerSearchSortType,
+  InfluencerSearchType,
+  PlatformLink,
+} from '../domain/influencerType';
 
 export interface WeeklyHotInfluencersResponse extends ResponseBase {
   data: {
@@ -51,11 +57,72 @@ export interface UserOnePickInfluencerResponse extends ResponseBase {
   };
 }
 
-export interface InfluencersByNameResponse extends ResponseBase {
+export interface SearchInfluencersByNameResponse extends ResponseBase {
   data: {
     influencerId: number;
     influencerName: string;
     influencerImageUrl: string;
     isAuthenticated: boolean;
   }[];
+}
+
+export interface SearchInfluencersRequest {
+  searchType: InfluencerSearchType;
+  keyword: string;
+  sort: InfluencerSearchSortType;
+}
+export interface SearchInfluencersResponse extends ResponseBase {
+  data: {
+    influencerId: number;
+    influencerName: string;
+    influencerImageUrl: string;
+    tagList: string[];
+    latestReviewDate: string; // ISO 8601 format date string
+    averageRating: number;
+    contentsRating: number;
+    communicationRating: number;
+    trustRating: number;
+    isAuthenticated: boolean;
+  }[];
+}
+
+export interface InfluencerDetailResponse extends ResponseBase {
+  data: {
+    influencerId: number;
+    influencerName: string;
+    influencerImageUrl: string;
+    selfIntroduction: string;
+    gender: Gender;
+    nationality: string;
+
+    snsList: PlatformLink[];
+    mediaList: PlatformLink[];
+    plusList: PlatformLink[];
+
+    contentsOrientationList: number[]; // 창의 - 진지 - 역동 순서
+    tagList: string[];
+    latestReviewDate: string;
+    averageRating: number;
+    contentsRating: number;
+    communicationRating: number;
+    trustRating: number;
+    totalReviewCount: number;
+    isAuthenticated: boolean;
+    isFollowing: boolean;
+    fanChannelId: number;
+
+    bestReview: {
+      reviewerId: number;
+      reviewerNickName: string;
+      averageRating: number;
+      contentsRating: number;
+      communicationRating: number;
+      trustRating: number;
+      reviewDate: string;
+      reviewContent: string;
+      reviewLikeCount: number;
+      reviewDislikeCount: number;
+      reviewCommentsCount: number;
+    };
+  };
 }

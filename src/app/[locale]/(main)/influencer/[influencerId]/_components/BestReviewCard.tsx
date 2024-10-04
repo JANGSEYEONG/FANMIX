@@ -7,7 +7,7 @@ import { formatDateToYYMMDD } from '@/lib/date';
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 
 // interface BestReviewCardProps {
-//   influencerId: string;
+//   influencerId: number;
 //   reviewId: string;
 //   userNickname: string;
 //   reviewContent: string;

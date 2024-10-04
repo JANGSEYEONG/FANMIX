@@ -19,7 +19,7 @@ export async function generateMetadata({
 // 메인 페이지
 export default function ReviewIndexPage() {
   const data = {
-    influencerId: 'inf123456',
+    influencerId: 3,
     reviewerId: 'rev789012',
     influencerName: '빵먹다살찐떡',
     influencerImageUrl: '/assets/images/test/alganzi.png',

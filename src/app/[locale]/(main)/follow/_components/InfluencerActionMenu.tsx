@@ -8,11 +8,11 @@ import { useInfluencerAction } from '@/hooks/useInfluencerAction';
 import ButtonListDrawer from '@/components/common/ButtonListDrawer';
 
 interface InfluencerActionMenuProps {
-  influencerId: string;
+  influencerId: number;
   influencerName: string;
   isOnePick: boolean;
   isAuthenticated: boolean;
-  communityId: string;
+  communityId: number;
 }
 
 const InfluencerActionMenu = ({

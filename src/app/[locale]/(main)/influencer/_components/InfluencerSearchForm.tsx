@@ -15,12 +15,18 @@ import {
 import { Controller } from 'react-hook-form';
 
 import { useTranslations } from 'next-intl';
-import { useInfluencerSearchForm } from '../_hooks/useInfluencerSearchForm';
+import {
+  useInfluencerSearchForm,
+  type InfluencerSearchFormData,
+} from '../_hooks/useInfluencerSearchForm';
 
-const InfluencerSearchForm = () => {
+interface InfluencerSearchFormProps {
+  onSubmit: (data: InfluencerSearchFormData) => void;
+  onError: () => void;
+}
+const InfluencerSearchForm = ({ onSubmit, onError }: InfluencerSearchFormProps) => {
   const t = useTranslations('influencer_index_page');
-  const { register, handleSubmit, control, isValid, onSubmit, onError, sortButtons } =
-    useInfluencerSearchForm();
+  const { register, handleSubmit, control, isValid, sortButtons } = useInfluencerSearchForm();
   return (
     <form
       onSubmit={handleSubmit(onSubmit, onError)}

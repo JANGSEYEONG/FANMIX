@@ -6,7 +6,7 @@ export const reviewData = [
   {
     reviewId: '1',
     influencer: {
-      influencerId: '3',
+      influencerId: 3,
       name: '빵먹다 살찐 떡',
       imageSrc: '/assets/images/test/alganzi.png',
       isVerified: true,
@@ -19,7 +19,7 @@ export const reviewData = [
   {
     reviewId: '2',
     influencer: {
-      influencerId: '3',
+      influencerId: 3,
       name: '빵먹다 살찐 떡',
       imageSrc: '/assets/images/test/alganzi.png',
       isVerified: false,
@@ -36,7 +36,7 @@ export const reviewData = [
   {
     reviewId: '3',
     influencer: {
-      influencerId: '3',
+      influencerId: 3,
       name: '빵먹다 살찐 떡',
       imageSrc: '/assets/images/test/alganzi.png',
       isVerified: true,
@@ -49,7 +49,7 @@ export const reviewData = [
   {
     reviewId: '4',
     influencer: {
-      influencerId: '3',
+      influencerId: 3,
       name: '빵먹다 살찐 떡',
       imageSrc: '/assets/images/test/alganzi.png',
       isVerified: false,
