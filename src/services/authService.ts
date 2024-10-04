@@ -1,5 +1,4 @@
 import { ax, handleAxiosError } from './axios';
-import axios from 'axios';
 
 import type { LoginRequest, LoginResponse } from '@/types/service/authServiceType';
 
@@ -31,9 +30,9 @@ export const authService = {
   },
 
   // 회원탈퇴
-  deleteMember: async (id: string) => {
+  deleteMember: async () => {
     try {
-      const response = await axios.delete(`/api/members/${id}`);
+      const response = await ax.delete('/api/members');
       return response.data;
     } catch (error) {
       handleAxiosError(error);

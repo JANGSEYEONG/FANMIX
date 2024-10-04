@@ -14,8 +14,8 @@ import { useUserStore } from '@/stores/userStore';
 import { useAuthStore } from '@/stores/authStore';
 import { useModalStore } from '@/stores/modalStore';
 
-import type { LoginResponse } from '@/types/service/authServiceType';
 import { SignUpSuccess } from '@/components/screens';
+import type { LoginResponse } from '@/types/service/authServiceType';
 
 export const useGoogleLogin = () => {
   const t = useTranslations('api_result');
@@ -57,7 +57,7 @@ export const useGoogleLogin = () => {
   );
 
   const handleFailLogin = useCallback(() => {
-    showErrorToast(t('로그인에 실패했습니다'), t('다시 시도해 주세요'));
+    showErrorToast(t('로그인에 실패했어요'), t('다시 시도해 주세요'));
     router.push(ROUTES.LOGIN.PATH);
   }, [t, router, showErrorToast]);
 

@@ -37,7 +37,7 @@ export default function UserProfilePage({ params: { userId } }: { params: { user
 
   const userData = {
     userNickName: '닉네임이다',
-    imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시
+    profileImgUrl: '', // 비워질 경우, fallback으로 이름 첫글자 표시
     introduction:
       '한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개',
   };

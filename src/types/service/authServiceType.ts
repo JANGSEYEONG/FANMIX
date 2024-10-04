@@ -1,4 +1,5 @@
 import type { ResponseBase } from './apiResponseBase';
+import type { Gender } from '../domain/userType';
 
 export interface LoginRequest {
   code: string;
@@ -13,7 +14,7 @@ export interface LoginResponse extends ResponseBase {
       birthYear: number;
       email: string;
       firstLoginYn: boolean;
-      gender: string;
+      gender: Gender;
       introduce: string;
       nationality: string;
       nickName: string;

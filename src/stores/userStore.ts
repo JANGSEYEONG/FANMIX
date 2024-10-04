@@ -5,7 +5,7 @@ import type { User } from '@/types/domain/userType';
 
 interface UserStoreType {
   user: User | null;
-  setUser: (user: User) => void;
+  setUser: (userUpdate: Partial<User>) => void;
   clearUser: () => void;
 }
 

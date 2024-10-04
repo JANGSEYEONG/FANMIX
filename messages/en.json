@@ -52,13 +52,21 @@
     "로그아웃": "Logout"
   },
   "my_page_edit_page": {
+    "프로필 이미지": "Profile image",
     "닉네임": "Nickname",
     "내 소개": "About Me",
     "성별": "Gender",
-    "출생연도": "Birth Year",
+    "출생 연도": "Birth Year",
     "국적": "Country",
     "인플루언서 모드": "Creator Mode",
-    "회원탈퇴": "Delete Account"
+    "회원탈퇴": "Delete Account",
+    "올바른 값을 입력해주세요": "Please enter a valid value.",
+    "새로운 {label}을(를) 입력해주세요": "Please enter a new {label}: ",
+    "{label}을(를) 입력해주세요": "Please enter {label}.",
+    "{label}을(를) 선택해주세요": "Please select {label}.",
+    "여자": "Female",
+    "남자": "Male",
+    "알 수 없음": "Unknown"
   },
   "my_activity_history_page": {
     "내 한줄 리뷰": "My Reviews",
@@ -243,8 +251,52 @@
     "뒤로": "Back",
     "로그인 하기": "Log In"
   },
+  "delete_account": {
+    "탈퇴하시겠어요?": "Are you sure you want to delete your account?",
+    "탈퇴한 회원 정보는 되돌릴 수 없어요": "Once deleted, your account information cannot be recovered.",
+    "탈퇴하기": "Delete Account",
+    "뒤로": "Back"
+  },
+  "nationalities": {
+    "KR": "South Korea",
+    "JP": "Japan",
+    "CN": "China",
+    "VN": "Vietnam",
+    "TH": "Thailand",
+    "ID": "Indonesia",
+    "MY": "Malaysia",
+    "SG": "Singapore",
+    "PH": "Philippines",
+    "IN": "India",
+    "KZ": "Kazakhstan",
+    "SA": "Saudi Arabia",
+    "AE": "United Arab Emirates",
+    "TR": "Turkey",
+    "GB": "United Kingdom",
+    "DE": "Germany",
+    "FR": "France",
+    "IT": "Italy",
+    "ES": "Spain",
+    "NL": "Netherlands",
+    "SE": "Sweden",
+    "CH": "Switzerland",
+    "RU": "Russia",
+    "US": "United States",
+    "CA": "Canada",
+    "MX": "Mexico",
+    "BR": "Brazil",
+    "AR": "Argentina",
+    "AU": "Australia",
+    "NZ": "New Zealand",
+    "ZA": "South Africa",
+    "EG": "Egypt",
+    "NG": "Nigeria",
+    "OTHER": "Other"
+  },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",
-    "로그인에 실패했습니다": "Google login has failed."
+    "로그인에 실패했어요": "Login failed.",
+    "{label} 수정에 성공했어요": "{label} has been successfully updated.",
+    "{label} 수정에 실패했어요": "Failed to update {label}."
   }
 }

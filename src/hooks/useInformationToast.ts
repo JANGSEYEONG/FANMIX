@@ -13,7 +13,7 @@ export const useInformationToast = () => {
   const showConfirmToast = useCallback(
     (title: string, description?: string) => {
       toast({
-        duration: 3000,
+        duration: 2000,
         title,
         description,
       });
@@ -24,7 +24,7 @@ export const useInformationToast = () => {
   const showErrorToast = useCallback(
     (title: string, description?: string) => {
       toast({
-        duration: 3000,
+        duration: 2000,
         variant: 'destructive',
         title,
         description,
