@@ -38,6 +38,7 @@ const nextConfig = {
               script-src 'self' 'unsafe-eval' 'unsafe-inline';
               style-src 'self' 'unsafe-inline';
               font-src 'self';
+              connect-src 'self' https://dxa4d1twgpyua.cloudfront.net;
             `
               .replace(/\s{2,}/g, ' ')
               .trim(),
