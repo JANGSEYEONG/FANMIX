@@ -34,11 +34,13 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: `
               default-src 'self';
-              img-src 'self' https://dxa4d1twgpyua.cloudfront.net;
+              img-src 'self' https://dxa4d1twgpyua.cloudfront.net data: blob:;
               script-src 'self' 'unsafe-eval' 'unsafe-inline';
               style-src 'self' 'unsafe-inline';
-              font-src 'self';
+              font-src 'self' data:;
+              media-src 'self' https://dxa4d1twgpyua.cloudfront.net
               connect-src 'self' https://dxa4d1twgpyua.cloudfront.net;
+              frame-src 'self';
             `
               .replace(/\s{2,}/g, ' ')
               .trim(),
