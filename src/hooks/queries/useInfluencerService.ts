@@ -6,6 +6,7 @@ import type {
 } from '@/types/service/influencerServiceType';
 import { influencerService } from '@/services/influencerService';
 import { useCallback, useState } from 'react';
+import { isEqual } from 'lodash';
 
 export const useSearchInfluencers = () => {
   const [searchParams, setSearchParams] = useState<SearchInfluencersRequest | null>(null);
@@ -17,9 +18,11 @@ export const useSearchInfluencers = () => {
 
   const search = useCallback(
     (params: SearchInfluencersRequest) => {
-      setSearchParams(params);
-      if (searchParams !== null) {
-        query.refetch();
+      if (!isEqual(params, searchParams)) {
+        setSearchParams(params);
+        if (searchParams !== null) {
+          query.refetch();
+        }
       }
     },
     [searchParams, query],
