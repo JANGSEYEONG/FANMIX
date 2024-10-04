@@ -34,13 +34,14 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: `
               default-src 'self';
+              connect-src 'self' https://dxa4d1twgpyua.cloudfront.net https://fanmix.vercel.app;
               img-src 'self' https://dxa4d1twgpyua.cloudfront.net data: blob:;
-              script-src 'self' 'unsafe-eval' 'unsafe-inline';
+              script-src 'self' 'unsafe-eval' 'unsafe-inline' https://fanmix.vercel.app;
               style-src 'self' 'unsafe-inline';
               font-src 'self' data:;
               media-src 'self' https://dxa4d1twgpyua.cloudfront.net;
-              connect-src 'self' https://dxa4d1twgpyua.cloudfront.net;
               frame-src 'self';
+              worker-src 'self';
             `
               .replace(/\s{2,}/g, ' ')
               .trim(),
@@ -57,10 +58,6 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'no-cache, no-store, must-revalidate',
-          },
-          {
-            key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self'",
           },
         ],
       },
