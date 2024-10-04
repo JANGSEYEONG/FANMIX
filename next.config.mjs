@@ -34,7 +34,7 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: `
               default-src 'self';
-              connect-src 'self' https://dxa4d1twgpyua.cloudfront.net https://fanmix.vercel.app;
+              connect-src 'self' https://dxa4d1twgpyua.cloudfront.net https://fanmix.vercel.app https://api.fanmix.store;
               img-src 'self' https://dxa4d1twgpyua.cloudfront.net data: blob:;
               script-src 'self' 'unsafe-eval' 'unsafe-inline' https://fanmix.vercel.app;
               style-src 'self' 'unsafe-inline';
