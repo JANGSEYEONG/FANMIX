@@ -38,7 +38,7 @@ const nextConfig = {
               script-src 'self' 'unsafe-eval' 'unsafe-inline';
               style-src 'self' 'unsafe-inline';
               font-src 'self' data:;
-              media-src 'self' https://dxa4d1twgpyua.cloudfront.net
+              media-src 'self' https://dxa4d1twgpyua.cloudfront.net;
               connect-src 'self' https://dxa4d1twgpyua.cloudfront.net;
               frame-src 'self';
             `
