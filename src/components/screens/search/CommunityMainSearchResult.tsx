@@ -5,11 +5,11 @@ import BoardTypeLabel from '@/components/domain/board/BoardTypeLabel';
 
 import { BOARD_TYPE, type CommunityCategory } from '@/types/domain/boardType';
 
-interface CategorySearchResultProps {
+interface CommunityMainSearchResultProps {
   categories: CommunityCategory[];
 }
 
-const CategorySearchResult = ({ categories }: CategorySearchResultProps) => {
+const CommunityMainSearchResult = ({ categories }: CommunityMainSearchResultProps) => {
   return (
     <ul className="flex flex-col justify-center gap-y-6 h2-m">
       {categories.map((category) => (
@@ -29,4 +29,4 @@ const CategorySearchResult = ({ categories }: CategorySearchResultProps) => {
     </ul>
   );
 };
-export default CategorySearchResult;
+export default CommunityMainSearchResult;

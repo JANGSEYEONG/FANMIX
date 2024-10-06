@@ -57,6 +57,7 @@ export interface UserOnePickInfluencerResponse extends ResponseBase {
   };
 }
 
+// 인플루언서 검색 - 이름 (메인 검색))
 export interface SearchInfluencersByNameResponse extends ResponseBase {
   data: {
     influencerId: number;
@@ -66,11 +67,14 @@ export interface SearchInfluencersByNameResponse extends ResponseBase {
   }[];
 }
 
+// 인플루언서 검색 - 이름, 태그, 정렬 (인플루언서 찾기 페이지)
 export interface SearchInfluencersRequest {
   searchType: InfluencerSearchType;
   keyword: string;
   sort: InfluencerSearchSortType;
 }
+
+// 인플루언서 검색 - 이름, 태그, 정렬 (인플루언서 찾기 페이지)
 export interface SearchInfluencersResponse extends ResponseBase {
   data: {
     influencerId: number;

@@ -6,16 +6,16 @@ import SearchInfluencerCard from './SearchInfluencerCard';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 import type { SearchInfluencersResponse } from '@/types/service/influencerServiceType';
 
-interface InfluencerSearchResultsProps {
+interface InfluencerSearchResultProps {
   searchResult: SearchInfluencersResponse | undefined;
   isLoading: boolean;
   isError: boolean;
 }
-const InfluencerSearchResults = ({
+const InfluencerSearchResult = ({
   searchResult,
   isLoading,
   isError,
-}: InfluencerSearchResultsProps) => {
+}: InfluencerSearchResultProps) => {
   const t = useTranslations('influencer_index_page');
   if (isLoading) {
     return (
@@ -48,4 +48,4 @@ const InfluencerSearchResults = ({
     </ul>
   );
 };
-export default InfluencerSearchResults;
+export default InfluencerSearchResult;

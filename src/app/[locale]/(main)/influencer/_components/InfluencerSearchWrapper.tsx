@@ -1,7 +1,7 @@
 'use client';
 
 import InfluencerSearchForm from './InfluencerSearchForm';
-import InfluencerSearchResults from './InfluencerSearchResults';
+import InfluencerSearchResult from './InfluencerSearchResult';
 
 import { useValidatedInfluencerSearch } from '../_hooks/useValidatedInfluencerSearch';
 
@@ -13,7 +13,7 @@ const InfluencerSearchWrapper = () => {
         <InfluencerSearchForm {...{ onSubmit, onError }} />
       </section>
       <section aria-label="인플루언서 검색 결과" className="flex-1">
-        <InfluencerSearchResults {...{ searchResult, isLoading, isError }} />
+        <InfluencerSearchResult {...{ searchResult, isLoading, isError }} />
       </section>
     </div>
   );

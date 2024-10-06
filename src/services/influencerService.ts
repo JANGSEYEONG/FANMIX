@@ -72,9 +72,12 @@ export const influencerService = {
   // 인플루언서 검색 - 메인(이름)
   searchInfluencersByName: async (keyword: string): Promise<SearchInfluencersByNameResponse> => {
     try {
-      const response = await ax.get<SearchInfluencersByNameResponse>('/api/search', {
-        params: { keyword },
-      });
+      const response = await ax.get<SearchInfluencersByNameResponse>(
+        '/api/influencers/main-search',
+        {
+          params: { keyword },
+        },
+      );
       console.log('influencersByName Response:', response.data);
       return response.data;
     } catch (error) {

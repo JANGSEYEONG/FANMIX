@@ -1,7 +1,6 @@
 'use client';
 import { useTranslations } from 'next-intl';
 
-import { Input } from '@/components/ui/input';
 import {
   Sheet,
   SheetContent,
@@ -12,16 +11,22 @@ import {
 } from '@/components/ui/sheet';
 
 import { VscSearch } from 'react-icons/vsc';
-import CommunitySearchResult from './CommunitySearchResult';
+
+import MainSearchInput from './MainSearchInput';
+import CommunitySearchResult from './CommunityMainSearchResult';
 import QuickLinksNavigation from './QuickLinksNavigation';
-import InfluencerSearchResult from './InfluencerSearchResult';
+import InfluencerSearchResult from './InfluencerMainSearchResult';
+
 import { useMainSearch } from './hooks/useMainSearch';
 import { useSearchCommunity } from './hooks/useSearchCommunity';
+import { useMainSearchInfluencer } from './hooks/useMainSearchInfluencer';
 
 const MainSearch = () => {
   const t = useTranslations('main_search');
-  const { searchTerm, handleSearch } = useMainSearch();
-  const { categoryResult } = useSearchCommunity(searchTerm);
+  const { searchTerm, debouncedSearchTerm, handleSearch } = useMainSearch(300); // 검색 디바운스 0.3초
+
+  const { categoryResult } = useSearchCommunity(debouncedSearchTerm);
+  const { influencerResult, isLoading, isError } = useMainSearchInfluencer(debouncedSearchTerm);
 
   return (
     <Sheet>
@@ -44,20 +49,7 @@ const MainSearch = () => {
             </SheetDescription>
           </SheetHeader>
           <section aria-label="검색어 입력" className="mb-[60px]">
-            <div className="relative w-full">
-              <Input
-                className="h-11 w-full border-neutral-300 bg-neutral-900 py-[13px] pl-10 pr-3 text-white body2-r placeholder:text-neutral-500"
-                placeholder={t('인플루언서 / 커뮤니티 검색')}
-                type="text"
-                inputMode="text"
-                enterKeyHint="send"
-                value={searchTerm}
-                onChange={handleSearch}
-              />
-              <button type="submit" className="absolute left-3 top-[13px]">
-                <VscSearch className="h-[18px] w-[18px] text-white" />
-              </button>
-            </div>
+            <MainSearchInput {...{ searchTerm, handleSearch }} />
           </section>
           <section aria-label="검색결과">
             <div>
@@ -65,10 +57,20 @@ const MainSearch = () => {
                 {searchTerm ? t('검색 제안') : t('바로가기')}
               </h2>
               {searchTerm ? (
-                <div className="flex flex-col gap-y-6">
-                  <InfluencerSearchResult />
-                  <CommunitySearchResult categories={categoryResult} />
-                </div>
+                (!influencerResult || influencerResult.data.length === 0) &&
+                categoryResult.length === 0 ? (
+                  <div className="h-full text-neutral-500 body3-r">
+                    {t('인플루언서 및 커뮤니티 검색 결과가 없어요')}
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-y-6">
+                    <InfluencerSearchResult
+                      influencers={influencerResult}
+                      {...{ isLoading, isError }}
+                    />
+                    <CommunitySearchResult categories={categoryResult} />
+                  </div>
+                )
               ) : (
                 <QuickLinksNavigation />
               )}
