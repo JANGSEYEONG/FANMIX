@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { Separator } from '@/components/ui/separator';
 
+import BestReview from './_components/BestReview';
 import ContentTraits from './_components/ContentTraits';
 import ReviewScoreCard from './_components/ReviewScoreCard';
 import InfluencerIntroduce from './_components/InfluencerIntroduce';
@@ -14,7 +15,6 @@ import TooltipBox from '@/components/common/TooltipBox';
 import PageSpinner from '@/components/common/spinner/PageSpinner';
 
 import { getInfluencerData } from '@/services/serverFetch/influencerServerService';
-import BestReview from './_components/BestReview';
 
 export async function generateMetadata({
   params: { locale },
