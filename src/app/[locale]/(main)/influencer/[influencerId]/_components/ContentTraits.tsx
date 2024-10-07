@@ -5,25 +5,45 @@ import { Separator } from '@/components/ui/separator';
 import { ENERGY, ORIGINALITY, TONE } from '@/constants/contentTraits';
 
 interface ContentTraitsProps {
-  originalityScore: number; // 대중적-독창적
-  toneScore: number; // 가벼운-진지한
-  energyScore: number; // 차분한-역동적
+  originalityScore: number | null; // 대중적-독창적
+  toneScore: number | null; // 가벼운-진지한
+  energyScore: number | null; // 차분한-역동적
 }
 
 const ContentTraits = ({ originalityScore, toneScore, energyScore }: ContentTraitsProps) => {
   const t = useTranslations('content_trait');
+
   const traitList = useMemo(
-    () => [ORIGINALITY[originalityScore - 1], TONE[toneScore - 1], ENERGY[energyScore - 1]],
+    () => [
+      {
+        key: 'originality',
+        trait: originalityScore !== null ? ORIGINALITY[originalityScore] : null,
+      },
+      {
+        key: 'tone',
+        trait: toneScore !== null ? TONE[toneScore] : null,
+      },
+      {
+        key: 'energy',
+        trait: energyScore !== null ? ENERGY[energyScore] : null,
+      },
+    ],
     [originalityScore, toneScore, energyScore],
   );
 
   return (
     <ul className="flex-center">
-      {traitList.map(({ LABEL, ICON }, index) => (
-        <li key={LABEL} className="flex flex-1 items-center">
+      {traitList.map(({ key, trait }, index) => (
+        <li key={key} className="flex flex-1 items-center">
           <div className="flex-1 gap-0.5 text-lime-400 flex-col-center">
-            <ICON className="h-[22px] w-[22px]" />
-            <div className="text-white body3-m">{t(LABEL)}</div>
+            {trait ? (
+              <>
+                <trait.ICON className="h-[22px] w-[22px]" />
+                <div className="text-white body3-m">{t(trait.LABEL)}</div>
+              </>
+            ) : (
+              '-'
+            )}
           </div>
           {index !== traitList.length - 1 && (
             <Separator

@@ -134,6 +134,14 @@ const config: Config = {
         '.neutral-800-gradient': {
           background: 'linear-gradient(to bottom, #26262600 0%, #262626 100%)',
         },
+        '.fanmix-gradient-text': {
+          // 텍스트용 FANMIX GRADIENT
+          background: 'linear-gradient(to bottom, #FF3A1C 0%, #FF5B46 100%)',
+          '-webkit-background-clip': 'text',
+          'background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          color: 'transparent',
+        },
         // scroll
         '.scrollbar-hide-smooth': {
           '-ms-overflow-style': 'none',

@@ -103,7 +103,7 @@ export interface InfluencerDetailResponse extends ResponseBase {
     mediaList: PlatformLink[];
     plusList: PlatformLink[];
 
-    contentsOrientationList: number[]; // 창의 - 진지 - 역동 순서
+    contentsOrientationList: [number, number, number]; // 창의 - 진지 - 역동 순서
     tagList: string[];
     latestReviewDate: string;
     averageRating: number;
@@ -116,6 +116,7 @@ export interface InfluencerDetailResponse extends ResponseBase {
     fanChannelId: number;
 
     bestReview: {
+      reviewId: number;
       reviewerId: number;
       reviewerNickName: string;
       averageRating: number;

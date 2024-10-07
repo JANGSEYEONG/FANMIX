@@ -63,16 +63,14 @@ interface PlatformLinkProps {
 const PlatformLink = ({ url, iconPath }: PlatformLinkProps) => {
   return (
     <li className="relative h-5 w-5 overflow-hidden rounded bg-neutral-600">
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <Image
-          priority
-          src={iconPath}
-          alt="플랫폼 로고 이미지"
-          fill
-          sizes="100%"
-          className="object-cover"
-        />
-      </a>
+      <Image
+        priority
+        src={iconPath}
+        alt="플랫폼 로고 이미지"
+        fill
+        sizes="100%"
+        className="object-cover"></Image>
+      <a href={url} className="absolute h-full w-full" target="_blank" rel="noopener noreferrer" />
     </li>
   );
 };

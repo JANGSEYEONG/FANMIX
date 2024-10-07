@@ -6,8 +6,7 @@ import { useModalStore } from '@/stores/modalStore';
 
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
-
-const MAX_SCORE = 10;
+import { REVIEW_MAX_SCORE } from '@/types/domain/influencerType';
 
 interface ScoreSelectBoxProps {
   title: string;
@@ -33,7 +32,7 @@ const ScoreSelectBox = ({
       <ScrollArea className="mx-[100px] h-72 w-full rounded-[6px] border border-neutral-600 bg-neutral-900/90 p-4 blur-22-shadow">
         <h2 className="mb-4 body1-sb">{title}</h2>
         <ul className="w-full flex-col-center body3-m">
-          {[...Array(MAX_SCORE)].map((_, index) => (
+          {[...Array(REVIEW_MAX_SCORE)].map((_, index) => (
             <li
               key={index}
               className="w-full cursor-pointer flex-col-center"
@@ -45,7 +44,7 @@ const ScoreSelectBox = ({
                 )}>
                 {index + 1}
               </span>
-              {index + 1 !== MAX_SCORE && <Separator className="h-[1px] bg-neutral-700" />}
+              {index + 1 !== REVIEW_MAX_SCORE && <Separator className="h-[1px] bg-neutral-700" />}
             </li>
           ))}
         </ul>

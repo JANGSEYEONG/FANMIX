@@ -10,6 +10,7 @@ export function middleware(request: NextRequest) {
 
   // 특정 라우팅("/follow", "/my" 등)에 따라 조건부로 로그인 페이지로 이동 처리
   if (pathname.includes('/follow') || pathname.includes('/my')) {
+    // TODO: jwt 토큰 검증 api 호출하기
     if (!authToken) {
       return NextResponse.redirect(new URL('/auth/login', request.url));
     }

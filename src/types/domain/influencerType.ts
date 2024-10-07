@@ -38,6 +38,9 @@ export interface InfluencerReview {
   createdAt: Date; // 생성일
 }
 
+// 리뷰 최대 점수
+export const REVIEW_MAX_SCORE = 10;
+
 export const REVIEW_MODE = {
   VIEW: 'VIEW',
   CREATE: 'CREATE',

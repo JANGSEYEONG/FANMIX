@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { VscChevronLeft, VscChromeClose } from 'react-icons/vsc';
 
 interface GoBackButtonProps {
-  variant: 'close' | 'word' | 'prev';
+  variant?: 'close' | 'word' | 'prev';
 }
 const GoBackButton = ({ variant = 'close' }: GoBackButtonProps) => {
   const { handleGoBack } = useGoBack();
