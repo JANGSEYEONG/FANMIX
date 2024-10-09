@@ -56,7 +56,7 @@ const InfluencerProfileCard = ({
           <h1 className="mb-0.5 w-[162px] whitespace-normal break-words h1-sb">{influencerName}</h1>
           <FollowToggleButton {...{ influencerId, isFollowing }} />
         </div>
-        <aside className="mb-[15px] flex items-center gap-[7px] sub1-r">
+        <aside className="mb-[15px] flex flex-wrap items-center gap-[7px] sub1-r">
           {isAuthenticated && (
             <>
               <span className="gap-0.5 text-lime-400 flex-center sub1-m">

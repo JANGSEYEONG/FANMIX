@@ -77,13 +77,13 @@ const InfluencerSearchForm = ({ onSubmit, onError }: InfluencerSearchFormProps) 
           control={control}
           render={({ field }) => (
             <>
-              {sortButtons.map((sortButton) => (
+              {sortButtons.map(({ label, value }) => (
                 <button
                   type="submit"
-                  key={sortButton.value}
-                  onClick={() => field.onChange(sortButton.value)}
-                  className={cn(field.value === sortButton.value && 'text-lime-400 body3-m')}>
-                  {sortButton.label}
+                  key={value}
+                  onClick={() => field.onChange(value)}
+                  className={cn(field.value === value && 'text-lime-400 body3-m')}>
+                  {label}
                 </button>
               ))}
             </>

@@ -17,9 +17,9 @@ const ReviewScoreCard = ({
   const tInfluencer = useTranslations('influencer_page');
   const average = Math.floor((contentsRating + communicationRating + trustRating) / 3);
   const metrics = [
-    { label: t('콘텐츠'), score: contentsRating },
-    { label: t('소통'), score: communicationRating },
-    { label: t('신뢰'), score: trustRating },
+    { label: t('콘텐츠'), score: Math.floor(contentsRating) },
+    { label: t('소통'), score: Math.floor(communicationRating) },
+    { label: t('신뢰'), score: Math.floor(trustRating) },
   ];
   return (
     <div

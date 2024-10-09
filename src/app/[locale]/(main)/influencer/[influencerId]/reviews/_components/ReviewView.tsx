@@ -35,12 +35,6 @@ const ReviewView = ({
     setReviewMode,
     setMyLatestReviewData,
   );
-  const metricsData = {
-    contentsRating,
-    communicationRating,
-    trustRating,
-  };
-
   return (
     <div className="flex flex-col justify-center gap-2.5">
       <div className="flex items-center justify-between">
@@ -50,7 +44,13 @@ const ReviewView = ({
             {formatDateToYYMMDD(parseISOToDate(reviewDate))}
           </span>
         </div>
-        <MetricsText {...metricsData} />
+        <MetricsText
+          {...{
+            contentsRating,
+            communicationRating,
+            trustRating,
+          }}
+        />
       </div>
       <p className="min-h-[76px] w-full bg-neutral-800 p-2 body3-r">{reviewContent}</p>
       {isBefore15Days ? (

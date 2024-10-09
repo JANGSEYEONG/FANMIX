@@ -19,7 +19,7 @@ interface StatusMessageProps {
   message: string;
 }
 const StatusMessage = ({ message }: StatusMessageProps) => (
-  <div className="mt-10 w-full text-neutral-500 flex-center body3-r">{message}</div>
+  <p className="mt-10 w-full text-neutral-500 flex-center body3-r">{message}</p>
 );
 
 interface MyReviewProps {

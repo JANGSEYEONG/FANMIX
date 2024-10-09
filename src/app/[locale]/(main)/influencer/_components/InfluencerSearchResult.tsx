@@ -26,16 +26,16 @@ const InfluencerSearchResult = ({
   }
   if (isError) {
     return (
-      <div className="h-full whitespace-pre-wrap text-center text-neutral-500 flex-center body3-r">
+      <p className="h-full whitespace-pre-wrap text-center text-neutral-500 flex-center body3-r">
         {t('인플루언서 검색 중 오류가 발생했어요 다시 시도해 주세요')}
-      </div>
+      </p>
     );
   }
   if (!searchResult || searchResult.data.length === 0) {
     return (
-      <div className="h-full whitespace-pre-wrap text-center text-neutral-500 flex-center body3-r">
+      <p className="h-full whitespace-pre-wrap text-center text-neutral-500 flex-center body3-r">
         {t('인플루언서 검색 결과가 없어요')}
-      </div>
+      </p>
     );
   }
   return (

@@ -6,6 +6,7 @@ import type {
   PlatformLink,
 } from '../domain/influencerType';
 
+// 메인 - 주간 인기 인플루언서
 export interface WeeklyHotInfluencersResponse extends ResponseBase {
   data: {
     influencerId: number;
@@ -24,6 +25,7 @@ export interface RecentlyVerifiedInfluencerResponse extends ResponseBase {
   }[];
 }
 
+// 원픽 인플루언서 설정
 export interface UpdateOnePickInfluencerRequest {
   influencerId: number;
   onePick: number; // 1:원픽지정, 0 :일반팬
@@ -39,6 +41,7 @@ export interface UpdateOnePickInfluencerResponse extends ResponseBase {
   };
 }
 
+// 사용자의 원픽 인플루언서 조회
 export interface UserOnePickInfluencerResponse extends ResponseBase {
   data: {
     influencerId: number;
@@ -90,6 +93,7 @@ export interface SearchInfluencersResponse extends ResponseBase {
   }[];
 }
 
+// 인플루언서 상세정보
 export interface InfluencerDetailResponse extends ResponseBase {
   data: {
     influencerId: number;

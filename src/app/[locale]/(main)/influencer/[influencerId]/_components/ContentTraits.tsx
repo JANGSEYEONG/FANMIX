@@ -17,15 +17,15 @@ const ContentTraits = ({ originalityScore, toneScore, energyScore }: ContentTrai
     () => [
       {
         key: 'originality',
-        trait: originalityScore !== null ? ORIGINALITY[originalityScore] : null,
+        trait: originalityScore !== null ? ORIGINALITY[originalityScore - 1] : null,
       },
       {
         key: 'tone',
-        trait: toneScore !== null ? TONE[toneScore] : null,
+        trait: toneScore !== null ? TONE[toneScore - 1] : null,
       },
       {
         key: 'energy',
-        trait: energyScore !== null ? ENERGY[energyScore] : null,
+        trait: energyScore !== null ? ENERGY[energyScore - 1] : null,
       },
     ],
     [originalityScore, toneScore, energyScore],

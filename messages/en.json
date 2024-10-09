@@ -112,7 +112,12 @@
   },
   "influencer_reviews_page": {
     "리뷰 작성 기능은 로그인 후 이용할 수 있어요": "You can use the review writing feature after logging in.",
-    "내 최근 한줄리뷰를 가져오는데 문제가 생겼어요": "There was a problem retrieving your recent one-line review."
+    "내 최근 한줄리뷰를 가져오는데 문제가 생겼어요": "There was a problem retrieving your recent one-line review.",
+    "첫 한줄리뷰를 작성해 주세요": "Please write your first one-line review.",
+    "한줄리뷰 전체 데이터를 가져오는데 문제가 생겼어요": "There was a problem retrieving all one-line review data.",
+    "모든 리뷰를 확인했어요": "You've seen all the reviews.",
+    "최신순": "Latest",
+    "추천순": "Most recommended"
   },
   "review_page": {
     "추천": "Like",
