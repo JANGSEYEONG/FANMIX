@@ -3,28 +3,46 @@
 import { cn } from '@/lib/utils';
 import { Dispatch } from 'react';
 import { useTranslations } from 'next-intl';
+import { useReviewForm } from '../_hooks/useReviewForm';
 
 import { VscIndent } from 'react-icons/vsc';
 import TooltipBox from '@/components/common/TooltipBox';
+import PageSpinner from '@/components/common/spinner/PageSpinner';
 
-import { useReviewForm } from '../_hooks/useReviewForm';
-
-import type { ReviewMode } from '@/types/domain/influencerType';
+import type { ReviewMode, MyLatestReview } from '@/types/domain/reviewType';
 
 interface ReviewFormProps {
+  influencerId: number;
+  reviewMode: ReviewMode;
   setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>;
-  defaultReviewData?: {
-    reviewContent: string;
-    contentsRating: number;
-    communicationRating: number;
-    trustRating: number;
-  };
+  setMyLatestReviewData: Dispatch<React.SetStateAction<MyLatestReview | null>>;
+  defaultReviewData: MyLatestReview | null;
 }
 
-const ReviewForm = ({ setReviewMode, defaultReviewData }: ReviewFormProps) => {
+const ReviewForm = ({
+  influencerId,
+  reviewMode,
+  setReviewMode,
+  setMyLatestReviewData,
+  defaultReviewData,
+}: ReviewFormProps) => {
   const t = useTranslations('review_form');
-  const { register, handleSubmit, onSubmit, onError, isValid, handleClickMetric, metricList } =
-    useReviewForm(setReviewMode, !!defaultReviewData, defaultReviewData);
+  const {
+    register,
+    handleSubmit,
+    onSubmit,
+    onError,
+    isValid,
+    handleClickMetric,
+    metricList,
+    isPending,
+  } = useReviewForm(
+    influencerId,
+    setReviewMode,
+    setMyLatestReviewData,
+    reviewMode,
+    defaultReviewData,
+  );
 
   return (
     <div>
@@ -42,7 +60,7 @@ const ReviewForm = ({ setReviewMode, defaultReviewData }: ReviewFormProps) => {
       <form onSubmit={handleSubmit(onSubmit, onError)}>
         <div className="mb-2.5 flex h-[76px] w-full">
           <textarea
-            {...register('reviewContent')}
+            {...register('content')}
             className="h-full flex-1 resize-none bg-neutral-800 p-2 body3-r placeholder:text-neutral-500 placeholder:sub1-r focus:border-none focus:outline-none focus:ring-0"
             placeholder={t(
               '한번 남긴 한줄 리뷰는 15일 이내에 삭제가 가능합니다 가장 최근에 남긴 리뷰만 점수에 반영됩니다',
@@ -73,6 +91,7 @@ const ReviewForm = ({ setReviewMode, defaultReviewData }: ReviewFormProps) => {
           ))}
         </div>
       </form>
+      {isPending && <PageSpinner />}
     </div>
   );
 };

@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
 import { LiaFrown } from 'react-icons/lia';
+import { ROUTES } from '@/constants/routes';
 
 export default function Error({
   error,
@@ -28,9 +30,14 @@ export default function Error({
           {t('페이지를 불러오는 데 문제가 발생했어요 다시 한번 시도해주세요')}
         </p>
       </div>
-      <Button variant="destructive" className="w-full body3-m" onClick={() => reset()}>
-        {t('다시 시도하기')}
-      </Button>
+      <div className="w-full gap-y-3 flex-col-center">
+        <Button variant="destructive" className="w-full body3-m" onClick={() => reset()}>
+          {t('다시 시도하기')}
+        </Button>
+        <Button className="w-full body3-m">
+          <Link href={ROUTES.HOME.PATH}>{t('메인 페이지로 가기')}</Link>
+        </Button>
+      </div>
     </div>
   );
 }

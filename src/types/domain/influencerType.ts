@@ -38,16 +38,6 @@ export interface InfluencerReview {
   createdAt: Date; // 생성일
 }
 
-// 리뷰 최대 점수
-export const REVIEW_MAX_SCORE = 10;
-
-export const REVIEW_MODE = {
-  VIEW: 'VIEW',
-  CREATE: 'CREATE',
-  EDIT: 'EDIT',
-} as const;
-export type ReviewMode = keyof typeof REVIEW_MODE;
-
 // 인플루언서 플랫폼 타입
 export interface PlatformLink {
   platformType: PlatformType;

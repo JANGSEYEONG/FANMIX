@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import FilledRatingBar from '@/components/domain/influencer/FilledRatingBar';
-import { REVIEW_MAX_SCORE } from '@/types/domain/influencerType';
+import { REVIEW_MAX_SCORE } from '@/types/domain/reviewType';
 
 interface ReviewScoreCardProps {
   contentsRating: number;
@@ -15,7 +15,7 @@ const ReviewScoreCard = ({
 }: ReviewScoreCardProps) => {
   const t = useTranslations('influencer_rating_bar');
   const tInfluencer = useTranslations('influencer_page');
-  const average = Math.floor(contentsRating + communicationRating + trustRating);
+  const average = Math.floor((contentsRating + communicationRating + trustRating) / 3);
   const metrics = [
     { label: t('콘텐츠'), score: contentsRating },
     { label: t('소통'), score: communicationRating },

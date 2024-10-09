@@ -1,13 +1,14 @@
+import { useCallback, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
+import { isEqual } from 'lodash';
+
+import { influencerService } from '@/services/influencerService';
 import type {
   SearchInfluencersByNameResponse,
   SearchInfluencersRequest,
   SearchInfluencersResponse,
 } from '@/types/service/influencerServiceType';
-import { influencerService } from '@/services/influencerService';
-import { useCallback, useState } from 'react';
-import { isEqual } from 'lodash';
 
 export const useSearchInfluencersByName = (searchTerm: string) => {
   return useQuery<SearchInfluencersByNameResponse, AxiosError>({

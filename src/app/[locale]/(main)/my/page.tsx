@@ -46,7 +46,6 @@ export default function MyPage() {
         <MyPageMenuList />
       </nav>
       <Separator className="h-[8px] bg-neutral-900" />
-      {/* 로그아웃 로직 훅 분리하기 */}
       <footer className="mx-5 mt-6">
         <LogoutButton />
       </footer>

@@ -1,52 +1,40 @@
 import { AxiosError } from 'axios';
 
 import { useMutation } from '@tanstack/react-query';
-import { useAuthStore } from '@/stores/authStore';
 import { useInformationToast } from '../useInformationToast';
 
 import { authService } from '@/services/authService';
+import { useRouter } from '@/i18n/routing';
+import { useAuthStore } from '@/stores/authStore';
+import { useTranslations } from 'next-intl';
 
 export const useLogout = () => {
+  const t = useTranslations('api_result');
+  const { showConfirmToast, showErrorToast } = useInformationToast();
   const setLogout = useAuthStore((state) => state.setLogout);
-  const { showErrorToast } = useInformationToast();
-
   return useMutation<AxiosError>({
     mutationFn: authService.logout,
     onSuccess: () => {
+      // 서버 로그아웃 성공 여부와 별개로 클라이언트는 로그아웃 처리
       setLogout();
-
-      // 로그아웃 시 홈 페이지로 리다이렉트
-      window.location.href = '/';
-
-      // 뒤로가기 방지
-      window.history.pushState(null, '', window.location.href);
-      window.onpopstate = function () {
-        window.history.pushState(null, '', window.location.href);
-      };
+      showConfirmToast(t('로그아웃에 성공했어요'));
     },
     onError: () => {
-      showErrorToast('로그아웃에 실패했어요.');
+      // 서버 로그아웃 성공 여부와 별개로 클라이언트는 로그아웃 처리
+      setLogout();
+      showErrorToast(t('로그아웃에 실패했어요'));
     },
   });
 };
 
 export const useDeleteAccount = () => {
-  const setLogout = useAuthStore((state) => state.setLogout);
+  const router = useRouter();
   const { showErrorToast } = useInformationToast();
 
   return useMutation<AxiosError>({
     mutationFn: authService.deleteMember,
     onSuccess: () => {
-      setLogout();
-
-      // 로그아웃 시 홈 페이지로 리다이렉트
-      window.location.href = '/';
-
-      // 뒤로가기 방지
-      window.history.pushState(null, '', window.location.href);
-      window.onpopstate = function () {
-        window.history.pushState(null, '', window.location.href);
-      };
+      router.push('/?isLogout=true');
     },
     onError: () => {
       showErrorToast('회원 탈퇴에 실패했어요.');

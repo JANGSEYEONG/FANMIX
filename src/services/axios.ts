@@ -31,8 +31,8 @@ instance.interceptors.response.use(
     const originalRequest = error.config; // 기존에 수행하려고 했던 작업
 
     if (error.response?.status === 401 && originalRequest) {
-      // 메인 페이지로 리다이렉트
-      window.location.href = '/';
+      // 메인 페이지로 리다이렉트 -> 로그아웃 전용 페이지로 이동시키기
+      window.location.href = '/?isLogout=true';
       return Promise.reject(error);
 
       // #20241003.syjang, refresh token 관련해서 백엔드 작업 다시해야함. 우선 메인페이지로만 redirect

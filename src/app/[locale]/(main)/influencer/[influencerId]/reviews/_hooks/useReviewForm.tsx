@@ -3,36 +3,45 @@
 import { Dispatch } from 'react';
 import { useTranslations } from 'next-intl';
 
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useModalStore } from '@/stores/modalStore';
-
-import MessageBox from '@/components/common/MessageBox';
-import ScoreSelectBox from '../_components/ScoreSelectBox';
-
-import { REVIEW_MODE, type ReviewMode } from '@/types/domain/influencerType';
+import { useReviewMutations } from './useReviewMutations';
 import { useInformationToast } from '@/hooks/useInformationToast';
 
-const reviewSchema = z.object({
-  reviewContent: z.string().min(1),
-  contentsRating: z.number().min(1).max(10),
-  communicationRating: z.number().min(1).max(10),
-  trustRating: z.number().min(1).max(10),
-});
+import ScoreSelectBox from '../_components/ScoreSelectBox';
 
-type ReviewFormData = z.infer<typeof reviewSchema>;
-type MetricKey = keyof Omit<ReviewFormData, 'reviewContent'>;
+import {
+  REVIEW_MODE,
+  reviewFormSchema,
+  type ReviewMode,
+  type ReviewFormData,
+  type MyLatestReview,
+} from '@/types/domain/reviewType';
+
+type MetricKey = keyof Omit<ReviewFormData, 'content'>;
 
 export const useReviewForm = (
+  influencerId: number,
   setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>,
-  isModify: boolean,
-  defaultReviewData?: ReviewFormData,
+  setMyLatestReviewData: Dispatch<React.SetStateAction<MyLatestReview | null>>,
+  reviewMode: ReviewMode,
+  defaultReviewData: MyLatestReview | null,
 ) => {
   const t = useTranslations('review_form');
   const { openModal, closeModal } = useModalStore();
   const { showErrorToast } = useInformationToast();
 
+  const { handleCreateReview, handleUpdateReview, isPending } = useReviewMutations(
+    setReviewMode,
+    setMyLatestReviewData,
+  );
+  const defaultReviewFormValues = {
+    content: defaultReviewData?.reviewContent || '',
+    contentsRating: defaultReviewData?.contentsRating || 0,
+    communicationRating: defaultReviewData?.communicationRating || 0,
+    trustRating: defaultReviewData?.trustRating || 0,
+  };
   const {
     register,
     handleSubmit,
@@ -40,13 +49,8 @@ export const useReviewForm = (
     setValue,
     formState: { isValid },
   } = useForm<ReviewFormData>({
-    resolver: zodResolver(reviewSchema),
-    defaultValues: defaultReviewData || {
-      reviewContent: '',
-      contentsRating: 0,
-      communicationRating: 0,
-      trustRating: 0,
-    },
+    resolver: zodResolver(reviewFormSchema),
+    defaultValues: defaultReviewFormValues,
     mode: 'onChange',
   });
 
@@ -54,12 +58,12 @@ export const useReviewForm = (
   const communicationRating = watch('communicationRating');
   const trustRating = watch('trustRating');
 
-  const onSubmit = (data: ReviewFormData) => {
-    console.log(data);
-    // TODO: 제출 로직 추가
-    // submit할 때 리액트쿼리 캐시데이터 수정하기
-    openSuccessMessage();
-    setReviewMode(REVIEW_MODE.VIEW);
+  const onSubmit = async (reviewData: ReviewFormData) => {
+    if (reviewMode === REVIEW_MODE.FORM_CREATE) {
+      await handleCreateReview(influencerId, reviewData);
+    } else if (reviewMode === REVIEW_MODE.FORM_EDIT && defaultReviewData) {
+      await handleUpdateReview(influencerId, defaultReviewData.reviewId, reviewData);
+    }
   };
 
   const onError = () => {
@@ -90,15 +94,6 @@ export const useReviewForm = (
     { key: 'trustRating', label: t('신뢰'), score: trustRating },
   ];
 
-  const openSuccessMessage = () => {
-    openModal(
-      <MessageBox
-        title={isModify ? t('한줄리뷰가 수정되었어요') : t('한줄리뷰가 등록되었어요')}
-        buttons={[{ text: t('확인'), color: 'lime' }]}
-      />,
-    );
-  };
-
   return {
     register,
     handleSubmit,
@@ -107,5 +102,6 @@ export const useReviewForm = (
     isValid,
     handleClickMetric,
     metricList,
+    isPending,
   };
 };

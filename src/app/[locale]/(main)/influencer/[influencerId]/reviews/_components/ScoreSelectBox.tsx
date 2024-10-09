@@ -6,7 +6,7 @@ import { useModalStore } from '@/stores/modalStore';
 
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { REVIEW_MAX_SCORE } from '@/types/domain/influencerType';
+import { REVIEW_MAX_SCORE } from '@/types/domain/reviewType';
 
 interface ScoreSelectBoxProps {
   title: string;
