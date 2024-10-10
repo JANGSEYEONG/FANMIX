@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
 
@@ -9,6 +8,11 @@ import LogoutHandler from './_components/LogoutHandler';
 import InfluencerShowcase from './_components/InfluencerShowcase';
 import PopularContentTabs from './_components/PopularContentTabs';
 import InfluencerImageCarousel from './_components/InfluencerImageCarousel';
+
+import { getWeeklyHotInfluencersData } from '@/services/serverFetch/influencerServerService';
+import { getRecentlyVerifiedInfluencersData } from '@/services/serverFetch/influencerServerService';
+import { getPopularReviewsData } from '@/services/serverFetch/reviewServerService';
+import { getPopularPostsData } from '@/services/serverFetch/communityServerService';
 
 export async function generateMetadata({
   params: { locale },
@@ -23,41 +27,39 @@ export async function generateMetadata({
 }
 
 // 메인 페이지
-export default function MainPage({
+export default async function MainPage({
+  params: { locale },
   searchParams,
 }: {
+  params: { locale: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const t = useTranslations('main_page');
+  const t = await getTranslations({ locale, namespace: 'main_page' });
   const isLogout = searchParams.isLogout === 'true';
 
-  const influencerTest1 = {
-    influencerId: 1,
-    influencerName: '알간지',
-    influencerImageUrl: '/assets/images/test/alganzi.png',
-    isAuthenticated: false,
-  };
+  const [
+    weeklyHotInfluencerResult,
+    recentlyVerifiedInfluencersResult,
+    popularReviewsResult,
+    popularPostsResult,
+  ] = await Promise.allSettled([
+    getWeeklyHotInfluencersData(),
+    getRecentlyVerifiedInfluencersData(),
+    getPopularReviewsData(),
+    getPopularPostsData(),
+  ]);
 
-  const influencerTest2 = {
-    influencerId: 2,
-    influencerName: '레오제이',
-    influencerImageUrl: '/assets/images/test/leo.png',
-    isAuthenticated: true,
-  };
+  const weeklyHotInfluencerData =
+    weeklyHotInfluencerResult.status === 'fulfilled' ? weeklyHotInfluencerResult.value.data : [];
+  const recentlyVerifiedInfluencersData =
+    recentlyVerifiedInfluencersResult.status === 'fulfilled'
+      ? recentlyVerifiedInfluencersResult.value.data
+      : [];
+  const popularReviewsData =
+    popularReviewsResult.status === 'fulfilled' ? popularReviewsResult.value.data : [];
+  const popularPostsData =
+    popularPostsResult.status === 'fulfilled' ? popularPostsResult.value.data : [];
 
-  const influencerTest3 = {
-    influencerId: 3,
-    influencerName: '레오제이',
-    influencerImageUrl: '/assets/images/test/alganzi.png',
-    isAuthenticated: false,
-  };
-
-  const influencerTest4 = {
-    influencerId: 4,
-    influencerName: '레오제이',
-    influencerImageUrl: '/assets/images/test/leo.png',
-    isAuthenticated: true,
-  };
   return (
     <div className="mt-6 w-full pb-20 pt-[35px] flex-col-center">
       {isLogout && <LogoutHandler />}
@@ -72,9 +74,7 @@ export default function MainPage({
             {t('이번 주 가장 핫한 인플루언서를 만나보세요')}
           </p>
         </header>
-        <InfluencerShowcase
-          influencers={[influencerTest1, influencerTest2, influencerTest3, influencerTest4]}
-        />
+        <InfluencerShowcase influencers={weeklyHotInfluencerData} />
       </section>
 
       <section aria-label="인증 인플루언서" className="mb-[50px] flex w-full flex-col gap-4 pl-5">
@@ -87,15 +87,12 @@ export default function MainPage({
           </div>
           <p className="text-neutral-300 body3-r">{t('절차를 통해 인증된 인플루언서입니다')}</p>
         </header>
-        <InfluencerShowcase
-          influencers={[influencerTest1, influencerTest2, influencerTest3, influencerTest4]}
-        />
+        <InfluencerShowcase influencers={recentlyVerifiedInfluencersData} />
       </section>
 
       <Separator className="h-2 bg-neutral-900" />
-
       <section aria-label="인기 글, 리뷰 탭" className="mt-6 w-full px-5">
-        <PopularContentTabs />
+        <PopularContentTabs reviews={popularReviewsData} posts={popularPostsData} />
       </section>
     </div>
   );

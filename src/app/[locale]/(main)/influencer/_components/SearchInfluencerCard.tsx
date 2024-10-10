@@ -62,9 +62,9 @@ const SearchInfluencerCard = ({
           </div>
           <InfluencerRatingBar
             {...{
-              contentScore: contentsRating,
-              communicationScore: communicationRating,
-              trustworthinessScore: trustRating,
+              contentsRating,
+              communicationRating,
+              trustRating,
             }}
           />
         </div>

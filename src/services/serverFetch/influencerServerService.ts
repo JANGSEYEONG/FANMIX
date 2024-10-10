@@ -1,6 +1,11 @@
 import api from './fetch';
-import type { InfluencerDetailResponse } from '@/types/service/influencerServiceType';
+import type {
+  InfluencerDetailResponse,
+  RecentlyVerifiedInfluencerResponse,
+  WeeklyHotInfluencersResponse,
+} from '@/types/service/influencerServiceType';
 
+// 인플루언서 상세 정보
 export const getInfluencerData = async (
   influencerId: string,
 ): Promise<InfluencerDetailResponse> => {
@@ -8,3 +13,18 @@ export const getInfluencerData = async (
     `${process.env.NEXT_PUBLIC_URL}/api/influencers/${influencerId}`,
   );
 };
+
+// 주간 인기 인플루언서
+export const getWeeklyHotInfluencersData = async (): Promise<WeeklyHotInfluencersResponse> => {
+  return api.get<WeeklyHotInfluencersResponse>(
+    `${process.env.NEXT_PUBLIC_URL}/api/influencers/hot10`,
+  );
+};
+
+// 최근 인증 인플루언서
+export const getRecentlyVerifiedInfluencersData =
+  async (): Promise<RecentlyVerifiedInfluencerResponse> => {
+    return api.get<RecentlyVerifiedInfluencerResponse>(
+      `${process.env.NEXT_PUBLIC_URL}/api/influencers/recent10`,
+    );
+  };

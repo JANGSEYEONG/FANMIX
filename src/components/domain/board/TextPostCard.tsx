@@ -1,38 +1,46 @@
 'use client';
 
-import { formatDateToYYMMDD } from '@/lib/date';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
 import BoardTypeLabel from './BoardTypeLabel';
 import InteractionStats from './InteractionStats';
 
-import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
-import type { InteractionStat } from '@/types/domain/influencerType';
+import { BOARD_CARD_TYPE, BOARD_TYPE } from '@/types/domain/boardType';
+import type { TextPostCardData } from '@/types/domain/communityType';
+import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
 export interface TextPostCardProps {
-  // influencerId:string;
-  postId: string;
-  boardType: BoardType;
-  boardName: string;
-  content: string;
-  createdAt: Date;
-  interaction: InteractionStat;
+  postData: TextPostCardData;
   isPopular?: boolean;
 }
 
 const TextPostCard = ({
-  postId,
-  boardType,
-  boardName,
-  content,
-  createdAt,
-  interaction,
+  postData: {
+    influencerId,
+    communityId,
+    communityName,
+    influencerName,
+    postId,
+    content,
+    likeCount,
+    commentCount,
+    crDate,
+  },
   isPopular = false,
 }: TextPostCardProps) => {
+  // influencerId가 존재하면 팬채널, 없으면 커뮤니티
+  const boardType = influencerId ? BOARD_TYPE.FAN : BOARD_TYPE.COMMUNITY;
+  const isFanChannel = boardType === BOARD_TYPE.FAN;
+  const { showConfirmToast } = useInformationToast();
   const handleClickPostCard = () => {
-    if (boardType === BOARD_TYPE.FAN) {
-      alert(`influencerId로 팬 여부 체크 후, ${boardType}의 ${postId}로 이동`);
+    showConfirmToast('포스트 기능은 준비중 이에요.');
+    return;
+    if (isFanChannel) {
+      console.log(
+        `${influencerId}의 팬 여부 체크 후, ${boardType}의 ${communityId}커뮤니티의 ${postId}로 이동`,
+      );
     } else {
-      alert(`${boardType}의 ${postId}로 이동`);
+      console.log(`${boardType}의 ${communityId}커뮤니티의 ${postId}로 이동`);
     }
   };
   return (
@@ -42,8 +50,8 @@ const TextPostCard = ({
       <aside className="mb-0.5">
         <BoardTypeLabel
           boardType={boardType}
-          boardName={boardName}
-          iconSize={boardType === BOARD_TYPE.FAN ? 18 : 16}
+          boardName={isFanChannel ? influencerName || '' : communityName || ''}
+          iconSize={isFanChannel ? 18 : 16}
           className="gap-x-[3px] sub1-m"
         />
       </aside>
@@ -51,9 +59,11 @@ const TextPostCard = ({
       <footer className="flex w-full items-center justify-between">
         <InteractionStats
           boardCardType={isPopular ? BOARD_CARD_TYPE.POPULAR_POST : BOARD_CARD_TYPE.POST}
-          {...interaction}
+          {...{ likesCount: likeCount, dislikesCount: 0, commentsCount: commentCount }}
         />
-        <time className="text-neutral-400 sub2-m">{formatDateToYYMMDD(createdAt)}</time>
+        <time className="text-neutral-400 sub2-m">
+          {formatDateToYYMMDD(parseISOToDate(crDate))}
+        </time>
       </footer>
     </article>
   );

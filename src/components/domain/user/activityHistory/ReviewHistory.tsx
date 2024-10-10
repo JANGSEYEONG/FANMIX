@@ -1,10 +1,8 @@
-import ImageReviewCardWithRatingBar from '@/components/domain/influencer/ImageReviewCardWithRatingBar';
-
-import type { InfluencerReview } from '@/types/domain/influencerType';
 import { useTranslations } from 'next-intl';
-
+import ImageReviewCardWithRatingBar from '@/components/domain/influencer/ImageReviewCardWithRatingBar';
+import type { ImageReviewCardData } from '@/types/domain/reviewType';
 interface ReviewHistoryProps {
-  reviews: InfluencerReview[];
+  reviews: ImageReviewCardData[];
 }
 
 const ReviewHistory = ({ reviews }: ReviewHistoryProps) => {
@@ -15,7 +13,7 @@ const ReviewHistory = ({ reviews }: ReviewHistoryProps) => {
       <ul className="flex w-full flex-col items-center gap-[30px]">
         {reviews.map((review) => (
           <li key={review.reviewId} className="w-full">
-            <ImageReviewCardWithRatingBar data={review} />
+            <ImageReviewCardWithRatingBar reviewData={review} />
           </li>
         ))}
       </ul>

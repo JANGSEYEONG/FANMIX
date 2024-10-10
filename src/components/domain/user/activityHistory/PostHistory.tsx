@@ -1,10 +1,11 @@
 import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
-import TextPostCard, { type TextPostCardProps } from '@/components/domain/board/TextPostCard';
+import TextPostCard from '@/components/domain/board/TextPostCard';
+import type { TextPostCardData } from '@/types/domain/communityType';
 
 interface PostHistoryProps {
-  posts: TextPostCardProps[];
+  posts: TextPostCardData[];
 }
 const PostHistory = ({ posts }: PostHistoryProps) => {
   const t = useTranslations('my_activity_history_page');
@@ -14,7 +15,7 @@ const PostHistory = ({ posts }: PostHistoryProps) => {
       <ul className="flex flex-col">
         {posts.map((post) => (
           <li key={post.postId} className="w-full">
-            <TextPostCard {...post} />
+            <TextPostCard postData={post} />
             <Separator className="my-[15px] h-[0.7px] bg-neutral-600" />
           </li>
         ))}

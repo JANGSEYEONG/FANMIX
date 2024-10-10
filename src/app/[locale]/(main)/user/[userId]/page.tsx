@@ -5,11 +5,11 @@ import { getTranslations } from 'next-intl/server';
 import UserProfile from './_components/UserProfile';
 import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
 import CommentHistory from '@/components/domain/user/activityHistory/CommentHistory';
-import PostHistory from '@/components/domain/user/activityHistory/PostHistory';
-import ReviewHistory from '@/components/domain/user/activityHistory/ReviewHistory';
+// import PostHistory from '@/components/domain/user/activityHistory/PostHistory';
+// import ReviewHistory from '@/components/domain/user/activityHistory/ReviewHistory';
 import SlideBarTabs from '@/components/common/SlideBarTabs';
 
-import { commentData, postData, reviewData } from '@/constants/testData';
+import { commentData } from '@/constants/testData';
 
 export async function generateMetadata({
   params: { locale },
@@ -43,16 +43,16 @@ export default function UserProfilePage({ params: { userId } }: { params: { user
   };
 
   const tabs = [
-    {
-      value: '1',
-      label: t('한줄 리뷰'),
-      content: <ReviewHistory reviews={reviewData} />,
-    },
-    {
-      value: '2',
-      label: t('글'),
-      content: <PostHistory posts={postData} />,
-    },
+    // {
+    //   value: '1',
+    //   label: t('한줄 리뷰'),
+    //   content: <ReviewHistory reviews={reviewData} />,
+    // },
+    // {
+    //   value: '2',
+    //   label: t('글'),
+    //   content: <PostHistory posts={postData} />,
+    // },
     {
       value: '3',
       label: t('댓글'),

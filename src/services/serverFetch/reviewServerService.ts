@@ -1,6 +1,17 @@
 import api from './fetch';
-import type { InfluencerReviewDetailWithCommentsResponse } from '@/types/service/reviewServiceType';
+import type {
+  InfluencerReviewDetailWithCommentsResponse,
+  PopularReviewsResponse,
+} from '@/types/service/reviewServiceType';
 
+// 메인 - 인기 리뷰 리스트
+export const getPopularReviewsData = async (): Promise<PopularReviewsResponse> => {
+  return api.get<PopularReviewsResponse>(
+    `${process.env.NEXT_PUBLIC_URL}/api/influencers/reviews/hot5`,
+  );
+};
+
+// 리뷰 상세보기 (리뷰데이터 + 댓글 리스트)
 export const getInfluencerReviewDetailWithCommentsData = async (
   influencerId: string,
   reviewId: string,

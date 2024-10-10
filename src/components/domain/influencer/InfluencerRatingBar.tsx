@@ -5,25 +5,28 @@ import { useTranslations } from 'next-intl';
 import { Separator } from '@/components/ui/separator';
 import { LiaStarSolid } from 'react-icons/lia';
 
-import type { InfluencerRatingMetrics } from '@/types/domain/influencerType';
-
-interface InfluencerRatingBarProps extends InfluencerRatingMetrics {}
+interface InfluencerRatingBarProps {
+  contentsRating: number;
+  communicationRating: number;
+  trustRating: number;
+}
 
 const InfluencerRatingBar = ({
-  contentScore,
-  communicationScore,
-  trustworthinessScore,
+  contentsRating,
+  communicationRating,
+  trustRating,
 }: InfluencerRatingBarProps) => {
   const t = useTranslations('influencer_rating_bar');
   const { metrics, average } = useMemo(() => {
     const metricsArray = [
-      { label: t('콘텐츠'), score: contentScore },
-      { label: t('소통'), score: communicationScore },
-      { label: t('신뢰'), score: trustworthinessScore },
+      { label: t('콘텐츠'), score: contentsRating },
+      { label: t('소통'), score: communicationRating },
+      { label: t('신뢰'), score: trustRating },
     ];
-    const avgScore = Math.round((contentScore + communicationScore + trustworthinessScore) / 3);
+    const avgScore = Math.floor((contentsRating + communicationRating + trustRating) / 3);
     return { metrics: metricsArray, average: avgScore };
-  }, [t, contentScore, communicationScore, trustworthinessScore]);
+  }, [t, contentsRating, communicationRating, trustRating]);
+
   return (
     <div className="flex h-5 w-full sub1-sb">
       <h3 className="w-10 flex-shrink-0 gap-[2.5px] bg-orange-600 flex-center">

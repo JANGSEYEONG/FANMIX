@@ -7,9 +7,9 @@ import SlideBarTabs from '@/components/common/SlideBarTabs';
 
 import MyHistoryProfile from './_components/MyHistoryProfile';
 
-import { commentData, postData, reviewData } from '@/constants/testData';
-import ReviewHistory from '@/components/domain/user/activityHistory/ReviewHistory';
-import PostHistory from '@/components/domain/user/activityHistory/PostHistory';
+import { commentData } from '@/constants/testData';
+// import ReviewHistory from '@/components/domain/user/activityHistory/ReviewHistory';
+// import PostHistory from '@/components/domain/user/activityHistory/PostHistory';
 import CommentHistory from '@/components/domain/user/activityHistory/CommentHistory';
 
 export async function generateMetadata({
@@ -33,16 +33,16 @@ export default function MyActivityHistoryPage() {
   };
 
   const tabs = [
-    {
-      value: '1',
-      label: t('내 한줄 리뷰'),
-      content: <ReviewHistory reviews={reviewData} />,
-    },
-    {
-      value: '2',
-      label: t('내 글'),
-      content: <PostHistory posts={postData} />,
-    },
+    // {
+    //   value: '1',
+    //   label: t('내 한줄 리뷰'),
+    //   content: <ReviewHistory reviews={reviewData} />,
+    // },
+    // {
+    //   value: '2',
+    //   label: t('내 글'),
+    //   content: <PostHistory posts={postData} />,
+    // },
     {
       value: '3',
       label: t('내 댓글'),

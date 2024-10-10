@@ -1,8 +1,13 @@
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import InfluencerThumbnail, { type InfluencerThumbnailProps } from './InfluencerThumbnail';
+import InfluencerThumbnail from './InfluencerThumbnail';
 
 interface InfluencerShowcaseProps {
-  influencers: InfluencerThumbnailProps[]; // influencerList에서 변경
+  influencers: {
+    influencerId: number;
+    influencerName: string;
+    influencerImageUrl: string;
+    isAuthenticated: boolean;
+  }[];
 }
 
 const InfluencerShowcase = ({ influencers }: InfluencerShowcaseProps) => {

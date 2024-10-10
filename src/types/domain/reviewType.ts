@@ -47,3 +47,20 @@ export const ALL_INFLUENCER_REVIEWS_SORT_TYPES = {
   // TIER: 'TIER', 티어는 레벨시스템 구현되면
 } as const;
 export type AllInfluencerReviewsSortType = keyof typeof ALL_INFLUENCER_REVIEWS_SORT_TYPES;
+
+// 이미지가 들어간 리뷰 카드 (메인, 활동내역에서 사용)
+export interface ImageReviewCardData {
+  influencerId: number;
+  reviewId: number;
+  influencerName: string;
+  influencerImageUrl: string;
+  influencerIsAuthenticated: boolean;
+  contentsRating: number;
+  communicationRating: number;
+  trustRating: number;
+  reviewContent: string;
+  reviewDate: string;
+  reviewLikeCount: number;
+  reviewDislikeCount: number;
+  reviewCommentsCount: number;
+}

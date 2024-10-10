@@ -35,7 +35,7 @@ const InfluencerThumbnail = ({
         <figcaption
           id={`${figureId}-influencer-${influencerId}`}
           className="absolute bottom-0 flex h-[60px] w-full items-end justify-center pb-2 text-white neutral-800-gradient body3-sb">
-          {influencerName}
+          <span className="break-keep text-center">{influencerName}</span>
           {isAuthenticated && <span className="sr-only">(인증된 인플루언서)</span>}
         </figcaption>
         {isAuthenticated && (

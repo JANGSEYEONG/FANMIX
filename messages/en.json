@@ -43,7 +43,9 @@
     "절차를 통해 인증된 인플루언서입니다": "These influencers have been verified through our process",
     "인기 글": "Popular Posts",
     "인기 리뷰": "Popular Reviews",
-    "전체보기": "View All"
+    "전체보기": "View All",
+    "아직 인기 리뷰가 없어요": "No popular reviews yet.",
+    "아직 인기 글이 없어요": "No popular posts yet."
   },
   "my_page": {
     "활동내역": "Activity History",
