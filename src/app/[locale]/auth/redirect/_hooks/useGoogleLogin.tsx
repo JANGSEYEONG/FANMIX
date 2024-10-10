@@ -34,7 +34,7 @@ export const useGoogleLogin = () => {
       // 받아온 user 정보 authStore, userStore에 저장하기
       setLogin(accessToken, member.refreshToken);
       setUser({
-        userId: member.id.toString(),
+        userId: member.id,
         nickName: member.nickName,
         email: member.email,
         birthYear: member.birthYear,

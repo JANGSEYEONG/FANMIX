@@ -17,7 +17,6 @@ import {
   type ReviewFormData,
   type ReviewMode,
 } from '@/types/domain/reviewType';
-import { formatDateToISO } from '@/lib/date'; // 임시로 import, 백엔드에서 데이터 돌려주면 이거 없앨거임
 
 export const useReviewMutations = (
   setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>,
@@ -34,8 +33,10 @@ export const useReviewMutations = (
 
   const handleCreateReview = async (influencerId: number, reviewData: ReviewFormData) => {
     try {
-      // const responseData =
-      await createReviewMutation.mutateAsync({ influencerId, reviewData });
+      const { data: responseData } = await createReviewMutation.mutateAsync({
+        influencerId,
+        reviewData,
+      });
       openModal(
         <MessageBox
           title={t('한줄리뷰가 등록되었어요')}
@@ -44,14 +45,15 @@ export const useReviewMutations = (
       );
 
       setMyLatestReviewData({
-        reviewId: 1, //이거 백엔드에서 돌려줘야함
-        isBefore15Days: true, //마지막 리뷰 15일 전인지 후인지
-        contentsRating: reviewData.contentsRating, // responseData 로 바꿔야함
-        communicationRating: reviewData.communicationRating,
-        trustRating: reviewData.trustRating,
-        reviewDate: formatDateToISO(new Date()), // 이거 백엔드에서 돌려줘야함
-        reviewContent: reviewData.content,
+        reviewId: responseData?.reviewId,
+        isBefore15Days: responseData?.isBefore15Days,
+        contentsRating: responseData?.contentsRating,
+        communicationRating: responseData?.communicationRating,
+        trustRating: responseData?.trustRating,
+        reviewDate: responseData?.reviewDate,
+        reviewContent: responseData?.reviewContent,
       });
+
       setReviewMode(REVIEW_MODE.VIEW);
     } catch {
       showErrorToast(t('한줄리뷰 생성에 실패했어요'), t('다시 시도해 주세요'));
@@ -64,8 +66,11 @@ export const useReviewMutations = (
     reviewData: ReviewFormData,
   ) => {
     try {
-      // const responseData =
-      await updateReviewMutation.mutateAsync({ influencerId, reviewId, reviewData });
+      const { data: responseData } = await updateReviewMutation.mutateAsync({
+        influencerId,
+        reviewId,
+        reviewData,
+      });
       openModal(
         <MessageBox
           title={t('한줄리뷰가 수정되었어요')}
@@ -74,13 +79,13 @@ export const useReviewMutations = (
       );
 
       setMyLatestReviewData({
-        reviewId: 1, //이거 백엔드에서 돌려줘야함
-        isBefore15Days: true, //마지막 리뷰 15일 전인지 후인지
-        contentsRating: reviewData.contentsRating, // responseData 로 바꿔야함
-        communicationRating: reviewData.communicationRating,
-        trustRating: reviewData.trustRating,
-        reviewDate: formatDateToISO(new Date()), // 이거 백엔드에서 돌려줘야함
-        reviewContent: reviewData.content,
+        reviewId: responseData?.reviewId,
+        isBefore15Days: responseData?.isBefore15Days,
+        contentsRating: responseData?.contentsRating,
+        communicationRating: responseData?.communicationRating,
+        trustRating: responseData?.trustRating,
+        reviewDate: responseData?.reviewDate,
+        reviewContent: responseData?.reviewContent,
       });
       setReviewMode(REVIEW_MODE.VIEW);
     } catch {
@@ -97,6 +102,11 @@ export const useReviewMutations = (
           buttons={[{ text: t('확인'), color: 'lime' }]}
         />,
       );
+
+      // #20241010.syjang, 내 최신 리뷰 쿼리를 invalidateQueries 적용해도 MyReview가 리렌더링이 안됨..
+      // 근데 새로고침하고 삭제하면 또 리렌더링 잘된다.. 우선 뷰 모드로 강제 전환..
+      setMyLatestReviewData(null);
+      setReviewMode(REVIEW_MODE.FORM_CREATE);
     } catch {
       showErrorToast(t('한줄리뷰 삭제에 실패했어요'), t('다시 시도해 주세요'));
     }

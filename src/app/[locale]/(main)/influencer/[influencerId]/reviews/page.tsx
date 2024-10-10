@@ -27,7 +27,7 @@ export default async function InfluencerReviewListPage({
 }) {
   const { data: influencerData } = await getInfluencerData(influencerId);
   return (
-    <div className="flex h-full flex-col pb-20">
+    <div className="flex h-full flex-col">
       <section
         aria-label="인플루언서 정보"
         className="sticky top-0 flex flex-shrink-0 flex-col gap-2.5 bg-black pb-8">
@@ -37,7 +37,7 @@ export default async function InfluencerReviewListPage({
         <MyReview influencerId={parseInt(influencerId)} />
       </section>
       <Separator className="h-2 flex-shrink-0 bg-neutral-900" />
-      <section aria-label="한줄리뷰 전체 리스트" className="mt-[15px] flex-1">
+      <section aria-label="한줄리뷰 전체 리스트" className="mt-[15px] flex-1 pb-20">
         <SpecificInfluencerReviewList influencerId={parseInt(influencerId)} />
       </section>
     </div>
