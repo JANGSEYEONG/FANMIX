@@ -1,13 +1,13 @@
 import { Dispatch } from 'react';
 
-import { useReviewMutations } from './useReviewMutations';
+import { useMyReviewMutations } from './useMyReviewMutations';
 import { REVIEW_MODE, type MyLatestReview, type ReviewMode } from '@/types/domain/reviewType';
 
 export const useReviewView = (
   setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>,
   setMyLatestReviewData: Dispatch<React.SetStateAction<MyLatestReview | null>>,
 ) => {
-  const { handleDeleteReview: handleDeleteReviewMutation, isPending } = useReviewMutations(
+  const { handleDeleteReview: handleDeleteReviewMutation, isPending } = useMyReviewMutations(
     setReviewMode,
     setMyLatestReviewData,
   );

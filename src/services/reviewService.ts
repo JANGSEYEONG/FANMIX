@@ -3,9 +3,15 @@ import { ax, handleAxiosError } from './axios';
 import type {
   AllInfluencersAllReviewsRequest,
   AllInfluencersAllReviewsResponse,
+  CreateInfluencerReviewCommentRequest,
+  CreateInfluencerReviewCommentResponse,
   CreateInfluencerReviewRequest,
   CreateInfluencerReviewResponse,
+  DeleteInfluencerReviewCommentRequest,
   DeleteInfluencerReviewRequest,
+  InfluencerReviewDetailWithCommentsRequest,
+  InfluencerReviewDetailWithCommentsResponse,
+  InfluencerReviewLikeDislikeRequest,
   MyLatestReviewForInfluencerResponse,
   PopularReviewsResponse,
   SpecificInfluencerAllReviewsRequest,
@@ -118,11 +124,75 @@ export const reviewService = {
     }
   },
 
-  // 한줄리뷰 좋아요/싫어요 평가
-
   // 리뷰 상세조회, 댓글 리스트 포힘
+  influencerReviewDetailWithComments: async ({
+    influencerId,
+    reviewId,
+  }: InfluencerReviewDetailWithCommentsRequest) => {
+    try {
+      const response = await ax.get<InfluencerReviewDetailWithCommentsResponse>(
+        `/api/influencers/${influencerId}/reviews/${reviewId}/comments`,
+      );
+      console.log('influencerReviewDetailWithComments:', response.data);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
 
   // 한줄리뷰 댓글 작성
+  createInfluencerReviewComment: async ({
+    influencerId,
+    reviewId,
+    content,
+  }: CreateInfluencerReviewCommentRequest): Promise<CreateInfluencerReviewCommentResponse> => {
+    try {
+      const response = await ax.post(
+        `/api/influencers/${influencerId}/reviews/${reviewId}/comments`,
+        { content },
+      );
+      console.log('createInfluencerReviewComment:', response.data);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
 
   // 한줄리뷰 댓글 삭제
+  deleteInfluencerReviewComment: async ({
+    influencerId,
+    reviewId,
+    commentId,
+  }: DeleteInfluencerReviewCommentRequest) => {
+    try {
+      const response = await ax.delete(
+        `/api/influencers/${influencerId}/reviews/${reviewId}/comments/${commentId}`,
+      );
+      console.log('deleteInfluencerReviewComment:', response.data);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
+
+  // 한줄리뷰 좋아요/싫어요 평가
+  influencerReviewLikeDislike: async ({
+    influencerId,
+    reviewId,
+    isLike,
+  }: InfluencerReviewLikeDislikeRequest) => {
+    try {
+      const response = await ax.post(`/api/influencers/${influencerId}/reviews/${reviewId}/like`, {
+        isLike,
+      });
+      console.log('influencerReviewLikeDislike:', response.data);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
 };

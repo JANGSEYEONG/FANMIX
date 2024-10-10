@@ -18,7 +18,7 @@ import {
   type ReviewMode,
 } from '@/types/domain/reviewType';
 
-export const useReviewMutations = (
+export const useMyReviewMutations = (
   setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>,
   setMyLatestReviewData: Dispatch<React.SetStateAction<MyLatestReview | null>>,
 ) => {

@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useModalStore } from '@/stores/modalStore';
-import { useReviewMutations } from './useReviewMutations';
+import { useMyReviewMutations } from './useMyReviewMutations';
 import { useInformationToast } from '@/hooks/useInformationToast';
 
 import ScoreSelectBox from '../_components/ScoreSelectBox';
@@ -32,7 +32,7 @@ export const useReviewForm = (
   const { openModal, closeModal } = useModalStore();
   const { showErrorToast } = useInformationToast();
 
-  const { handleCreateReview, handleUpdateReview, isPending } = useReviewMutations(
+  const { handleCreateReview, handleUpdateReview, isPending } = useMyReviewMutations(
     setReviewMode,
     setMyLatestReviewData,
   );

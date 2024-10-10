@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { useTranslations } from 'next-intl';
 import { useInformationToast } from '@/hooks/useInformationToast';
+import { useMyCommentMutations } from './useMyCommentMutations';
 
 const commentSchema = z.object({
   commentContent: z.string().min(1),
@@ -14,7 +15,7 @@ const commentSchema = z.object({
 
 type CommentFormData = z.infer<typeof commentSchema>;
 
-export const useReviewCommentForm = () => {
+export const useReviewCommentForm = (influencerId: number, reviewId: number) => {
   const t = useTranslations('review_page');
   const { showErrorToast } = useInformationToast();
 
@@ -27,11 +28,10 @@ export const useReviewCommentForm = () => {
     resolver: zodResolver(commentSchema),
     mode: 'onChange',
   });
+  const { handleCreateComment } = useMyCommentMutations();
 
-  const onSubmit = (data: CommentFormData) => {
-    console.log(data);
-    // 여기에 실제 제출 로직을 구현할 수 있습니다.
-    // 예: API 호출 등
+  const onSubmit = async (data: CommentFormData) => {
+    await handleCreateComment(influencerId, reviewId, data.commentContent);
     reset();
   };
 

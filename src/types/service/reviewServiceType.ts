@@ -143,3 +143,71 @@ export interface AllInfluencersAllReviewsResponse extends ResponseBase {
     isDisliked: boolean;
   }[];
 }
+
+// 리뷰 상세보기 (리뷰 내용 + 코멘트 리스트)
+export interface InfluencerReviewDetailWithCommentsRequest {
+  influencerId: number;
+  reviewId: number;
+}
+export interface InfluencerReviewDetailWithCommentsResponse extends ResponseBase {
+  data: {
+    review: {
+      reviewId: number;
+      reviewerId: number;
+      reviewerNickName: string;
+      averageRating: number;
+      contentsRating: number;
+      communicationRating: number;
+      trustRating: number;
+      reviewDate: string;
+      reviewContent: string;
+      reviewLikeCount: number;
+      reviewDislikeCount: number;
+      reviewCommentsCount: number;
+      isLiked: boolean;
+      isDisliked: boolean;
+    };
+    commentList: {
+      commentId: number;
+      commenterId: number;
+      commenterNickName: string;
+      commentContent: string;
+      isMyComment: boolean;
+      isDeleted: boolean;
+      commentDate: string;
+    }[];
+  };
+}
+
+// 리뷰 댓글 생성
+export interface CreateInfluencerReviewCommentRequest {
+  influencerId: number;
+  reviewId: number;
+  content: string;
+}
+
+export interface CreateInfluencerReviewCommentResponse extends ResponseBase {
+  data: {
+    commentId: number;
+    commenterId: number;
+    commenterNickName: string;
+    commentDate: string;
+    commentContent: string;
+    isMyComment: boolean;
+    isDeleted: boolean;
+  };
+}
+
+// 리뷰 댓글 삭제
+export interface DeleteInfluencerReviewCommentRequest {
+  influencerId: number;
+  reviewId: number;
+  commentId: number;
+}
+
+// 리뷰 좋아요/싫어요
+export interface InfluencerReviewLikeDislikeRequest {
+  influencerId: number;
+  reviewId: number;
+  isLike: boolean;
+}

@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-
+import { useAuthStore } from '@/stores/authStore';
 import { useModalStore } from '@/stores/modalStore';
 
 import MessageBox from '@/components/common/MessageBox';
 import { useInformationToast } from '@/hooks/useInformationToast';
+import { useInfluencerReviewLikeDislike } from '@/hooks/queries/useReviewService';
 
 export const BUTTON_ACTION = {
   LIKE: 'LIKE',
@@ -15,19 +16,29 @@ export const BUTTON_ACTION = {
 type ButtonAction = keyof typeof BUTTON_ACTION;
 
 export const useLikeDislikeReview = (
-  reviewId: string,
+  influencerId: number,
+  reviewId: number,
   initialIsLiked: boolean,
   initialIsDisliked: boolean,
 ) => {
   const t = useTranslations('review_page');
-
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const openModal = useModalStore((state) => state.openModal);
   const { showErrorToast } = useInformationToast();
+
+  const reviewLikeDislikeMutation = useInfluencerReviewLikeDislike();
 
   const [isLiked, setIsLiked] = useState(initialIsLiked);
   const [isDisliked, setIsDisliked] = useState(initialIsDisliked);
 
   const handleClickAction = (action: ButtonAction) => {
+    if (!isLoggedIn) {
+      showErrorToast(
+        t('리뷰 평가 기능은 로그인 후 이용할 수 있어요'),
+        t('로그인 후 다시 이용해 주세요'),
+      );
+      return;
+    }
     if (isLiked || isDisliked) {
       showErrorToast(
         t(`이미 ${isLiked ? '추천' : '비추천'}한 리뷰입니다`),
@@ -47,12 +58,20 @@ export const useLikeDislikeReview = (
           {
             text: isClickLiked ? t('추천') : t('비추천'),
             color: isClickLiked ? 'orange' : 'white',
-            onClick: () => {
-              alert(`${reviewId} ${isClickLiked ? '추천' : '비추천'}`);
-              if (isClickLiked) {
-                setIsLiked(true);
-              } else {
-                setIsDisliked(true);
+            onClick: async () => {
+              try {
+                await reviewLikeDislikeMutation.mutateAsync({
+                  influencerId,
+                  reviewId,
+                  isLike: isClickLiked,
+                });
+                if (isClickLiked) {
+                  setIsLiked(true);
+                } else {
+                  setIsDisliked(true);
+                }
+              } catch {
+                showErrorToast(t('리뷰 평가에 실패했어요'), t('다시 시도해 주세요'));
               }
             },
           },
