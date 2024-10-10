@@ -10,37 +10,41 @@ import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
 interface ImageReviewCardProps {
   influencerId: number;
-  reviewerId: string;
   influencerName: string;
   influencerImageUrl: string;
-  reviewrNickName: string;
-  reviewContent: string;
-  reviewDate: string;
+  isAuthenticated: boolean;
+  reviewId: number;
+  // reviewerId: number;
+  reviewerNickName: string;
   contentsRating: number;
   communicationRating: number;
   trustRating: number;
-  likesCount: number;
-  dislikesCount: number;
-  commentsCount: number;
+  reviewDate: string;
+  reviewContent: string;
+  reviewLikeCount: number;
+  reviewDislikeCount: number;
+  reviewCommentsCount: number;
 }
 
 const ImageReviewCard = ({
   influencerId,
-  reviewerId,
   influencerName,
   influencerImageUrl,
-  reviewrNickName,
-  reviewContent,
-  reviewDate,
+  isAuthenticated,
+  reviewId,
+  // reviewerId,
+  reviewerNickName,
   contentsRating,
   communicationRating,
   trustRating,
-  likesCount,
-  dislikesCount,
-  commentsCount,
+  reviewDate,
+  reviewContent,
+  reviewLikeCount,
+  reviewDislikeCount,
+  reviewCommentsCount,
 }: ImageReviewCardProps) => {
   return (
-    <Link href={`/influencer/${influencerId}/review/${reviewerId}`}>
+    <Link href={`/influencer/${influencerId}/review/${reviewId}`}>
       <article className="gap-y-2.5 flex-col-center">
         <div className="w-full gap-x-[14px] flex-center">
           <figure className="relative h-[70px] w-[70px] flex-shrink-0">
@@ -56,7 +60,7 @@ const ImageReviewCard = ({
           <div className="flex-1">
             <header className="mb-0.5 flex items-center gap-x-[3px]">
               <h2 className="body2-sb">{influencerName}</h2>
-              <AuthenticatedBadge size={18} />
+              {isAuthenticated && <AuthenticatedBadge size={18} />}
             </header>
             <div className="mb-2 flex">
               <MetricsText {...{ contentsRating, communicationRating, trustRating }} />
@@ -64,10 +68,14 @@ const ImageReviewCard = ({
             <div className="flex items-center justify-between">
               <InteractionStats
                 boardCardType={BOARD_CARD_TYPE.REVIEW}
-                {...{ likesCount, dislikesCount, commentsCount }}
+                {...{
+                  likesCount: reviewLikeCount,
+                  dislikesCount: reviewDislikeCount,
+                  commentsCount: reviewCommentsCount,
+                }}
               />
               <span className="gap-x-[5px] text-neutral-400 flex-center sub2-m">
-                <span>{reviewrNickName}</span>
+                <span>{reviewerNickName}</span>
                 <time>{formatDateToYYMMDD(parseISOToDate(reviewDate))}</time>
               </span>
             </div>

@@ -155,6 +155,13 @@
     "최신 글": "Latest Post",
     "팬채널": "Fan Ch."
   },
+  "review_index_page": {
+    "최신순": "Latest",
+    "추천순": "Most recommended",
+    "모든 리뷰를 확인했어요": "You've seen all the reviews.",
+    "등록된 한줄리뷰가 없어요": "There are no registered short reviews.",
+    "한줄리뷰 전체 데이터를 가져오는데 문제가 생겼어요 다시 시도해 주세요": "There was a problem fetching all short review data.\nPlease try again."
+  },
   "error_page": {
     "무언가 잘못되었어요": "Something went wrong!",
     "페이지를 불러오는 데 문제가 발생했어요 다시 한번 시도해주세요": "There was a problem loading the page.\nPlease try again.",

@@ -22,7 +22,7 @@ const MenuContent = () => {
       label: t('한줄 리뷰'),
       path: ROUTES.REVIEW_INDEX.PATH,
       hasBottomSeparator: true,
-      isReleased: false,
+      isReleased: true,
     },
     {
       label: t('팬채널'),
