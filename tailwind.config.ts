@@ -184,6 +184,13 @@ const config: Config = {
           'backdrop-filter': 'blur(22px)',
           'box-shadow': '1px 3px 15px 0px rgba(0,0,0,0.5)',
         },
+        // background
+        '.layout-background-image': {
+          backgroundImage: "url('/assets/images/background/background.webp')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        },
         // #20240919.syjang, text fonSize 확장에서 유틸리티 클래스로 변경 (색상 지정과 동시에 쓸 때 충돌)
         // Typo
         '.h1-sb': {
