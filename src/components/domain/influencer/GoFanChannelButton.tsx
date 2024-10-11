@@ -22,14 +22,14 @@ const GoFanChannelButton = ({
   className,
   disabled,
 }: GoFanChannelButtonProps) => {
-  const { checkAccessAndNavigate } = useFanChannelAccess();
+  const { checkAccessAndNavigateToFanChannel } = useFanChannelAccess();
 
   return (
     <Button
       variant={variant}
       disabled={disabled}
       className={className}
-      onClick={() => checkAccessAndNavigate(influencerId, communityId, isFollowing)}>
+      onClick={() => checkAccessAndNavigateToFanChannel(influencerId, communityId, isFollowing)}>
       {children}
     </Button>
   );

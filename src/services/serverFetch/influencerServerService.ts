@@ -11,6 +11,7 @@ export const getInfluencerData = async (
 ): Promise<InfluencerDetailResponse> => {
   return api.get<InfluencerDetailResponse>(
     `${process.env.NEXT_PUBLIC_URL}/api/influencers/${influencerId}`,
+    { hasAuth: true },
   );
 };
 

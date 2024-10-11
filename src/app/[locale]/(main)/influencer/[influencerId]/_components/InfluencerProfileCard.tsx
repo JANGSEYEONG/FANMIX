@@ -3,12 +3,13 @@ import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
 
+import InfluencerPlatformLinks from './InfluencerPlatformLinks';
 import InfluencerTagList from '@/components/domain/influencer/InfluencerTagList';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
-import InfluencerPlatformLinks from './InfluencerPlatformLinks';
+import FollowToggleButton from '@/components/domain/influencer/FollowToggleButton';
+
 import type { PlatformLink } from '@/types/domain/influencerType';
 import type { Gender } from '@/types/domain/userType';
-import FollowToggleButton from '@/components/domain/influencer/FollowToggleButton';
 
 interface InfluencerProfileCardProps {
   influencerId: number;
@@ -21,7 +22,6 @@ interface InfluencerProfileCardProps {
   tagList: string[];
   gender: Gender;
   nationality: string;
-  isFollowing: boolean;
 }
 
 const InfluencerProfileCard = ({
@@ -35,7 +35,6 @@ const InfluencerProfileCard = ({
   tagList,
   gender,
   nationality,
-  isFollowing,
 }: InfluencerProfileCardProps) => {
   const t = useTranslations('influencer_page');
   const tGender = useTranslations('gender');
@@ -53,8 +52,8 @@ const InfluencerProfileCard = ({
           />
         </figure>
         <div className="flex justify-between">
-          <h1 className="mb-0.5 w-[162px] whitespace-normal break-words h1-sb">{influencerName}</h1>
-          <FollowToggleButton {...{ influencerId, isFollowing }} />
+          <h1 className="mb-0.5 break-keep h1-sb">{influencerName}</h1>
+          <FollowToggleButton {...{ influencerId }} />
         </div>
         <aside className="mb-[15px] flex flex-wrap items-center gap-[7px] sub1-r">
           {isAuthenticated && (

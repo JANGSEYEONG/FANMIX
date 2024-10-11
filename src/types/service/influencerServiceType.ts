@@ -94,6 +94,10 @@ export interface SearchInfluencersResponse extends ResponseBase {
 }
 
 // 인플루언서 상세정보
+export interface InfluencerDetailRequest {
+  influencerId: number;
+}
+
 export interface InfluencerDetailResponse extends ResponseBase {
   data: {
     influencerId: number;

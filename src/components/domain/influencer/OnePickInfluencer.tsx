@@ -1,9 +1,10 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { useInfluencerAction } from '@/hooks/useInfluencerAction';
 
 import { VscEdit } from 'react-icons/vsc';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+
+import { useOnePickInfluencerMutations } from '@/hooks/useOnePickInfluencerMutations';
 
 import InfluencerTagList from './InfluencerTagList';
 import GoFanChannelButton from './GoFanChannelButton';
@@ -24,7 +25,7 @@ const OnePickInfluencer = ({
   isOthersPick = false,
 }: OnePickInfluencerProps) => {
   const t = useTranslations('one_pick_influencer');
-  const { removeOnePickInfluencerWithMessage } = useInfluencerAction(influencerId);
+  const { removeOnePickInfluencerWithMessage } = useOnePickInfluencerMutations(influencerId);
 
   return (
     <div className="relative w-full gap-5 bg-orange-700/20 px-5 py-6 flex-center">

@@ -5,10 +5,19 @@ import { isEqual } from 'lodash';
 
 import { influencerService } from '@/services/influencerService';
 import type {
+  InfluencerDetailResponse,
   SearchInfluencersByNameResponse,
   SearchInfluencersRequest,
   SearchInfluencersResponse,
 } from '@/types/service/influencerServiceType';
+
+export const useInfluencerDetail = (influencerId: number) => {
+  return useQuery<InfluencerDetailResponse, AxiosError>({
+    queryKey: ['influencerDetail', influencerId],
+    queryFn: () => influencerService.influencerDetail({ influencerId }),
+    enabled: !!influencerId,
+  });
+};
 
 export const useSearchInfluencersByName = (searchTerm: string) => {
   return useQuery<SearchInfluencersByNameResponse, AxiosError>({

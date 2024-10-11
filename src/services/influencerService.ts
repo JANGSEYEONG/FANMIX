@@ -1,6 +1,7 @@
 import { ax, handleAxiosError } from './axios';
 
 import type {
+  InfluencerDetailRequest,
   InfluencerDetailResponse,
   RecentlyVerifiedInfluencerResponse,
   SearchInfluencersByNameResponse,
@@ -13,6 +14,19 @@ import type {
 } from '@/types/service/influencerServiceType';
 
 export const influencerService = {
+  // 인플루언서 상세정보
+  influencerDetail: async ({
+    influencerId,
+  }: InfluencerDetailRequest): Promise<InfluencerDetailResponse> => {
+    try {
+      const response = await ax.get<InfluencerDetailResponse>(`/api/influencers/${influencerId}`);
+      console.log('influencerDetail Response:', response.data);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
   // 주간 인기 인플루언서
   weeklyHotInfluencers: async (): Promise<WeeklyHotInfluencersResponse> => {
     try {
@@ -97,18 +111,6 @@ export const influencerService = {
         params: { searchType, keyword, sort },
       });
       console.log('searchInfluencers Response:', response.data);
-      return response.data;
-    } catch (error) {
-      handleAxiosError(error);
-      throw error;
-    }
-  },
-
-  // 인플루언서 상세정보
-  influencerDetail: async (influencerId: number): Promise<InfluencerDetailResponse> => {
-    try {
-      const response = await ax.get<InfluencerDetailResponse>(`/api/influencers/${influencerId}`);
-      console.log('influencerDetail Response:', response.data);
       return response.data;
     } catch (error) {
       handleAxiosError(error);

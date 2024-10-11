@@ -1,15 +1,29 @@
+'use client';
+import { cn } from '@/lib/utils';
 import { LiaBookmark } from 'react-icons/lia';
+import { useInfluencerFollow } from '@/hooks/useInfluencerFollow';
 
 interface FollowToggleButtonProps {
   influencerId: number;
-  isFollowing: boolean;
 }
-const FollowToggleButton = ({ influencerId, isFollowing }: FollowToggleButtonProps) => {
-  console.log(influencerId, isFollowing);
+const FollowToggleButton = ({ influencerId }: FollowToggleButtonProps) => {
+  // ssr 데이터에 의존하지 말고 follow 여부 확인 api 따로 호출해서 관리하기
+  const { isFollowing, toggleFollowState } = useInfluencerFollow(influencerId);
+
   return (
-    <div className="h-7 w-7 rounded-full bg-orange-700 flex-center scale-transition-105">
-      <LiaBookmark className="h-5 w-5" />
-    </div>
+    <button
+      className={cn(
+        'h-7 w-7 rounded-full transition-colors duration-200 flex-center hover:scale-105',
+        isFollowing ? 'bg-white' : 'bg-orange-700',
+      )}
+      onClick={() => toggleFollowState()}>
+      <LiaBookmark
+        className={cn(
+          'h-5 w-5 transition-colors duration-200',
+          isFollowing ? 'text-orange-600' : 'text-white',
+        )}
+      />
+    </button>
   );
 };
 

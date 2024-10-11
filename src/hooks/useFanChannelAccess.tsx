@@ -53,7 +53,8 @@ export const useFanChannelAccess = () => {
   };
 
   // 커뮤니티 아이디, 팔로우 여부가 있다면 팔로우 여부도 넘겨받는다.
-  const checkAccessAndNavigate = (
+  // 1. 로그인 여부 체크, 2. 팔로우 여부 체크, 3. 팬채널 이동
+  const checkAccessAndNavigateToFanChannel = (
     influencerId: number,
     communityId: number,
     isFollowing?: boolean,
@@ -83,5 +84,5 @@ export const useFanChannelAccess = () => {
       }
     });
   };
-  return { checkAccessAndNavigate, isLoading };
+  return { checkAccessAndNavigateToFanChannel, isLoading };
 };

@@ -1,27 +1,11 @@
-import MessageBox from '@/components/common/MessageBox';
-import { useRouter } from '@/i18n/routing';
-import { useModalStore } from '@/stores/modalStore';
 import { useTranslations } from 'next-intl';
+import { useModalStore } from '@/stores/modalStore';
 
-export const useInfluencerAction = (influencerId: number) => {
+import MessageBox from '@/components/common/MessageBox';
+
+export const useOnePickInfluencerMutations = (influencerId: number) => {
   const t = useTranslations('influencer_actions');
-  const router = useRouter();
   const openModal = useModalStore((state) => state.openModal);
-
-  // 팔로우 여부 체크 없이 팬 채널로 이동하는 함수 (팔로우 페이지에서 이동할 때 사용)
-  const goToFanChannel = (communityId: number) => {
-    router.push(`/fan-channel/${influencerId}/${communityId}`);
-  };
-
-  // 팔로우 함수
-  const followInfluencer = () => {
-    alert(influencerId + 'followInfluencer');
-  };
-
-  // 팔로우 취소하는 함수
-  const unfollowInfluencer = () => {
-    alert(influencerId + 'unfollowInfluencer');
-  };
 
   // 원픽 지정하는 함수
   const setOnePickInfluencer = () => {
@@ -48,9 +32,6 @@ export const useInfluencerAction = (influencerId: number) => {
   };
 
   return {
-    goToFanChannel,
-    followInfluencer,
-    unfollowInfluencer,
     setOnePickInfluencer,
     removeOnePickInfluencer,
     removeOnePickInfluencerWithMessage,

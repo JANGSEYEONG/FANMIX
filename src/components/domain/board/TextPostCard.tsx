@@ -5,9 +5,9 @@ import { useInformationToast } from '@/hooks/useInformationToast';
 import BoardTypeLabel from './BoardTypeLabel';
 import InteractionStats from './InteractionStats';
 
+import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 import { BOARD_CARD_TYPE, BOARD_TYPE } from '@/types/domain/boardType';
 import type { TextPostCardData } from '@/types/domain/communityType';
-import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
 export interface TextPostCardProps {
   postData: TextPostCardData;
@@ -36,6 +36,7 @@ const TextPostCard = ({
     showConfirmToast('포스트 기능은 준비중 이에요.');
     return;
     if (isFanChannel) {
+      // checkAccessAndNavigateToFanChannel 사용
       console.log(
         `${influencerId}의 팬 여부 체크 후, ${boardType}의 ${communityId}커뮤니티의 ${postId}로 이동`,
       );

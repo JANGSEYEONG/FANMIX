@@ -10,8 +10,15 @@ export interface MyFollowedInfluencersResponse extends ResponseBase {
     u_date: string; // 팔로우로 지정한 시간
   }[];
 }
-export interface InfluencerFollowStatuResponse extends ResponseBase {
-  data: {
-    isFollowing: boolean;
-  };
+
+export interface InfluencerFollowStatusRequest {
+  influencerId: number;
+}
+export interface InfluencerFollowStatusResponse extends ResponseBase {
+  data: boolean;
+}
+
+export interface ToggleInfluencerFollowRequest {
+  influencerId: number;
+  isFollowing: boolean;
 }
