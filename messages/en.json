@@ -154,7 +154,9 @@
     "팔로우 중인 모든 인플루언서를 확인했어요": "You've checked all the influencers you're following.",
     "최신팔로우순": "Latest Follows",
     "최신리뷰순": "Latest Reviews",
-    "이름순": "Alphabetical"
+    "이름순": "Alphabetical",
+    "팔로우한 인플루언서가 없어요": "You haven't followed any influencers.",
+    "팔로우 중인 인플루언서를 불러오는 중 문제가 발생했어요 다시 시도해 주세요": "An error occurred while loading the influencers you're following.\nPlease try again."
   },
   "fan_channel_index_page": {
     "채널인기순": "Most Popular",
@@ -255,7 +257,9 @@
   "fan_channel_access": {
     "팔로우 설정 시 팬채널에 입장할 수 있어요": "You can enter the fan channel\nonce you follow.",
     "뒤로": "Back",
-    "팔로우하기": "Follow"
+    "팔로우하기": "Follow",
+    "아직 팬채널이 생성되지 않았어요": "The fan channel has not been created yet.",
+    "관리자 승인 후 생성될 예정이에요": "It will be created after admin approval."
   },
   "community_category": {
     "19+": "18+",
@@ -271,11 +275,16 @@
     "애니": "Anime",
     "자유": "Free Discussion"
   },
-  "influencer_actions": {
+  "onepick_influencer_mutations": {
     "원픽 인플루언서를 해제할까요?": "Do you want to remove your One Pick influencer?",
     "해제 후 팔로우 탭에서 다시 지정할 수 있어요": "You can set a new One Pick\nin the Follow tab after removal.",
     "취소": "Cancel",
-    "해제하기": "Remove"
+    "해제하기": "Remove",
+    "ONE PICK 인플루언서가 설정되었어요": "Your ONE PICK influencer has been set.",
+    "ONE PICK 인플루언서가 해제되었어요": "Your ONE PICK influencer has been removed.",
+    "ONE PICK 인플루언서 설정에 실패했어요": "Failed to set ONE PICK influencer.",
+    "ONE PICK 인플루언서 해제에 실패했어요": "Failed to remove ONE PICK influencer.",
+    "다시 시도해 주세요": "Please try again."
   },
   "content_trait": {
     "매우 독창적": "Very Original",

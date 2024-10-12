@@ -38,16 +38,15 @@ const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReview
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex items-center gap-[15px] px-5">
+      <ul className="flex items-center gap-[15px] px-5 text-neutral-400 body3-r">
         {sortButtons.map(({ label, isSelected, onClick }) => (
-          <button
-            key={label}
-            className={cn('text-neutral-400 body3-r', isSelected && 'text-lime-400')}
-            onClick={onClick}>
-            {label}
-          </button>
+          <li key={label}>
+            <button className={cn(isSelected && 'text-lime-400 body3-m')} onClick={onClick}>
+              {label}
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
       {isError ? (
         <StatusMessage message={t('한줄리뷰 전체 데이터를 가져오는데 문제가 생겼어요')} />
       ) : (

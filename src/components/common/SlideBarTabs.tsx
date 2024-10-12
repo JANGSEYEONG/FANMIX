@@ -1,6 +1,6 @@
 'use client';
 
-import { Loader2 } from 'lucide-react';
+// import { Loader2 } from 'lucide-react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 
@@ -13,7 +13,7 @@ interface SlideBarTabsProps {
 const SlideBarTabs = ({ tabs, defaultValue }: SlideBarTabsProps) => {
   const [activeTab, setActiveTab] = useState(defaultValue);
   const [sliderStyle, setSliderStyle] = useState({});
-  const [isSliderLoading, setIsSliderLoading] = useState(true); // 슬라이드가 위치 찾을 때 까지 스피너 표시
+  // const [isSliderLoading, setIsSliderLoading] = useState(true); // 슬라이드가 위치 찾을 때 까지 스피너 표시
   const tabsListRef = useRef<HTMLDivElement>(null);
 
   const updateSliderStyle = useCallback(() => {
@@ -39,21 +39,21 @@ const SlideBarTabs = ({ tabs, defaultValue }: SlideBarTabsProps) => {
     }, 0);
 
     window.addEventListener('resize', updateSliderStyle);
-    setIsSliderLoading(false);
+    // setIsSliderLoading(false);
     return () => {
       clearTimeout(timerId);
       window.removeEventListener('resize', updateSliderStyle);
     };
   }, [activeTab, updateSliderStyle]);
 
-  // #20240920.syjang, TODO: 임의로 Loader2 사용 -> 디자이너님이 스피너 정해주면 해당 스피너로 변경 예정
-  if (isSliderLoading) {
-    return (
-      <div className="flex h-40 items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-orange-500" />
-      </div>
-    );
-  }
+  // // #20240920.syjang, TODO: 임의로 Loader2 사용 -> 디자이너님이 스피너 정해주면 해당 스피너로 변경 예정
+  // if (isSliderLoading) {
+  //   return (
+  //     <div className="flex h-40 items-center justify-center">
+  //       <Loader2 className="h-8 w-8 animate-spin text-orange-500" />
+  //     </div>
+  //   );
+  // }
 
   return (
     <Tabs defaultValue={defaultValue} className="h-full w-full" onValueChange={setActiveTab}>

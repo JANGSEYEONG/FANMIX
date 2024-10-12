@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 
 import { useAuthCheck } from './useAuthCheck';
 import { useModalStore } from '@/stores/modalStore';
+import { useInformationToast } from './useInformationToast';
 
 import MessageBox from '@/components/common/MessageBox';
 
@@ -15,6 +16,7 @@ export const useFanChannelAccess = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false); // 나중에 useMutation의 loading으로 돌려주기
   const openModal = useModalStore((state) => state.openModal);
+  const { showConfirmToast } = useInformationToast();
   const { checkAuthAndProceed } = useAuthCheck();
   const navigateToFanChannel = (influencerId: number, communityId: number) => {
     router.push(`/fan-channel/${influencerId}/${communityId}`);
@@ -56,11 +58,20 @@ export const useFanChannelAccess = () => {
   // 1. 로그인 여부 체크, 2. 팔로우 여부 체크, 3. 팬채널 이동
   const checkAccessAndNavigateToFanChannel = (
     influencerId: number,
-    communityId: number,
+    communityId: number | null,
     isFollowing?: boolean,
   ) => {
     // 로그인 상태가 아니라면, 로그인 유도 메시지창을 띄운다.
     checkAuthAndProceed(async () => {
+      // 팬채널이 생성되지 않은 인증 인플루언서의 경우때문에 한번 체크
+      if (!communityId) {
+        showConfirmToast(
+          t('아직 팬채널이 생성되지 않았어요'),
+          t('관리자 승인 후 생성될 예정이에요'),
+        );
+        return;
+      }
+
       try {
         setIsLoading(true);
 

@@ -2,15 +2,20 @@ import { ax, handleAxiosError } from './axios';
 import type {
   InfluencerFollowStatusRequest,
   InfluencerFollowStatusResponse,
+  MyFollowedInfluencersRequest,
   MyFollowedInfluencersResponse,
   ToggleInfluencerFollowRequest,
 } from '@/types/service/followServiceType';
 
 export const followService = {
   // 내가 팔로우하는 인플루언서 목록, requset로 sort 추가되어야함
-  myFollowedInfluencers: async (): Promise<MyFollowedInfluencersResponse> => {
+  myFollowedInfluencers: async ({
+    sort,
+  }: MyFollowedInfluencersRequest): Promise<MyFollowedInfluencersResponse> => {
     try {
-      const response = await ax.get<MyFollowedInfluencersResponse>('/api/members/followers');
+      const response = await ax.get<MyFollowedInfluencersResponse>('api/public/members/followers', {
+        params: { sort },
+      });
       console.log('myFollowedInfluencers Response:', response.data);
       return response.data;
     } catch (error) {

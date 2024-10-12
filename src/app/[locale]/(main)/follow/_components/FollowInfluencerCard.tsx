@@ -1,82 +1,109 @@
 import { cn } from '@/lib/utils';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
-import { formatDateToYYMMDD } from '@/lib/date';
-
 import InfluencerActionMenu from './InfluencerActionMenu';
 import FilledRatingBar from '@/components/domain/influencer/FilledRatingBar';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
 import GoFanChannelButton from '@/components/domain/influencer/GoFanChannelButton';
 
-interface FollowInfluencerCardProps {
-  // influencerId: number;
-  // communityId: number;
-  // influencerName: string;
-  // influencerImageUrl: string;
-  // latestDate: string;
-  // averageScore: string;
+import { REVIEW_MAX_SCORE } from '@/types/domain/reviewType';
+import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
-  isOnePick?: boolean;
-  isAuthenticated?: boolean;
+interface FollowInfluencerCardProps {
+  influencerId: number;
+  influencerName: string;
+  influencerImageUrl: string;
+  authenticationStatus: 'APPROVED' | 'NOT_AUTHENTICATED';
+  latestReviewDate: string | null;
+  myAverageRating: number;
+  fanChannelId: number | null;
+  isOnePick: boolean;
 }
 
 // 팬 채널로 이동하는 버튼이 따로 존재, 카드 클릭으로 페이지 이동 x
 // 팬 채널에 조회되는 인플루언서들은 모두 인증 인플루언서
 const FollowInfluencerCard = ({
-  isOnePick = false,
-  isAuthenticated = false,
+  influencerId,
+  influencerName,
+  influencerImageUrl,
+  authenticationStatus,
+  latestReviewDate,
+  myAverageRating,
+  fanChannelId,
+  isOnePick,
 }: FollowInfluencerCardProps) => {
   const t = useTranslations('follow_influencer_card');
-  const testData = {
-    influencerId: 3,
-    communityId: 3,
-    isOnePick,
-    influencerName: '힙으뜸',
-    isAuthenticated,
-  };
+  const isAuthenticated = authenticationStatus === 'APPROVED';
   return (
     <article
-      className={cn('relative gap-x-4 py-[15px] flex-center', isOnePick && 'bg-orange-700/20')}>
-      <figure className="relative h-[100px] w-[100px] flex-shrink-0 bg-slate-400">
-        <Image
-          priority
-          src="/assets/images/test/alganzi.png"
-          alt="인플루언서 사진"
-          fill
-          className="object-cover"
-          sizes="100%"
-        />
-      </figure>
+      className={cn(
+        'relative gap-x-4 py-[15px] flex-center',
+        isOnePick && 'mt-[15px] bg-orange-700/20 py-5',
+      )}>
+      <Link className="flex-shrink-0" href={`/influencer/${influencerId}`}>
+        <figure className="relative h-[100px] w-[100px] bg-slate-400">
+          <Image
+            priority
+            src={influencerImageUrl}
+            alt={`인플루언서 ${influencerName}의 사진`}
+            fill
+            className="object-cover"
+            sizes="100%"
+          />
+        </figure>
+      </Link>
       <div className="flex-1">
         <header className="mb-1 flex justify-between">
           <div className="flex flex-col justify-center gap-y-1">
             {isOnePick && <p className="text-orange-500 sub1-m">MY ONE PICK</p>}
             <h2 className="flex items-center gap-x-[3px]">
-              <span className="body2-sb">{testData.influencerName}</span>
-              <AuthenticatedBadge size={18} />
+              <Link href={`/influencer/${influencerId}`} className="body2-sb">
+                {influencerName}
+              </Link>
+              {isAuthenticated && <AuthenticatedBadge size={18} />}
             </h2>
           </div>
-          <InfluencerActionMenu {...testData} />
+          <InfluencerActionMenu
+            {...{
+              influencerId,
+              communityId: fanChannelId,
+              influencerName,
+              isOnePick,
+              isAuthenticated,
+            }}
+          />
         </header>
         <div className="mb-2.5 flex items-center gap-x-1.5 text-neutral-300 sub1-r">
           <p>{t('최신리뷰')}</p>
-          <time>{formatDateToYYMMDD(new Date())}</time>
+          {latestReviewDate ? (
+            <time>{formatDateToYYMMDD(parseISOToDate(latestReviewDate))}</time>
+          ) : (
+            <p className="text-neutral-300/50 sub2-m">{'아직 등록된 리뷰가 없어요'}</p>
+          )}
         </div>
         <footer className="flex items-end justify-between">
           <div className="flex flex-col justify-center gap-y-1">
             <div className="flex items-end gap-x-[5px]">
-              <span className="leading-6 text-orange-500 h1-sb-leading-0">8</span>
-              <span className="text-white/50 sub1-r">/ 10</span>
+              <span className="leading-6 text-orange-500 h1-sb-leading-0">
+                {Math.floor(myAverageRating)}
+              </span>
+              <span className="text-white/50 sub1-r">{`/ ${REVIEW_MAX_SCORE}`}</span>
             </div>
-            <FilledRatingBar maxScore={10} score={8} hideScore />
+            <FilledRatingBar
+              maxScore={REVIEW_MAX_SCORE}
+              score={Math.floor(myAverageRating)}
+              hideScore
+            />
           </div>
           <GoFanChannelButton
-            {...{ influencerId: testData.influencerId, communityId: testData.communityId }}
+            {...{ influencerId, communityId: fanChannelId }}
             variant="destructive"
-            className={cn('h-9 px-4 py-2 body3-m', !testData.isAuthenticated && 'bg-neutral-600')}
-            disabled={!testData.isAuthenticated}>
-            {testData.isAuthenticated ? t('팬채널') : t('미인증')}
+            className={cn('h-9 px-4 py-2 body3-m', !isAuthenticated && 'bg-neutral-600')}
+            isFollowing={true}
+            disabled={!isAuthenticated}>
+            {isAuthenticated ? t('팬채널') : t('미인증')}
           </GoFanChannelButton>
         </footer>
       </div>

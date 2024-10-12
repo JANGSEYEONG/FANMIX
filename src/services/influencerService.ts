@@ -9,6 +9,7 @@ import type {
   SearchInfluencersResponse,
   UpdateOnePickInfluencerRequest,
   UpdateOnePickInfluencerResponse,
+  UserOnePickInfluencerRequest,
   UserOnePickInfluencerResponse,
   WeeklyHotInfluencersResponse,
 } from '@/types/service/influencerServiceType';
@@ -70,7 +71,9 @@ export const influencerService = {
   },
 
   // 특정 유저의 원픽 인플루언서 조회
-  userOnePickInfluencer: async (userId: number): Promise<UserOnePickInfluencerResponse> => {
+  userOnePickInfluencer: async ({
+    userId,
+  }: UserOnePickInfluencerRequest): Promise<UserOnePickInfluencerResponse> => {
     try {
       const response = await ax.get<UserOnePickInfluencerResponse>(
         `/api/public/members/${userId}/onepick`,

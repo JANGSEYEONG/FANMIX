@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { VscEllipsis } from 'react-icons/vsc';
 
 import { useTranslations } from 'next-intl';
@@ -13,17 +14,17 @@ import ButtonListDrawer from '@/components/common/ButtonListDrawer';
 interface InfluencerActionMenuProps {
   influencerId: number;
   influencerName: string;
+  communityId: number | null;
   isOnePick: boolean;
   isAuthenticated: boolean;
-  communityId: number;
 }
 
 const InfluencerActionMenu = ({
   influencerId,
   influencerName,
+  communityId,
   isOnePick,
   isAuthenticated,
-  communityId,
 }: InfluencerActionMenuProps) => {
   const t = useTranslations('follow_influencer_card');
   const { setOnePickInfluencer, removeOnePickInfluencer } =
@@ -51,7 +52,12 @@ const InfluencerActionMenu = ({
       description={isOnePick ? 'MY ONE PICK' : ''}
       buttons={buttons}>
       <nav>
-        <VscEllipsis className="h-[18px] w-[18px] rotate-90 cursor-pointer duration-300 hover:scale-125" />
+        <VscEllipsis
+          className={cn(
+            'h-[18px] w-[18px] rotate-90 cursor-pointer duration-300 hover:scale-125',
+            isOnePick && 'text-orange-400',
+          )}
+        />
       </nav>
     </ButtonListDrawer>
   );

@@ -1,15 +1,17 @@
 import { cn } from '@/lib/utils';
-
+import { VscChromeClose } from 'react-icons/vsc';
 import { useMyCommentMutations } from '../_hooks/useMyCommentMutations';
 
-import { VscChromeClose } from 'react-icons/vsc';
-import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 import DeletedComment from './DeletedComment';
+import UserActivityHistoryLink from '@/components/domain/user/UserActivityHistoryLink';
+
+import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
 interface ReviewCommentCardProps {
   influencerId: number;
   reviewId: number;
   commentId: number;
+  commenterId: number;
   commenterNickName: string;
   commentContent: string;
   commentDate: string;
@@ -21,6 +23,7 @@ const ReviewCommentCard = ({
   influencerId,
   reviewId,
   commentId,
+  commenterId,
   commenterNickName,
   commentContent,
   commentDate,
@@ -39,7 +42,9 @@ const ReviewCommentCard = ({
               'flex w-full items-center justify-between',
               isMyComment ? 'text-orange-500' : 'text-neutral-400',
             )}>
-            <span className="body3-r">{commenterNickName}</span>
+            <UserActivityHistoryLink userId={commenterId} className="body3-r">
+              {commenterNickName}
+            </UserActivityHistoryLink>
             <div className="gap-x-2 flex-center">
               <time className="sub2-m">{formatDateToYYMMDD(parseISOToDate(commentDate))}</time>
               {isMyComment && (

@@ -17,7 +17,7 @@ export async function generateMetadata({
 
 export default function InfluencerIndexPage() {
   return (
-    <div className="h-full px-5 pb-20 pt-[65px]">
+    <div className="h-full px-5 pt-[65px]">
       <InfluencerSearchWrapper />
     </div>
   );

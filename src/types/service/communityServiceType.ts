@@ -2,9 +2,9 @@ import type { ResponseBase } from './apiResponseBase';
 
 export interface PopularPostsResponse extends ResponseBase {
   data: {
-    influencerId: number | null;
     communityId: number;
     communityName: string | null;
+    influencerId: number | null;
     influencerName: string | null;
     postId: number;
     content: string;

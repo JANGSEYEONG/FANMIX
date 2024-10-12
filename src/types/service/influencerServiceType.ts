@@ -28,7 +28,7 @@ export interface RecentlyVerifiedInfluencerResponse extends ResponseBase {
 // 원픽 인플루언서 설정
 export interface UpdateOnePickInfluencerRequest {
   influencerId: number;
-  onePick: number; // 1:원픽지정, 0 :일반팬
+  onePick: 1 | 0; // 1:원픽지정, 0 :일반팬
 }
 export interface UpdateOnePickInfluencerResponse extends ResponseBase {
   data: {
@@ -42,6 +42,9 @@ export interface UpdateOnePickInfluencerResponse extends ResponseBase {
 }
 
 // 사용자의 원픽 인플루언서 조회
+export interface UserOnePickInfluencerRequest {
+  userId: number;
+}
 export interface UserOnePickInfluencerResponse extends ResponseBase {
   data: {
     influencerId: number;
@@ -55,7 +58,7 @@ export interface UserOnePickInfluencerResponse extends ResponseBase {
 
     memberId: number;
     memberName: string;
-    isOnepick: number; //원픽은 항상 1
+    isOnepick: 1 | 0; //원픽은 항상 1
     onepickEnrolltime: string;
   };
 }

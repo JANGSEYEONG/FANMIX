@@ -4,8 +4,18 @@ import { followService } from '@/services/followService';
 import type {
   InfluencerFollowStatusRequest,
   InfluencerFollowStatusResponse,
+  MyFollowedInfluencersRequest,
+  MyFollowedInfluencersResponse,
   ToggleInfluencerFollowRequest,
 } from '@/types/service/followServiceType';
+
+// 내가 팔로우하는 인플루언서 리스트
+export const useMyFollowedInfluencers = ({ sort }: MyFollowedInfluencersRequest) => {
+  return useQuery<MyFollowedInfluencersResponse, AxiosError>({
+    queryKey: ['myFollowedInfluencers', sort],
+    queryFn: () => followService.myFollowedInfluencers({ sort }),
+  });
+};
 
 // Toggle Follow
 // 이전 상태를 전달받아서 팔로우 목록 가져오는 useQuery의 캐시 데이터 수정해야함
@@ -28,7 +38,29 @@ export const useToggleInfluencerFollow = () => {
         },
       );
 
-      // 팔로우 목록 페이지: 이전 상태를 전달받아서 팔로우 목록 가져오는 useQuery의 캐시 데이터 수정해야함
+      // 팔로우 목록 페이지: 이전 상태를 전달받아서 팔로우 목록 가져오는 useQuery의 캐시 데이터 수정
+      // 팔로우 페이지에서는 팔로우 해제만 가능하므로, 삭제처리만 해도 된다.
+      const updateMyFollowedInCache = (oldData: MyFollowedInfluencersResponse | undefined) => {
+        if (!oldData) return oldData;
+        return {
+          ...oldData,
+          data: oldData.data.filter(
+            (followInfluencer) => followInfluencer.influencerId !== influencerId,
+          ),
+        };
+      };
+      queryClient.setQueryData<MyFollowedInfluencersResponse>(
+        ['myFollowedInfluencers', 'CRDATE'],
+        updateMyFollowedInCache,
+      );
+      queryClient.setQueryData<MyFollowedInfluencersResponse>(
+        ['myFollowedInfluencers', 'LATEST_REVIEW'],
+        updateMyFollowedInCache,
+      );
+      queryClient.setQueryData<MyFollowedInfluencersResponse>(
+        ['myFollowedInfluencers', 'NAME'],
+        updateMyFollowedInCache,
+      );
     },
   });
 };

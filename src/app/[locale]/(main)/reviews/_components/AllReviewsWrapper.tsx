@@ -36,16 +36,15 @@ const AllReviewsWrapper = () => {
     <section
       aria-label="전체 한줄리뷰 리스트"
       className="mt-[30px] flex h-full w-full flex-col px-5">
-      <div className="mb-[15px] flex items-center gap-x-[15px] body3-r">
+      <ul className="mb-[15px] flex items-center gap-x-[15px] text-neutral-400 body3-r">
         {sortButtons.map(({ label, isSelected, onClick }) => (
-          <button
-            key={label}
-            className={cn('text-neutral-400 body3-r', isSelected && 'text-lime-400')}
-            onClick={onClick}>
-            {label}
-          </button>
+          <li key={label}>
+            <button className={cn(isSelected && 'text-lime-400 body3-m')} onClick={onClick}>
+              {label}
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
       {isError ? (
         <div className="flex-1">
           <StatusMessage

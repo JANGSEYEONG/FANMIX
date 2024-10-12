@@ -39,7 +39,7 @@ const InfluencerSearchResult = ({
     );
   }
   return (
-    <ul className="flex flex-col justify-center gap-y-[22px]">
+    <ul className="mb-20 flex flex-col justify-center gap-y-[22px]">
       {searchResult.data.map((result) => (
         <li key={result.influencerId}>
           <SearchInfluencerCard {...result} />

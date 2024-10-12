@@ -16,9 +16,9 @@ export interface TextPostCardProps {
 
 const TextPostCard = ({
   postData: {
-    influencerId,
     communityId,
     communityName,
+    influencerId,
     influencerName,
     postId,
     content,

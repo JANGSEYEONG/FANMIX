@@ -100,7 +100,8 @@ export const reviewService = {
   }: SpecificInfluencerAllReviewsRequest) => {
     try {
       const response = await ax.get<SpecificInfluencerAllReviewsResponse>(
-        `/api/influencers/${influencerId}/reviews?sort=${sort}`,
+        `/api/influencers/${influencerId}/reviews`,
+        { params: { sort } },
       );
       console.log('specificInfluencerAllReviews:', response.data);
       return response.data;
@@ -113,9 +114,9 @@ export const reviewService = {
   // 전체 한줄리뷰 조회
   allInfluencersAllReviews: async ({ sort }: AllInfluencersAllReviewsRequest) => {
     try {
-      const response = await ax.get<AllInfluencersAllReviewsResponse>(
-        `/api/influencers/reviews?sort=${sort}`,
-      );
+      const response = await ax.get<AllInfluencersAllReviewsResponse>(`/api/influencers/reviews`, {
+        params: { sort },
+      });
       console.log('allInfluencersAllReviews:', response.data);
       return response.data;
     } catch (error) {
