@@ -165,7 +165,8 @@
     "팔로워": "Followers",
     "글 수": "Posts",
     "최신 글": "Latest Post",
-    "팬채널": "Fan Ch."
+    "팬채널": "Fan Ch.",
+    "아직 등록된 글이 없어요": "No posts yet."
   },
   "review_index_page": {
     "최신순": "Latest",
@@ -253,14 +254,17 @@
     "팬채널 가기": "Go to Fan Channel",
     "원픽 인플루언서 변경": "Change One-Pick Influencer",
     "원픽 인플루언서 해제": "Remove One-Pick Influencer",
-    "팔로우 해제": "Unfollow"
+    "팔로우 해제": "Unfollow",
+    "아직 등록된 리뷰가 없어요": "No reviews yet."
   },
   "fan_channel_access": {
     "팔로우 설정 시 팬채널에 입장할 수 있어요": "You can enter the fan channel\nonce you follow.",
     "뒤로": "Back",
     "팔로우하기": "Follow",
     "아직 팬채널이 생성되지 않았어요": "The fan channel has not been created yet.",
-    "관리자 승인 후 생성될 예정이에요": "It will be created after admin approval."
+    "관리자 승인 후 생성될 예정이에요": "It will be created after admin approval.",
+    "팬채널로 이동하는데 실패했어요": "Failed to navigate to the fan channel.",
+    "다시 시도해 주세요": "Please try again."
   },
   "community_category": {
     "19+": "18+",
@@ -275,6 +279,12 @@
     "패션": "Fashion",
     "애니": "Anime",
     "자유": "Free Discussion"
+  },
+  "influencer_follow_mutations": {
+    "인플루언서 팔로우에 실패했어요": "Failed to follow the influencer.",
+    "인플루언서 언팔로우에 실패했어요": "Failed to unfollow the influencer.",
+    "팔로우 상태를 확인하는데 실패했어요": "Failed to check the follow status.",
+    "다시 시도해 주세요": "Please try again."
   },
   "one_pick_influencer_mutations": {
     "원픽 인플루언서를 해제할까요?": "Do you want to remove your One Pick influencer?",

@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 
 import SearchInfluencerCard from './SearchInfluencerCard';
+import MessageText from '@/components/common/MessageText';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 import type { SearchInfluencersResponse } from '@/types/service/influencerServiceType';
 
@@ -18,25 +19,18 @@ const InfluencerSearchResult = ({
 }: InfluencerSearchResultProps) => {
   const t = useTranslations('influencer_index_page');
   if (isLoading) {
-    return (
-      <div className="h-full flex-center">
-        <ComponentSpinner />
-      </div>
-    );
+    return <ComponentSpinner className="h-full pb-24 flex-center" />;
   }
   if (isError) {
     return (
-      <p className="h-full whitespace-pre-wrap text-center text-neutral-500 flex-center body3-r">
-        {t('인플루언서 검색 중 오류가 발생했어요 다시 시도해 주세요')}
-      </p>
+      <MessageText
+        className="h-full pb-24"
+        message={t('인플루언서 검색 중 오류가 발생했어요 다시 시도해 주세요')}
+      />
     );
   }
   if (!searchResult || searchResult.data.length === 0) {
-    return (
-      <p className="h-full whitespace-pre-wrap text-center text-neutral-500 flex-center body3-r">
-        {t('인플루언서 검색 결과가 없어요')}
-      </p>
-    );
+    return <MessageText className="h-full pb-24" message={t('인플루언서 검색 결과가 없어요')} />;
   }
   return (
     <ul className="mb-20 flex flex-col justify-center gap-y-[22px]">

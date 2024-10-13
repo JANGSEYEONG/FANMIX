@@ -1,13 +1,13 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
-
-import TextReviewCard from './TextReviewCard';
 import MessageText from '@/components/common/MessageText';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
+
+import TextReviewCard from './TextReviewCard';
+import SortOptionsList from '@/components/common/SortOptionsList';
 
 import { useSpecificInfluencerReview } from '../_hooks/useSpecificInfluencerReview';
 
@@ -26,15 +26,7 @@ const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReview
 
   return (
     <div className="flex h-full flex-col">
-      <ul className="flex items-center gap-[15px] px-5 text-neutral-400 body3-r">
-        {sortButtons.map(({ label, isSelected, onClick }) => (
-          <li key={label}>
-            <button className={cn(isSelected && 'text-lime-400 body3-m')} onClick={onClick}>
-              {label}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <SortOptionsList className="px-5" sortButtons={sortButtons} />
       {isError ? (
         <MessageText
           className="h-full"

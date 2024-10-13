@@ -80,7 +80,7 @@ const FollowInfluencerCard = ({
           {latestReviewDate ? (
             <time>{formatDateToYYMMDD(parseISOToDate(latestReviewDate))}</time>
           ) : (
-            <p className="text-neutral-300/50 sub2-m">{'아직 등록된 리뷰가 없어요'}</p>
+            <p className="text-neutral-300/50 sub2-m">{t('아직 등록된 리뷰가 없어요')}</p>
           )}
         </div>
         <div className="flex items-end justify-between">

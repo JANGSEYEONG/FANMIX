@@ -10,47 +10,51 @@ import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
 import GoFanChannelButton from '@/components/domain/influencer/GoFanChannelButton';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
+import { Link } from '@/i18n/routing';
 
-interface FanChannelInfluencerCardProps {
-  influencerId: number;
+interface FanChannelCardProps {
   communityId: number;
+  influencerId: number;
   influencerName: string;
   influencerImageUrl: string;
   followerCount: number;
   postCount: number;
-  latestPostDate: string;
+  latestPostDate: string | null;
   isFollowing: boolean;
 }
 
-// 팬 채널로 이동하는 버튼이 따로 존재, 카드 클릭으로 페이지 이동 x
 // 팬 채널에 조회되는 인플루언서들은 모두 인증 인플루언서
-const FanChannelInfluencerCard = ({
-  influencerId,
+const FanChannelCard = ({
   communityId,
+  influencerId,
   influencerName,
   influencerImageUrl,
   followerCount,
   postCount,
   latestPostDate,
   isFollowing,
-}: FanChannelInfluencerCardProps) => {
+}: FanChannelCardProps) => {
   const t = useTranslations('fan_channel_index_page');
   return (
     <article className="flex items-center gap-x-5">
-      <figure className="relative h-[90px] w-[90px] flex-shrink-0">
-        <Image
-          priority
-          src={influencerImageUrl}
-          alt={`인플루언서 ${influencerName}의 사진"`}
-          fill
-          className="object-cover"
-          sizes="100%"
-        />
-      </figure>
+      <Link href={`/influencer/${influencerId}`}>
+        <figure className="relative h-[90px] w-[90px] flex-shrink-0">
+          <Image
+            priority
+            src={influencerImageUrl}
+            alt={`인플루언서 ${influencerName}의 사진"`}
+            fill
+            className="object-cover"
+            sizes="100%"
+          />
+        </figure>
+      </Link>
       <div className="flex flex-1 flex-col justify-center gap-y-[9px]">
         <header>
           <h2 className="flex items-center gap-x-[3px]">
-            <span className="body2-sb">{influencerName}</span>
+            <Link className="body2-sb" href={`/influencer/${influencerId}`}>
+              {influencerName}
+            </Link>
             <AuthenticatedBadge size={18} />
           </h2>
         </header>
@@ -66,7 +70,11 @@ const FanChannelInfluencerCard = ({
 
             <span className="text-left">{t('최신 글')}</span>
             <Separator className="h-3 w-[1px] bg-neutral-500" aria-hidden="true" />
-            <time>{formatDateToYYMMDD(parseISOToDate(latestPostDate))}</time>
+            {latestPostDate ? (
+              <time>{formatDateToYYMMDD(parseISOToDate(latestPostDate))}</time>
+            ) : (
+              <p className="text-neutral-300/50 sub2-m">{t('아직 등록된 글이 없어요')}</p>
+            )}
           </div>
           <GoFanChannelButton
             variant={isFollowing ? 'destructive' : 'outline'}
@@ -83,4 +91,4 @@ const FanChannelInfluencerCard = ({
   );
 };
 
-export default FanChannelInfluencerCard;
+export default FanChannelCard;

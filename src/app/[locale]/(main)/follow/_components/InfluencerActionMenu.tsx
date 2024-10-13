@@ -6,8 +6,8 @@ import { VscEllipsis } from 'react-icons/vsc';
 import { useTranslations } from 'next-intl';
 
 import { useFanChannelAccess } from '@/hooks/useFanChannelAccess';
-import { useInfluencerFollow } from '@/hooks/useInfluencerFollow';
 import { useOnePickInfluencerMutations } from '@/hooks/useOnePickInfluencerMutations';
+import { useInfluencerFollowMutations } from '@/hooks/useInfluencerFollowMutations';
 
 import ButtonListDrawer from '@/components/common/ButtonListDrawer';
 
@@ -27,10 +27,13 @@ const InfluencerActionMenu = ({
   isAuthenticated,
 }: InfluencerActionMenuProps) => {
   const t = useTranslations('follow_influencer_card');
+
   const { setOnePickInfluencer, removeOnePickInfluencer } =
     useOnePickInfluencerMutations(influencerId);
+
+  const { handleInfluencerUnfollow } = useInfluencerFollowMutations();
   const { checkAccessAndNavigateToFanChannel } = useFanChannelAccess();
-  const { toggleFollowState } = useInfluencerFollow(influencerId);
+
   const buttons = [];
 
   if (isAuthenticated) {
@@ -44,8 +47,9 @@ const InfluencerActionMenu = ({
     buttons.push({ text: t('원픽 인플루언서 해제'), onClick: removeOnePickInfluencer });
   } else {
     buttons.push({ text: t('원픽 인플루언서 변경'), onClick: setOnePickInfluencer });
-    buttons.push({ text: t('팔로우 해제'), onClick: () => toggleFollowState() });
+    buttons.push({ text: t('팔로우 해제'), onClick: () => handleInfluencerUnfollow(influencerId) });
   }
+
   return (
     <ButtonListDrawer
       title={influencerName}

@@ -1,4 +1,4 @@
-import ko from './messages/en.json';
+import ko from './messages/ko.json';
 
 type Messages = typeof ko;
 

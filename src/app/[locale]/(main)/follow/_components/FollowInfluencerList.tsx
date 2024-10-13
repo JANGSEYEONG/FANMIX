@@ -1,10 +1,10 @@
 'use client';
-import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { useFollowInfluencerList } from '../_hooks/useFollowInfluencerList';
 
 import MessageText from '@/components/common/MessageText';
 import FollowInfluencerCard from './FollowInfluencerCard';
+import SortOptionsList from '@/components/common/SortOptionsList';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
 const FollowInfluencerList = () => {
@@ -17,17 +17,7 @@ const FollowInfluencerList = () => {
 
   return (
     <div className="mt-5 flex h-full flex-col">
-      <nav aria-label="정렬 옵션">
-        <ul className="flex items-center gap-x-[15px] text-neutral-400 body3-r">
-          {sortButtons.map(({ label, isSelected, onClick }) => (
-            <li key={label}>
-              <button className={cn(isSelected && 'text-lime-400 body3-m')} onClick={onClick}>
-                {label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <SortOptionsList sortButtons={sortButtons} />
       {isError ? (
         <MessageText
           className="mb-24 flex-1"
@@ -46,7 +36,7 @@ const FollowInfluencerList = () => {
               </li>
             ))}
           </ul>
-          <MessageText message={t('팔로우 중인 모든 인플루언서를 확인했어요')} />
+          <MessageText className="pb-20" message={t('팔로우 중인 모든 인플루언서를 확인했어요')} />
         </>
       )}
     </div>

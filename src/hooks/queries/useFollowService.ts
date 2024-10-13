@@ -65,11 +65,18 @@ export const useToggleInfluencerFollow = () => {
   });
 };
 
-// 인플루언서 팔로잉 여부 확인
+// 자동으로 쿼리되는 인플루언서 팔로잉 여부 확인
 export const useInfluencerFollowStatus = ({ influencerId }: InfluencerFollowStatusRequest) => {
   return useQuery<InfluencerFollowStatusResponse, AxiosError>({
     queryKey: ['influencerFollowStatus', influencerId],
     queryFn: () => followService.influencerFollowStatus({ influencerId }),
     enabled: !!influencerId,
+  });
+};
+
+// 수동으로 트리거되는 인플루언서 팔로잉 여부 확인
+export const useInfluencerFollowStatusMutation = () => {
+  return useMutation<InfluencerFollowStatusResponse, AxiosError, InfluencerFollowStatusRequest>({
+    mutationFn: followService.influencerFollowStatus,
   });
 };

@@ -1,5 +1,4 @@
 'use client';
-import { cn } from '@/lib/utils';
 
 import { useTranslations } from 'next-intl';
 import { useAllReviews } from '../_hooks/useAllReviews';
@@ -8,6 +7,7 @@ import { Separator } from '@/components/ui/separator';
 
 import MessageText from '@/components/common/MessageText';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
+import SortOptionsList from '@/components/common/SortOptionsList';
 
 import ImageReviewCard from './ImageReviewCard';
 
@@ -24,15 +24,7 @@ const AllReviewsWrapper = () => {
     <section
       aria-label="전체 한줄리뷰 리스트"
       className="mt-[30px] flex h-full w-full flex-col px-5">
-      <ul className="mb-[15px] flex items-center gap-x-[15px] text-neutral-400 body3-r">
-        {sortButtons.map(({ label, isSelected, onClick }) => (
-          <li key={label}>
-            <button className={cn(isSelected && 'text-lime-400 body3-m')} onClick={onClick}>
-              {label}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <SortOptionsList className="mb-[15px]" sortButtons={sortButtons} />
       {isError ? (
         <div className="flex-1">
           <MessageText
