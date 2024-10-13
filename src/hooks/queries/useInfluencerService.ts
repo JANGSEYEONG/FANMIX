@@ -120,10 +120,7 @@ export const useUpdateOnePickInfluencer = () => {
             if (!oldData) return oldData;
             return {
               ...oldData,
-              data: {
-                ...oldData.data,
-                isOnepick: 0,
-              },
+              data: null,
             };
           },
         );

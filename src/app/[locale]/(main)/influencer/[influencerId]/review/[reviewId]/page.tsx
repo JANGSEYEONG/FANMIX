@@ -42,7 +42,7 @@ export default async function InfluencerReviewPage({
           initialIsDisliked={reviewData.review.isDisliked}
         />
       </section>
-      <section aria-label="리뷰 댓글 리스트" className="flex-1 bg-neutral-900">
+      <section aria-label="리뷰 댓글 리스트" className="flex-1 bg-neutral-900 pb-[75px]">
         <ReviewCommentList
           influencerId={parseInt(influencerId)}
           reviewId={parseInt(reviewId)}

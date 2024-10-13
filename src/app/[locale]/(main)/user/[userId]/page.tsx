@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 import UserProfile from './_components/UserProfile';
@@ -10,6 +9,7 @@ import CommentHistory from '@/components/domain/user/activityHistory/CommentHist
 import SlideBarTabs from '@/components/common/SlideBarTabs';
 
 import { commentData } from '@/constants/testData';
+import { getUserOnePickInfluencerData } from '@/services/serverFetch/influencerServerService';
 
 export async function generateMetadata({
   params: { locale },
@@ -23,18 +23,16 @@ export async function generateMetadata({
   };
 }
 
-export default function UserProfilePage({ params: { userId } }: { params: { userId: string } }) {
-  console.log(userId);
-  const t = useTranslations('user_page');
-
-  const onePickData = {
-    influencerId: 3,
-    communityId: 4,
-    influencerName: '으뜸언니',
-    influencerImageUrl: '',
-    isOthersPick: false,
-  };
-
+export default async function UserProfilePage({
+  params: { locale, userId },
+}: {
+  params: { locale: string; userId: string };
+}) {
+  const t = await getTranslations({ locale, namespace: 'user_page' });
+  const { data: userOnePickInfluencerData } = await getUserOnePickInfluencerData({
+    userId: parseInt(userId),
+  });
+  console.log(userOnePickInfluencerData);
   const userData = {
     userNickName: '닉네임이다',
     profileImgUrl: '', // 비워질 경우, fallback으로 이름 첫글자 표시
@@ -71,7 +69,13 @@ export default function UserProfilePage({ params: { userId } }: { params: { user
         <p className="body3-r">{userData.introduction}</p>
       </section>
       <section aria-label={`${userData.userNickName}의 원픽 인플루언서`} className="mb-6">
-        <OnePickInfluencer {...onePickData} isOthersPick />
+        {userOnePickInfluencerData && (
+          <OnePickInfluencer
+            {...userOnePickInfluencerData}
+            communityId={userOnePickInfluencerData.fanChannelId || null}
+            isOthersPick
+          />
+        )}
       </section>
       <section
         aria-label={`${userData.userNickName}의 활동내역`}

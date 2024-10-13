@@ -6,30 +6,33 @@ import MessageBox from '@/components/common/MessageBox';
 import { useInformationToast } from './useInformationToast';
 
 export const useOnePickInfluencerMutations = (influencerId: number) => {
-  const t = useTranslations('onepick_influencer_mutations');
+  const t = useTranslations('one_pick_influencer_mutations');
   const openModal = useModalStore((state) => state.openModal);
 
   const updateOnePickMutation = useUpdateOnePickInfluencer();
   const { showConfirmToast, showErrorToast } = useInformationToast();
-  // 원픽 지정하는 함수
-  const setOnePickInfluencer = async () => {
+
+  const handleOnePickAction = async (isSettingOnePick: boolean) => {
+    const successMessage = isSettingOnePick
+      ? 'ONE PICK 인플루언서가 설정되었어요'
+      : 'ONE PICK 인플루언서가 해제되었어요';
+    const errorMessage = isSettingOnePick
+      ? 'ONE PICK 인플루언서 설정에 실패했어요'
+      : 'ONE PICK 인플루언서 해제에 실패했어요';
+
     try {
-      await updateOnePickMutation.mutateAsync({ influencerId, onePick: 1 });
-      showConfirmToast(t('ONE PICK 인플루언서가 설정되었어요'));
+      await updateOnePickMutation.mutateAsync({ influencerId, onePick: isSettingOnePick });
+      showConfirmToast(t(successMessage));
     } catch {
-      showErrorToast(t('ONE PICK 인플루언서 설정에 실패했어요'), t('다시 시도해 주세요'));
+      showErrorToast(t(errorMessage), t('다시 시도해 주세요'));
     }
   };
 
+  // 원픽 지정하는 함수
+  const setOnePickInfluencer = () => handleOnePickAction(true);
+
   // 원픽 해제하는 함수
-  const removeOnePickInfluencer = async () => {
-    try {
-      await updateOnePickMutation.mutateAsync({ influencerId, onePick: 0 });
-      showConfirmToast(t('ONE PICK 인플루언서가 해제되었어요'));
-    } catch {
-      showErrorToast(t('ONE PICK 인플루언서 해제에 실패했어요'), t('다시 시도해 주세요'));
-    }
-  };
+  const removeOnePickInfluencer = () => handleOnePickAction(false);
 
   // 메시지로 확인받고 원픽 해제하는 함수
   const removeOnePickInfluencerWithMessage = () => {

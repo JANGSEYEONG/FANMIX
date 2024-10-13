@@ -28,7 +28,7 @@ export interface RecentlyVerifiedInfluencerResponse extends ResponseBase {
 // 원픽 인플루언서 설정
 export interface UpdateOnePickInfluencerRequest {
   influencerId: number;
-  onePick: 1 | 0; // 1:원픽지정, 0 :일반팬
+  onePick: boolean; // true:원픽지정, false:일반팬
 }
 export interface UpdateOnePickInfluencerResponse extends ResponseBase {
   data: {
@@ -50,17 +50,18 @@ export interface UserOnePickInfluencerResponse extends ResponseBase {
     influencerId: number;
     influencerName: string;
     influencerImageUrl: string;
-    selfIntroduction: string;
+    gender: Gender;
+    nationality: string;
     tagList: string[];
+    averageRating: number;
+    contentsRating: number;
+    communicationRating: number;
+    trustRating: number;
+    totalReviewCount: number;
     isAuthenticated: boolean;
     isFollowing: boolean;
-    fanChannelId: number;
-
-    memberId: number;
-    memberName: string;
-    isOnepick: 1 | 0; //원픽은 항상 1
-    onepickEnrolltime: string;
-  };
+    fanChannelId: number | null;
+  } | null;
 }
 
 // 인플루언서 검색 - 이름 (메인 검색))

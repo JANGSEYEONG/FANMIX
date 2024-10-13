@@ -6,22 +6,10 @@ import { useTranslations } from 'next-intl';
 import { Separator } from '@/components/ui/separator';
 
 import TextReviewCard from './TextReviewCard';
+import MessageText from '@/components/common/MessageText';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
 import { useSpecificInfluencerReview } from '../_hooks/useSpecificInfluencerReview';
-
-const LoadingView = () => (
-  <div className="h-full flex-center">
-    <ComponentSpinner />
-  </div>
-);
-
-interface StatusMessageProps {
-  message: string;
-}
-const StatusMessage = ({ message }: StatusMessageProps) => (
-  <p className="h-full text-neutral-500 flex-center body3-r">{message}</p>
-);
 
 interface SpecificInfluencerReviewListProps {
   influencerId: number;
@@ -31,10 +19,10 @@ const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReview
   const { reviewListData, isLoading, isError, sortButtons } =
     useSpecificInfluencerReview(influencerId);
 
-  if (isLoading) return <LoadingView />;
+  if (isLoading) return <ComponentSpinner className="h-full flex-center" />;
 
   if (!isError && (!reviewListData || reviewListData.data.length === 0))
-    return <StatusMessage message={t('첫 한줄리뷰를 작성해 주세요')} />;
+    return <MessageText className="h-full" message={t('첫 한줄리뷰를 작성해 주세요')} />;
 
   return (
     <div className="flex h-full flex-col">
@@ -48,7 +36,10 @@ const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReview
         ))}
       </ul>
       {isError ? (
-        <StatusMessage message={t('한줄리뷰 전체 데이터를 가져오는데 문제가 생겼어요')} />
+        <MessageText
+          className="h-full"
+          message={t('한줄리뷰 전체 데이터를 가져오는데 문제가 생겼어요')}
+        />
       ) : (
         <>
           <Separator className="mt-[13px] h-[0.7px] bg-neutral-600" />
@@ -60,9 +51,7 @@ const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReview
               </li>
             ))}
           </ul>
-          <p className="mb-8 mt-7 text-center text-neutral-500 body3-r">
-            {t('모든 리뷰를 확인했어요')}
-          </p>
+          <MessageText className="mb-8 mt-7" message={t('모든 리뷰를 확인했어요')} />
         </>
       )}
     </div>

@@ -1,7 +1,10 @@
 import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
+
+import MessageText from '@/components/common/MessageText';
 import TextPostCard from '@/components/domain/board/TextPostCard';
+
 import type { TextPostCardData } from '@/types/domain/communityType';
 
 interface PostHistoryProps {
@@ -20,9 +23,7 @@ const PostHistory = ({ posts }: PostHistoryProps) => {
           </li>
         ))}
       </ul>
-      <p className="mb-8 mt-7 text-center text-neutral-500 body3-r">
-        {t('모든 내용을 확인했어요')}
-      </p>
+      <MessageText className="mb-8 mt-7" message={t('모든 내용을 확인했어요')} />
     </div>
   );
 };

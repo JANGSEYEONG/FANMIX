@@ -1,5 +1,7 @@
-import CommentCard, { type CommentCardProps } from '@/components/domain/board/CommentCard';
 import { useTranslations } from 'next-intl';
+
+import MessageText from '@/components/common/MessageText';
+import CommentCard, { type CommentCardProps } from '@/components/domain/board/CommentCard';
 
 interface CommentHistoryProps {
   comments: CommentCardProps[];
@@ -16,9 +18,7 @@ const CommentHistory = ({ comments }: CommentHistoryProps) => {
           </li>
         ))}
       </ul>
-      <p className="mb-8 mt-7 text-center text-neutral-500 body3-r">
-        {t('모든 내용을 확인했어요')}
-      </p>
+      <MessageText className="mb-8 mt-7" message={t('모든 내용을 확인했어요')} />
     </div>
   );
 };

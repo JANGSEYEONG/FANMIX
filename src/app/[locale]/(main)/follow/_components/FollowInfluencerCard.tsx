@@ -83,7 +83,7 @@ const FollowInfluencerCard = ({
             <p className="text-neutral-300/50 sub2-m">{'아직 등록된 리뷰가 없어요'}</p>
           )}
         </div>
-        <footer className="flex items-end justify-between">
+        <div className="flex items-end justify-between">
           <div className="flex flex-col justify-center gap-y-1">
             <div className="flex items-end gap-x-[5px]">
               <span className="leading-6 text-orange-500 h1-sb-leading-0">
@@ -105,7 +105,7 @@ const FollowInfluencerCard = ({
             disabled={!isAuthenticated}>
             {isAuthenticated ? t('팬채널') : t('미인증')}
           </GoFanChannelButton>
-        </footer>
+        </div>
       </div>
       {/* 원픽인플루언서용 좌우 배경색 */}
       {isOnePick && (

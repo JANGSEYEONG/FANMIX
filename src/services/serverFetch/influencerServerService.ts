@@ -2,6 +2,8 @@ import api from './fetch';
 import type {
   InfluencerDetailResponse,
   RecentlyVerifiedInfluencerResponse,
+  UserOnePickInfluencerRequest,
+  UserOnePickInfluencerResponse,
   WeeklyHotInfluencersResponse,
 } from '@/types/service/influencerServiceType';
 
@@ -29,3 +31,13 @@ export const getRecentlyVerifiedInfluencersData =
       `${process.env.NEXT_PUBLIC_URL}/api/influencers/recent10`,
     );
   };
+
+// 유저의 원픽 인플루언서
+export const getUserOnePickInfluencerData = async ({
+  userId,
+}: UserOnePickInfluencerRequest): Promise<UserOnePickInfluencerResponse> => {
+  return api.get<UserOnePickInfluencerResponse>(
+    `${process.env.NEXT_PUBLIC_URL}/api/public/members/${userId}/onepick`,
+    { hasAuth: true },
+  );
+};

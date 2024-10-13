@@ -3,23 +3,9 @@ import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { useFollowInfluencerList } from '../_hooks/useFollowInfluencerList';
 
+import MessageText from '@/components/common/MessageText';
 import FollowInfluencerCard from './FollowInfluencerCard';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
-
-const LoadingView = () => (
-  <div className="h-full pb-24 flex-center">
-    <ComponentSpinner />
-  </div>
-);
-
-interface StatusMessageProps {
-  message: string;
-}
-const StatusMessage = ({ message }: StatusMessageProps) => (
-  <p className="mb-24 flex-1 whitespace-pre-wrap text-center text-neutral-500 flex-center body3-r">
-    {message}
-  </p>
-);
 
 const FollowInfluencerList = () => {
   const t = useTranslations('follow_page');
@@ -27,7 +13,7 @@ const FollowInfluencerList = () => {
   const { influencerListData, isEmpty, isLoading, isError, sortButtons } =
     useFollowInfluencerList();
 
-  if (isLoading) return <LoadingView />;
+  if (isLoading) return <ComponentSpinner className="h-full pb-24 flex-center" />;
 
   return (
     <div className="mt-5 flex h-full flex-col">
@@ -43,11 +29,12 @@ const FollowInfluencerList = () => {
         </ul>
       </nav>
       {isError ? (
-        <StatusMessage
+        <MessageText
+          className="mb-24 flex-1"
           message={t('팔로우 중인 인플루언서를 불러오는 중 문제가 발생했어요 다시 시도해 주세요')}
         />
       ) : isEmpty ? (
-        <StatusMessage message={t('팔로우한 인플루언서가 없어요')} />
+        <MessageText className="mb-24 flex-1" message={t('팔로우한 인플루언서가 없어요')} />
       ) : (
         <>
           <ul
@@ -59,9 +46,7 @@ const FollowInfluencerList = () => {
               </li>
             ))}
           </ul>
-          <p className="text-center text-neutral-500 body3-r">
-            {t('팔로우 중인 모든 인플루언서를 확인했어요')}
-          </p>
+          <MessageText message={t('팔로우 중인 모든 인플루언서를 확인했어요')} />
         </>
       )}
     </div>

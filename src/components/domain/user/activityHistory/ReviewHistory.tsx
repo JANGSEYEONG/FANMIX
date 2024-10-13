@@ -1,5 +1,8 @@
 import { useTranslations } from 'next-intl';
+
+import MessageText from '@/components/common/MessageText';
 import ImageReviewCardWithRatingBar from '@/components/domain/influencer/ImageReviewCardWithRatingBar';
+
 import type { ImageReviewCardData } from '@/types/domain/reviewType';
 interface ReviewHistoryProps {
   reviews: ImageReviewCardData[];
@@ -17,9 +20,7 @@ const ReviewHistory = ({ reviews }: ReviewHistoryProps) => {
           </li>
         ))}
       </ul>
-      <p className="mb-8 mt-7 text-center text-neutral-500 body3-r">
-        {t('모든 내용을 확인했어요')}
-      </p>
+      <MessageText className="mb-8 mt-7" message={t('모든 내용을 확인했어요')} />
     </div>
   );
 };
