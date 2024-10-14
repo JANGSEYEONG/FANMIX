@@ -4,12 +4,14 @@ import { SheetClose } from '@/components/ui/sheet';
 import { VscChevronRight } from 'react-icons/vsc';
 import { useTranslations } from 'next-intl';
 
-import { useInformationToast } from '@/hooks/useInformationToast';
+import { useComingSoonToast } from '@/hooks/useComingSoonToast';
 
 import { ROUTES } from '@/constants/routes';
 
 const QuickLinksNavigation = () => {
   const t = useTranslations('main_slide_menu');
+  const { showComingSoonToast } = useComingSoonToast();
+
   const linkList = [
     {
       label: t('인플루언서 찾기'),
@@ -34,10 +36,6 @@ const QuickLinksNavigation = () => {
     },
   ];
 
-  const { showConfirmToast } = useInformationToast();
-  const handleClickUnreleased = () => {
-    showConfirmToast(t('업데이트를 기다려주세요'), t('곧 멋진 기능으로 찾아뵙겠습니다'));
-  };
   return (
     <nav aria-label="주요 페이지 바로가기">
       <ul className="flex flex-col justify-center gap-y-6 h2-m">
@@ -52,7 +50,7 @@ const QuickLinksNavigation = () => {
               </SheetClose>
             </li>
           ) : (
-            <li key={path} onClick={handleClickUnreleased}>
+            <li key={path} onClick={showComingSoonToast}>
               <span className="flex cursor-pointer items-center gap-x-0.5">
                 <VscChevronRight className="h-5 w-5" aria-hidden="true" />
                 {label}

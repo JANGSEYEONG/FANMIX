@@ -2,7 +2,7 @@ import { SheetClose } from '@/components/ui/sheet';
 
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
-import { useInformationToast } from '@/hooks/useInformationToast';
+import { useComingSoonToast } from '@/hooks/useComingSoonToast';
 
 import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
@@ -10,6 +10,8 @@ import { ROUTES } from '@/constants/routes';
 
 const MenuContent = () => {
   const t = useTranslations('main_slide_menu');
+  const { showComingSoonToast } = useComingSoonToast();
+
   const linkList = [
     {
       label: t('인플루언서 찾기'),
@@ -43,10 +45,7 @@ const MenuContent = () => {
       isReleased: true,
     },
   ];
-  const { showConfirmToast } = useInformationToast();
-  const handleClickUnreleased = () => {
-    showConfirmToast(t('업데이트를 기다려주세요'), t('곧 멋진 기능으로 찾아뵙겠습니다'));
-  };
+
   return (
     <div>
       <section aria-label="메뉴 리스트">
@@ -61,7 +60,7 @@ const MenuContent = () => {
               </li>
             ) : (
               <li key={path}>
-                <span className="cursor-pointer px-[22px]" onClick={handleClickUnreleased}>
+                <span className="cursor-pointer px-[22px]" onClick={showComingSoonToast}>
                   {label}
                 </span>
                 {hasBottomSeparator && <Separator className="mb-2.5 mt-10 opacity-30" />}

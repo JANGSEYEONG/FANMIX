@@ -208,7 +208,9 @@
     "고객센터": "Customer Service",
     "19+ 모드": "18+ Content",
     "로그인 하기": "Log in",
-    "로그아웃 하기": "Log out",
+    "로그아웃 하기": "Log out"
+  },
+  "coming_soon_toast": {
     "업데이트를 기다려주세요": "Please wait for the update.",
     "곧 멋진 기능으로 찾아뵙겠습니다": "We'll be back soon with great new features."
   },
