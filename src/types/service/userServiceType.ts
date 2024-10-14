@@ -26,6 +26,9 @@ export interface LoginResponse extends ResponseBase {
   };
 }
 
+export interface UserDetailRequest {
+  userId: number;
+}
 export interface UserDetailResponse extends ResponseBase {
   data: {
     id: number;
@@ -66,26 +69,35 @@ export interface UpdateMyNationalityRequest {
   nationality: string;
 }
 
+export interface UserReviewHistoryRequset {
+  userId: number;
+}
 export interface UserReviewHistoryResponse extends ResponseBase {
   data: {
     influencerId: number;
+    reviewId: number;
     influencerName: string;
     influencerImageUrl: string;
     selfIntroduction: string;
     gender: Gender;
     nationality: string;
     tagList: string[];
-    reviewId: number;
     reviewContent: string;
-    contentRating: number;
+    contentsRating: number;
     communicationRating: number;
     trustRating: number;
     latestReviewDate: string;
     isAuthenticated: boolean;
     isFollowing: boolean;
+    reviewLikeCount: number;
+    reviewDislikeCount: number;
+    reviewCommentsCount: number;
   }[];
 }
 
+export interface UserPostHistoryRequest {
+  userId: number;
+}
 export interface UserPostHistoryResponse extends ResponseBase {
   data: {
     communityId: number;
@@ -99,6 +111,10 @@ export interface UserPostHistoryResponse extends ResponseBase {
     postDisLikeCount: number;
     postCommentCount: number;
   }[];
+}
+
+export interface UserCommentHistoryRequest {
+  userId: number;
 }
 export interface UserCommentHistoryResponse extends ResponseBase {
   data: {

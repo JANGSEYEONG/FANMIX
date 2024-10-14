@@ -74,12 +74,13 @@
     "내 한줄 리뷰": "My Reviews",
     "내 글": "My Posts",
     "내 댓글": "My Comments",
-    "모든 내용을 확인했어요": "You've seen all the content."
+    "커뮤니티 기능은 준비 중이에요": "Community features are in preparation."
   },
   "user_page": {
     "한줄 리뷰": "Reviews",
     "글": "Posts",
-    "댓글": "Comments"
+    "댓글": "Comments",
+    "커뮤니티 기능은 준비 중이에요": "Community features are in preparation."
   },
   "customer_center_page": {
     "가이드 및 도움말": "Guides and Help",
@@ -313,6 +314,12 @@
     "조화로운": "Harmonious",
     "차분한": "Calm",
     "매우 차분한": "Very Calm"
+  },
+  "activity_history": {
+    "모든 내용을 확인했어요": "All content has been reviewed.",
+    "리뷰를 불러오는 데 실패했어요 다시 시도해 주세요": "Failed to load reviews.\nPlease try again.",
+    "아직 작성한 리뷰가 없어요": "No reviews have been written yet.",
+    "커뮤니티 기능은 준비 중이에요": "Community features are coming soon."
   },
   "auth_check": {
     "로그인 후 이용할 수 있어요": "Please log in\nto access this feature.",

@@ -1,28 +1,29 @@
 'use client';
 
-import { VscSend } from 'react-icons/vsc';
-import UserAvatar from '@/components/domain/user/UserAvatar';
+import MessageText from '@/components/common/MessageText';
+import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
+
+import UserProfileHeader from './UserProfileHeader';
+import UserIntroduce from './UserIntroduce';
+
+import { useOtherUserProfile } from '../_hooks/useOtherUserProfile';
 
 interface UserProfileProps {
-  profileImgUrl: string;
-  userNickName: string;
+  userId: number;
 }
-const UserProfile = ({ profileImgUrl, userNickName }: UserProfileProps) => {
-  const handleClickSendDM = () => {
-    alert('DM 기능은 준비중입니다.');
-  };
+const UserProfile = ({ userId }: UserProfileProps) => {
+  const { userData, isLoading, isError } = useOtherUserProfile(userId);
+
+  if (isLoading) return <ComponentSpinner />;
+  if (isError)
+    return <MessageText message={'유저 정보를 불러오는데 실패했어요.\n다시 시도해 주세요.'} />;
+  if (!userData) return <MessageText message={'유저 정보가 없어요.'} />;
+
   return (
-    <div className="flex h-[66px] items-center justify-between gap-4 bg-neutral-800">
-      <div className="flex items-center gap-3 px-2.5 py-[9px]">
-        <UserAvatar size={48} profileImgUrl={profileImgUrl} userNickName={userNickName} />
-        <h2 className="h2-sb">{userNickName}</h2>
-      </div>
-      <div
-        className="group h-full w-10 cursor-pointer flex-center fanmix-gradient"
-        onClick={handleClickSendDM}>
-        <VscSend className="h-5 w-5 group-hover:scale-transition-105" />
-      </div>
-    </div>
+    <>
+      <UserProfileHeader {...userData} />
+      <UserIntroduce {...userData} />
+    </>
   );
 };
 

@@ -13,7 +13,7 @@ const FollowToggleButton = ({ influencerId }: FollowToggleButtonProps) => {
   return (
     <button
       className={cn(
-        'h-7 w-7 rounded-full transition-colors duration-200 flex-center hover:scale-105',
+        'h-7 w-7 flex-shrink-0 rounded-full transition-colors duration-200 flex-center hover:scale-105',
         isFollowing ? 'bg-white' : 'bg-orange-700',
       )}
       onClick={() => toggleFollowState()}>

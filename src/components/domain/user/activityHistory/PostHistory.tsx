@@ -11,7 +11,7 @@ interface PostHistoryProps {
   posts: TextPostCardData[];
 }
 const PostHistory = ({ posts }: PostHistoryProps) => {
-  const t = useTranslations('my_activity_history_page');
+  const t = useTranslations('activity_history');
 
   return (
     <div className="h-full w-full overflow-y-auto pb-8 pt-5 scrollbar-hide-smooth">
