@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-
+import { Link } from '@/i18n/routing';
 import { getTranslations } from 'next-intl/server';
 
 import { Separator } from '@/components/ui/separator';
@@ -81,9 +81,12 @@ export default async function MainPage({
         <header className="flex flex-col gap-0.5">
           <div className="mr-5 flex items-center justify-between">
             <h2 className="body1-b">{t('인증 인플루언서')}</h2>
-            <button aria-label="인증 인플루언서 전체보기" className="text-neutral-500 body3-r">
+            <Link
+              href="/fan-channel?sort=CONFIRM_STATUS"
+              aria-label="인증 인플루언서 전체보기"
+              className="text-neutral-500 body3-r">
               {t('전체보기')}
-            </button>
+            </Link>
           </div>
           <p className="text-neutral-300 body3-r">{t('절차를 통해 인증된 인플루언서입니다')}</p>
         </header>

@@ -15,10 +15,15 @@ export async function generateMetadata({
   };
 }
 
-export default function FanChannelIndexPage() {
+export default function FanChannelIndexPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const defaultSort = searchParams.sort as string;
   return (
     <div className="h-full w-full px-5 pb-20 pt-[65px]">
-      <AllFanChannelsWrapper />
+      <AllFanChannelsWrapper defaultSort={defaultSort} />
     </div>
   );
 }

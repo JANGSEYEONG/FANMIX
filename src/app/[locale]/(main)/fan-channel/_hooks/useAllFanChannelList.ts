@@ -8,12 +8,20 @@ import {
   type AllFanChannelsSortType,
 } from '@/types/domain/fanChannelType';
 
-export const useAllFanChannelList = () => {
+function isAllFanChannelsSortType(value: string): value is AllFanChannelsSortType {
+  return Object.values(ALL_FAN_CHANNELS_SORT_TYPES).includes(value as AllFanChannelsSortType);
+}
+
+export const useAllFanChannelList = (defaultSort?: string) => {
   const t = useTranslations('fan_channel_index_page');
 
-  const [sort, setSort] = useState<AllFanChannelsSortType>(
-    ALL_FAN_CHANNELS_SORT_TYPES.FOLLOWER_COUNT,
-  );
+  let initialSort: AllFanChannelsSortType = ALL_FAN_CHANNELS_SORT_TYPES.FOLLOWER_COUNT;
+
+  if (defaultSort && isAllFanChannelsSortType(defaultSort)) {
+    initialSort = defaultSort;
+  }
+
+  const [sort, setSort] = useState<AllFanChannelsSortType>(initialSort);
   const { data, isLoading, isError } = useGetAllFanChannels({ sort });
 
   const sortButtons = [
