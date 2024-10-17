@@ -3,13 +3,25 @@ import { useTranslations } from 'next-intl';
 import { useInformationToast } from '@/hooks/useInformationToast';
 import { useSearchInfluencers } from '@/hooks/queries/useInfluencerService';
 
-import { INFLUENCER_SEARCH_TYPES } from '@/types/domain/influencerType';
+import {
+  INFLUENCER_SEARCH_TYPES,
+  InfluencerSearchSortType,
+  type InfluencerSearchType,
+} from '@/types/domain/influencerType';
 import type { InfluencerSearchFormData } from './useInfluencerSearchForm';
 
-export const useValidatedInfluencerSearch = () => {
+export const useValidatedInfluencerSearch = (
+  initialSearchType: InfluencerSearchType,
+  initialSortType: InfluencerSearchSortType,
+  initialKeyword: string,
+) => {
   const t = useTranslations('influencer_index_page');
   const { showErrorToast } = useInformationToast();
-  const { search, data, isLoading, isError } = useSearchInfluencers();
+  const { search, data, isLoading, isError } = useSearchInfluencers({
+    searchType: initialSearchType,
+    sort: initialSortType,
+    keyword: initialKeyword,
+  });
 
   const onSubmit = (data: InfluencerSearchFormData) => {
     if (data.searchType === INFLUENCER_SEARCH_TYPES.TAG && data.keyword.length < 2) {

@@ -38,6 +38,5 @@ export const getUserOnePickInfluencerData = async ({
 }: UserOnePickInfluencerRequest): Promise<UserOnePickInfluencerResponse> => {
   return api.get<UserOnePickInfluencerResponse>(
     `${process.env.NEXT_PUBLIC_URL}/api/public/members/${userId}/onepick`,
-    { hasAuth: true },
   );
 };

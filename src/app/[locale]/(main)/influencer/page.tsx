@@ -15,10 +15,20 @@ export async function generateMetadata({
   };
 }
 
-export default function InfluencerIndexPage() {
+export default function InfluencerIndexPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const defaultSearchCondition = {
+    defaultSearchType: searchParams.searchType as string,
+    defaultSortType: searchParams.sortType as string,
+    defaultKeyword: searchParams.keyword as string,
+  };
+
   return (
     <div className="h-full px-5 pt-[65px]">
-      <InfluencerSearchWrapper />
+      <InfluencerSearchWrapper {...defaultSearchCondition} />
     </div>
   );
 }

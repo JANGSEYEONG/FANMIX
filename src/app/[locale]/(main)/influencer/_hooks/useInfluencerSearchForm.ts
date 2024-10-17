@@ -25,9 +25,12 @@ const influencerSearchSchema = z.object({
 
 export type InfluencerSearchFormData = z.infer<typeof influencerSearchSchema>;
 
-export const useInfluencerSearchForm = () => {
+export const useInfluencerSearchForm = (
+  initialSearchType: InfluencerSearchType,
+  initialSortType: InfluencerSearchSortType,
+  initialKeyword: string,
+) => {
   const t = useTranslations('influencer_index_page');
-
   const {
     register,
     handleSubmit,
@@ -37,8 +40,9 @@ export const useInfluencerSearchForm = () => {
     resolver: zodResolver(influencerSearchSchema),
     mode: 'onChange',
     defaultValues: {
-      searchType: 'INFLUENCER_NAME',
-      sort: 'VIEW_COUNT',
+      searchType: initialSearchType,
+      sort: initialSortType,
+      keyword: initialKeyword,
     },
   });
 

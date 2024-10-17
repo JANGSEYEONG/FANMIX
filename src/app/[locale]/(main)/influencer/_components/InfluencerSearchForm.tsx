@@ -19,14 +19,29 @@ import {
   useInfluencerSearchForm,
   type InfluencerSearchFormData,
 } from '../_hooks/useInfluencerSearchForm';
+import type { InfluencerSearchSortType, InfluencerSearchType } from '@/types/domain/influencerType';
 
 interface InfluencerSearchFormProps {
   onSubmit: (data: InfluencerSearchFormData) => void;
   onError: () => void;
+
+  initialSearchType: InfluencerSearchType;
+  initialSortType: InfluencerSearchSortType;
+  initialKeyword: string;
 }
-const InfluencerSearchForm = ({ onSubmit, onError }: InfluencerSearchFormProps) => {
+const InfluencerSearchForm = ({
+  onSubmit,
+  onError,
+  initialSearchType,
+  initialSortType,
+  initialKeyword,
+}: InfluencerSearchFormProps) => {
   const t = useTranslations('influencer_index_page');
-  const { register, handleSubmit, control, isValid, sortButtons } = useInfluencerSearchForm();
+  const { register, handleSubmit, control, isValid, sortButtons } = useInfluencerSearchForm(
+    initialSearchType,
+    initialSortType,
+    initialKeyword,
+  );
   return (
     <form
       onSubmit={handleSubmit(onSubmit, onError)}

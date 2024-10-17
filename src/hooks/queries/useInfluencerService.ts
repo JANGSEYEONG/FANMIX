@@ -33,8 +33,10 @@ export const useSearchInfluencersByName = (searchTerm: string) => {
   });
 };
 
-export const useSearchInfluencers = () => {
-  const [searchParams, setSearchParams] = useState<SearchInfluencersRequest | null>(null);
+export const useSearchInfluencers = (initialCondition: SearchInfluencersRequest) => {
+  const [searchParams, setSearchParams] = useState<SearchInfluencersRequest | null>(
+    initialCondition,
+  );
   const query = useQuery<SearchInfluencersResponse, AxiosError>({
     queryKey: ['searchInfluencers', searchParams],
     queryFn: () => influencerService.searchInfluencers(searchParams!),

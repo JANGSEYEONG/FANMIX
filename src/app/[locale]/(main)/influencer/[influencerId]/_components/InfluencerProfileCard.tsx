@@ -69,7 +69,7 @@ const InfluencerProfileCard = ({
           <Separator orientation="vertical" className="h-[10px] w-[1px] bg-orange-200" />
           <span>{nationality}</span>
         </aside>
-        <InfluencerTagList contents={tagList} variant="destructive" />
+        <InfluencerTagList contents={tagList} variant="destructive" isLinkToTagSearch />
       </div>
       <div className="pl-[170px] pr-5">
         <InfluencerPlatformLinks {...{ snsList, mediaList, plusList }} />
