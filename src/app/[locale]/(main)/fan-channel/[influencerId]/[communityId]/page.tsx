@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
+import { getInfluencerFollowStatusData } from '@/services/serverFetch/followServerService';
+
+import FanChannelHeader from './_components/FanChannelHeader';
+import FanChannelAccessMessage from './_components/FanChannelAccessMessage';
 
 export async function generateMetadata({
   params: { locale },
@@ -14,17 +18,25 @@ export async function generateMetadata({
   };
 }
 
-export default function FanChannelPage({
+export default async function FanChannelPage({
   params: { influencerId, communityId },
 }: {
   params: { influencerId: string; communityId: string };
 }) {
+  // 서버에서 인플루언서를 팔로우중인지 체크
+  const { data: isFollowing } = await getInfluencerFollowStatusData({
+    influencerId: parseInt(influencerId),
+  });
+  console.log(influencerId, communityId);
   return (
-    <div className="pb-20 pt-[35px]">
-      <span>
-        {`인플루언서 ${influencerId}의 팬채널인 ${communityId}번 커뮤니티의 글 목록 페이지`}
-      </span>
-      <span>{`인플루언서 ${influencerId}를 팔로우중인지 확인 후에 페이지 이동시키기`}</span>
+    <div className="h-full pb-20 pt-[35px]">
+      {isFollowing ? (
+        <div>
+          <FanChannelHeader influencerId={parseInt(influencerId)} />
+        </div>
+      ) : (
+        <FanChannelAccessMessage />
+      )}
     </div>
   );
 }

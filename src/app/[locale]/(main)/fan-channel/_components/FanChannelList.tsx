@@ -29,7 +29,7 @@ const FanChannelList = ({ fanChannelList, isLoading, isError }: FanChannelListPr
     <ul className="pb-20">
       {fanChannelList.data.map((fanChannel, index) => (
         <li key={fanChannel.influencerId}>
-          <FanChannelCard {...fanChannel} isFollowing={fanChannel.isFan} />
+          <FanChannelCard {...fanChannel} isFollowing={fanChannel.isFollowing} />
           {fanChannelList.data.length - 1 !== index && (
             <Separator className="my-5 h-[1px] bg-neutral-800" />
           )}

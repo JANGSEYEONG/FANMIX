@@ -119,6 +119,9 @@ const config: Config = {
         '.dark-gradient': {
           background: 'linear-gradient(to bottom, #320C06 0%, #000000 100%)',
         },
+        '.dark-gradient-reverse': {
+          background: 'linear-gradient(to top, #320C06 0%, #000000 100%)',
+        },
         '.fanmix-gradient': {
           background: 'linear-gradient(to bottom, #FF3A1C 0%, #FF5B46 100%)',
         },

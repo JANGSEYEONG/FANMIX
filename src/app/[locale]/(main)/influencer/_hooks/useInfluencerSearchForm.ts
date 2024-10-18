@@ -14,7 +14,7 @@ const influencerSearchSchema = z.object({
   searchType: z.enum(
     Object.keys(INFLUENCER_SEARCH_TYPES) as [InfluencerSearchType, ...InfluencerSearchType[]],
   ),
-  keyword: z.string().min(1),
+  keyword: z.string(),
   sort: z.enum(
     Object.keys(INFLUENCER_SEARCH_SORT_TYPES) as [
       InfluencerSearchSortType,

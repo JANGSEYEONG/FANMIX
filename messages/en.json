@@ -173,6 +173,13 @@
     "팬채널": "Fan Ch.",
     "아직 등록된 글이 없어요": "No posts yet."
   },
+  "fan_channel_page": {
+    "팬채널에 접근할 수 없으신가요? 팔로우한 인플루언서의 팬채널만 입장 가능해요 인플루언서를 팔로우하고 다시 시도해 주세요": "Unable to access the fan channel?\nOnly fan channels of influencers you follow are accessible.\n\nPlease follow the influencer and try again! 😊",
+    "팔로워": "Followers",
+    "글 수": "Posts",
+    "최신 글": "Latest Post",
+    "아직 등록된 글이 없어요": "No posts yet."
+  },
   "review_index_page": {
     "최신순": "Latest",
     "추천순": "Most recommended",
@@ -291,7 +298,11 @@
     "인플루언서 팔로우에 실패했어요": "Failed to follow the influencer.",
     "인플루언서 언팔로우에 실패했어요": "Failed to unfollow the influencer.",
     "팔로우 상태를 확인하는데 실패했어요": "Failed to check the follow status.",
-    "다시 시도해 주세요": "Please try again."
+    "다시 시도해 주세요": "Please try again.",
+    "팔로우를 해제하시겠어요?": "Do you want to unfollow?",
+    "팬채널에서 팔로우 해제 시 메인 페이지로 이동합니다": "When you unfollow from a fan channel,\nyou will be moved to the main page.",
+    "해제하기": "Unfollow",
+    "취소": "Cancel"
   },
   "one_pick_influencer_mutations": {
     "원픽 인플루언서를 해제할까요?": "Do you want to remove your One Pick influencer?",

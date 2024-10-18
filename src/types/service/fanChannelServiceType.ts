@@ -15,6 +15,6 @@ export interface AllFanChannelsResponse extends ResponseBase {
     followerCount: number;
     postCount: number;
     latestPostDate: string;
-    isFan: boolean;
+    isFollowing: boolean;
   }[];
 }
