@@ -42,6 +42,7 @@ export const ROUTES = {
     PATH: '/community',
     LABEL: '커뮤니티',
     HAS_PREV_BTN: false,
+    HEADER_COLOR: '#171717',
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,

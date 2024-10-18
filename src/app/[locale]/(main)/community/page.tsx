@@ -1,5 +1,8 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { getTranslations } from 'next-intl/server';
+
+import { Separator } from '@/components/ui/separator';
+import CommunityNavigation from './_components/CommunityNavigation';
 
 export async function generateMetadata({
   params: { locale },
@@ -13,6 +16,18 @@ export async function generateMetadata({
   };
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#171717',
+};
+
 export default function CommunityIndexPage() {
-  return <div className="pb-20 pt-[35px]">커뮤니티 종류와 전체 종합 글이 나오는 페이지</div>;
+  return (
+    <div className="pb-20 pt-[35px]">
+      <CommunityNavigation />
+      <Separator className="h-2 bg-neutral-800" />
+    </div>
+  );
 }
