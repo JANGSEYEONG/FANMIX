@@ -16,7 +16,6 @@ export async function generateMetadata({
 }
 
 export default function LoginRedirectPage() {
-  // TODO: 스피너 추가하기
   return (
     <main className="h-full w-full flex-center">
       <PageSpinner />

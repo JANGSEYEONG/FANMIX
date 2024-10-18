@@ -6,7 +6,7 @@ import { Separator } from '@/components/ui/separator';
 import InfluencerPlatformLinks from './InfluencerPlatformLinks';
 import InfluencerTagList from '@/components/domain/influencer/InfluencerTagList';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
-import FollowToggleButton from '@/components/domain/influencer/FollowToggleButton';
+import InfluencerFollowToggleButton from '@/components/domain/influencer/InfluencerFollowToggleButton';
 
 import type { PlatformLink } from '@/types/domain/influencerType';
 import type { Gender } from '@/types/domain/userType';
@@ -53,7 +53,7 @@ const InfluencerProfileCard = ({
         </figure>
         <div className="flex justify-between">
           <h1 className="mb-0.5 break-keep h1-sb">{influencerName}</h1>
-          <FollowToggleButton {...{ influencerId }} />
+          <InfluencerFollowToggleButton {...{ influencerId }} />
         </div>
         <aside className="mb-[15px] flex flex-wrap items-center gap-[7px] sub1-r">
           {isAuthenticated && (

@@ -152,12 +152,16 @@
   "follow_page": {
     "인플루언서": "Influencer",
     "커뮤니티": "Community",
-    "팔로우 중인 모든 인플루언서를 확인했어요": "You've checked all the influencers you're following.",
     "최신팔로우순": "Latest Follows",
     "최신리뷰순": "Latest Reviews",
     "이름순": "Alphabetical",
+    "최신글순": "Latest Posts",
+    "팔로우 중인 모든 인플루언서를 확인했어요": "You've checked all the influencers you're following.",
+    "팔로우 중인 모든 커뮤니티를 확인했어요": "You've checked all the communities you're following.",
     "팔로우한 인플루언서가 없어요": "You haven't followed any influencers.",
-    "팔로우 중인 인플루언서를 불러오는 중 문제가 발생했어요 다시 시도해 주세요": "An error occurred while loading the influencers you're following.\nPlease try again."
+    "팔로우한 커뮤니티가 없어요": "You haven't followed any communities.",
+    "팔로우 중인 인플루언서를 불러오는 중 문제가 발생했어요 다시 시도해 주세요": "An error occurred while loading the influencers you're following.\nPlease try again.",
+    "팔로우 중인 커뮤니티를 불러오는 중 문제가 발생했어요 다시 시도해 주세요": "An error occurred while loading the communities you're following.\nPlease try again."
   },
   "fan_channel_index_page": {
     "채널인기순": "Most Popular",

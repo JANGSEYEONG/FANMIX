@@ -46,15 +46,6 @@ const SlideBarTabs = ({ tabs, defaultValue }: SlideBarTabsProps) => {
     };
   }, [activeTab, updateSliderStyle]);
 
-  // // #20240920.syjang, TODO: 임의로 Loader2 사용 -> 디자이너님이 스피너 정해주면 해당 스피너로 변경 예정
-  // if (isSliderLoading) {
-  //   return (
-  //     <div className="flex h-40 items-center justify-center">
-  //       <Loader2 className="h-8 w-8 animate-spin text-orange-500" />
-  //     </div>
-  //   );
-  // }
-
   return (
     <Tabs defaultValue={defaultValue} className="h-full w-full" onValueChange={setActiveTab}>
       <TabsList className="relative w-full flex-center" ref={tabsListRef}>
