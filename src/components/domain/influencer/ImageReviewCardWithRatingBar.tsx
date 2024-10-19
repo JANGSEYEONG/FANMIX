@@ -45,7 +45,7 @@ const ImageReviewCardWithRatingBar = ({
             src={influencerImageUrl}
             alt={`${influencerName}의 프로필 이미지`}
             fill
-            sizes="100%"
+            sizes="100px"
             className="object-cover"
           />
         </figure>

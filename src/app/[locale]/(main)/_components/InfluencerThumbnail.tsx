@@ -28,7 +28,7 @@ const InfluencerThumbnail = ({
           src={influencerImageUrl}
           alt={`인플루언서 ${influencerName}의 프로필 이미지`}
           fill
-          sizes="100%"
+          sizes="112px"
           className="object-cover"
         />
 
