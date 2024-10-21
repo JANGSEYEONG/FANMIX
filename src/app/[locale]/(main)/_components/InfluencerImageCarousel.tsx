@@ -22,7 +22,7 @@ const InfluencerImageCarousel = () => {
         pagination={{ clickable: true }}>
         {imagesSrc.map((imageSrc, index) => (
           <SwiperSlide key={imageSrc} className="flex-center">
-            <figure className="relative h-full w-full">
+            <article className="relative h-full w-full">
               <Image
                 priority
                 src={imageSrc}
@@ -31,7 +31,7 @@ const InfluencerImageCarousel = () => {
                 className="object-cover"
                 sizes="100%"
               />
-            </figure>
+            </article>
           </SwiperSlide>
         ))}
       </Swiper>

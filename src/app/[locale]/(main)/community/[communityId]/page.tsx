@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
+import CommunityBanner from './_components/CommunityBanner';
+import CommunityPostList from './_components/CommunityPostList';
+import CommunityBadgeNavigation from './_components/CommunityBadgeNavigation';
+
 export async function generateMetadata({
   params: { locale },
 }: {
@@ -18,5 +22,12 @@ export default function CommunityPage({
 }: {
   params: { communityId: string };
 }) {
-  return <div className="pb-20 pt-[35px]">{`${communityId}번 커뮤니티 페이지 (글 리스트)`}</div>;
+  console.log(communityId);
+  return (
+    <div className="pt-[35px]">
+      <CommunityBadgeNavigation communityId={parseInt(communityId)} />
+      <CommunityBanner communityId={parseInt(communityId)} />
+      <CommunityPostList />
+    </div>
+  );
 }

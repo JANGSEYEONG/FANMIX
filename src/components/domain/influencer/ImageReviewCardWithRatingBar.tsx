@@ -39,16 +39,16 @@ const ImageReviewCardWithRatingBar = ({
       <article
         aria-label={`${influencerName}에 대한 리뷰`}
         className="flex h-[124px] w-full cursor-pointer gap-4">
-        <figure aria-label="인플루언서 사진" className="relative h-[124px] w-[100px] flex-shrink-0">
+        <div aria-label="인플루언서 사진" className="relative h-[124px] w-[100px] flex-shrink-0">
           <Image
             priority
             src={influencerImageUrl}
             alt={`${influencerName}의 프로필 이미지`}
-            fill
             sizes="100px"
+            fill
             className="object-cover"
           />
-        </figure>
+        </div>
         <div className="w-full overflow-hidden">
           <header aria-label="인플루언서 이름" className="mb-1.5 flex items-center gap-1">
             <h1 className="body2-sb">{influencerName}</h1>

@@ -47,16 +47,16 @@ const ImageReviewCard = ({
     <Link href={`/influencer/${influencerId}/review/${reviewId}`}>
       <article className="gap-y-2.5 flex-col-center">
         <div className="w-full gap-x-[14px] flex-center">
-          <figure className="relative h-[70px] w-[70px] flex-shrink-0">
+          <div className="relative h-[70px] w-[70px] flex-shrink-0">
             <Image
               priority
               src={influencerImageUrl}
               alt={`인플루언서 ${influencerName} 사진`}
               fill
               className="object-cover"
-              sizes="100%"
+              sizes="70px"
             />
-          </figure>
+          </div>
           <div className="flex-1">
             <header className="mb-0.5 flex items-center gap-x-[3px]">
               <h2 className="body2-sb">{influencerName}</h2>
@@ -65,7 +65,7 @@ const ImageReviewCard = ({
             <div className="mb-2 flex">
               <MetricsText {...{ contentsRating, communicationRating, trustRating }} />
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-x-2">
               <InteractionStats
                 boardCardType={BOARD_CARD_TYPE.REVIEW}
                 {...{

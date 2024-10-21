@@ -41,16 +41,16 @@ const InfluencerProfileCard = ({
   return (
     <>
       <div className="relative pb-[22px] pl-[170px] pr-5 pt-[65px] orange-700-gradient">
-        <figure className="absolute left-[20px] top-[65px] h-44 w-[130px]">
+        <div className="absolute left-[20px] top-[65px] h-44 w-[130px]">
           <Image
             priority
             src={influencerImageUrl}
             alt={`${influencerName}의 프로필 이미지`}
             fill
-            sizes="100%"
+            sizes="130px"
             className="object-cover"
           />
-        </figure>
+        </div>
         <div className="flex justify-between">
           <h1 className="mb-0.5 break-keep h1-sb">{influencerName}</h1>
           <InfluencerFollowToggleButton {...{ influencerId }} />

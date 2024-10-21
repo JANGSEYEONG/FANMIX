@@ -1,5 +1,7 @@
 'use client';
-import { Link } from '@/i18n/routing';
+import { useRouter } from '@/i18n/routing';
+
+import { MouseEvent } from 'react';
 import { useUserStore } from '@/stores/userStore';
 
 interface UserActivityHistoryLinkProps {
@@ -9,12 +11,16 @@ interface UserActivityHistoryLinkProps {
 }
 const UserActivityHistoryLink = ({ children, userId, className }: UserActivityHistoryLinkProps) => {
   const user = useUserStore((state) => state.user);
+  const router = useRouter();
+  const goActivityHistoryPage = (event: MouseEvent<HTMLDivElement>) => {
+    event.preventDefault(); // 부모가 Link, a 태그인 경우 route 이동 방지
+    const path = user?.userId === userId ? '/my/activity-history' : `/user/${userId}`;
+    router.push(path);
+  };
   return (
-    <Link
-      href={user?.userId === userId ? '/my/activity-history' : `/user/${userId}`}
-      className={className}>
+    <div className={className} onClick={goActivityHistoryPage}>
       {children}
-    </Link>
+    </div>
   );
 };
 

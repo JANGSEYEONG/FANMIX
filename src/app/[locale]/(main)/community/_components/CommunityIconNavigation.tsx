@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { COMMUNITY_CATEGORY } from '@/constants/communityCategory';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
-const CommunityNavigation = () => {
+const CommunityIconNavigation = () => {
   const t = useTranslations('community_category');
   return (
     <nav className="bg-neutral-900 pb-6 pt-3 min-[568px]:flex-center">
@@ -15,16 +15,13 @@ const CommunityNavigation = () => {
             return (
               <li key={ID} className="w-[52px]">
                 <Link href={`/community/${ID}`} className="gap-y-0.5 flex-col-center">
-                  <figure className="relative h-[50px] w-[50px]">
-                    <Image
-                      priority
-                      src={ICON_PATH}
-                      alt={`${t(NAME)} 아이콘`}
-                      fill
-                      className="object-cover"
-                      sizes="100%"
-                    />
-                  </figure>
+                  <Image
+                    priority
+                    src={ICON_PATH}
+                    alt={`${t(NAME)} 아이콘`}
+                    width={50}
+                    height={50}
+                  />
                   <span className="text-center">{t(NAME)}</span>
                 </Link>
               </li>
@@ -37,4 +34,4 @@ const CommunityNavigation = () => {
   );
 };
 
-export default CommunityNavigation;
+export default CommunityIconNavigation;

@@ -36,16 +36,16 @@ const SearchInfluencerCard = ({
   return (
     <Link href={`/influencer/${influencerId}`}>
       <article className="gap-x-4 flex-center">
-        <figure className="relative h-[110px] w-[100px] flex-shrink-0 bg-slate-300">
+        <div className="relative h-[110px] w-[100px] flex-shrink-0 bg-slate-300">
           <Image
             priority
             src={influencerImageUrl}
             alt={`인플루언서 ${influencerName} 사진`}
             fill
             className="object-cover"
-            sizes="100%"
+            sizes="100px"
           />
-        </figure>
+        </div>
         <div className="flex-1">
           <header className="mb-1.5 flex items-center gap-x-[3px]">
             <h2 className="body2-sb">{influencerName}</h2>

@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { getInfluencerFollowStatusData } from '@/services/serverFetch/followServerService';
 
 import FanChannelHeader from './_components/FanChannelHeader';
+import FanChannelPostList from './_components/FanChannelPostList';
 import FanChannelAccessMessage from './_components/FanChannelAccessMessage';
 
 export async function generateMetadata({
@@ -33,6 +34,7 @@ export default async function FanChannelPage({
       {isFollowing ? (
         <div>
           <FanChannelHeader influencerId={parseInt(influencerId)} />
+          <FanChannelPostList />
         </div>
       ) : (
         <FanChannelAccessMessage />

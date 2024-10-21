@@ -64,7 +64,7 @@ export default async function UserProfilePage({
   return (
     <div className="h-full w-full overflow-y-auto pb-20 pt-[35px] scrollbar-hide-smooth">
       <UserProfile userId={parseInt(userId)} />
-      <section aria-label="유저의 원픽 인플루언서" className="mb-6">
+      <section aria-label="유저의 원픽 인플루언서" className="mb-6 mt-4">
         {userOnePickInfluencerData && (
           <OnePickInfluencer
             {...userOnePickInfluencerData}

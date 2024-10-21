@@ -43,16 +43,16 @@ const FollowInfluencerCard = ({
         isOnePick && 'mt-[15px] bg-orange-700/20 py-5',
       )}>
       <Link className="flex-shrink-0" href={`/influencer/${influencerId}`}>
-        <figure className="relative h-[100px] w-[100px] bg-slate-400">
+        <div className="relative h-[100px] w-[100px] bg-slate-400">
           <Image
             priority
             src={influencerImageUrl}
             alt={`인플루언서 ${influencerName}의 사진`}
             fill
             className="object-cover"
-            sizes="100%"
+            sizes="100px"
           />
-        </figure>
+        </div>
       </Link>
       <div className="flex-1">
         <header className="mb-1 flex justify-between">

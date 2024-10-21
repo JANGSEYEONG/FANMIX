@@ -1,7 +1,9 @@
 import { cn } from '@/lib/utils';
+import { formatNumber } from '@/lib/text';
+
 import { VscThumbsup, VscComment, VscThumbsdown } from 'react-icons/vsc';
-import type { InteractionStat } from '@/types/domain/influencerType';
 import { BOARD_CARD_TYPE, type BoardCardType } from '@/types/domain/boardType';
+import type { InteractionStat } from '@/types/domain/influencerType';
 interface InteractionStatsProps extends InteractionStat {
   boardCardType: BoardCardType;
 }
@@ -44,7 +46,7 @@ const InteractionStats = ({
         ({ key, count, color, Icon, visible }) =>
           visible && (
             <li key={key} className={cn('gap-x-0.5 flex-center', color)}>
-              {count}
+              {formatNumber(count || 0)}
               <Icon className="h-3 w-3" />
             </li>
           ),

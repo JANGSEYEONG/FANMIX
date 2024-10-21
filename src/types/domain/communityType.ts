@@ -10,3 +10,11 @@ export interface TextPostCardData {
   commentCount: number;
   crDate: string;
 }
+
+// 커뮤니티의 글 리스트 정렬 타입
+export const COMMUNITY_POST_SORT_TYPES = {
+  LATEST_POST: 'LATEST_POST', // 최신순
+  VIEW_COUNT: 'VIEW_COUNT', // 인기순
+  LIKE_COUNT: 'LIKE_COUNT', // 추천순
+} as const;
+export type CommunityPostSortType = keyof typeof COMMUNITY_POST_SORT_TYPES;

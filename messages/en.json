@@ -178,7 +178,20 @@
     "팔로워": "Followers",
     "글 수": "Posts",
     "최신 글": "Latest Post",
-    "아직 등록된 글이 없어요": "No posts yet."
+    "아직 등록된 글이 없어요": "No posts yet.",
+    "최신순": "Latest",
+    "추천순": "Most recommended",
+    "인기순": "Most Popular"
+  },
+  "community_index_page": {
+    "최신순": "Latest",
+    "추천순": "Most recommended",
+    "인기순": "Most Popular"
+  },
+  "community_page": {
+    "최신순": "Latest",
+    "추천순": "Most recommended",
+    "인기순": "Most Popular"
   },
   "review_index_page": {
     "최신순": "Latest",
@@ -293,6 +306,20 @@
     "패션": "Fashion",
     "애니": "Anime",
     "자유": "Free Discussion"
+  },
+  "community_category_greeting": {
+    "19+": "A space for adult discussions!",
+    "IT": "Discuss IT trends and tech!",
+    "게임": "Share your gaming stories!",
+    "반려동물": "Show off your pets and share tips!",
+    "연애": "Share dating experiences and advice!",
+    "여행": "Share travel stories and tips!",
+    "자기개발": "Exchange self-improvement ideas!",
+    "코스프레": "Share your cosplay creations!",
+    "콘셉트카페": "Recommend unique cafe experiences!",
+    "패션": "Discuss fashion and style tips!",
+    "애니": "Talk about your favorite anime!",
+    "자유": "Discuss any topic freely!"
   },
   "influencer_follow_mutations": {
     "인플루언서 팔로우에 실패했어요": "Failed to follow the influencer.",

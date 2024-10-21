@@ -68,8 +68,9 @@ const PlatformLink = ({ url, iconPath }: PlatformLinkProps) => {
         src={iconPath}
         alt="플랫폼 로고 이미지"
         fill
-        sizes="100%"
-        className="object-cover"></Image>
+        sizes="20px"
+        className="object-cover"
+      />
       <a href={url} className="absolute h-full w-full" target="_blank" rel="noopener noreferrer" />
     </li>
   );
