@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { fanChannelService } from '@/services/fanChannelService';
 import type {
   AllFanChannelsRequest,
@@ -8,7 +8,7 @@ import type {
 
 // 팬채널 전체 목록
 export const useGetAllFanChannels = ({ sort }: AllFanChannelsRequest) => {
-  return useQuery<AllFanChannelsResponse, AxiosError>({
+  return useSuspenseQuery<AllFanChannelsResponse, AxiosError>({
     queryKey: ['allFanChannels', sort],
     queryFn: () => fanChannelService.allFanChannels({ sort }),
   });

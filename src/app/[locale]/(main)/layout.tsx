@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 
 import Header from '@/components/layout/Header';
-import BottomNavigation from '@/components/layout/BottomNavigation';
+import BottomContainer from '@/components/layout/BottomContainer';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const mainRef = useRef<HTMLElement>(null);
@@ -13,7 +13,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <main className="h-full w-full page-scrollable-container" ref={mainRef}>
         {children}
       </main>
-      <BottomNavigation mainRef={mainRef} />
+      <BottomContainer mainRef={mainRef} />
     </>
   );
 }

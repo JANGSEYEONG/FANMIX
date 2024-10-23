@@ -1,15 +1,11 @@
 import { Metadata } from 'next';
-
 import { getTranslations } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 
-import { ROUTES } from '@/constants/routes';
-
-import { Link } from '@/i18n/routing';
 import { Separator } from '@/components/ui/separator';
 
 import MyProfile from './_components/MyProfile';
 import LogoutButton from './edit/_components/LogoutButton';
+import MyPageMenuList from './_components/MyPageMenuList';
 import MyOnePickInfluencer from './_components/MyOnePickInfluencer';
 
 export async function generateMetadata({
@@ -44,25 +40,3 @@ export default function MyPage() {
     </div>
   );
 }
-
-const MyPageMenuList = () => {
-  const t = useTranslations('my_page');
-
-  const menuItems = [
-    { label: ROUTES.MY_ACTIVITY_HISTORY.LABEL, path: ROUTES.MY_ACTIVITY_HISTORY.PATH },
-    { label: ROUTES.FOLLOW.LABEL, path: ROUTES.FOLLOW.PATH },
-    { label: ROUTES.CUSTOMER_CENTER.LABEL, path: ROUTES.CUSTOMER_CENTER.PATH },
-  ];
-
-  return (
-    <ul className="flex flex-col justify-center gap-6 body1-r">
-      {menuItems.map((item) => {
-        return (
-          <Link key={item.label} href={item.path} className="h-6">
-            {t(item.label)}
-          </Link>
-        );
-      })}
-    </ul>
-  );
-};

@@ -1,28 +1,22 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-
-import { useGetAllFanChannels } from '@/hooks/queries/useFanChannelService';
-
 import {
   ALL_FAN_CHANNELS_SORT_TYPES,
   type AllFanChannelsSortType,
 } from '@/types/domain/fanChannelType';
 
-function isAllFanChannelsSortType(value: string): value is AllFanChannelsSortType {
+const isAllFanChannelsSortType = (value: string): value is AllFanChannelsSortType => {
   return Object.values(ALL_FAN_CHANNELS_SORT_TYPES).includes(value as AllFanChannelsSortType);
-}
+};
 
-export const useAllFanChannelList = (defaultSort?: string) => {
+export const useAllFanChannelListSortOptions = (defaultSort?: string) => {
   const t = useTranslations('fan_channel_index_page');
-
   let initialSort: AllFanChannelsSortType = ALL_FAN_CHANNELS_SORT_TYPES.FOLLOWER_COUNT;
-
   if (defaultSort && isAllFanChannelsSortType(defaultSort)) {
     initialSort = defaultSort;
   }
 
   const [sort, setSort] = useState<AllFanChannelsSortType>(initialSort);
-  const { data, isLoading, isError } = useGetAllFanChannels({ sort });
 
   const sortButtons = [
     {
@@ -41,10 +35,9 @@ export const useAllFanChannelList = (defaultSort?: string) => {
       onClick: () => setSort(ALL_FAN_CHANNELS_SORT_TYPES.NAME),
     },
   ];
+
   return {
-    fanChannelListData: data,
-    isLoading,
-    isError,
+    sort,
     sortButtons,
   };
 };

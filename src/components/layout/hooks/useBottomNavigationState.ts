@@ -6,9 +6,9 @@ import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { useCurrentRouteLabel } from '@/hooks/useCurrentRouteLabel';
 
 export const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) => {
-  const { hideBottomNav, hideTopFAB } = useCurrentRouteLabel(); // page 설정에 의한 visible 여부
-  const { scrollDirection, scrollPosition } = useScrollDirection(mainRef);
   const [isVisible, setIsVisible] = useState(true); // scroll direction에 의한 visible 여부
+  const { hideBottomNav, hideScrollTopBtn } = useCurrentRouteLabel(); // page 설정에 의한 visible 여부
+  const { scrollDirection, scrollPosition } = useScrollDirection(mainRef);
 
   useEffect(() => {
     // 모바일에서 스크롤 시, 최상단/최하단일 때 추가로 스크롤 되었다가 되돌아가는 경우때문에 top, bottom 포지션 추가하여 visible 여부 설정
@@ -21,6 +21,6 @@ export const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) 
   }, [scrollDirection, scrollPosition]);
   return {
     showBottomNav: !hideBottomNav && isVisible,
-    showTopFAB: !hideTopFAB,
+    showScrollTopBtn: !hideScrollTopBtn,
   };
 };

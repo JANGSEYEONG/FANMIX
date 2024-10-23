@@ -177,13 +177,16 @@ const config: Config = {
         },
         // blur
         '.blur-10': {
+          '-webkit-backdrop-filter': 'blur(4px)',
           'backdrop-filter': 'blur(4px)',
         },
         '.blur-10-shadow': {
+          '-webkit-backdrop-filter': 'blur(4px)',
           'backdrop-filter': 'blur(4px)',
           'box-shadow': '0 4px 4px 0px rgba(0,0,0,0.25)',
         },
         '.blur-22-shadow': {
+          '-webkit-backdrop-filter': 'blur(22px)',
           'backdrop-filter': 'blur(22px)',
           'box-shadow': '1px 3px 15px 0px rgba(0,0,0,0.5)',
         },

@@ -61,7 +61,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={suit.variable}>
-      <body className={suit.className}>
+      <body className={suit.variable}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <TanstackQueryProvider>
             <ResponsiveLayout>{children}</ResponsiveLayout>
