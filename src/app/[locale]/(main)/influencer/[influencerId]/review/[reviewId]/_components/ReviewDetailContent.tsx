@@ -1,5 +1,8 @@
+import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
+
 import ReviewDetailInteraction from './ReviewDetailInteraction';
 import MetricsText from '@/components/domain/influencer/MetricsText';
+import ErrorHandlingWrapper from '@/components/common/error/ErrorHandlingWrapper';
 import UserActivityHistoryLink from '@/components/domain/user/UserActivityHistoryLink';
 
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
@@ -48,11 +51,16 @@ const ReviewDetailContent = ({
       </header>
       <p className="mb-2.5 body2-r">{reviewContent}</p>
       <footer className="flex w-full justify-end">
-        <ReviewDetailInteraction
-          influencerId={influencerId}
-          reviewId={reviewId}
-          defaultInteractionData={{ reviewLikeCount, reviewDislikeCount, reviewCommentsCount }}
-        />
+        <ErrorHandlingWrapper
+          errorFallbackMessage=""
+          errorClassName="flex-row"
+          suspenseFallback={<ComponentSpinner className="mr-10" />}>
+          <ReviewDetailInteraction
+            influencerId={influencerId}
+            reviewId={reviewId}
+            defaultInteractionData={{ reviewLikeCount, reviewDislikeCount, reviewCommentsCount }}
+          />
+        </ErrorHandlingWrapper>
       </footer>
     </article>
   );

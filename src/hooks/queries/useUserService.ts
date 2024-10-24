@@ -1,5 +1,10 @@
 import { AxiosError } from 'axios';
-import { useMutation, useQuery, type UseMutationResult } from '@tanstack/react-query';
+import {
+  useMutation,
+  useQuery,
+  useSuspenseQuery,
+  type UseMutationResult,
+} from '@tanstack/react-query';
 import { useUserStore } from '@/stores/userStore';
 import { userService } from '@/services/userService';
 import { useInformationToast } from '../useInformationToast';
@@ -93,10 +98,9 @@ export const useUpdateMyNationality = () =>
 
 // 유저 상세 정보
 export const useUserDetail = ({ userId }: UserDetailRequest) => {
-  return useQuery<UserDetailResponse, AxiosError>({
+  return useSuspenseQuery<UserDetailResponse, AxiosError>({
     queryKey: ['userDetail', userId],
     queryFn: () => userService.userDetail({ userId }),
-    enabled: !!userId,
   });
 };
 // 활동내역 - 리뷰 리스트

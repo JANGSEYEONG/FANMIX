@@ -1,22 +1,17 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
-import { useSpecificInfluencerAllReviews } from '@/hooks/queries/useReviewService';
 import {
   SPECIFIC_INFLUENCER_REVIEWS_SORT_TYPES,
   type SpecificInfluencerReviewsSortType,
 } from '@/types/domain/reviewType';
 
-export const useSpecificInfluencerReview = (influencerId: number) => {
+export const useSpecificInfluencerReviewSortOptions = () => {
   const t = useTranslations('influencer_reviews_page');
 
   const [sort, setSort] = useState<SpecificInfluencerReviewsSortType>(
     SPECIFIC_INFLUENCER_REVIEWS_SORT_TYPES.LATEST,
   );
-  const { data, isLoading, isError } = useSpecificInfluencerAllReviews({
-    influencerId,
-    sort: sort,
-  });
 
   const sortButtons = [
     {
@@ -32,9 +27,7 @@ export const useSpecificInfluencerReview = (influencerId: number) => {
   ];
 
   return {
-    reviewListData: data,
-    isLoading,
-    isError,
+    sort,
     sortButtons,
   };
 };

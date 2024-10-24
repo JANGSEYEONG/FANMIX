@@ -15,18 +15,19 @@ import { VscSearch } from 'react-icons/vsc';
 import MainSearchInput from './MainSearchInput';
 import CommunitySearchResult from './CommunityMainSearchResult';
 import QuickLinksNavigation from './QuickLinksNavigation';
-import InfluencerSearchResult from './InfluencerMainSearchResult';
+import InfluencerMainSearchResult from './InfluencerMainSearchResult';
 
 import { useMainSearch } from './hooks/useMainSearch';
 import { useSearchCommunity } from './hooks/useSearchCommunity';
-import { useMainSearchInfluencer } from './hooks/useMainSearchInfluencer';
+
+import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
+import ErrorHandlingWrapper from '@/components/common/error/ErrorHandlingWrapper';
 
 const MainSearch = () => {
   const t = useTranslations('main_search');
   const { searchTerm, debouncedSearchTerm, handleSearch } = useMainSearch(300); // 검색 디바운스 0.3초
 
   const { categoryResult } = useSearchCommunity(debouncedSearchTerm);
-  const { influencerResult, isLoading, isError } = useMainSearchInfluencer(debouncedSearchTerm);
 
   return (
     <Sheet>
@@ -57,20 +58,20 @@ const MainSearch = () => {
                 {searchTerm ? t('검색 제안') : t('바로가기')}
               </h2>
               {searchTerm ? (
-                (!influencerResult || influencerResult.data.length === 0) &&
-                categoryResult.length === 0 ? (
-                  <div className="h-full text-neutral-500 body3-r">
-                    {t('인플루언서 및 커뮤니티 검색 결과가 없어요')}
-                  </div>
-                ) : (
+                <ErrorHandlingWrapper
+                  errorFallbackMessage={t(
+                    '인플루언서 및 커뮤니티 검색 중 오류가 발생했어요 다시 시도해 주세요',
+                  )}
+                  errorClassName="mt-20"
+                  suspenseFallback={<ComponentSpinner className="mt-20" />}>
                   <div className="flex flex-col gap-y-6">
-                    <InfluencerSearchResult
-                      influencers={influencerResult}
-                      {...{ isLoading, isError }}
+                    <InfluencerMainSearchResult
+                      searchTerm={debouncedSearchTerm}
+                      isCategoryResultEmpty={categoryResult.length === 0}
                     />
                     <CommunitySearchResult categories={categoryResult} />
                   </div>
-                )
+                </ErrorHandlingWrapper>
               ) : (
                 <QuickLinksNavigation />
               )}

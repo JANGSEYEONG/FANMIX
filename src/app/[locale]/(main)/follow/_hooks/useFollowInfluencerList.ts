@@ -1,20 +1,11 @@
 'use client';
-import { useMemo, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useMemo } from 'react';
 
 import { useMyFollowedInfluencers } from '@/hooks/queries/useFollowService';
-import {
-  MY_FOLLOWED_INFLUENCER_SORT_TYPE,
-  type MyFollowedInfluencerSortType,
-} from '@/types/domain/followType';
+import { type MyFollowedInfluencerSortType } from '@/types/domain/followType';
 
-export const useFollowInfluencerList = () => {
-  const t = useTranslations('follow_page');
-
-  const [sort, setSort] = useState<MyFollowedInfluencerSortType>(
-    MY_FOLLOWED_INFLUENCER_SORT_TYPE.CRDATE,
-  );
-  const { data, isLoading, isError } = useMyFollowedInfluencers({ sort });
+export const useFollowInfluencerList = (sort: MyFollowedInfluencerSortType) => {
+  const { data } = useMyFollowedInfluencers({ sort });
 
   const onePickPrioritizedInfluencers = useMemo(() => {
     if (!data?.data) return [];
@@ -28,28 +19,8 @@ export const useFollowInfluencerList = () => {
     return [...onePicks, ...nonOnePicks];
   }, [data]);
 
-  const sortButtons = [
-    {
-      label: t('최신팔로우순'),
-      isSelected: sort === MY_FOLLOWED_INFLUENCER_SORT_TYPE.CRDATE,
-      onClick: () => setSort(MY_FOLLOWED_INFLUENCER_SORT_TYPE.CRDATE),
-    },
-    {
-      label: t('최신리뷰순'),
-      isSelected: sort === MY_FOLLOWED_INFLUENCER_SORT_TYPE.LATEST_REVIEW,
-      onClick: () => setSort(MY_FOLLOWED_INFLUENCER_SORT_TYPE.LATEST_REVIEW),
-    },
-    {
-      label: t('이름순'),
-      isSelected: sort === MY_FOLLOWED_INFLUENCER_SORT_TYPE.NAME,
-      onClick: () => setSort(MY_FOLLOWED_INFLUENCER_SORT_TYPE.NAME),
-    },
-  ];
   return {
     influencerListData: onePickPrioritizedInfluencers,
     isEmpty: onePickPrioritizedInfluencers.length === 0,
-    isLoading,
-    isError,
-    sortButtons,
   };
 };

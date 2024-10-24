@@ -5,8 +5,8 @@ import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 import SlideBarTabs from '@/components/common/SlideBarTabs';
-import FollowInfluencerList from './_components/FollowInfluencerList';
-const FollowCommunityList = dynamic(() => import('./_components/FollowCommunityList'));
+import FollowInfluencerTabContent from './_components/FollowInfluencerTabContent';
+const FollowCommunityTabContent = dynamic(() => import('./_components/FollowCommunityTabContent'));
 
 export async function generateMetadata({
   params: { locale },
@@ -31,12 +31,12 @@ export default function FollowPage() {
     {
       value: TAB_TYPES.FOLLOW_INFLUENCERS,
       label: t('인플루언서'),
-      content: <FollowInfluencerList />,
+      content: <FollowInfluencerTabContent />,
     },
     {
       value: TAB_TYPES.FOLLOW_COMMUNITY,
       label: t('커뮤니티'),
-      content: <FollowCommunityList />,
+      content: <FollowCommunityTabContent />,
     },
   ];
   return (

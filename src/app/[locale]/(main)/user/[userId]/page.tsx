@@ -3,6 +3,8 @@ import { getTranslations } from 'next-intl/server';
 
 import MessageText from '@/components/common/MessageText';
 import SlideBarTabs from '@/components/common/SlideBarTabs';
+import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
+import ErrorHandlingWrapper from '@/components/common/error/ErrorHandlingWrapper';
 
 import UserProfile from './_components/UserProfile';
 import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
@@ -63,7 +65,12 @@ export default async function UserProfilePage({
 
   return (
     <div className="h-full w-full overflow-y-auto pb-20 pt-[35px] scrollbar-hide-smooth">
-      <UserProfile userId={parseInt(userId)} />
+      <ErrorHandlingWrapper
+        errorFallbackMessage={t('유저 정보를 불러오는데 실패했어요 다시 시도해 주세요')}
+        errorClassName="pt-5"
+        suspenseFallback={<ComponentSpinner className="pt-5" />}>
+        <UserProfile userId={parseInt(userId)} />
+      </ErrorHandlingWrapper>
       <section aria-label="유저의 원픽 인플루언서" className="mb-6 mt-4">
         {userOnePickInfluencerData && (
           <OnePickInfluencer

@@ -80,7 +80,8 @@
     "한줄 리뷰": "Reviews",
     "글": "Posts",
     "댓글": "Comments",
-    "커뮤니티 기능은 준비 중이에요": "Community features are in preparation."
+    "커뮤니티 기능은 준비 중이에요": "Community features are in preparation.",
+    "유저 정보를 불러오는데 실패했어요 다시 시도해 주세요": "Failed to load user information.\nPlease try again."
   },
   "customer_center_page": {
     "가이드 및 도움말": "Guides and Help",
@@ -216,6 +217,7 @@
     "인플루언서 / 커뮤니티 검색": "Search Influencers / Communities",
     "검색 제안": "Search Suggestions",
     "바로가기": "Quick Links",
+    "인플루언서 및 커뮤니티 검색 중 오류가 발생했어요 다시 시도해 주세요": "An error occurred while searching for influencers and communities.\nPlease try again.",
     "인플루언서 및 커뮤니티 검색 결과가 없어요": "No search results found for influencers or communities."
   },
   "influencer_rating_bar": {

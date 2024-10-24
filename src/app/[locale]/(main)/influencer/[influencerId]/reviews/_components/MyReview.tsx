@@ -8,7 +8,6 @@ import MessageText from '@/components/common/MessageText';
 
 import ReviewView from './ReviewView';
 import ReviewForm from './ReviewForm';
-import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
 import { REVIEW_MODE } from '@/types/domain/reviewType';
 
@@ -22,29 +21,14 @@ const MyReview = ({ influencerId }: MyReviewProps) => {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
   // 2. useQuery로 내 최신 댓글 가져오고 상태 관리하기
-  const {
-    myLatestReviewData,
-    setMyLatestReviewData,
-    reviewMode,
-    setReviewMode,
-    isError,
-    isLoading,
-  } = useMyReview(influencerId);
-
-  if (isLoading) return <ComponentSpinner className="mt-10 w-full" />;
+  const { myLatestReviewData, setMyLatestReviewData, reviewMode, setReviewMode } =
+    useMyReview(influencerId);
 
   if (!isLoggedIn)
     return (
       <MessageText
         className="mt-10 w-full"
         message={t('리뷰 작성 기능은 로그인 후 이용할 수 있어요')}
-      />
-    );
-  if (isError)
-    return (
-      <MessageText
-        className="mt-10 w-full"
-        message={t('내 최근 한줄리뷰를 가져오는데 문제가 생겼어요')}
       />
     );
 

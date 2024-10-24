@@ -15,6 +15,7 @@ interface ReviewHistoryProps {
 const ReviewHistory = ({ reviewHistoryData, isLoading, isError }: ReviewHistoryProps) => {
   const t = useTranslations('activity_history');
 
+  // #20241024.syjang, 공통으로 사용되는 ui라 isLoading 유지
   if (isLoading) return <ComponentSpinner className="h-full flex-center" />;
   if (isError)
     return (

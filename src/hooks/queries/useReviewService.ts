@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useUserStore } from '@/stores/userStore';
 
 import { reviewService } from '@/services/reviewService';
@@ -24,10 +24,9 @@ import type {
 
 // 내 가장 최근 리뷰
 export const useMyLatestReviewForInfluencer = (influencerId: number) => {
-  return useQuery<MyLatestReviewForInfluencerResponse, AxiosError>({
+  return useSuspenseQuery<MyLatestReviewForInfluencerResponse, AxiosError>({
     queryKey: ['myLatestReviewForInfluencer', influencerId],
     queryFn: () => reviewService.myLatestReviewForInfluencer(influencerId),
-    enabled: !!influencerId,
   });
 };
 
@@ -204,26 +203,24 @@ export const useSpecificInfluencerAllReviews = ({
   influencerId,
   sort,
 }: SpecificInfluencerAllReviewsRequest) => {
-  return useQuery<SpecificInfluencerAllReviewsResponse, AxiosError>({
+  return useSuspenseQuery<SpecificInfluencerAllReviewsResponse, AxiosError>({
     queryKey: ['specificInfluencerAllReviews', influencerId, sort],
     queryFn: () =>
       reviewService.specificInfluencerAllReviews({
         influencerId,
         sort,
       }),
-    enabled: !!influencerId,
   });
 };
 
 // 전체 인플루언서의 전체 리뷰
 export const useAllInfluencersAllReviews = ({ sort }: AllInfluencersAllReviewsRequest) => {
-  return useQuery<AllInfluencersAllReviewsResponse, AxiosError>({
+  return useSuspenseQuery<AllInfluencersAllReviewsResponse, AxiosError>({
     queryKey: ['allInfluencersAllReviews', sort],
     queryFn: () =>
       reviewService.allInfluencersAllReviews({
         sort,
       }),
-    enabled: !!sort,
   });
 };
 
@@ -232,10 +229,11 @@ export const useInfluencerReviewDetailWithComments = ({
   influencerId,
   reviewId,
 }: InfluencerReviewDetailWithCommentsRequest) => {
-  return useQuery<InfluencerReviewDetailWithCommentsResponse, AxiosError>({
+  return useSuspenseQuery<InfluencerReviewDetailWithCommentsResponse, AxiosError>({
     queryKey: ['influencerReviewDetailWithComments', influencerId, reviewId],
     queryFn: () => reviewService.influencerReviewDetailWithComments({ influencerId, reviewId }),
-    enabled: !!influencerId && !!reviewId,
+
+    // enabled: !!influencerId && !!reviewId,
   });
 };
 

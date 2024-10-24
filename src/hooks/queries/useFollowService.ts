@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { followService } from '@/services/followService';
 import type {
   InfluencerFollowStatusRequest,
@@ -11,7 +11,7 @@ import type {
 
 // 내가 팔로우하는 인플루언서 리스트
 export const useMyFollowedInfluencers = ({ sort }: MyFollowedInfluencersRequest) => {
-  return useQuery<MyFollowedInfluencersResponse, AxiosError>({
+  return useSuspenseQuery<MyFollowedInfluencersResponse, AxiosError>({
     queryKey: ['myFollowedInfluencers', sort],
     queryFn: () => followService.myFollowedInfluencers({ sort }),
   });

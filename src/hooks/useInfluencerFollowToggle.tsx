@@ -21,11 +21,7 @@ export const useInfluencerFollowToggle = (influencerId: number, isInFanChannel: 
   const { showErrorToast } = useInformationToast();
   const { checkAuthAndProceed } = useAuthCheck();
 
-  const {
-    data: followStatus,
-    isLoading: isStatusLoading,
-    isError: isStatusError,
-  } = useInfluencerFollowStatus({ influencerId });
+  const { data: followStatus } = useInfluencerFollowStatus({ influencerId });
 
   const toggleFollowMutation = useToggleInfluencerFollow();
 
@@ -86,8 +82,6 @@ export const useInfluencerFollowToggle = (influencerId: number, isInFanChannel: 
 
   return {
     isFollowing: followStatus?.data,
-    isLoading: isStatusLoading,
-    isError: isStatusError,
     toggleFollowState,
   };
 };

@@ -4,11 +4,32 @@ const instance: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_URL,
 });
 
+const getServerSideCookie = async () => {
+  try {
+    // 서버사이드에서만 동적으로 import
+    const { cookies } = await import('next/headers');
+    return cookies().get('auth_token')?.value;
+  } catch {
+    return null;
+  }
+};
+
 // 요청 인터셉터
 instance.interceptors.request.use(
-  (config) => {
-    // 전역 스토어에서 accessToken값 가져와서 세팅하기
-    const accessToken = useAuthStore.getState().accessToken;
+  async (config) => {
+    let accessToken;
+
+    if (typeof window === 'undefined') {
+      // 서버 사이드
+      // 서버에서 next/header 동적 import하여 사용
+      // useSuspenseQuery 사용 시 빌드타임에 서버에서 api request가 발생하는데,
+      // 토큰값이 필요한 api에도 문제없이 데이터 가져올 수 있도록 추가
+      accessToken = await getServerSideCookie();
+    } else {
+      // 클라이언트 사이드
+      // 전역 스토어에서 accessToken값 가져와서 세팅하기
+      accessToken = useAuthStore.getState().accessToken;
+    }
     if (accessToken) {
       config.headers = config.headers || {};
       config.headers['Authorization'] = `Bearer ${accessToken}`;

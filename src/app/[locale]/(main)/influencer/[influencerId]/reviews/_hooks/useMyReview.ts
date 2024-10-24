@@ -4,7 +4,7 @@ import { useMyLatestReviewForInfluencer } from '@/hooks/queries/useReviewService
 import { REVIEW_MODE, type ReviewMode, type MyLatestReview } from '@/types/domain/reviewType';
 
 export const useMyReview = (influencerId: number) => {
-  const { data, isError, isLoading, isSuccess } = useMyLatestReviewForInfluencer(influencerId);
+  const { data, isSuccess } = useMyLatestReviewForInfluencer(influencerId);
   const [myLatestReviewData, setMyLatestReviewData] = useState<MyLatestReview | null>(null);
   const [reviewMode, setReviewMode] = useState<ReviewMode>(REVIEW_MODE.VIEW);
 
@@ -31,7 +31,5 @@ export const useMyReview = (influencerId: number) => {
     setMyLatestReviewData,
     reviewMode,
     setReviewMode,
-    isError,
-    isLoading,
   };
 };

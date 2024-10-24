@@ -1,20 +1,16 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { useAllInfluencersAllReviews } from '@/hooks/queries/useReviewService';
 import {
   ALL_INFLUENCER_REVIEWS_SORT_TYPES,
   type AllInfluencerReviewsSortType,
 } from '@/types/domain/reviewType';
 
-export const useAllReviews = () => {
+export const useAllReviewsSortOptions = () => {
   const t = useTranslations('review_index_page');
 
   const [sort, setSort] = useState<AllInfluencerReviewsSortType>(
     ALL_INFLUENCER_REVIEWS_SORT_TYPES.LATEST,
   );
-  const { data, isLoading, isError } = useAllInfluencersAllReviews({
-    sort: sort,
-  });
 
   const sortButtons = [
     {
@@ -30,9 +26,7 @@ export const useAllReviews = () => {
   ];
 
   return {
-    reviewListData: data,
-    isLoading,
-    isError,
+    sort,
     sortButtons,
   };
 };

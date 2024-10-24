@@ -1,40 +1,31 @@
 import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 import { SheetClose } from '@/components/ui/sheet';
 
+import MessageText from '@/components/common/MessageText';
 import BoardTypeLabel from '@/components/domain/board/BoardTypeLabel';
-import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
 import { BOARD_TYPE } from '@/types/domain/boardType';
-import type { SearchInfluencersByNameResponse } from '@/types/service/influencerServiceType';
-import { useTranslations } from 'next-intl';
+import { useSearchInfluencersByName } from '@/hooks/queries/useInfluencerService';
 
 interface InfluencerMainSearchResultProps {
-  influencers: SearchInfluencersByNameResponse | undefined;
-  isLoading: boolean;
-  isError: boolean;
+  searchTerm: string;
+  isCategoryResultEmpty: boolean;
 }
 const InfluencerMainSearchResult = ({
-  influencers,
-  isLoading,
-  isError,
+  searchTerm,
+  isCategoryResultEmpty,
 }: InfluencerMainSearchResultProps) => {
-  const t = useTranslations('influencer_index_page');
-  if (isLoading) {
+  const t = useTranslations('main_search');
+  const { data: influencers } = useSearchInfluencersByName(searchTerm);
+
+  if (!influencers?.data || (influencers.data.length === 0 && isCategoryResultEmpty)) {
     return (
-      <div className="h-full flex-center">
-        <ComponentSpinner />
-      </div>
+      <MessageText message={t('인플루언서 및 커뮤니티 검색 결과가 없어요')} className="mt-20" />
     );
   }
-  if (isError) {
-    return (
-      <div className="h-full whitespace-pre-wrap text-center text-neutral-500 flex-center body3-r">
-        {t('인플루언서 검색 중 오류가 발생했어요 다시 시도해 주세요')}
-      </div>
-    );
-  }
-  if (!influencers || influencers.data.length === 0) {
+  if (influencers.data.length === 0) {
     return null;
   }
   return (

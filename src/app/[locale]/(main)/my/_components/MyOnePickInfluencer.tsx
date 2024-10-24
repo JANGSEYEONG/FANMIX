@@ -1,26 +1,18 @@
 'use client';
-import { useTranslations } from 'next-intl';
-import { useMyOnePickInfluencer } from '../_hooks/useMyOnePickInfluencer';
+import { useUserStore } from '@/stores/userStore';
 
-import MessageText from '@/components/common/MessageText';
-import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
+import { useUserOnePickInfluencer } from '@/hooks/queries/useInfluencerService';
 
 const MyOnePickInfluencer = () => {
-  const t = useTranslations('one_pick_influencer');
-  const { onePickData, isLoading, isError } = useMyOnePickInfluencer();
+  const user = useUserStore((state) => state.user);
+  const { data: onePickData } = useUserOnePickInfluencer({ userId: user?.userId || 0 });
 
-  if (isLoading) return <ComponentSpinner />;
-  if (isError)
-    return (
-      <MessageText
-        message={t('원픽 인플루언서를 불러오는데 문제가 발생했어요 다시 시도해 주세요')}
-      />
-    );
-  if (!onePickData) return null;
+  if (!onePickData?.data) return null;
 
-  // 원픽 데이터 가져오기..
-  return <OnePickInfluencer {...onePickData} communityId={onePickData?.fanChannelId || null} />;
+  return (
+    <OnePickInfluencer {...onePickData.data} communityId={onePickData.data.fanChannelId || null} />
+  );
 };
 
 export default MyOnePickInfluencer;

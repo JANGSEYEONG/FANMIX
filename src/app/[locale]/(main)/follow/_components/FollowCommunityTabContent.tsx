@@ -12,7 +12,7 @@ import FollowCommunityCard from './FollowCommunityCard';
 
 import { useFollowCommunityList } from '../_hooks/useFollowCommunityList';
 
-const FollowCommunityList = () => {
+const FollowCommunityTabContent = () => {
   const t = useTranslations('follow_page');
   const { sortButtons } = useFollowCommunityList();
   // TODO: IsLoading, isError, isEmpty는 useQuery에서 값 가져오기
@@ -54,4 +54,4 @@ const FollowCommunityList = () => {
   );
 };
 
-export default FollowCommunityList;
+export default FollowCommunityTabContent;

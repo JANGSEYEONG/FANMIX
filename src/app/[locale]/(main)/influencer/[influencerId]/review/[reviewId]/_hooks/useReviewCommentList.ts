@@ -16,23 +16,20 @@ export const useReviewCommentList = (
   defaultCommentList: ReviewComment[],
 ) => {
   const [commentList, setCommentList] = useState<ReviewComment[]>(defaultCommentList);
-  const { data, isLoading, isError, isSuccess } = useInfluencerReviewDetailWithComments({
+
+  const { data } = useInfluencerReviewDetailWithComments({
     influencerId,
     reviewId,
   });
 
   useEffect(() => {
-    if (isSuccess) {
-      if (data && data.data && data.data.commentList) {
-        setCommentList(data.data.commentList);
-      }
+    if (data?.data?.commentList) {
+      setCommentList(data.data.commentList);
     }
-  }, [data, isSuccess]);
+  }, [data]);
 
   return {
     commentList,
-    isLoading,
-    isError,
     isEmpty: commentList.length === 0,
   };
 };
