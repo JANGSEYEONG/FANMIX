@@ -8,9 +8,7 @@ import { useInformationToast } from '@/hooks/useInformationToast';
 import { RouteKeys } from '@/constants/routes';
 
 const CreatePostButton = () => {
-  const {
-    pageInfo: { currentPage, communityId, influencerId },
-  } = usePageInfoStore();
+  const { currentPage, communityId, influencerId } = usePageInfoStore((state) => state.pageInfo);
   const router = useRouter();
   const { showConfirmToast } = useInformationToast();
 

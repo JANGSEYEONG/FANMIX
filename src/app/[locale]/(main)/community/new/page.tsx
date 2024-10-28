@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import CreateCommunityPostWrapper from './_components/CreateCommunityPostWrapper';
 
 export async function generateMetadata({
   params: { locale },
@@ -13,15 +14,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function CommunityNewPage({
-  params: { communityId },
-}: {
-  params: { communityId: string };
-}) {
-  console.log(communityId);
+export default async function CommunityNewPage() {
   return (
-    <div className="h-full pb-20 pt-[35px]">
-      <div>{communityId}</div>
+    <div className="h-full pt-[55px]">
+      <CreateCommunityPostWrapper />
     </div>
   );
 }

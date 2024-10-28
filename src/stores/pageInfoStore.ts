@@ -1,6 +1,7 @@
-import { RouteKey } from '@/constants/routes';
 import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { createJSONStorage, devtools, persist } from 'zustand/middleware';
+import { PAGE_INFO_STORE_NAME } from './config';
+import type { RouteKey } from '@/constants/routes';
 
 interface CreatePostPage {
   currentPage: RouteKey | null;
@@ -16,8 +17,16 @@ interface PageInfoType {
 
 // 유저 데이터 정보 저장 스토어
 export const usePageInfoStore = create<PageInfoType>()(
-  devtools((set) => ({
-    pageInfo: { currentPage: null, communityId: null, influencerId: null, influencerName: '' },
-    setPageInfo: (pageInfo: CreatePostPage) => set({ pageInfo }),
-  })),
+  devtools(
+    persist(
+      (set) => ({
+        pageInfo: { currentPage: null, communityId: null, influencerId: null, influencerName: '' },
+        setPageInfo: (pageInfo: CreatePostPage) => set({ pageInfo }),
+      }),
+      {
+        name: PAGE_INFO_STORE_NAME,
+        storage: createJSONStorage(() => localStorage),
+      },
+    ),
+  ),
 );

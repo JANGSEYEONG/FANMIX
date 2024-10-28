@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { getInfluencerFollowStatusData } from '@/services/serverFetch/followServerService';
 
 import FanChannelAccessMessage from '@/components/domain/fanChannel/FanChannelAccessMessage';
+import CreateFanChannelPostWrapper from './_components/CreateFanChannelPostWrapper';
 
 export async function generateMetadata({
   params: { locale },
@@ -25,14 +26,13 @@ export default async function FanChannelNewPage({
   const { data: isFollowing } = await getInfluencerFollowStatusData({
     influencerId: parseInt(influencerId),
   });
-  console.log(influencerId, communityId);
   return (
-    <div className="h-full pb-20 pt-[35px]">
+    <div className="h-full pt-[65px]">
       {isFollowing ? (
-        <div>
-          {influencerId}
-          <div>{communityId}</div>
-        </div>
+        <CreateFanChannelPostWrapper
+          influencerId={parseInt(influencerId)}
+          communityId={parseInt(communityId)}
+        />
       ) : (
         <FanChannelAccessMessage />
       )}

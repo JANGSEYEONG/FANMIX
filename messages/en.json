@@ -278,6 +278,14 @@
     "리뷰 작성 후 15일이 경과하여 수정, 삭제가 불가합니다": "Modifications and deletions are not possible as 15 days have passed since the review was written.",
     "리뷰 새로 남기기": "Write a new review"
   },
+  "post_form": {
+    "제목을 입력해 주세요": "Please enter a title",
+    "내용을 입력해 주세요": "Please enter content",
+    "등록하기": "Submit",
+    "사진 올리기": "Upload Photo",
+    "카테고리와 제목 및 내용을 입력해 주세요": "Please enter category, title and content",
+    "카테고리 제목 내용을 입력해야 게시글을 등록할 수 있어요": "Category, title and content are required to submit a post"
+  },
   "follow_influencer_card": {
     "최신리뷰": "Latest Review",
     "팬채널": "Fan Ch.",
