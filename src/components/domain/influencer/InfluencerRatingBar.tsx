@@ -19,9 +19,9 @@ const InfluencerRatingBar = ({
   const t = useTranslations('influencer_rating_bar');
   const { metrics, average } = useMemo(() => {
     const metricsArray = [
-      { label: t('콘텐츠'), score: contentsRating },
-      { label: t('소통'), score: communicationRating },
-      { label: t('신뢰'), score: trustRating },
+      { label: t('콘텐츠'), score: Math.floor(contentsRating) },
+      { label: t('소통'), score: Math.floor(communicationRating) },
+      { label: t('신뢰'), score: Math.floor(trustRating) },
     ];
     const avgScore = Math.floor((contentsRating + communicationRating + trustRating) / 3);
     return { metrics: metricsArray, average: avgScore };

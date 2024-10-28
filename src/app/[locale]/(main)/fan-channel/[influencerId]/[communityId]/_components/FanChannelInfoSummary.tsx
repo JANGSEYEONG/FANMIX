@@ -2,22 +2,24 @@
 
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
+import { useFanChannelInfo } from '../_hooks/useFanChannelInfo';
 
 import { Separator } from '@/components/ui/separator';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
+import InfluencerFollowToggleButton from '@/components/domain/influencer/InfluencerFollowToggleButton';
 
 import { formatNumber } from '@/lib/text';
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
-import InfluencerFollowToggleButton from '@/components/domain/influencer/InfluencerFollowToggleButton';
-import { useTranslations } from 'next-intl';
 
 interface FanChannelInfoSummaryProps {
   influencerId: number;
+  communityId: number;
 }
-const FanChannelInfoSummary = ({ influencerId }: FanChannelInfoSummaryProps) => {
+const FanChannelInfoSummary = ({ influencerId, communityId }: FanChannelInfoSummaryProps) => {
   const t = useTranslations('fan_channel_page');
-  const latestPostDate = '2024-10-18T14:30:00.000Z';
-  const influencerName = '알간지';
+  const { influencerInfoData } = useFanChannelInfo(influencerId, communityId);
+
   return (
     <div className="flex items-center gap-x-5 px-5 pb-[22px] pt-[30px] dark-gradient-reverse">
       <Link href={`/influencer/${influencerId}`}>
@@ -25,7 +27,7 @@ const FanChannelInfoSummary = ({ influencerId }: FanChannelInfoSummaryProps) => 
           <Image
             priority
             src={'/assets/images/test/alganzi.png'}
-            alt={`인플루언서 ${influencerName}의 사진"`}
+            alt={`인플루언서 ${influencerInfoData.influencerName}의 사진"`}
             fill
             className="object-cover"
             sizes="90px"
@@ -36,7 +38,7 @@ const FanChannelInfoSummary = ({ influencerId }: FanChannelInfoSummaryProps) => 
         <header className="flex items-center justify-between">
           <h2 className="flex items-center gap-x-[3px]">
             <Link className="body2-sb" href={`/influencer/${influencerId}`}>
-              {influencerName}
+              {influencerInfoData.influencerName}
             </Link>
             <AuthenticatedBadge size={18} />
           </h2>
@@ -50,16 +52,16 @@ const FanChannelInfoSummary = ({ influencerId }: FanChannelInfoSummaryProps) => 
           <div className="grid grid-cols-[auto,auto,1fr] items-center gap-x-[15px] gap-y-1 text-neutral-300 sub1-r">
             <span className="text-left">{t('팔로워')}</span>
             <Separator className="h-3 w-[1px] bg-neutral-500" aria-hidden="true" />
-            <span>{formatNumber(1000)}</span>
+            <span>{formatNumber(influencerInfoData.followerCount)}</span>
 
             <span className="text-left">{t('글 수')}</span>
             <Separator className="h-3 w-[1px] bg-neutral-500" aria-hidden="true" />
-            <span>{formatNumber(33)}</span>
+            <span>{formatNumber(influencerInfoData.postCount)}</span>
 
             <span className="text-left">{t('최신 글')}</span>
             <Separator className="h-3 w-[1px] bg-neutral-500" aria-hidden="true" />
-            {latestPostDate ? (
-              <time>{formatDateToYYMMDD(parseISOToDate(latestPostDate))}</time>
+            {influencerInfoData.latestPostDate ? (
+              <time>{formatDateToYYMMDD(parseISOToDate(influencerInfoData.latestPostDate))}</time>
             ) : (
               <p className="text-neutral-300/50 sub2-m">{t('아직 등록된 글이 없어요')}</p>
             )}

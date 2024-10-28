@@ -5,6 +5,7 @@ import { Separator } from '@/components/ui/separator';
 
 import CommunityIconNavigation from './_components/CommunityIconNavigation';
 import AllCommunitiesPostList from './_components/AllCommunitiesPostList';
+import SetCommunityPageHandler from '@/components/domain/community/SetCommunityPageHandler';
 
 export async function generateMetadata({
   params: { locale },
@@ -28,6 +29,7 @@ export const viewport: Viewport = {
 export default function CommunityIndexPage() {
   return (
     <div className="pt-[35px]">
+      <SetCommunityPageHandler communityId={null} isCommunityIndexPage />
       <CommunityIconNavigation />
       <Separator className="h-2 bg-neutral-800" />
       <AllCommunitiesPostList />

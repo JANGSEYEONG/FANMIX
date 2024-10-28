@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 
 import { useAuthCheck } from './useAuthCheck';
 import { useModalStore } from '@/stores/modalStore';
-import { useComingSoonToast } from './useComingSoonToast';
 import { useInformationToast } from './useInformationToast';
 import { useInfluencerFollowMutations } from './useInfluencerFollowMutations';
 
@@ -13,7 +12,6 @@ import MessageBox from '@/components/common/MessageBox';
 
 export const useFanChannelAccess = () => {
   const t = useTranslations('fan_channel_access');
-  const { showComingSoonToast } = useComingSoonToast();
 
   const router = useRouter();
   const openModal = useModalStore((state) => state.openModal);
@@ -62,8 +60,6 @@ export const useFanChannelAccess = () => {
   };
 
   const navigateToFanChannel = (influencerId: number, communityId: number) => {
-    showComingSoonToast();
-    return;
     router.push(`/fan-channel/${influencerId}/${communityId}`);
   };
 

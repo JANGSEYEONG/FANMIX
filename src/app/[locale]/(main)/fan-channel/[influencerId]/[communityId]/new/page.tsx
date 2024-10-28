@@ -1,10 +1,7 @@
 import { Metadata } from 'next';
-
 import { getTranslations } from 'next-intl/server';
 import { getInfluencerFollowStatusData } from '@/services/serverFetch/followServerService';
 
-import FanChannelHeader from './_components/FanChannelHeader';
-import FanChannelPostList from './_components/FanChannelPostList';
 import FanChannelAccessMessage from '@/components/domain/fanChannel/FanChannelAccessMessage';
 
 export async function generateMetadata({
@@ -15,11 +12,11 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'top_title' });
 
   return {
-    title: t('팬채널'),
+    title: t('팬채널 글쓰기'),
   };
 }
 
-export default async function FanChannelPage({
+export default async function FanChannelNewPage({
   params: { influencerId, communityId },
 }: {
   params: { influencerId: string; communityId: string };
@@ -33,11 +30,8 @@ export default async function FanChannelPage({
     <div className="h-full pb-20 pt-[35px]">
       {isFollowing ? (
         <div>
-          <FanChannelHeader
-            influencerId={parseInt(influencerId)}
-            communityId={parseInt(communityId)}
-          />
-          <FanChannelPostList />
+          {influencerId}
+          <div>{communityId}</div>
         </div>
       ) : (
         <FanChannelAccessMessage />

@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import CommunityBanner from './_components/CommunityBanner';
 import CommunityPostList from './_components/CommunityPostList';
 import CommunityBadgeNavigation from './_components/CommunityBadgeNavigation';
+import SetCommunityPageHandler from '@/components/domain/community/SetCommunityPageHandler';
 
 export async function generateMetadata({
   params: { locale },
@@ -25,6 +26,7 @@ export default function CommunityPage({
   console.log(communityId);
   return (
     <div className="pt-[35px]">
+      <SetCommunityPageHandler communityId={parseInt(communityId)} />
       <CommunityBadgeNavigation communityId={parseInt(communityId)} />
       <CommunityBanner communityId={parseInt(communityId)} />
       <CommunityPostList />

@@ -5,6 +5,7 @@ import { memo } from 'react';
 
 import BottomNavigation from './BottomNavigation';
 import ScrollToTopButton from '../common/ScrollToTopButton';
+import CreatePostButton from '../domain/board/CreatePostButton';
 
 import { useBottomNavigationState } from './hooks/useBottomNavigationState';
 
@@ -13,7 +14,7 @@ interface BottomContainerProps {
 }
 
 const BottomContainer = ({ mainRef }: BottomContainerProps) => {
-  const { showBottomNav, showScrollTopBtn } = useBottomNavigationState(mainRef);
+  const { showBottomNav, showScrollTopBtn, showCreatePostBtn } = useBottomNavigationState(mainRef);
 
   return (
     <div
@@ -23,6 +24,7 @@ const BottomContainer = ({ mainRef }: BottomContainerProps) => {
       )}>
       <BottomNavigation />
       {showScrollTopBtn && <ScrollToTopButton targetRef={mainRef} />}
+      {showCreatePostBtn && <CreatePostButton />}
     </div>
   );
 };

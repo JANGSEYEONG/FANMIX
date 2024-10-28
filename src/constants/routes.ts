@@ -10,6 +10,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: false,
+    HIDE_CREATE_POST_BTN: true,
   },
 
   // 고객센터
@@ -22,6 +23,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
 
   // 팔로우
@@ -34,6 +36,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: false,
+    HIDE_CREATE_POST_BTN: true,
   },
 
   // 커뮤니티
@@ -46,7 +49,8 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
-    HIDE_SCROLL_TOP_BTN: false,
+    HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: false,
   },
   COMMUNITY: {
     ROOT: '/community',
@@ -56,7 +60,8 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
-    HIDE_SCROLL_TOP_BTN: false,
+    HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: false,
   },
   COMMUNITY_POST: {
     ROOT: '/community',
@@ -67,6 +72,18 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: false,
+    HIDE_CREATE_POST_BTN: true,
+  },
+  COMMUNITY_NEW: {
+    ROOT: '/community',
+    PATH: '/community/new',
+    LABEL: '커뮤니티 글쓰기',
+    HAS_PREV_BTN: true,
+    HIDE_TITLE: false,
+    HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: true,
+    HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
 
   // 팬채널
@@ -79,6 +96,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: false,
+    HIDE_CREATE_POST_BTN: true,
   },
   FAN_CHANNEL: {
     ROOT: '/fan-channel',
@@ -88,7 +106,8 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
-    HIDE_SCROLL_TOP_BTN: false,
+    HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: false,
   },
   FAN_CHANNEL_POST: {
     ROOT: '/fan-channel',
@@ -98,7 +117,19 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
-    HIDE_SCROLL_TOP_BTN: false,
+    HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
+  },
+  FAN_CHANNEL_NEW: {
+    ROOT: '/fan-channel',
+    PATH: '/fan-channel/[influencerId]/[communityId]/new',
+    LABEL: '팬채널 글쓰기',
+    HAS_PREV_BTN: true,
+    HIDE_TITLE: false,
+    HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: true,
+    HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
 
   // 마이페이지
@@ -111,6 +142,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
   MYPAGE_EDIT: {
     ROOT: '/my',
@@ -121,6 +153,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
   MY_ACTIVITY_HISTORY: {
     ROOT: '/my',
@@ -131,6 +164,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
 
   // 타 유저 프로필
@@ -144,6 +178,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
 
   // 인플루언서
@@ -151,11 +186,12 @@ export const ROUTES = {
     ROOT: '/influencer',
     PATH: '/influencer',
     LABEL: '인플루언서 찾기',
-    HAS_PREV_BTN: false,
+    HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: false,
+    HIDE_CREATE_POST_BTN: true,
   },
   INFLUENCER: {
     ROOT: '/influencer',
@@ -166,6 +202,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: true,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: false,
+    HIDE_CREATE_POST_BTN: true,
   },
   INFLUENCER_REVIEW_LIST: {
     ROOT: '/influencer',
@@ -176,6 +213,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: true,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: false,
+    HIDE_CREATE_POST_BTN: true,
   },
   INFLUENCER_REVIEW: {
     ROOT: '/influencer',
@@ -186,6 +224,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: true,
     HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
 
   // 전체 한줄 리뷰
@@ -198,6 +237,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: false,
+    HIDE_CREATE_POST_BTN: true,
   },
 
   // 로그인
@@ -210,6 +250,7 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: true,
     HIDE_BOTTOM_NAV: true,
     HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
   LOGIN_REDIRECT: {
     ROOT: '/auth',
@@ -220,11 +261,19 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: true,
     HIDE_BOTTOM_NAV: true,
     HIDE_SCROLL_TOP_BTN: true,
+    HIDE_CREATE_POST_BTN: true,
   },
 } as const;
 
 // ROUTES 객체의 타입을 정의
 export type RouteKey = keyof typeof ROUTES;
+export const RouteKeys = Object.keys(ROUTES).reduce(
+  (acc, key) => {
+    acc[key as RouteKey] = key as RouteKey;
+    return acc;
+  },
+  {} as Record<RouteKey, RouteKey>,
+);
 
 type BaseRouteValue = {
   ROOT: string;

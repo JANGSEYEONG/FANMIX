@@ -18,3 +18,18 @@ export interface AllFanChannelsResponse extends ResponseBase {
     isFollowing: boolean;
   }[];
 }
+
+export interface FanChannelInfoRequest {
+  communityId: number;
+}
+export interface FanChannelInfoRespose extends ResponseBase {
+  data: {
+    influencer: number;
+    influencerName: string;
+    influencerImageUrl: string;
+    authenticationStatus: 'APPROVED' | 'REJECTED';
+    followerCount: number;
+    postCount: number;
+    latestPostDate: string;
+  };
+}
