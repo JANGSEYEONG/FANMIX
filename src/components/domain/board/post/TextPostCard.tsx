@@ -2,8 +2,8 @@
 
 import { useInformationToast } from '@/hooks/useInformationToast';
 
-import BoardTypeLabel from './BoardTypeLabel';
-import InteractionStats from './InteractionStats';
+import BoardTypeLabel from '../BoardTypeLabel';
+import InteractionStats from '../InteractionStats';
 
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 import { BOARD_CARD_TYPE, BOARD_TYPE } from '@/types/domain/boardType';

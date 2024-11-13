@@ -2,12 +2,14 @@
 
 import { useTranslations } from 'next-intl';
 
-import { formatDateToYYMMDD } from '@/lib/date';
 import { Separator } from '@/components/ui/separator';
-import InteractionStats from './InteractionStats';
+import InteractionStats from '../InteractionStats';
+
 import type { InteractionStat } from '@/types/domain/influencerType';
 import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
-export interface CommentCardProps {
+import { formatDateToYYMMDD } from '@/lib/date';
+
+export interface LinkCommentCardProps {
   // influencerId:string;
   postId: string;
   commentId: string;
@@ -19,7 +21,7 @@ export interface CommentCardProps {
 }
 
 // 팬채널 혹은 커뮤니티의 게시글로 이동
-const CommentCard = ({
+const LinkCommentCard = ({
   postId,
   commentId,
   boardType,
@@ -27,7 +29,7 @@ const CommentCard = ({
   content,
   createdAt,
   interaction,
-}: CommentCardProps) => {
+}: LinkCommentCardProps) => {
   const t = useTranslations('comment_card');
   const handleClickCommentCard = () => {
     if (boardType === BOARD_TYPE.FAN) {
@@ -58,4 +60,4 @@ const CommentCard = ({
   );
 };
 
-export default CommentCard;
+export default LinkCommentCard;

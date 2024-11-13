@@ -23,7 +23,6 @@ export default function CommunityPage({
 }: {
   params: { communityId: string };
 }) {
-  console.log(communityId);
   return (
     <div className="pt-[35px]">
       <SetCommunityPageHandler communityId={parseInt(communityId)} />

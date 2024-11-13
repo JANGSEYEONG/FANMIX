@@ -4,13 +4,13 @@ import { cn } from '@/lib/utils';
 import { Link } from '@/i18n/routing';
 
 import { LiaEllipsisVSolid } from 'react-icons/lia';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 import ViewStat from '@/components/domain/board/ViewStat';
 import InteractionStats from '@/components/domain/board/InteractionStats';
 import UserActivityHistoryLink from '@/components/domain/user/UserActivityHistoryLink';
 
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
+import UserAvatar from '../user/UserAvatar';
 
 interface CommunityPostCardProps {
   postImageUrl?: string;
@@ -23,10 +23,7 @@ const CommunityPostCard = ({ postImageUrl, isMyPost }: CommunityPostCardProps) =
       <article className={cn('flex flex-col gap-y-3 py-5', isMyPost && 'bg-orange-700/15')}>
         <header className="flex items-center justify-between">
           <UserActivityHistoryLink userId={1} className="flex w-fit items-center gap-x-2">
-            <Avatar className="h-10 w-10 flex-shrink-0">
-              <AvatarImage src={''} alt={`유저 ${'유저이름이다아'}의 프로필 사진`} />
-              <AvatarFallback className="bg-orange-300/40 h1-sb">{'작'}</AvatarFallback>
-            </Avatar>
+            <UserAvatar size={40} profileImgUrl="" userNickName="유저 이름이다" />
             <div className="flex flex-col gap-y-0.5">
               <div className={cn('text-neutral-300 body3-m', isMyPost && 'text-orange-500')}>
                 작성한 유저 이름이다아

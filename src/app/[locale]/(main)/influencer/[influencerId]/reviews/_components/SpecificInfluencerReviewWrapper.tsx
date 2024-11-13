@@ -18,7 +18,6 @@ const SpecificInfluencerReviewWrapper = ({
 }: SpecificInfluencerReviewWrapperProps) => {
   const t = useTranslations('influencer_reviews_page');
   const { sort, sortButtons } = useSpecificInfluencerReviewSortOptions();
-  console.log('SpecificInfluencerReviewWrapper:' + sort);
 
   return (
     <div className="flex h-full flex-col">

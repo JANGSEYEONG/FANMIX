@@ -1,7 +1,7 @@
 'use client';
 
 import BoardTypeLabel from '@/components/domain/board/BoardTypeLabel';
-import CreatePostForm from '@/components/domain/board/CreatePostForm';
+import CreatePostForm from '@/components/domain/board/form/CreatePostForm';
 import { usePageInfoStore } from '@/stores/pageInfoStore';
 import { BOARD_TYPE } from '@/types/domain/boardType';
 

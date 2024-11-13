@@ -1,10 +1,12 @@
 import { useTranslations } from 'next-intl';
 
 import MessageText from '@/components/common/MessageText';
-import CommentCard, { type CommentCardProps } from '@/components/domain/board/CommentCard';
+import LinkCommentCard, {
+  type LinkCommentCardProps,
+} from '@/components/domain/board/comment/LinkCommentCard';
 
 interface CommentHistoryProps {
-  comments: CommentCardProps[];
+  comments: LinkCommentCardProps[];
 }
 const CommentHistory = ({ comments }: CommentHistoryProps) => {
   const t = useTranslations('activity_history');
@@ -14,7 +16,7 @@ const CommentHistory = ({ comments }: CommentHistoryProps) => {
       <ul className="flex w-full flex-col items-center gap-[3px]">
         {comments.map((comment) => (
           <li key={comment.commentId} className="w-full">
-            <CommentCard {...comment} />
+            <LinkCommentCard {...comment} />
           </li>
         ))}
       </ul>

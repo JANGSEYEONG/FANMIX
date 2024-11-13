@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
 import ImageUploadField from './ImageUploadField';
-
 import { useCreatePostForm } from './hooks/useCreatePostForm';
+
 import type { PostFormData } from '@/types/domain/boardType';
 
 interface CreatePostFormProps {

@@ -1,6 +1,6 @@
 'use client';
 
-import CreatePostForm from '@/components/domain/board/CreatePostForm';
+import CreatePostForm from '@/components/domain/board/form/CreatePostForm';
 import CommunityBadgeList from '@/components/domain/community/CommunityBadgeList';
 import { usePageInfoStore } from '@/stores/pageInfoStore';
 import { useState } from 'react';

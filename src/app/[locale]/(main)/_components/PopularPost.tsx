@@ -1,7 +1,8 @@
 import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
-import TextPostCard from '@/components/domain/board/TextPostCard';
+import TextPostCard from '@/components/domain/board/post/TextPostCard';
+
 import type { TextPostCardData } from '@/types/domain/communityType';
 
 interface PopularPostProps {

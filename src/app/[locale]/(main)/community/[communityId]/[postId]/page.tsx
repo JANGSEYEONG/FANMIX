@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
+import CommunityPostContent from './_components/CommunityPostContent';
+import CommunityPostCommentList from './_components/CommunityPostCommentList';
+import CommunityPostCommentForm from './_components/CommunityPostCommentForm';
+
 export async function generateMetadata({
   params: { locale },
 }: {
@@ -18,7 +22,16 @@ export default function CommunityPostPage({
 }: {
   params: { communityId: string; postId: string };
 }) {
+  const postInfo = {
+    communityId: parseInt(communityId),
+    postId: parseInt(postId),
+  };
+
   return (
-    <div className="pb-20 pt-[35px]">{`${communityId} 번 커뮤니티의, ${postId}번째 글 상세보기`}</div>
+    <div className="flex h-full flex-col gap-y-[25px] pb-[75px] pt-[35px]">
+      <CommunityPostContent {...postInfo} />
+      <CommunityPostCommentList {...postInfo} />
+      <CommunityPostCommentForm {...postInfo} />
+    </div>
   );
 }

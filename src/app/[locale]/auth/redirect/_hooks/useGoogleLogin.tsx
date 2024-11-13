@@ -69,7 +69,6 @@ export const useGoogleLogin = () => {
             ? 'http://localhost:3000/auth/redirect'
             : 'https://fanmix.vercel.app/auth/redirect';
         const loginResult = await authService.login({ code, redirectUri });
-        console.log('로그인 성공 :', loginResult);
         handleSuccessLogin(loginResult);
       } catch (error) {
         console.error(error);

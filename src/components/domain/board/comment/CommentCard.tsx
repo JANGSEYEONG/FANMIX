@@ -1,36 +1,29 @@
 import { cn } from '@/lib/utils';
 import { VscChromeClose } from 'react-icons/vsc';
-import { useMyCommentMutations } from '../_hooks/useMyCommentMutations';
 
 import DeletedComment from './DeletedComment';
-import UserActivityHistoryLink from '@/components/domain/user/UserActivityHistoryLink';
+import UserActivityHistoryLink from '../../user/UserActivityHistoryLink';
 
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
-interface ReviewCommentCardProps {
-  influencerId: number;
-  reviewId: number;
-  commentId: number;
+interface CommentCardProps {
   commenterId: number;
   commenterNickName: string;
   commentContent: string;
   commentDate: string;
   isDeleted: boolean;
   isMyComment: boolean;
+  handleDeleteComment: () => void;
 }
-
-const ReviewCommentCard = ({
-  influencerId,
-  reviewId,
-  commentId,
+const CommentCard = ({
   commenterId,
   commenterNickName,
   commentContent,
   commentDate,
   isDeleted,
   isMyComment,
-}: ReviewCommentCardProps) => {
-  const { handleDeleteComment } = useMyCommentMutations();
+  handleDeleteComment,
+}: CommentCardProps) => {
   return (
     <div className="flex flex-col justify-center gap-y-2.5 pb-[15px]">
       {isDeleted ? (
@@ -50,9 +43,7 @@ const ReviewCommentCard = ({
               {isMyComment && (
                 <VscChromeClose
                   className="h-[18px] w-[18px] text-white hover:scale-transition-105"
-                  onClick={() => {
-                    handleDeleteComment(influencerId, reviewId, commentId);
-                  }}
+                  onClick={handleDeleteComment}
                 />
               )}
             </div>
@@ -64,4 +55,4 @@ const ReviewCommentCard = ({
   );
 };
 
-export default ReviewCommentCard;
+export default CommentCard;

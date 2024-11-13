@@ -26,7 +26,7 @@ const FanChannelInfoSummary = ({ influencerId, communityId }: FanChannelInfoSumm
         <div className="relative h-[90px] w-[90px] flex-shrink-0">
           <Image
             priority
-            src={'/assets/images/test/alganzi.png'}
+            src={influencerInfoData.influencerImageUrl}
             alt={`인플루언서 ${influencerInfoData.influencerName}의 사진"`}
             fill
             className="object-cover"
